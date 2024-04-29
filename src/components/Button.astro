@@ -1,0 +1,49 @@
+---
+interface Props {
+  classes?: string
+  type: 'default' | 'outlined'
+  href: string
+  target: '_blank' | '_parent' | '_self' | '_top'
+}
+
+const { classes = '', type, href, target } = Astro.props
+---
+
+<a href={href} target={target} class:list=`button button--type-${type} ${classes}`>
+  <slot />
+</a>
+
+<style>
+  .button {
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    color: var(--white);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition:
+      0.5s ease-in-out background,
+      0.2s ease border-color;
+  }
+
+  .button--type-default {
+    color: #072c18;
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+    background-position: 0% 0%;
+  }
+
+  .button--type-default:hover {
+    background-position: 100% 0%;
+  }
+
+  .button--type-outlined {
+    border: 2px solid var(--neutral-08);
+  }
+
+  .button--type-outlined:hover {
+    border-color: var(--neutral-07);
+  }
+
+  .button--type-outlined:active {
+    border-color: var(--neutral-06);
+  }
+</style>

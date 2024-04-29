@@ -1,0 +1,30 @@
+---
+import Footer from '../components/Footer.astro'
+import Nav from '../components/Nav.astro'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout
+  title='Gadmin - Tu tienda online en 5 minutos'
+  description='Crea tu propia tienda online en instantes y aumenta tus ventas hasta un 90% en el primer trimestre.'
+>
+  <main>
+    <Nav />
+    <div class='home'>
+      <div class='wrapper'>
+        <h1 style='text-align: center;color: white;'>Trabajando en esta page.</h1>
+        <h2 style='text-align: center;color: white;'>Estoy cansado, jefe.</h2>
+      </div>
+    </div>
+    <Footer />
+  </main>
+</Layout>
+
+<style>
+  .home {
+    background-color: #0eaaf9;
+    background-image: linear-gradient(135deg, #01283c, #0b321c);
+    min-height: calc(100svh - 6rem);
+    padding-top: 6rem;
+  }
+</style>

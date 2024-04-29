@@ -1,0 +1,66 @@
+---
+import Button from './Button.astro'
+---
+
+<div class='cta'>
+  <div class='wrapper cta-container'>
+    <div class='cta-content'>
+      <h2 class='cta-title'>Mejora <span>el alcance</span> de tu negocio.</h2>
+      <h3 class='cta-subtitle'>Empieza a usar <span>GADMIN</span> hoy.</h3>
+      <Button href='https://app.gadmin.app/login' target='_blank' type='default'
+        >¡Empieza ahora mismo!</Button
+      >
+    </div>
+  </div>
+</div>
+
+<style>
+  .cta {
+    background-color: var(--background);
+    color: var(--white);
+    padding: 4rem 1rem;
+  }
+
+  .cta-container {
+    padding: 0.25rem;
+    background-color: var(--primary);
+    background-image: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 8px;
+  }
+
+  .cta-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    background-color: var(--background);
+    border-radius: 8px;
+  }
+
+  .cta-title,
+  .cta-subtitle {
+    margin: 0;
+    margin-bottom: 1rem;
+    color: var(--white);
+    text-align: center;
+    font-size: var(--48-pt);
+  }
+
+  .cta-subtitle {
+    font-size: var(--40-pt);
+  }
+
+  .cta-title span,
+  .cta-subtitle span {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media screen and (max-width: 768px) {
+    .cta-content {
+      padding: 3rem 0.5rem;
+    }
+  }
+</style>

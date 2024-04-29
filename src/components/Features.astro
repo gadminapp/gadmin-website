@@ -1,0 +1,139 @@
+---
+import { Image } from 'astro:assets'
+import logoBg from '../assets/img/logo-bg.png'
+---
+
+<div class='features'>
+  <div class='wrapper features-list'>
+    <div class='feature'>
+      <div class='feature-content'>
+        <h3 class='feature-title'>La creación es instantánea</h3>
+        <p class='feature-description'>
+          Crea tu tienda online en segundos: fácil, rápido, sin necesidad de saber programar. Sube
+          tus productos, recibe pedidos, gestiona tus envíos y mucho más.
+        </p>
+      </div>
+      <div class='feature-image'>
+        <Image
+          class='presentation-image-left'
+          src={logoBg}
+          width={250}
+          height={250}
+          alt='Logo de Gadmin'
+        />
+      </div>
+    </div>
+    <div class='feature feature--reverse'>
+      <div class='feature-image'>
+        <Image
+          class='presentation-image-left'
+          src={logoBg}
+          width={250}
+          height={250}
+          alt='Logo de Gadmin'
+        />
+      </div>
+      <div class='feature-content'>
+        <h3 class='feature-title'>La creación es instantánea</h3>
+        <p class='feature-description'>
+          Crea tu tienda online en segundos: fácil, rápido, sin necesidad de saber programar. Sube
+          tus productos, recibe pedidos, gestiona tus envíos y mucho más.
+        </p>
+      </div>
+    </div>
+    <div class='feature'>
+      <div class='feature-content'>
+        <h3 class='feature-title'>La creación es instantánea</h3>
+        <p class='feature-description'>
+          Crea tu tienda online en segundos: fácil, rápido, sin necesidad de saber programar. Sube
+          tus productos, recibe pedidos, gestiona tus envíos y mucho más.
+        </p>
+      </div>
+      <div class='feature-image'>
+        <Image
+          class='presentation-image-left'
+          src={logoBg}
+          width={250}
+          height={250}
+          alt='Logo de Gadmin'
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .features {
+    background-color: var(--neutral-02);
+    padding: 4rem 1rem;
+  }
+
+  .features-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .feature {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    min-height: 200px;
+  }
+
+  .feature-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .feature-title {
+    margin: 0;
+    margin-bottom: 1rem;
+    color: var(--shade-02);
+    font-size: var(--40-pt);
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .feature-description {
+    margin: 0;
+    color: var(--shade-02);
+    font-size: var(--32-pt);
+  }
+
+  .feature-image {
+    height: 100%;
+  }
+
+  .feature-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .features {
+      gap: 1rem;
+    }
+
+    .feature {
+      flex-direction: column;
+      flex-flow: column-reverse;
+    }
+
+    .feature--reverse {
+      flex-flow: column;
+    }
+
+    .feature-image {
+      width: 75%;
+      margin: 0 auto;
+    }
+
+    .features-list {
+      gap: 3rem;
+    }
+  }
+</style>

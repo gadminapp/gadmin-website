@@ -1,0 +1,141 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+
+interface Props {
+  title: string
+  description: string
+}
+
+const { title, description } = Astro.props
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content={description} />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+    <title>{title}</title>
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap'
+      rel='preload'
+      as='style'
+    />
+
+    <meta name='description' content={description} />
+    <link rel='canonical' href='https://gadmin.app/' />
+    <meta name='theme-color' content='#0EAAF9' />
+    <meta
+      name='keywords'
+      content='gadmin, ecommerce, tienda online, automatizacion, ventas, inventario, clientes, aplicación'
+    />
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content={title} />
+    <meta name='twitter:description' content={description} />
+    <meta name='twitter:image' content='/og.png' />
+    <meta name='og:image' content='/og.png' />
+    <meta name='og:title' content={title} />
+    <meta name='og:description' content={description} />
+    <meta name='og:url' content='https://gadmin.app/' />
+    <meta name='og:site_name' content='Gadmin' />
+    <meta name='og:type' content='website' />
+    <meta name='og:locale' content='es_ES' />
+    <meta name='robots' content='index, follow' />
+    <meta name='googlebot' content='index, follow' />
+    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+    <meta name='msapplication-config' content='/browserconfig.xml' />
+    <link rel='sitemap' href='/sitemap-index.xml' />
+    <ViewTransitions />
+  </head>
+  <body>
+    <slot />
+    <script>
+      const handleScroll = () => {
+        var scrolled = window.scrollY > 0
+        document.body.classList.toggle('scrolled', scrolled)
+      }
+
+      document.addEventListener('DOMContentLoaded', () => {
+        handleScroll()
+      })
+
+      window.addEventListener('scroll', function () {
+        handleScroll()
+      })
+    </script>
+    <style is:global>
+      :root {
+        --white: #ffffff;
+        --primary: #0eaaf9;
+        --secondary: #27ae60;
+        --background: #070a2b;
+        --shade-02: #222222;
+        --neutral-02: #ebebeb;
+        --neutral-04: #d3d3d3;
+        --neutral-06: #b0b0b0;
+        --neutral-07: #717171;
+        --neutral-08: #5e5e5e;
+
+        --64-pt: 3rem;
+        --48-pt: 2.25rem;
+        --40-pt: 2rem;
+        --32-pt: 1.25rem;
+      }
+
+      html {
+        font-family: 'Lexend', sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+        background: #13151a;
+        background-size: 224px;
+      }
+
+      html,
+      body {
+        padding: 0;
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-weight: 700;
+      }
+
+      .wrapper {
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+
+      .text-primary {
+        color: var(--primary);
+      }
+
+      @media screen and (max-width: 768px) {
+        .nav-buttons-login {
+          display: none;
+        }
+
+        :root {
+          --64-pt: 2.5rem;
+          --48-pt: 2rem;
+          --40-pt: 1.5rem;
+          --32-pt: 1.15rem;
+        }
+      }
+
+      @media screen and (max-width: 375px) {
+        :root {
+          --64-pt: 2rem;
+          --40-pt: 1.35rem;
+        }
+      }
+    </style>
+  </body>
+</html>

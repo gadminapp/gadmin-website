@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://gadmin.app
+
+# Sitemaps
+Sitemap: https://gadmin.app/sitemap-index.xml

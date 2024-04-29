@@ -1,0 +1,146 @@
+---
+import Image from 'astro/components/Image.astro'
+import ceo from '../assets/img/ceo.jpg'
+import client from '../assets/img/miladys.jpeg'
+---
+
+<div class='testimonials'>
+  <div class='wrapper testimonials-container'>
+    <h2 class='testimonials-title'>Llevamos <span>más lejos</span> a emprendedores y negocios.</h2>
+    <div class='testimonials-list'>
+      <div class='testimonial'>
+        <div class='testimonial-business-logo'>
+          <Image src={ceo} width={48} height={48} alt='Foto de Orlando Briceño, CEO de Gadmin' />
+          <div class='testimonial-author'>
+            <div class='testimonial-author-information'>
+              <p class='testimonial-author-name'>Orlando Briceño</p>
+              <p class='testimonial-author-role'>CEO de Gadmin</p>
+            </div>
+          </div>
+        </div>
+        <p class='testimonial-message'>
+          "Gadmin es esencial, mejora la velocidad y gestión desde el primer día. Su misión es
+          simplificar tu vida, ahorrarte tiempo y expandir tu alcance digital."
+        </p>
+      </div>
+      <div class='testimonial'>
+        <div class='testimonial-business-logo'>
+          <Image
+            src={client}
+            width={48}
+            height={48}
+            alt='Foto de Miladys Guerra, cliente de Gadmin'
+          />
+          <div class='testimonial-author'>
+            <div class='testimonial-author-information'>
+              <p class='testimonial-author-name'>Miladys Guerra</p>
+              <p class='testimonial-author-role'>Emprendedora autónoma</p>
+            </div>
+          </div>
+        </div>
+        <p class='testimonial-message'>
+          "Gadmin es una bendición para mi negocio. Siempre llevo mi inventario al día y solo me
+          encargo de atender clientes y cerrar ventas."
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .testimonials {
+    background-color: var(--background);
+    color: var(--white);
+    padding: 4rem 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .testimonials-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    background-color: var(--background);
+    border-radius: 8px;
+  }
+
+  .testimonials-title {
+    margin: 0;
+    margin-bottom: 1rem;
+    color: var(--white);
+    text-align: center;
+    font-size: var(--48-pt);
+  }
+
+  .testimonials-title span,
+  .testimonial-gadmin {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .testimonial-gadmin {
+    font-size: var(--32-pt);
+    text-transform: uppercase;
+  }
+
+  .testimonials-list {
+    display: flex;
+    gap: 3rem;
+    padding: 2rem 0;
+  }
+
+  .testimonial {
+    max-width: 400px;
+  }
+
+  .testimonial-business-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 100%;
+  }
+
+  .testimonial-business-logo img {
+    border-radius: 100%;
+  }
+
+  .testimonial-message {
+    color: var(--neutral-04);
+    font-size: 1.15rem;
+    font-weight: normal;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .testimonial-author-name,
+  .testimonial-author-role {
+    margin: 0.25rem 0;
+  }
+
+  .testimonial-author-role {
+    color: var(--neutral-06);
+  }
+
+  @media screen and (max-width: 768px) {
+    .testimonials-title {
+      text-align: left;
+    }
+
+    .testimonials-list {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      padding: 2rem 0;
+    }
+
+    .testimonial {
+      max-width: 100%;
+    }
+  }
+</style>

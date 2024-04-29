@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets'
+import logoBg from '../assets/img/logo-bg.png'
+---
+
+<div class='presentation'>
+  <div class='wrapper'>
+    <h2 class='presentation-title'>Lleva tu <span>emprendimiento</span> más allá</h2>
+    <p class='presentation-description'>
+      Gadmin integra métricas de ventas y gestión de inventario en tiempo real, ofreciéndote una
+      comprensión completa de tu negocio y proporcionándote orientación precisa para mejorar la
+      experiencia del cliente y aumentar las ventas.
+    </p>
+    <div class='presentation-images'>
+      <Image
+        class='presentation-image-left'
+        src={logoBg}
+        width={250}
+        height={250}
+        alt='Logo de Gadmin'
+      />
+      <Image
+        class='presentation-image-center'
+        src={logoBg}
+        width={350}
+        height={350}
+        alt='Logo de Gadmin'
+      />
+      <Image
+        class='presentation-image-right'
+        src={logoBg}
+        width={250}
+        height={250}
+        alt='Logo de Gadmin'
+      />
+    </div>
+  </div>
+</div>
+
+<style>
+  .presentation {
+    background-color: var(--neutral-02);
+    padding: 4rem 1rem;
+  }
+
+  .presentation-title {
+    margin: 0;
+    margin-bottom: 1rem;
+    color: var(--shade-02);
+    text-align: center;
+    font-size: var(--64-pt);
+  }
+
+  .presentation-description {
+    margin: 0;
+    color: var(--shade-02);
+    text-align: center;
+    font-size: var(--32-pt);
+  }
+
+  .presentation-title span {
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .presentation-images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0 1rem;
+    margin-top: 2rem;
+  }
+
+  .presentation-image-left,
+  .presentation-image-right {
+    width: 20%;
+    height: auto;
+  }
+
+  .presentation-image-center {
+    width: 40%;
+    height: auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .presentation-images {
+      flex-direction: column;
+    }
+
+    .presentation-image-left,
+    .presentation-image-right {
+      width: 75%;
+      height: auto;
+    }
+
+    .presentation-image-center {
+      width: 100%;
+      height: auto;
+    }
+  }
+</style>

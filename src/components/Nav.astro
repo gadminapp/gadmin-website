@@ -1,0 +1,97 @@
+---
+import { Image } from 'astro:assets'
+import logoBg from '../assets/img/logo-bg.png'
+import Button from './Button.astro'
+---
+
+<nav class='nav'>
+  <div class='wrapper nav-wrapper'>
+    <div class='nav-links'>
+      <a href='/learn' class='nav-link nav-link--tutorials'> Tutoriales </a>
+      <a href='/pricing' class='nav-link'> Planes y precios </a>
+    </div>
+    <a href='/' class='nav-logo'>
+      <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
+      <h1 class='nav-logo-title'>Gadmin</h1>
+    </a>
+    <div class='nav-buttons'>
+      <Button
+        classes='nav-buttons-login'
+        href='https://app.gadmin.app/login'
+        target='_blank'
+        type='outlined'>Ingresar</Button
+      >
+      <Button href='https://app.gadmin.app/login' target='_blank' type='default'
+        >Crear Mi Tienda</Button
+      >
+    </div>
+  </div>
+</nav>
+
+<style>
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    transition: 0.2s ease background-color;
+    z-index: 100;
+  }
+
+  body.scrolled .nav {
+    background-color: var(--background);
+  }
+
+  .nav-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+  }
+
+  .nav-links,
+  .nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .nav-link {
+    color: #d1d1d1;
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: var(--white);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-title {
+    margin: 0;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .nav-buttons {
+    justify-content: flex-end;
+  }
+
+  @media screen and (max-width: 768px) {
+    .nav-wrapper {
+      grid-template-columns: 1fr auto;
+    }
+
+    .nav-logo,
+    .nav-link--tutorials {
+      display: none;
+    }
+  }
+</style>

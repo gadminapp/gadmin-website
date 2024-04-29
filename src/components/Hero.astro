@@ -1,0 +1,138 @@
+---
+import { Image } from 'astro:assets'
+import logoBg from '../assets/img/logo-bg.png'
+import Button from './Button.astro'
+---
+
+<div class='hero'>
+  <div class='wrapper hero-grid'>
+    <div class='hero-image'>
+      <Image src={logoBg} width={350} height={350} alt='Logo de Gadmin' loading='eager' />
+    </div>
+    <div class='hero-content'>
+      <h1 class='hero-big-title'>
+        Crea tu tienda online<br class='hero-big-title-br' /> en 5 minutos
+      </h1>
+      <h2 class='hero-title'>Sin conocimientos técnicos</h2>
+      <p class='hero-description'>
+        Aumenta las ventas de tu negocio hasta un <span class='text-primary'>90%</span> en el primer
+        trimestre.
+      </p>
+      <div class='hero-cta'>
+        <Button href='https://app.gadmin.app/login' target='_blank' type='default'
+          >¡Empieza ya!</Button
+        >
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero {
+    background-color: #0eaaf9;
+    background-image: linear-gradient(135deg, #01283c, #052112);
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/img/circles.svg') no-repeat;
+    background-size: cover;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 4fr 6fr;
+    gap: 1rem;
+    min-height: calc(100svh - 7rem);
+    padding: 6rem 1rem;
+    padding-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-image {
+    display: flex;
+    align-items: center;
+    height: auto;
+  }
+
+  .hero-image img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .hero-big-title,
+  .hero-title,
+  .hero-description {
+    text-align: right;
+    margin: 0.25rem 0;
+  }
+
+  .hero-big-title {
+    color: var(--white);
+    font-size: var(--64-pt);
+  }
+
+  .hero-title {
+    width: fit-content;
+    font-size: var(--40-pt);
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-description {
+    color: var(--white);
+    font-size: var(--32-pt);
+  }
+
+  .hero-cta {
+    margin-top: 2rem;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero-grid {
+      min-height: 6rem;
+      grid-template-columns: 1fr;
+    }
+
+    .hero-image {
+      justify-content: center;
+    }
+
+    .hero-content {
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
+    .hero-big-title,
+    .hero-title,
+    .hero-description {
+      text-align: center;
+      margin: 0.25rem 0;
+    }
+
+    .hero-big-title-br {
+      display: none;
+    }
+
+    .hero::before {
+      opacity: 0.5;
+    }
+  }
+</style>

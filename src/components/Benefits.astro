@@ -1,0 +1,58 @@
+<div class='benefits-container'>
+  <div class='benefits wrapper'>
+    <div class='benefit'>
+      <h2>+$3500 USD</h2>
+      <p>En ahorros de desarrollo y mantenimiento</p>
+    </div>
+    <div class='benefit'>
+      <h2>+90%</h2>
+      <p>Incremento de las ventas en el primer trimestre</p>
+    </div>
+    <div class='benefit'>
+      <h2>$0.00</h2>
+      <p>En actualizaciones y mejoras de tu tienda</p>
+    </div>
+    <div class='benefit'>
+      <h2>+300</h2>
+      <p>Horas ahorradas en la gestión de tu tienda</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  h2,
+  p {
+    margin: 0;
+  }
+
+  .benefits-container {
+    padding: 3rem;
+    background-color: var(--background);
+  }
+
+  .benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+    gap: 2rem;
+  }
+
+  .benefit h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.35rem;
+  }
+
+  .benefit h2,
+  .benefit p {
+    color: var(--white);
+  }
+
+  @media screen and (max-width: 768px) {
+    .benefits-container {
+      padding: 2rem 1rem;
+    }
+
+    .benefit {
+      text-align: center;
+    }
+  }
+</style>
