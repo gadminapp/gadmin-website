@@ -13,7 +13,7 @@
 
 ## Web oficial de Gadmin
 
-Gadmin es un SaaS que facilita a empresas y emprendedores la creación de su tienda online en menos de 5 minutos.
+Gadmin es un SaaS que facilita a empresas y emprendedores la creación de su tienda online en menos de 5 minutos.\
 [Reportar error](https://github.com/gadminapp/gadmin-website/issues) · [Sugerir algo](https://github.com/gadminapp/gadmin-website/issues)
 
 </div>
