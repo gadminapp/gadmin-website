@@ -62,9 +62,8 @@ Siempre puedes contar con la [documentación oficial de Github](https://docs.git
   │       │             └─⫸ Escríbelo en presente. Sin punto al final.
   │       │
   │       └─⫸ Ámbitos: blog|web|legal|dashboard|
-  │                          dashboard|language|docs|
-  │                          service-worker|animations|
-  │                          upgrade|changelog
+  │                          language|docs|
+  │                          changelog|animations
   │
   └─⫸ Tipos: build|ci|docs|feat|fix|perf|refactor|test
 ```
