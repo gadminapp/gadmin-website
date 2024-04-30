@@ -59,13 +59,12 @@ Siempre puedes contar con la [documentación oficial de Github](https://docs.git
 ```
 <tipo>(<ambito>): <breve resumen>
   │       │             │
-  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+  │       │             └─⫸ Escríbelo en presente. Sin punto al final.
   │       │
-  │       └─⫸ Ámbitos: animations|bazel|benchpress|common|compiler|compiler-cli|core|
-  │                          elements|forms|http|language-service|localize|platform-browser|
-  │                          platform-browser-dynamic|platform-server|router|service-worker|
-  │                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|
-  │                          devtools
+  │       └─⫸ Ámbitos: blog|web|legal|dashboard|
+  │                          dashboard|language|docs|
+  │                          service-worker|animations|
+  │                          upgrade|changelog
   │
   └─⫸ Tipos: build|ci|docs|feat|fix|perf|refactor|test
 ```
@@ -89,8 +88,8 @@ Deben ser uno de los siguientes:
 
 El resumen debe dar una descripción sustancial del cambio:
 
-- Always english.
-- Use the imperative, present tense: "change" not "changed" nor "changes"
+- English-first: Siempre en inglés.
+- Usa el presente imperativo: "change" en vez de "changed" o "changes"
 - No escribas un punto al final.
 
 ### Nomenclatura de ramas
