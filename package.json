@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^7.7.1",
+    "astro-eslint-parser": "^1.0.1",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^1.1.0",
@@ -34,5 +35,14 @@
     "prettier-plugin-astro": "^0.13.0",
     "prettier-plugin-astro-organize-imports": "^0.4.5",
     "wrangler": "^3.51.2"
+  },
+  "lint-staged": {
+    "src/**/*.+(ts|tsx)": [
+      "eslint --fix"
+    ],
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ],
+    "*.js": "eslint --cache --fix"
   }
 }
