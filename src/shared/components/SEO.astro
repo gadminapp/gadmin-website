@@ -1,0 +1,76 @@
+---
+import RichResults from '@/shared/components/RichSchema.astro'
+import type { Preload } from '@/shared/types/Preload'
+
+interface Props {
+  title: string
+  description: string
+  preload?: Array<Preload>
+  canonical?: string
+  image?: string
+}
+
+const { title, description, preload, canonical, image = '/og.png' } = Astro.props
+
+const determineCanonicalURL = () => {
+  if (Astro.url.host.includes('localhost')) return 'http://localhost:4321'
+  return canonical || Astro.url.pathname
+}
+
+const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
+---
+
+<title>{title}</title>
+<meta charset='UTF-8' />
+
+<meta name='description' content={description} />
+<meta name='viewport' content='width=device-width' />
+<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+
+{
+  preload?.map(({ href, as, type, rel = 'preload', crossorigin }) => (
+    <link {rel} {href} {as} {type} {crossorigin} />
+  ))
+}
+
+<link rel='canonical' href={canonicalURL} />
+<meta name='viewport' content='width=device-width' />
+<meta name='theme-color' content='#0EAAF9' />
+
+<meta
+  name='keywords'
+  content='gadmin, ecommerce, tienda online, automatizacion, ventas, inventario, clientes, aplicación'
+/>
+
+<meta name='twitter:card' content='summary_large_image' />
+<meta name='twitter:title' content={title} />
+<meta name='twitter:description' content={description} />
+<meta name='twitter:image' content={image} />
+
+<meta name='og:title' content={title} />
+<meta name='og:description' content={description} />
+<meta name='og:image' content={image} />
+<meta name='og:url' content={Astro.url} />
+<meta name='og:site_name' content='Gadmin' />
+<meta name='og:type' content='website' />
+<meta name='og:locale' content='es_ES' />
+
+<meta name='robots' content='index, follow' />
+<meta name='googlebot' content='index, follow' />
+
+<link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+<meta name='msapplication-config' content='/browserconfig.xml' />
+
+<meta name='twitter:title' content={title} />
+<meta name='twitter:description' content={description} />
+<meta name='twitter:image' content={new URL(image, Astro.url)} />
+
+<meta name='og:image' content={new URL(image, Astro.url)} />
+<meta name='og:title' content={title} />
+<meta name='og:description' content={description} />
+<meta name='og:url' content={Astro.url} />
+<meta name='og:site_name' content='La Velada 4' />
+<meta name='og:type' content='website' />
+<meta name='og:locale' content='es_ES' />
+
+<RichResults />

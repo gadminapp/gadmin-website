@@ -1,0 +1,56 @@
+---
+/** https://developers.google.com/search/docs/appearance/structured-data/organization */
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  'url': 'https://gadmin.app',
+  'image': 'https://gadmin.app/og.png',
+  'sameAs': [
+    'https://www.instagram.com/gadmin_app',
+    'https://www.linkedin.com/company/gadmin-app/',
+    'https://github.com/gadminapp/gadmin-website',
+  ],
+  'logo': 'https://gadmin.app/og.png',
+  'name': 'Gadmin',
+  'alternateName': 'Gadmin App',
+  'description':
+    'Crea tu propia tienda online en instantes y aumenta tus ventas hasta un 90% en el primer trimestre.',
+}
+
+const FAQs = [
+  {
+    question: '¿Qué es Gadmin?',
+    answer:
+      'Gadmin facilita a empresas y emprendedores la creación de su tienda online en menos de 5 minutos.',
+  },
+  {
+    question: '¿Cuánto cuesta Gadmin?',
+    answer:
+      'Gadmin te permite comenzar con tu tienda online con diversos planes, desde $4.99 al mes.',
+  },
+  {
+    question: '¿Qué es una tienda online?',
+    answer:
+      'Una tienda en línea te permite vender tus productos o servicios mediante tu propio sitio web, incrementando tu alcance en el mercado.',
+  },
+]
+
+/** https://developers.google.com/search/docs/appearance/structured-data/faqpage */
+const FAQSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': [
+    FAQs.map(({ answer, question }) => ({
+      '@type': 'Question',
+      'name': question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': answer,
+      },
+    })),
+  ],
+}
+---
+
+<script type='application/ld+json' set:html={JSON.stringify(organizationSchema)} />
+<script type='application/ld+json' set:html={JSON.stringify(FAQSchema)} />
