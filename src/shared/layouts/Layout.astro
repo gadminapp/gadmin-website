@@ -1,23 +1,29 @@
 ---
+import SEO from '@/shared/components/SEO.astro'
+import type { Preload } from '@/shared/types/Preload'
 import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
   title: string
   description: string
+  preload?: Array<Preload>
+  canonical?: string
+  image?: string
 }
 
-const { title, description } = Astro.props
+const { title, description, preload, canonical, image } = Astro.props
 ---
 
 <!doctype html>
-<html lang='en'>
+<html lang='es'>
   <head>
-    <meta charset='UTF-8' />
-    <meta name='description' content={description} />
-    <meta name='viewport' content='width=device-width' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='generator' content={Astro.generator} />
-    <title>{title}</title>
+    <SEO
+      title={title}
+      description={description}
+      preload={preload}
+      canonical={canonical}
+      image={image}
+    />
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
@@ -25,30 +31,6 @@ const { title, description } = Astro.props
       rel='preload'
       as='style'
     />
-
-    <meta name='description' content={description} />
-    <link rel='canonical' href='https://gadmin.app/' />
-    <meta name='theme-color' content='#0EAAF9' />
-    <meta
-      name='keywords'
-      content='gadmin, ecommerce, tienda online, automatizacion, ventas, inventario, clientes, aplicación'
-    />
-    <meta name='twitter:card' content='summary_large_image' />
-    <meta name='twitter:title' content={title} />
-    <meta name='twitter:description' content={description} />
-    <meta name='twitter:image' content='/og.png' />
-    <meta name='og:image' content='/og.png' />
-    <meta name='og:title' content={title} />
-    <meta name='og:description' content={description} />
-    <meta name='og:url' content='https://gadmin.app/' />
-    <meta name='og:site_name' content='Gadmin' />
-    <meta name='og:type' content='website' />
-    <meta name='og:locale' content='es_ES' />
-    <meta name='robots' content='index, follow' />
-    <meta name='googlebot' content='index, follow' />
-    <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-    <meta name='msapplication-config' content='/browserconfig.xml' />
-    <link rel='sitemap' href='/sitemap-index.xml' />
     <ViewTransitions />
   </head>
   <body>
