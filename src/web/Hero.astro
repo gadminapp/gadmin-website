@@ -1,5 +1,5 @@
 ---
-import logoBg from '@/assets/img/logo-bg.png'
+import logo from '@/assets/img/logo.png'
 import Button from '@/shared/components/Button.astro'
 import { Image } from 'astro:assets'
 ---
@@ -7,7 +7,7 @@ import { Image } from 'astro:assets'
 <div class='hero'>
   <div class='wrapper hero-grid'>
     <div class='hero-image'>
-      <Image src={logoBg} width={350} height={350} alt='Logo de Gadmin' loading='eager' />
+      <Image src={logo} width={350} height={350} alt='Logo de Gadmin' loading='eager' />
     </div>
     <div class='hero-content'>
       <h1 class='hero-big-title'>
@@ -19,7 +19,7 @@ import { Image } from 'astro:assets'
         trimestre.
       </p>
       <div class='hero-cta'>
-        <Button href='https://app.gadmin.app/login' target='_blank' type='default'
+        <Button href='https://stores.gadmin.app/login' target='_blank' type='default'
           >¡Empieza ya!</Button
         >
       </div>
