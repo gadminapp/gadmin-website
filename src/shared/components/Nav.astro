@@ -2,10 +2,15 @@
 import logoBg from '@/assets/img/logo-bg.png'
 import Button from '@/shared/components/Button.astro'
 import { Image } from 'astro:assets'
+import Menu from './icons/Menu.astro'
+import XMark from './icons/X-Mark.astro'
 ---
 
 <nav class='nav'>
   <div class='wrapper nav-wrapper'>
+    <div class='nav-mobile-toggle'>
+      <Menu size={32} color='#EBEBEB' />
+    </div>
     <div class='nav-links'>
       <a href='/learn' class='nav-link nav-link--tutorials'> Tutoriales </a>
       <a href='/pricing' class='nav-link'> Planes y precios </a>
@@ -16,7 +21,7 @@ import { Image } from 'astro:assets'
     </a>
     <div class='nav-buttons'>
       <Button
-        classes='nav-buttons-login'
+        classes='hide-on-mobile'
         href='https://stores.gadmin.app/login'
         target='_blank'
         mode='outlined'>Ingresar</Button
@@ -24,6 +29,38 @@ import { Image } from 'astro:assets'
       <Button href='https://stores.gadmin.app/login' target='_blank' mode='default'
         >Crear Mi Tienda</Button
       >
+    </div>
+  </div>
+  <div class='nav__menu nav__menu--hidden'>
+    <div class='nav__menu-top'>
+      <div class='nav-mobile-toggle'>
+        <XMark size={32} color='#EBEBEB' />
+      </div>
+      <a href='/' class='nav-logo nav-logo--mobile'>
+        <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
+        <h1 class='nav-logo-title'>Gadmin</h1>
+      </a>
+    </div>
+    <div class='nav__menu-links'>
+      <a href='/learn' class='nav__menu-link'>
+        <span class='nav__menu-link-title'>💙 Tutoriales</span>
+        <span class='nav__menu-link-description'>
+          Aprende con nosotros cómo sacar el máximo provecho a tu tienda
+        </span>
+      </a>
+      <a href='/pricing' class='nav__menu-link'>
+        <span class='nav__menu-link-title'>💳 Planes y precios</span>
+        <span class='nav__menu-link-description'>
+          Échale un vistazo a nuestros planes para negocios de todos los tamaños.
+        </span>
+      </a>
+      <a href='https://blog.gadmin.app/' class='nav__menu-link'>
+        <span class='nav__menu-link-title'>📰 Blog</span>
+        <span class='nav__menu-link-description'>
+          Énterate de noticias, estrategias y técnicas del emprendimiento de la mano de tu equipo
+          favorito.
+        </span>
+      </a>
     </div>
   </div>
 </nav>
@@ -45,7 +82,7 @@ import { Image } from 'astro:assets'
 
   .nav-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, auto);
     padding: 1rem;
   }
 
@@ -73,6 +110,10 @@ import { Image } from 'astro:assets'
     text-decoration: none;
   }
 
+  .nav-logo.nav-logo--mobile {
+    justify-content: flex-end;
+  }
+
   .nav-logo-title {
     margin: 0;
     font-size: 1.35rem;
@@ -80,18 +121,116 @@ import { Image } from 'astro:assets'
     color: var(--white);
   }
 
+  .nav-logo--mobile .nav-logo-title {
+    font-size: 1.25rem;
+  }
+
   .nav-buttons {
     justify-content: flex-end;
   }
 
+  /* Menu Mobile */
+  .nav__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    min-height: 100vh;
+    background-color: var(--shade-03);
+    overflow: auto;
+    transform: translateX(0px);
+    transition: 0.3s ease transform;
+  }
+
+  .nav__menu--hidden {
+    transform: translateX(-150vw);
+  }
+
+  .nav__menu-top {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    padding: 1rem;
+  }
+
+  .nav-mobile-toggle {
+    display: none;
+  }
+
+  .nav-mobile-toggle > svg {
+    display: flex;
+  }
+
+  .nav__menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav__menu-link {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    background-color: var(--shade-04);
+    color: var(--neutral-02);
+    gap: 0.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    transition: 0.2s ease background-color;
+  }
+
+  .nav__menu-link:hover {
+    background-color: var(--shade-03);
+  }
+
+  .nav__menu-link-description {
+    font-size: 0.85rem;
+    color: var(--neutral-03);
+  }
+
   @media screen and (max-width: 768px) {
     .nav-wrapper {
-      grid-template-columns: 1fr auto;
+      grid-template-columns: auto 1fr;
     }
 
-    .nav-logo,
-    .nav-link--tutorials {
+    .nav-logo:not(.nav-logo--mobile),
+    .nav-links {
+      display: none;
+    }
+
+    .nav-mobile-toggle {
+      width: auto;
+      padding: 0 0.5rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav__menu {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .nav-logo:not(.nav-logo--mobile) .nav-logo-title {
       display: none;
     }
   }
 </style>
+
+<script>
+  const initToggles = () => {
+    const menuToggles = document.querySelectorAll('.nav-mobile-toggle')
+    const menuMobile = document.querySelector('.nav__menu')
+    if (menuToggles && menuMobile) {
+      menuToggles.forEach((toggle) => {
+        toggle.addEventListener('click', () => {
+          menuMobile.classList.toggle('nav__menu--hidden')
+        })
+      })
+    }
+  }
+
+  initToggles()
+  document.addEventListener('astro:after-swap', initToggles)
+</script>
