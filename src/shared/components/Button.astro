@@ -1,49 +1,75 @@
 ---
 interface Props {
   classes?: string
-  type: 'default' | 'outlined'
+  mode: 'default' | 'outlined'
+  type?: 'gradient' | 'gray'
   href: string
   target: '_blank' | '_parent' | '_self' | '_top'
 }
 
-const { classes = '', type, href, target } = Astro.props
+const { classes = '', type = 'gradient', mode, href, target } = Astro.props
 ---
 
-<a href={href} target={target} class:list=`button button--type-${type} ${classes}`>
+<a
+  href={href}
+  target={target}
+  class:list=`button button--mode-${mode} button--type-${type} ${classes}`
+>
   <slot />
 </a>
 
 <style>
   .button {
-    text-decoration: none;
+    display: block;
     padding: 0.75rem 1.5rem;
+    text-align: center;
+    text-decoration: none;
     color: var(--white);
     border-radius: 0.5rem;
-    cursor: pointer;
+    cursor: default;
     transition:
-      0.5s ease-in-out background,
+      0.5s ease-in-out background-position,
+      0.2s ease background-color;
       0.2s ease border-color;
   }
 
-  .button--type-default {
+  .button--type-gradient.button--mode-default {
     color: #072c18;
     background-image: linear-gradient(to right, var(--primary), var(--secondary));
+    background-size: 150% 100%;
     background-position: 0% 0%;
   }
 
-  .button--type-default:hover {
+  .button--type-gradient.button--mode-default:hover {
     background-position: 100% 0%;
   }
 
-  .button--type-outlined {
+  .button--type-gradient.button--mode-outlined {
     border: 2px solid var(--neutral-08);
   }
 
-  .button--type-outlined:hover {
+  .button--type-gradient.button--mode-outlined:hover {
     border-color: var(--neutral-07);
   }
 
-  .button--type-outlined:active {
+  .button--type-gradient.button--mode-outlined:active {
     border-color: var(--neutral-06);
+  }
+
+  .button--type-gray.button--mode-default {
+    color: var(--neutral-02);
+    background-color: var(--shade-03);
+  }
+
+  .button--type-gray.button--mode-default:hover {
+    background-color: var(--shade-04);
+  }
+
+  .button--type-gray.button--mode-outlined {
+    border: 2px solid var(--shade-03);
+  }
+
+  .button--type-gray.button--mode-outlined:hover {
+    border-color: var(--shade-04);
   }
 </style>
