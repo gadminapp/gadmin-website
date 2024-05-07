@@ -16,34 +16,50 @@ import { Image } from 'astro:assets'
           >Regístrate gratis.</a
         >
         <div class='footer-socials'>
-          <a href='https://www.facebook.com/GadminApp/' target='_blank' aria-label='Facebook'>
+          <a
+            title='Facebook de Gadmin'
+            href='https://www.facebook.com/GadminApp/'
+            target='_blank'
+            aria-label='Facebook'
+          >
             <Facebook size={24} color='#FFFFFF' />
           </a>
-          <a href='https://www.instagram.com/gadmin_app' target='_blank' aria-label='Instagram'>
+          <a
+            title='Instagram de Gadmin'
+            href='https://www.instagram.com/gadmin_app'
+            target='_blank'
+            aria-label='Instagram'
+          >
             <Instagram size={24} color='#FFFFFF' />
           </a>
           <a
+            title='LinkedIn de Gadmin'
             href='https://www.linkedin.com/company/gadmin-app/'
             target='_blank'
             aria-label='LinkedIn'
           >
             <LinkedIn size={24} color='#FFFFFF' />
           </a>
-          <a href='https://www.youtube.com/@GadminApp' target='_blank' aria-label='Youtube'>
+          <a
+            title='Youtube de Gadmin'
+            href='https://www.youtube.com/@GadminApp'
+            target='_blank'
+            aria-label='Youtube'
+          >
             <Youtube size={24} color='#FFFFFF' />
           </a>
         </div>
       </div>
       <div class='footer-links'>
         <div class='footer-link-section'>
-          <h3 class='footer-link-section-title'>Gadmin</h3>
+          <p class='footer-link-section-title'>Gadmin</p>
           <div class='footer-link-section-links'>
             <a class='footer-link-section-link' href='/learn'>Tutoriales</a>
             <a class='footer-link-section-link' href='/blog' target='_blank'>Blog</a>
           </div>
         </div>
         <div class='footer-link-section'>
-          <h3 class='footer-link-section-title'>Legal</h3>
+          <p class='footer-link-section-title'>Legal</p>
           <div class='footer-link-section-links'>
             <a class='footer-link-section-link' href='/terms-and-conditions' target='_blank'
               >Términos y Condiciones</a
@@ -108,9 +124,11 @@ import { Image } from 'astro:assets'
   }
 
   .footer-link-section-title {
-    color: var(--white);
     margin: 0;
     margin-bottom: 0.75rem;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.2rem;
   }
 
   .footer-link-section-links {

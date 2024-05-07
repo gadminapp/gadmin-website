@@ -17,7 +17,7 @@ import XMark from './icons/X-Mark.astro'
     </div>
     <a href='/' class='nav-logo'>
       <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
-      <h1 class='nav-logo-title'>Gadmin</h1>
+      <p class='nav-logo-title'>Gadmin</p>
     </a>
     <div class='nav-buttons'>
       <Button
@@ -38,7 +38,7 @@ import XMark from './icons/X-Mark.astro'
       </div>
       <a href='/' class='nav-logo nav-logo--mobile'>
         <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
-        <h1 class='nav-logo-title'>Gadmin</h1>
+        <p class='nav-logo-title'>Gadmin</p>
       </a>
     </div>
     <div class='nav__menu-links'>
@@ -117,6 +117,7 @@ import XMark from './icons/X-Mark.astro'
   .nav-logo-title {
     margin: 0;
     font-size: 1.35rem;
+    font-weight: bold;
     text-transform: uppercase;
     color: var(--white);
   }
