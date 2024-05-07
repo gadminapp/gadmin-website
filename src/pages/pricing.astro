@@ -445,6 +445,5 @@ import Layout from '@/shared/layouts/Layout.astro'
     }
   }
 
-  initBillingTabs()
-  document.addEventListener('astro:after-swap', initBillingTabs)
+  document.addEventListener('astro:page-load', initBillingTabs)
 </script>
