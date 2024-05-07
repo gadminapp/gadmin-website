@@ -6,7 +6,7 @@ import Menu from './icons/Menu.astro'
 import XMark from './icons/X-Mark.astro'
 ---
 
-<nav class='nav'>
+<nav class='nav' transition:persist>
   <div class='wrapper nav-wrapper'>
     <div class='nav-mobile-toggle'>
       <Menu size={32} color='#EBEBEB' />
@@ -220,6 +220,8 @@ import XMark from './icons/X-Mark.astro'
 
 <script>
   const initToggles = () => {
+    console.log('init toggles')
+
     const menuToggles = document.querySelectorAll('.nav-mobile-toggle')
     const menuMobile = document.querySelector('.nav__menu')
     if (menuToggles && menuMobile) {
@@ -231,6 +233,5 @@ import XMark from './icons/X-Mark.astro'
     }
   }
 
-  initToggles()
-  document.addEventListener('astro:after-swap', initToggles)
+  document.addEventListener('astro:page-load', initToggles, { once: true })
 </script>
