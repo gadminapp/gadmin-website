@@ -109,15 +109,15 @@ const { title, description, preload, canonical, image } = Astro.props
       }
 
       @media screen and (max-width: 768px) {
-        .nav-buttons-login {
-          display: none;
-        }
-
         :root {
           --64-pt: 2.5rem;
           --48-pt: 2rem;
           --40-pt: 1.5rem;
           --32-pt: 1.15rem;
+        }
+
+        .hide-on-mobile {
+          display: none !important;
         }
       }
 
