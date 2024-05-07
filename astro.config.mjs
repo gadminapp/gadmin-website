@@ -19,9 +19,6 @@ export default defineConfig({
   site: 'https://gadmin.app',
   integrations: [sitemap()],
   vite: {
-    build: {
-      cssMinify: 'lightningcss',
-    },
     ssr: {
       noExternal: ['path-to-regexp'],
     },

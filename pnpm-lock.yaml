@@ -42,9 +42,6 @@ importers:
       husky:
         specifier: ^9.0.11
         version: 9.0.11
-      lightningcss:
-        specifier: ^1.24.1
-        version: 1.24.1
       lint-staged:
         specifier: 15.2.2
         version: 15.2.2
@@ -4236,7 +4233,8 @@ snapshots:
 
   dequal@2.0.3: {}
 
-  detect-libc@1.0.3: {}
+  detect-libc@1.0.3:
+    optional: true
 
   detect-libc@2.0.3:
     optional: true
@@ -4913,6 +4911,7 @@ snapshots:
       lightningcss-linux-x64-gnu: 1.24.1
       lightningcss-linux-x64-musl: 1.24.1
       lightningcss-win32-x64-msvc: 1.24.1
+    optional: true
 
   lilconfig@3.0.0: {}
 
