@@ -8,26 +8,26 @@ import { Image } from 'astro:assets'
     <h2 class='presentation-title'>Lleva tu <span>emprendimiento</span> más allá</h2>
     <p class='presentation-description'>
       Gadmin integra métricas de ventas y gestión de inventario en tiempo real, ofreciéndote una
-      comprensión completa de tu negocio y proporcionándote orientación precisa para mejorar la
+      comprensión completa de tu negocio y dándote una orientación precisa para mejorar la
       experiencia del cliente y aumentar las ventas.
     </p>
     <div class='presentation-images'>
       <Image
-        class='presentation-image-left'
+        class='presentation-image presentation-image-left'
         src={logoBg}
         width={250}
         height={250}
         alt='Logo de Gadmin'
       />
       <Image
-        class='presentation-image-center'
+        class='presentation-image presentation-image-center'
         src={logoBg}
         width={350}
         height={350}
         alt='Logo de Gadmin'
       />
       <Image
-        class='presentation-image-right'
+        class='presentation-image presentation-image-right'
         src={logoBg}
         width={250}
         height={250}
@@ -65,38 +65,27 @@ import { Image } from 'astro:assets'
   }
 
   .presentation-images {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 3fr 5fr 3fr;
     gap: 1rem;
+    place-items: center;
     padding: 0 1rem;
     margin-top: 2rem;
   }
 
-  .presentation-image-left,
-  .presentation-image-right {
-    width: 20%;
-    height: auto;
-  }
-
-  .presentation-image-center {
-    width: 40%;
+  .presentation-image {
+    width: 100%;
     height: auto;
   }
 
   @media screen and (max-width: 768px) {
     .presentation-images {
-      flex-direction: column;
+      grid-template-columns: 1fr;
     }
 
     .presentation-image-left,
     .presentation-image-right {
       width: 75%;
-      height: auto;
-    }
-
-    .presentation-image-center {
-      width: 100%;
       height: auto;
     }
   }

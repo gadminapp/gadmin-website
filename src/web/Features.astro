@@ -14,24 +14,12 @@ import { Image } from 'astro:assets'
         </p>
       </div>
       <div class='feature-image'>
-        <Image
-          class='presentation-image-left'
-          src={logoBg}
-          width={250}
-          height={250}
-          alt='Logo de Gadmin'
-        />
+        <Image src={logoBg} width={250} height={250} alt='Logo de Gadmin' />
       </div>
     </div>
     <div class='feature feature--reverse'>
       <div class='feature-image'>
-        <Image
-          class='presentation-image-left'
-          src={logoBg}
-          width={250}
-          height={250}
-          alt='Logo de Gadmin'
-        />
+        <Image src={logoBg} width={250} height={250} alt='Logo de Gadmin' />
       </div>
       <div class='feature-content'>
         <h3 class='feature-title'>La creación es instantánea</h3>
@@ -50,13 +38,7 @@ import { Image } from 'astro:assets'
         </p>
       </div>
       <div class='feature-image'>
-        <Image
-          class='presentation-image-left'
-          src={logoBg}
-          width={250}
-          height={250}
-          alt='Logo de Gadmin'
-        />
+        <Image src={logoBg} width={250} height={250} alt='Logo de Gadmin' />
       </div>
     </div>
   </div>
@@ -109,8 +91,9 @@ import { Image } from 'astro:assets'
   }
 
   .feature-image img {
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
+    margin: 0 auto;
   }
 
   @media screen and (max-width: 768px) {
@@ -130,6 +113,8 @@ import { Image } from 'astro:assets'
     .feature-image {
       width: 75%;
       margin: 0 auto;
+      max-height: 50svh;
+      text-align: center;
     }
 
     .features-list {
