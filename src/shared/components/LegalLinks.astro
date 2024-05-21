@@ -1,23 +1,23 @@
 ---
-const { currentPage } = Astro.props
+const { pathname } = Astro.url
 ---
 
 <aside class='section'>
   <ul class='list'>
     <li>
       <a
-        class:list={{ 'link-current': currentPage === 'terms-and-conditions' }}
+        class:list={{ 'link': true, 'link--current': pathname === '/terms-and-conditions', }}
         href='/terms-and-conditions'>Términos y Condiciones</a
       >
     </li>
     <li>
-      <a class:list={{ 'link-current': currentPage === 'privacy-policy' }} href='/privacy-policy'
+      <a class:list={{ 'link': true, 'link--current': pathname === '/privacy-policy' }} href='/privacy-policy'
         >Política de privacidad</a
       >
     </li>
     <li>
       <a
-        class:list={{ 'link-current': currentPage === 'exchanges-and-returns' }}
+        class:list={{ 'link': true, 'link--current': pathname === '/exchanges-and-returns' }}
         href='/exchanges-and-returns'>Política de Cambios y Devoluciones</a
       >
     </li>
@@ -57,7 +57,12 @@ const { currentPage } = Astro.props
     padding: 10px;
   }
 
-  .link-current {
+  .link {
+    background-color: transparent;
+    transition: 0.2s ease background-color;
+  }
+
+  .link--current {
     background-color: #151b5b;
   }
 </style>
