@@ -1,6 +1,5 @@
 name: 'Tag PRs with merge conflicts'
 on:
-  # So that PRs touching the same files as the push are updated
   push:
   # So that the `dirtyLabel` is removed if conflicts are resolve
   # We recommend `pull_request_target` so that github secrets are available.
