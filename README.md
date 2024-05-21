@@ -8,8 +8,7 @@
 [![Issues][issues-shield]][issues-url]
 
 <a href="https://github.com/gadminapp/gadmin-website" style="display: flex;align-items: center;justify-content: center">
-  <img src="https://raw.githubusercontent.com/gadminapp/gadmin-website/main/src/assets/img/min.webp" alt="Min" width="300" />
-  <img width="250" src="https://raw.githubusercontent.com/gadminapp/gadmin-website/main/src/assets/img/logo-bg.webp" alt="Logo" />
+  <img src="https://raw.githubusercontent.com/gadminapp/gadmin-website/main/src/assets/img/min.webp" alt="Min" width="300" /><img width="250" src="https://raw.githubusercontent.com/gadminapp/gadmin-website/main/src/assets/img/logo-bg.webp" alt="Logo" />
 </a>
 
 ## Web oficial de Gadmin
