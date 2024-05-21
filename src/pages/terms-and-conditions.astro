@@ -1,5 +1,6 @@
 ---
 import Footer from '@/shared/components/Footer.astro'
+import LegalLinks from '@/shared/components/LegalLinks.astro'
 import Nav from '@/shared/components/Nav.astro'
 import Layout from '@/shared/layouts/Layout.astro'
 ---
@@ -9,20 +10,60 @@ import Layout from '@/shared/layouts/Layout.astro'
   description='Crea tu propia tienda online en instantes y aumenta tus ventas hasta un 90% en el primer trimestre.'
 >
   <Nav />
-  <div class='home'>
+  <div class='full-page'>
     <div class='wrapper'>
-      <h1 style='text-align: center;color: white;'>Términos y condiciones de uso.</h1>
-      <h2 style='text-align: center;color: white;'>En desarrollo...</h2>
+      <main class='section section--legal'>
+        <h1>TÉRMINOS Y CONDICIONES</h1>
+        <p>La siguiente Política de privacidad está vigente a partir del 22 de Mayo de 2023.</p>
+        <hr />
+        <p>
+          La Política de Privacidad de Gadmin describe cómo Gadmin recopila, usa y divulga su
+          información.Esta Política de Privacidad también explica sus opciones sobre cómo usamos su
+          información personal e incluye cómo puede oponerse a ciertos usos de la información y cómo
+          puede acceder y actualizar cierta información.Aquí hay algunas definiciones importantes
+          para ayudarlo a comprender nuestros términos y esta Política de privacidad:Gadmin, se
+          denomina como “Gadmin,” “nosotros,” y “nuestro.”Nuestros sitios web públicos, incluido <a
+            href='https://gadmin.app/'
+            target='_blank'>www.gadmin.app</a
+          >
+          se denominan el “Sitio web.”.Nuestra plataforma de software como servicio en línea, incluidas
+          las API relacionadas proporcionadas por Gadmin, junto con todas las aplicaciones móviles y
+          de escritorio relacionadas (incluidas las aplicaciones Cron) se denominan colectivamente como
+          los “Servicios.”.El contenido enviado, publicado o modificado por los usuarios en el Servicio
+          se organiza en secciones separadas que se denominan "Tiendas".
+        </p>
+      </main>
+      <LegalLinks />
     </div>
   </div>
   <Footer />
 </Layout>
 
 <style>
-  .home {
+  .full-page {
     background-color: #0eaaf9;
     background-image: linear-gradient(135deg, #01283c, #0b321c);
     min-height: calc(100svh - 6rem);
     padding-top: 6rem;
+  }
+  .wrapper { // TODO: Esta clase debe ser global.
+    width: 100%;
+    max-width: 1080px;
+    display: flex;
+    color: white;
+    gap: 20px;
+    padding: 0 20px;
+  }
+
+  .section--legal {
+    flex: 2;
+  }
+
+  @media screen and (max-width: 768px) {
+    .wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
   }
 </style>
