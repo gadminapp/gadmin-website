@@ -7,8 +7,9 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 
-<a href="https://github.com/gadminapp/gadmin-website">
-  <img width="300px" src="https://gadmin.app/_image?href=%2F_astro%2Flogo-bg.DNXzcPEK.png&w=350&h=350&f=webp" alt="Logo" width="800" />
+<a href="https://github.com/gadminapp/gadmin-website" style="display: flex;align-items: center;justify-content: center">
+  <img src="https://raw.githubusercontent.com/gadminapp/gadmin-website/main/src/assets/img/min.webp" alt="Min" width="300" />
+  <img width="250" src="https://raw.githubusercontent.com/gadminapp/gadmin-website/main/src/assets/img/logo-bg.webp" alt="Logo" />
 </a>
 
 ## Web oficial de Gadmin
