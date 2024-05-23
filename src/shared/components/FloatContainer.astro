@@ -1,0 +1,38 @@
+---
+const { Top, Right, Bottom, Left } = Astro.props
+---
+
+<div
+  class='container'
+  style={`
+    ${Top !== undefined ? `top: ${Top}px;` : ''}
+    ${Bottom !== undefined && Top === undefined ? `bottom: ${Bottom}px;` : ''}
+    ${Right !== undefined ? `right: ${Right}px; left: auto;` : ''}
+    ${Left !== undefined ? `left: ${Left}px; right: auto;` : ''}
+  `}
+>
+  <div class='container__body'>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .container {
+    background: linear-gradient(-45deg, #f1fcf526 15%, #eff9ffbf);
+    position: absolute;
+    padding: 1px;
+    border-radius: 16px;
+  }
+
+  .container__body {
+    background-color: #062d4b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    padding: 16px;
+  }
+</style>
