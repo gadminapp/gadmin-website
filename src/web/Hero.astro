@@ -2,13 +2,18 @@
 import min from '@/assets/img/min.webp'
 import Button from '@/shared/components/Button.astro'
 import FloatContainer from '@/shared/components/FloatContainer.astro'
+import PushNotification from '@/shared/components/PushNotification.astro'
 import { Image } from 'astro:assets'
 ---
 
 <div class='hero'>
   <div class='wrapper hero-grid'>
     <FloatContainer Top={100} Left={80}>
-      <h2>Hoy akkskksssssssss</h2>
+      <PushNotification
+        appName={'Gadmin App'}
+        displayTime={'Hace 1 minuto'}
+        message={'Se registró 1 nuevo pedido en TuSuperTienda. ¡A vender!'}
+      />
     </FloatContainer>
     <div class='hero-image'>
       <Image src={min} width={350} height={350} alt='Personaje de Gadmin' loading='eager' />
