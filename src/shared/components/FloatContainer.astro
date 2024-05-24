@@ -1,14 +1,14 @@
 ---
-const { Top, Right, Bottom, Left } = Astro.props
+const { top, right, bottom, left } = Astro.props
 ---
 
 <div
   class='container'
   style={`
-    ${Top !== undefined ? `top: ${Top}px;` : ''}
-    ${Bottom !== undefined && Top === undefined ? `bottom: ${Bottom}px;` : ''}
-    ${Right !== undefined ? `right: ${Right}px; left: auto;` : ''}
-    ${Left !== undefined ? `left: ${Left}px; right: auto;` : ''}
+    ${top !== undefined ? `top: ${top}px;` : ''}
+    ${bottom !== undefined && top === undefined ? `bottom: ${bottom}px;` : ''}
+    ${right !== undefined ? `right: ${right}px; left: auto;` : ''}
+    ${left !== undefined ? `left: ${left}px; right: auto;` : ''}
   `}
 >
   <div class='container__body'>
