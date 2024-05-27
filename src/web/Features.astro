@@ -59,7 +59,6 @@ import { Image } from 'astro:assets'
   .feature {
     display: flex;
     gap: 1.5rem;
-    justify-content: flex-start;
     min-height: 200px;
   }
 
@@ -87,7 +86,8 @@ import { Image } from 'astro:assets'
   }
 
   .feature-image {
-    height: 100%;
+    height: fit-content;
+    margin: auto;
   }
 
   .feature-image img {
@@ -119,6 +119,7 @@ import { Image } from 'astro:assets'
 
     .feature-image img {
       width: 80%;
+      height: auto;
     }
 
     .features-list {
