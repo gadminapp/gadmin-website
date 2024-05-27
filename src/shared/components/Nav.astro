@@ -54,13 +54,13 @@ import XMark from './icons/X-Mark.astro'
           Échale un vistazo a nuestros planes para negocios de todos los tamaños.
         </span>
       </a>
-      <a href='/blog' class='nav__menu-link'>
+      <!-- <a href='/blog' class='nav__menu-link'>
         <span class='nav__menu-link-title'>📰 Blog</span>
         <span class='nav__menu-link-description'>
           Énterate de noticias, estrategias y técnicas del emprendimiento de la mano de tu equipo
           favorito.
         </span>
-      </a>
+      </a> -->
     </div>
   </div>
 </nav>
@@ -233,4 +233,10 @@ import XMark from './icons/X-Mark.astro'
   }
 
   document.addEventListener('astro:page-load', initToggles, { once: true })
+  document.addEventListener('astro:before-swap', () => {
+    const menuMobile = document.querySelector('.nav__menu')
+    if (menuMobile) {
+      menuMobile.classList.add('nav__menu--hidden')
+    }
+  })
 </script>
