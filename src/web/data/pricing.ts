@@ -1,24 +1,24 @@
 export const pricingByBilling = {
   monthly: {
     bronze: {
-      price: 4.99,
+      price: 10,
     },
     silver: {
-      price: 14.99,
+      price: 20,
     },
     gold: {
-      price: 29,
+      price: 49,
     },
   },
   yearly: {
     bronze: {
-      price: 3.49,
+      price: 7,
     },
     silver: {
-      price: 10.49,
+      price: 14,
     },
     gold: {
-      price: 20.3,
+      price: 34.3,
     },
   },
 }
