@@ -1,0 +1,56 @@
+---
+import Logo from '@/assets/img/logo.webp'
+import { Image } from 'astro:assets'
+const { appName, displayTime, message } = Astro.props
+---
+
+<div class='notification'>
+  <div class='notification__header'>
+    <div class='notification__appContainer'>
+      <div class='notification__iconApp'>
+        <Image src={Logo} width={24} height={24} alt='logo_Gadmin' loading='eager' />
+      </div>
+      <span class='notification__appName'>{appName}</span>
+    </div>
+    <span class='notification__displayTime'>{displayTime}</span>
+  </div>
+  <p class='notification__message'>{message}</p>
+</div>
+
+<style>
+  .notification {
+    width: 291px;
+  }
+
+  .notification__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: #b8e5ffbf;
+    font-size: 16px;
+    font-weight: 400;
+    align-items: center;
+  }
+
+  .notification__appContainer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .notification__iconApp {
+    max-height: 24px;
+  }
+
+  .notification__appName {
+  }
+
+  .notification__displayTime {
+  }
+
+  .notification__message {
+    margin: 0;
+    margin-top: 10px;
+    color: #eff9ff;
+  }
+</style>
