@@ -47,7 +47,8 @@ import Layout from '@/shared/layouts/Layout.astro'
     padding-top: 6rem;
   }
 
-  .wrapper { // TODO: Esta clase debe ser global.
+  /* TODO: Esta clase debe ser global. */
+  .wrapper {
     width: 100%;
     max-width: 1080px;
     display: flex;
@@ -60,8 +61,8 @@ import Layout from '@/shared/layouts/Layout.astro'
     flex: 2;
   }
 
-  // TODO: Mover cuando wrapper sea global*/
-  @media screen and (max-width: 768px){
+  /* TODO: Mover cuando wrapper sea global*/
+  @media screen and (max-width: 768px) {
     .wrapper {
       flex-direction: column;
       align-items: center;
