@@ -1,0 +1,76 @@
+---
+interface Props {
+  message: string
+  amount: number
+  increasePercentage: number
+  increaseFrequency: 'weekly' | 'monthly' | 'yearly'
+}
+
+const { message, amount, increasePercentage, increaseFrequency }: Props = Astro.props
+
+const frequencyMap: Record<'weekly' | 'monthly' | 'yearly', string> = {
+  weekly: 'Semana pasada',
+  monthly: 'Mes pasado',
+  yearly: 'Año pasado',
+}
+
+const increaseFrequencyText = frequencyMap[increaseFrequency]
+---
+
+<div class='kpi'>
+  <p class='kpi__message'>{message}</p>
+  <span class='kpi__amount'>{amount}</span>
+  <div class='kpi__increase__container'>
+    <span class='kpi__increase__percentage'>{increasePercentage}%</span>
+    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <path d='M4 15L11 8L18 15H4Z' fill='#52D689'></path>
+    </svg>
+  </div>
+  <p class='kpi__increase__frequency'>{increaseFrequencyText}</p>
+</div>
+
+<style>
+  .kpi {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+  }
+
+  .kpi__message {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27.5px;
+    color: #eff9ff;
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  .kpi__amount {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    color: #eff9ff;
+    margin: 0;
+  }
+
+  .kpi__increase__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .kpi__increase__percentage {
+    color: #52d689;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    margin: 0;
+  }
+
+  .kpi__increase__frequency {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: #b8e5ffbf;
+    margin: 0;
+  }
+</style>
