@@ -31,7 +31,7 @@ const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
     <span class:list=`kpi__increase-percentage--${statePercentageClass}`>{increasePercentage}%</span
     >
     <svg
-      class:list=`kpi__svg ${statePercentageClass}`
+      class:list=`kpi__svg--${statePercentageClass}`
       width='24'
       height='24'
       viewBox='0 0 24 24'
@@ -88,19 +88,19 @@ const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
     color: #ff0000;
   }
 
-  .kpi__svg.positive path {
+  .kpi__svg--positive path {
     fill: #52d689;
   }
 
-  .kpi__svg.negative path {
+  .kpi__svg--negative path {
     fill: #ff0000;
   }
 
-  .kpi__svg.positive {
+  .kpi__svg--positive {
     transform: rotate(0deg);
   }
 
-  .kpi__svg.negative {
+  .kpi__svg--negative {
     transform: rotate(180deg);
   }
 
