@@ -39,24 +39,24 @@ const { title, description, preload, canonical, image } = Astro.props
     <script>
       import { aosInit } from '@/js/aos'
 
-      // runs on initial page load
-
       const handleScroll = () => {
         var scrolled = window.scrollY > 0
         document.body.classList.toggle('scrolled', scrolled)
       }
-
-      document.addEventListener('DOMContentLoaded', () => {
-        handleScroll()
-      })
-
-      window.addEventListener('scroll', function () {
-        handleScroll()
-      })
+      document.addEventListener('DOMContentLoaded', handleScroll)
+      window.addEventListener('scroll', handleScroll)
 
       aosInit()
-      document.addEventListener('astro:page-load', aosInit, { once: true })
-      document.addEventListener('astro:after-swap', aosInit)
+      document.addEventListener('astro:after-swap', () => {
+        // Remove all animated elements to reanimate.
+        const animatedElements = document.querySelectorAll('.aos-animate')
+        for (const animatedEl of animatedElements) {
+          animatedEl.classList.remove('aos-animate')
+        }
+        setTimeout(() => {
+          aosInit()
+        }, 500)
+      })
     </script>
     <style is:global>
       :root {
