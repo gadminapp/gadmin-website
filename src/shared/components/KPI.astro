@@ -15,15 +15,30 @@ const frequencyMap: Record<'weekly' | 'monthly' | 'yearly', string> = {
 }
 
 const increaseFrequencyText = frequencyMap[increaseFrequency]
+
+const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
 ---
+
+<script>
+  const increasePercentageIconPathElement = document.getElementById('increasePercentageIconPath')
+  increasePercentageIconPathElement?.setAttribute('fill', 'black')
+</script>
 
 <div class='kpi'>
   <p class='kpi__message'>{message}</p>
   <span class='kpi__amount'>{amount}</span>
   <div class='kpi__increase__container'>
-    <span class='kpi__increase__percentage'>{increasePercentage}%</span>
-    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <path d='M4 15L11 8L18 15H4Z' fill='#52D689'></path>
+    <span class:list=`kpi__increase__percentage ${statePercentageClass}`>{increasePercentage}%</span
+    >
+    <svg
+      class:list=`kpi__svg ${statePercentageClass}`
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path id='increasePercentageIconPath' d='M4 15L11 8L18 15H4Z'></path>
     </svg>
   </div>
   <p class='kpi__increase__frequency'>{increaseFrequencyText}</p>
@@ -59,11 +74,34 @@ const increaseFrequencyText = frequencyMap[increaseFrequency]
   }
 
   .kpi__increase__percentage {
-    color: #52d689;
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
     margin: 0;
+  }
+
+  .kpi__increase__percentage.positive {
+    color: #52d689;
+  }
+
+  .kpi__increase__percentage.negative {
+    color: #ff0000;
+  }
+
+  .kpi__svg.positive path {
+    fill: #52d689;
+  }
+
+  .kpi__svg.negative path {
+    fill: #ff0000;
+  }
+
+  .kpi__svg.positive {
+    transform: rotate(0deg);
+  }
+
+  .kpi__svg.negative {
+    transform: rotate(180deg);
   }
 
   .kpi__increase__frequency {
