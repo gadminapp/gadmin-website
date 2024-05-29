@@ -27,8 +27,8 @@ const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
 <div class='kpi'>
   <p class='kpi__message'>{message}</p>
   <span class='kpi__amount'>{amount}</span>
-  <div class='kpi__increase__container'>
-    <span class:list=`kpi__increase__percentage ${statePercentageClass}`>{increasePercentage}%</span
+  <div class='kpi__increase-container'>
+    <span class:list=`kpi__increase-percentage--${statePercentageClass}`>{increasePercentage}%</span
     >
     <svg
       class:list=`kpi__svg ${statePercentageClass}`
@@ -41,7 +41,7 @@ const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
       <path id='increasePercentageIconPath' d='M4 15L11 8L18 15H4Z'></path>
     </svg>
   </div>
-  <p class='kpi__increase__frequency'>{increaseFrequencyText}</p>
+  <p class='kpi__increase-frequency'>{increaseFrequencyText}</p>
 </div>
 
 <style>
@@ -68,23 +68,23 @@ const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
     margin: 0;
   }
 
-  .kpi__increase__container {
+  .kpi__increase-container {
     display: flex;
     align-items: center;
   }
 
-  .kpi__increase__percentage {
+  .kpi__increase-percentage {
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
     margin: 0;
   }
 
-  .kpi__increase__percentage.positive {
+  .kpi__increase-percentage--positive {
     color: #52d689;
   }
 
-  .kpi__increase__percentage.negative {
+  .kpi__increase-percentage--negative {
     color: #ff0000;
   }
 
@@ -104,7 +104,7 @@ const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
     transform: rotate(180deg);
   }
 
-  .kpi__increase__frequency {
+  .kpi__increase-frequency {
     font-weight: 400;
     font-size: 16px;
     line-height: 20px;
