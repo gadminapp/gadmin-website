@@ -1,6 +1,7 @@
 ---
 import SEO from '@/shared/components/SEO.astro'
 import type { Preload } from '@/shared/types/Preload'
+import 'aos/dist/aos.css'
 import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
@@ -36,6 +37,10 @@ const { title, description, preload, canonical, image } = Astro.props
   <body>
     <slot />
     <script>
+      import { aosInit } from '@/js/aos'
+
+      // runs on initial page load
+
       const handleScroll = () => {
         var scrolled = window.scrollY > 0
         document.body.classList.toggle('scrolled', scrolled)
@@ -48,6 +53,10 @@ const { title, description, preload, canonical, image } = Astro.props
       window.addEventListener('scroll', function () {
         handleScroll()
       })
+
+      aosInit()
+      document.addEventListener('astro:page-load', aosInit, { once: true })
+      document.addEventListener('astro:after-swap', aosInit)
     </script>
     <style is:global>
       :root {
