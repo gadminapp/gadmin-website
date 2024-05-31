@@ -1,14 +1,14 @@
 ---
-const { top, right, bottom, left } = Astro.props
+const { className, top, right, bottom, left } = Astro.props
 ---
 
 <div
-  class='float-container'
+  class:list=`float-container float-container--${className}`
   style={`
-    ${top !== undefined ? `top: ${top}px;` : ''}
-    ${bottom !== undefined && top === undefined ? `bottom: ${bottom}px;` : ''}
-    ${right !== undefined ? `right: ${right}px; left: auto;` : ''}
-    ${left !== undefined ? `left: ${left}px; right: auto;` : ''}
+    ${top !== undefined ? `top: ${top}rem;` : ''}
+    ${bottom !== undefined && top === undefined ? `bottom: ${bottom}rem;` : ''}
+    ${right !== undefined ? `right: ${right}rem; left: auto;` : ''}
+    ${left !== undefined ? `left: ${left}rem; right: auto;` : ''}
   `}
 >
   <div class='float-container__body'>
@@ -44,8 +44,20 @@ const { top, right, bottom, left } = Astro.props
     }
   }
 
+  @media screen and (max-width: 1050px) {
+    .float-container--kpi {
+      transform: translateY(-3rem);
+    }
+  }
+
+  @media screen and (max-width: 875px) {
+    .float-container--kpi {
+      transform: translateY(-6rem);
+    }
+  }
+
   @media screen and (max-height: 800px) {
-    .float-container {
+    .float-container--pushNotification {
       transform: translateY(4rem);
     }
   }
