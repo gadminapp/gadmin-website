@@ -46,7 +46,9 @@ const { title, description, preload, canonical, image } = Astro.props
       document.addEventListener('DOMContentLoaded', handleScroll)
       window.addEventListener('scroll', handleScroll)
 
-      const reinitAos = (timeout = 0) => {
+      aosInit()
+
+      const cleanClasses = () => {
         // Remove all animated elements to reanimate.
         const animatedElements = [
           ...document.querySelectorAll('.aos-animate'),
@@ -56,14 +58,14 @@ const { title, description, preload, canonical, image } = Astro.props
           animatedEl.classList.remove('aos-init')
           animatedEl.classList.remove('aos-animate')
         }
-        setTimeout(() => {
-          aosInit()
-        }, timeout)
       }
 
-      reinitAos()
       document.addEventListener('astro:after-swap', () => {
-        reinitAos(250)
+        cleanClasses()
+      })
+
+      document.addEventListener('astro:page-load', () => {
+        aosInit()
       })
     </script>
     <style is:global>
