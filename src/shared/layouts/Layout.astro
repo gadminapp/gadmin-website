@@ -2,8 +2,6 @@
 import SEO from '@/shared/components/SEO.astro'
 import type { Preload } from '@/shared/types/Preload'
 import 'aos/dist/aos.css'
-import { ViewTransitions } from 'astro:transitions'
-
 interface Props {
   title: string
   description: string
@@ -32,7 +30,6 @@ const { title, description, preload, canonical, image } = Astro.props
       rel='stylesheet preload prefetch'
       as='style'
     />
-    <ViewTransitions />
   </head>
   <body>
     <slot />
@@ -47,53 +44,6 @@ const { title, description, preload, canonical, image } = Astro.props
       window.addEventListener('scroll', handleScroll)
 
       aosInit()
-
-      const cleanClasses = (doc = window.document) => {
-        // Remove all animated elements to reanimate.
-        const animatedElements = [
-          ...doc.querySelectorAll('.aos-animate'),
-          ...doc.querySelectorAll('.aos-init'),
-        ]
-        for (const animatedEl of animatedElements) {
-          if (
-            ['nav-buttons', 'nav-logo', 'nav-links'].every(
-              (exception) => !animatedEl.classList.contains(exception)
-            )
-          ) {
-            animatedEl.classList.remove('aos-init')
-            animatedEl.classList.remove('aos-animate')
-          }
-        }
-        console.log('end cleanClasses')
-      }
-
-      document.addEventListener('astro:before-swap', (ev) => {
-        console.log('astro:before-swap')
-        cleanClasses(ev.newDocument)
-      })
-
-      document.addEventListener('astro:after-swap', () => {
-        console.log('astro:after-swap')
-        cleanClasses()
-      })
-
-      document.addEventListener('astro:page-load', () => {
-        console.log('astro:page-load')
-        const animatedElements = [
-          ...document.querySelectorAll('.aos-animate'),
-          ...document.querySelectorAll('.aos-init'),
-        ]
-        for (const animatedEl of animatedElements) {
-          if (
-            ['nav-buttons', 'nav-logo', 'nav-links'].every(
-              (exception) => !animatedEl.classList.contains(exception)
-            )
-          ) {
-            console.log(animatedEl.classList.toString())
-          }
-        }
-        aosInit()
-      })
     </script>
     <style is:global>
       :root {
