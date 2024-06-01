@@ -67,6 +67,11 @@ const { title, description, preload, canonical, image } = Astro.props
         console.log('end cleanClasses')
       }
 
+      document.addEventListener('astro:after-preparation', () => {
+        console.log('astro:after-preparation')
+        cleanClasses()
+      })
+
       document.addEventListener('astro:after-swap', () => {
         console.log('astro:after-swap')
         cleanClasses()
@@ -74,6 +79,19 @@ const { title, description, preload, canonical, image } = Astro.props
 
       document.addEventListener('astro:page-load', () => {
         console.log('astro:page-load')
+        const animatedElements = [
+          ...document.querySelectorAll('.aos-animate'),
+          ...document.querySelectorAll('.aos-init'),
+        ]
+        for (const animatedEl of animatedElements) {
+          if (
+            ['nav-buttons', 'nav-logo', 'nav-links'].every(
+              (exception) => !animatedEl.classList.contains(exception)
+            )
+          ) {
+            console.log(animatedEl.classList.toString())
+          }
+        }
         aosInit()
       })
     </script>
