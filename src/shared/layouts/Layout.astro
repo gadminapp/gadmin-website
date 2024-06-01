@@ -64,13 +64,16 @@ const { title, description, preload, canonical, image } = Astro.props
             animatedEl.classList.remove('aos-animate')
           }
         }
+        console.log('end cleanClasses')
       }
 
       document.addEventListener('astro:after-swap', () => {
+        console.log('astro:after-swap')
         cleanClasses()
       })
 
       document.addEventListener('astro:page-load', () => {
+        console.log('astro:page-load')
         aosInit()
       })
     </script>
