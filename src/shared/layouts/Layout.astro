@@ -55,8 +55,14 @@ const { title, description, preload, canonical, image } = Astro.props
           ...document.querySelectorAll('.aos-init'),
         ]
         for (const animatedEl of animatedElements) {
-          animatedEl.classList.remove('aos-init')
-          animatedEl.classList.remove('aos-animate')
+          if (
+            ['nav-buttons', 'nav-logo', 'nav-links'].every(
+              (exception) => !animatedEl.classList.contains(exception)
+            )
+          ) {
+            animatedEl.classList.remove('aos-init')
+            animatedEl.classList.remove('aos-animate')
+          }
         }
       }
 
