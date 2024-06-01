@@ -19,7 +19,7 @@ import { Image } from 'astro:assets'
           />
         </FloatContainer>
         <Image src={min} width={350} height={350} alt='Personaje de Gadmin' loading='eager' />
-        <FloatContainer className={'kpi'} top={25} right={0.125}>
+        <FloatContainer className={'kpi'} top={8} right={-4}>
           <KPI
             message={'Ventas del mes'}
             amount={1578}
@@ -133,7 +133,6 @@ import { Image } from 'astro:assets'
   .hero-cta {
     margin-top: 2rem;
   }
-
   @media screen and (max-width: 768px) {
     .hero {
       min-height: auto;

@@ -7,8 +7,8 @@ const { className, top, right, bottom, left } = Astro.props
   style={`
     ${top !== undefined ? `top: ${top}rem;` : ''}
     ${bottom !== undefined && top === undefined ? `bottom: ${bottom}rem;` : ''}
-    ${right !== undefined ? `right: ${right}rem; left: auto;` : ''}
-    ${left !== undefined ? `left: ${left}rem; right: auto;` : ''}
+    ${right !== undefined ? `right: ${right}rem; left: inherit;` : ''}
+    ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
   `}
 >
   <div class='float-container__body'>
@@ -25,10 +25,11 @@ const { className, top, right, bottom, left } = Astro.props
     transform: translateY(0px);
     transition: 0.2s ease transform;
     will-change: transform;
+    z-index: 1;
   }
 
   .float-container__body {
-    background-color: #062d4b;
+    background-color: #062d4bd9;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,21 +45,21 @@ const { className, top, right, bottom, left } = Astro.props
     }
   }
 
-  @media screen and (max-width: 1050px) {
-    .float-container--kpi {
-      transform: translateY(-3rem);
+  @media screen and (max-height: 719hpx) {
+    .float-container {
+      display: none;
     }
   }
 
-  @media screen and (max-width: 875px) {
+  @media screen and (max-width: 1050px) {
     .float-container--kpi {
-      transform: translateY(-6rem);
+      top: 18rem !important;
     }
   }
 
   @media screen and (max-height: 800px) {
     .float-container--pushNotification {
-      transform: translateY(4rem);
+      top: -2rem !important;
     }
   }
 </style>

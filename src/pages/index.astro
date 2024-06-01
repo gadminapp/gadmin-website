@@ -23,3 +23,32 @@ import Testimonials from '@/web/Testimonials.astro'
   <CTA />
   <Footer />
 </Layout>
+
+<style is:global>
+  .hero-image-container > img {
+    animation: levitate 6s ease-in-out infinite;
+  }
+  .float-container--pushNotification {
+    animation: levitate 12s ease-in-out infinite;
+  }
+  .float-container--kpi {
+    animation: levitate 12s ease-in-out infinite reverse;
+  }
+  @keyframes levitate {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(-1.25rem);
+    }
+    50% {
+      transform: translateY(0);
+    }
+    75% {
+      transform: translateY(-0.75rem);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
