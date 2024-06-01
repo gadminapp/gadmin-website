@@ -13,21 +13,23 @@ import Layout from '@/shared/layouts/Layout.astro'
   <Nav />
   <div class='pricing'>
     <div class='wrapper'>
-      <p class='pricing__section-name'>Precios</p>
-      <h1 class='pricing__title'>Planes para negocios de todos los tamaños</h1>
-      <h2 class='pricing__subtitle'>
+      <p class='pricing__section-name' data-aos='zoom-in'>Precios</p>
+      <h1 class='pricing__title' data-aos='fade-right'>
+        Planes para negocios de todos los tamaños
+      </h1>
+      <h2 class='pricing__subtitle' data-aos='fade-left'>
         Elija un plan asequible que incluya las mejores funciones para su tienda.
       </h2>
-      <div class='pricing__tabs-container'>
+      <div class='pricing__tabs-container' data-aos='flip-down'>
         <div class='pricing__tabs'>
           <div class='pricing__tab' data-tab='monthly'>Mensual</div>
           <div class='pricing__tab pricing__tab--selected' data-tab='yearly'>Anual (-30%)</div>
           <div class='pricing__tabs-background'></div>
         </div>
       </div>
-      <div class='pricing__cards-container'>
+      <div class='pricing__cards-container' data-aos='flip-left'>
         <div class='pricing__cards'>
-          <div class='pricing__card'>
+          <div class='pricing__card' data-aos='flip-left'>
             <h3 class='pricing__card-name'>Bronce 🤎</h3>
             <p class='pricing__card-description'>
               Perfecto para nuevos emprendimientos o tiendas de 1 solo producto estrella
@@ -68,7 +70,7 @@ import Layout from '@/shared/layouts/Layout.astro'
               </div>
             </div>
           </div>
-          <div class='pricing__card pricing__card--silver'>
+          <div class='pricing__card pricing__card--silver' data-aos='flip-up'>
             <div class='pricing__card-badge'>Recomendado</div>
             <h3 class='pricing__card-name'>Plata 🩶</h3>
             <p class='pricing__card-description'>
@@ -103,7 +105,7 @@ import Layout from '@/shared/layouts/Layout.astro'
               </div>
             </div>
           </div>
-          <div class='pricing__card'>
+          <div class='pricing__card' data-aos='flip-right'>
             <h3 class='pricing__card-name'>Oro 💛</h3>
             <p class='pricing__card-description'>
               Para grandes tiendas con alta demanda y catálogos extensos.

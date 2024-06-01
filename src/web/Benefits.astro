@@ -1,19 +1,69 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const revealElements = document.querySelectorAll('.benefit__amount')
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target.classList.contains('benefit__amount-ahorro')) {
+            animateCount(entry.target as HTMLElement, 0, 3500, 1500, '+$', ' USD')
+          } else if (entry.target.classList.contains('benefit__amount-incrementSales')) {
+            animateCount(entry.target as HTMLElement, 0, 90, 1500, '+', '%')
+          } else if (entry.target.classList.contains('benefit__amount-updates')) {
+            animateCount(entry.target as HTMLElement, 5000, 0, 1500, '$', '.00')
+          } else if (entry.target.classList.contains('benefit__amount-hoursSaved')) {
+            animateCount(entry.target as HTMLElement, 0, 300, 1500, '+')
+          }
+        }
+      })
+    })
+
+    revealElements.forEach((element) => {
+      observer.observe(element)
+    })
+  })
+
+  function animateCount(
+    element: HTMLElement,
+    start: number,
+    end: number,
+    duration: number,
+    prefix: string = '',
+    suffix: string = ''
+  ): void {
+    let startTime: number | null = null
+
+    function animation(currentTime: number): void {
+      if (startTime === null) startTime = currentTime
+      const timeElapsed = currentTime - startTime
+      const progress = Math.min(timeElapsed / duration, 1)
+      element.textContent = `${prefix}${Math.floor(progress * (end - start) + start).toString()}${suffix}`
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation)
+      }
+    }
+
+    requestAnimationFrame(animation)
+  }
+</script>
+
 <div class='benefits-container'>
   <div class='benefits wrapper'>
     <div class='benefit'>
-      <h2>+$3500 USD</h2>
+      <h2 class='benefit__amount benefit__amount-ahorro'>+$3500 USD</h2>
       <p>En ahorros de desarrollo y mantenimiento</p>
     </div>
     <div class='benefit'>
-      <h2>+90%</h2>
+      <h2 class='benefit__amount benefit__amount-incrementSales'>+90%</h2>
       <p>Incremento de las ventas en el primer trimestre</p>
     </div>
     <div class='benefit'>
-      <h2>$0.00</h2>
+      <h2 class='benefit__amount benefit__amount-updates'>$0.00</h2>
       <p>En actualizaciones y mejoras de tu tienda</p>
     </div>
-    <div class='benefit'>
-      <h2>+300</h2>
+    <div class='benefit counter'>
+      <h2 class='benefit__amount benefit__amount-hoursSaved'>+300</h2>
       <p>Horas ahorradas en la gestión de tu tienda</p>
     </div>
   </div>

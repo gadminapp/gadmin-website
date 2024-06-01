@@ -1,8 +1,7 @@
 ---
 import SEO from '@/shared/components/SEO.astro'
 import type { Preload } from '@/shared/types/Preload'
-import { ViewTransitions } from 'astro:transitions'
-
+import 'aos/dist/aos.css'
 interface Props {
   title: string
   description: string
@@ -31,23 +30,20 @@ const { title, description, preload, canonical, image } = Astro.props
       rel='stylesheet preload prefetch'
       as='style'
     />
-    <ViewTransitions />
   </head>
   <body>
     <slot />
     <script>
+      import { aosInit } from '@/js/aos'
+
       const handleScroll = () => {
         var scrolled = window.scrollY > 0
         document.body.classList.toggle('scrolled', scrolled)
       }
+      document.addEventListener('DOMContentLoaded', handleScroll)
+      window.addEventListener('scroll', handleScroll)
 
-      document.addEventListener('DOMContentLoaded', () => {
-        handleScroll()
-      })
-
-      window.addEventListener('scroll', function () {
-        handleScroll()
-      })
+      aosInit()
     </script>
     <style is:global>
       :root {

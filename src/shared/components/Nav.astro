@@ -11,15 +11,15 @@ import XMark from './icons/X-Mark.astro'
     <div class='nav-mobile-toggle'>
       <Menu size={32} color='#EBEBEB' />
     </div>
-    <div class='nav-links'>
+    <div class='nav-links' data-aos='fade-left'>
       <a href='/learn' class='nav-link nav-link--tutorials'> Tutoriales </a>
       <a href='/pricing' class='nav-link'> Planes y precios </a>
     </div>
-    <a href='/' class='nav-logo'>
+    <a href='/' class='nav-logo' data-aos='zoom-in'>
       <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
       <p class='nav-logo-title'>Gadmin</p>
     </a>
-    <div class='nav-buttons'>
+    <div class='nav-buttons' data-aos='fade-right'>
       <Button
         classes='hide-on-mobile'
         href='https://stores.gadmin.app/login'
