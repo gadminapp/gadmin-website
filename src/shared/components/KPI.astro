@@ -1,0 +1,109 @@
+---
+interface Props {
+  message: string
+  amount: number
+  increasePercentage: number
+  increaseFrequency: 'weekly' | 'monthly' | 'yearly'
+}
+
+const { message, amount, increasePercentage, increaseFrequency }: Props = Astro.props
+
+const frequencyMap: Record<'weekly' | 'monthly' | 'yearly', string> = {
+  weekly: 'Semana pasada',
+  monthly: 'Mes pasado',
+  yearly: 'Año pasado',
+}
+
+const increaseFrequencyText = frequencyMap[increaseFrequency]
+
+const statePercentageClass = increasePercentage > 0 ? 'positive' : 'negative'
+---
+
+<script>
+  const increasePercentageIconPathElement = document.getElementById('increasePercentageIconPath')
+  increasePercentageIconPathElement?.setAttribute('fill', 'black')
+</script>
+
+<div class='kpi'>
+  <p class='kpi__message'>{message}</p>
+  <span class='kpi__amount'>{amount}</span>
+  <div class='kpi__increase-container'>
+    <span class:list=`kpi__increase-percentage--${statePercentageClass}`>{increasePercentage}%</span
+    >
+    <svg
+      class:list=`kpi__svg--${statePercentageClass}`
+      width='24'
+      height='24'
+      viewBox='0 0 24 24'
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+    >
+      <path id='increasePercentageIconPath' d='M4 15L11 8L18 15H4Z'></path>
+    </svg>
+  </div>
+  <p class='kpi__increase-frequency'>{increaseFrequencyText}</p>
+</div>
+
+<style>
+  .kpi {
+    display: flex;
+    flex-direction: column;
+    padding-right: 2.3rem;
+  }
+
+  .kpi__message {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #eff9ff;
+    margin: 0;
+  }
+
+  .kpi__amount {
+    font-weight: 600;
+    font-size: 2rem;
+    color: #eff9ff;
+    margin: 0;
+  }
+
+  .kpi__increase-container {
+    display: flex;
+    align-items: center;
+  }
+
+  .kpi__increase-percentage {
+    font-weight: 400;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .kpi__increase-percentage--positive {
+    color: #52d689;
+  }
+
+  .kpi__increase-percentage--negative {
+    color: #ff0000;
+  }
+
+  .kpi__svg--positive path {
+    fill: #52d689;
+  }
+
+  .kpi__svg--negative path {
+    fill: #ff0000;
+  }
+
+  .kpi__svg--positive {
+    transform: rotate(0deg);
+  }
+
+  .kpi__svg--negative {
+    transform: rotate(180deg);
+  }
+
+  .kpi__increase-frequency {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #b8e5ffbf;
+    margin: 0;
+  }
+</style>

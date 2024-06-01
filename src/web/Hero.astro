@@ -2,6 +2,7 @@
 import min from '@/assets/img/min.webp'
 import Button from '@/shared/components/Button.astro'
 import FloatContainer from '@/shared/components/FloatContainer.astro'
+import KPI from '@/shared/components/KPI.astro'
 import PushNotification from '@/shared/components/PushNotification.astro'
 import { Image } from 'astro:assets'
 ---
@@ -10,7 +11,7 @@ import { Image } from 'astro:assets'
   <div class='wrapper hero-grid'>
     <div class='hero-image'>
       <div class='hero-image-container'>
-        <FloatContainer top={-95} left={50}>
+        <FloatContainer className={'pushNotification'} top={-5.5} left={2.125}>
           <PushNotification
             appName={'Gadmin App'}
             displayTime={'Hace 1 minuto'}
@@ -18,6 +19,14 @@ import { Image } from 'astro:assets'
           />
         </FloatContainer>
         <Image src={min} width={350} height={350} alt='Personaje de Gadmin' loading='eager' />
+        <FloatContainer className={'kpi'} top={25} right={0.125}>
+          <KPI
+            message={'Ventas del mes'}
+            amount={1578}
+            increasePercentage={200}
+            increaseFrequency={'yearly'}
+          />
+        </FloatContainer>
       </div>
     </div>
     <div class='hero-content'>
