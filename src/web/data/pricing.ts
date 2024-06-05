@@ -12,13 +12,13 @@ export const pricingByBilling = {
   },
   yearly: {
     bronze: {
-      price: 7,
+      price: 84,
     },
     silver: {
-      price: 14,
+      price: 168,
     },
     gold: {
-      price: 34.3,
+      price: 410,
     },
   },
 }

@@ -22,8 +22,8 @@ import Layout from '@/shared/layouts/Layout.astro'
       </h2>
       <div class='pricing__tabs-container' data-aos='flip-down'>
         <div class='pricing__tabs'>
-          <div class='pricing__tab' data-tab='monthly'>Mensual</div>
-          <div class='pricing__tab pricing__tab--selected' data-tab='yearly'>Anual (-30%)</div>
+          <div class='pricing__tab pricing__tab--selected' data-tab='monthly'>Mensual</div>
+          <div class='pricing__tab' data-tab='yearly'>Anual (-30%)</div>
           <div class='pricing__tabs-background'></div>
         </div>
       </div>
@@ -32,14 +32,14 @@ import Layout from '@/shared/layouts/Layout.astro'
           <div class='pricing__card' data-aos='flip-left'>
             <h3 class='pricing__card-name'>Bronce 🤎</h3>
             <p class='pricing__card-description'>
-              Perfecto para nuevos emprendimientos o tiendas de 1 solo producto estrella
+              Perfecto para nuevos emprendimientos o tiendas de 1 solo producto estrella.
             </p>
             <div class='pricing__card-price'>
-              <div id='price-bronze' class='pricing__card-price-value'>$7</div>
-              <div class='pricing__card-price-billing'>/mes</div>
+              <div id='price-bronze' class='pricing__card-price-value'>$84</div>
+              <div id='price-bronze-billing' class='pricing__card-price-billing'>/mes</div>
             </div>
             <div class='pricing__card-price-helper'>
-              Total: <span id='price-bronze-total'>$87</span> pagado anualmente.
+              <span id='price-bronze-before'>$120</span>
             </div>
             <Button
               mode='default'
@@ -77,11 +77,11 @@ import Layout from '@/shared/layouts/Layout.astro'
               Ideal para tiendas de nicho y negocios que buscan escalar.
             </p>
             <div class='pricing__card-price'>
-              <div id='price-silver' class='pricing__card-price-value'>$14</div>
-              <div class='pricing__card-price-billing'>/mes</div>
+              <div id='price-silver' class='pricing__card-price-value'>$168</div>
+              <div id='price-silver-billing' class='pricing__card-price-billing'>/mes</div>
             </div>
             <div class='pricing__card-price-helper'>
-              Total: <span id='price-silver-total'>$168</span> pagado anualmente.
+              <span id='price-silver-before'>$240</span>
             </div>
             <Button mode='default' href='https://stores.gadmin.app/login' target='_blank'
               >Inicia prueba de 14 días gratis</Button
@@ -112,11 +112,11 @@ import Layout from '@/shared/layouts/Layout.astro'
             </p>
 
             <div class='pricing__card-price'>
-              <div id='price-gold' class='pricing__card-price-value'>$34.3</div>
-              <div class='pricing__card-price-billing'>/mes</div>
+              <div id='price-gold' class='pricing__card-price-value'>$411.6</div>
+              <div id='price-gold-billing' class='pricing__card-price-billing'>/año</div>
             </div>
             <div class='pricing__card-price-helper'>
-              Total: <span id='price-gold-total'>$411.60</span> pagado anualmente.
+              <span id='price-gold-before'>$588</span>
             </div>
             <Button
               mode='default'
@@ -293,6 +293,8 @@ import Layout from '@/shared/layouts/Layout.astro'
     margin: 0;
     padding-bottom: 1.5rem;
     color: var(--neutral-08);
+    text-decoration-line: line-through;
+    text-decoration-color: var(--primary);
     transition:
       0.2s ease opacity,
       0.2s ease padding-bottom;
@@ -409,6 +411,7 @@ import Layout from '@/shared/layouts/Layout.astro'
         // * Modify Pricing Data
         const billingType = target?.dataset?.tab as 'monthly' | 'yearly'
         const pricing = pricingByBilling[billingType]
+        const monthlyPricing = pricingByBilling['monthly']
 
         const pricingCards = document.querySelector('.pricing__cards')
         if (pricingCards) {
@@ -419,29 +422,41 @@ import Layout from '@/shared/layouts/Layout.astro'
 
         // * Bronze
         const bronzePrice = document.getElementById('price-bronze')
-        const bronzeTotalPrice = document.getElementById('price-bronze-total')
+        const bronzeBilling = document.getElementById('price-bronze-billing')
+        const bronzeBeforePrice = document.getElementById('price-bronze-before')
 
-        if (bronzePrice && bronzeTotalPrice) {
-          bronzePrice.innerText = `$${pricing.bronze.price.toFixed(2)}`
-          bronzeTotalPrice.innerText = `$${(pricing.bronze.price * 12).toFixed(2)}`
+        if (bronzePrice && bronzeBeforePrice && bronzeBilling) {
+          const price = pricing.bronze.price
+          bronzePrice.innerText = `$${parseFloat(price.toFixed(2))}`
+          bronzeBeforePrice.innerText = `$${monthlyPricing.bronze.price * 12}/año`
+
+          bronzeBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
         }
 
         // * Silver
         const silverPrice = document.getElementById('price-silver')
-        const silverTotalPrice = document.getElementById('price-silver-total')
+        const silverBilling = document.getElementById('price-silver-billing')
+        const silverBeforePrice = document.getElementById('price-silver-before')
 
-        if (silverPrice && silverTotalPrice) {
-          silverPrice.innerText = `$${pricing.silver.price.toFixed(2)}`
-          silverTotalPrice.innerText = `$${(pricing.silver.price * 12).toFixed(2)}`
+        if (silverPrice && silverBeforePrice && silverBilling) {
+          const price = pricing.silver.price
+          silverPrice.innerText = `$${parseFloat(price.toFixed(2))}`
+          silverBeforePrice.innerText = `$${monthlyPricing.silver.price * 12}/año`
+
+          silverBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
         }
 
         // * Gold
         const goldPrice = document.getElementById('price-gold')
-        const goldTotalPrice = document.getElementById('price-gold-total')
+        const goldBilling = document.getElementById('price-gold-billing')
+        const goldBeforePrice = document.getElementById('price-gold-before')
 
-        if (goldPrice && goldTotalPrice) {
-          goldPrice.innerText = `$${pricing.gold.price.toFixed(2)}`
-          goldTotalPrice.innerText = `$${(pricing.gold.price * 12).toFixed(2)}`
+        if (goldPrice && goldBeforePrice && goldBilling) {
+          const price = pricing.gold.price
+          goldPrice.innerText = `$${parseFloat(price.toFixed(2))}`
+          goldBeforePrice.innerText = `$${monthlyPricing.gold.price * 12}/año`
+
+          goldBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
         }
       }
     }
