@@ -232,11 +232,10 @@ import XMark from './icons/X-Mark.astro'
     }
   }
 
+  const menuMobile = document.querySelector('.nav__menu')
+  if (menuMobile) {
+    menuMobile.classList.add('nav__menu--hidden')
+  }
+
   document.addEventListener('astro:page-load', initToggles, { once: true })
-  document.addEventListener('astro:before-swap', () => {
-    const menuMobile = document.querySelector('.nav__menu')
-    if (menuMobile) {
-      menuMobile.classList.add('nav__menu--hidden')
-    }
-  })
 </script>
