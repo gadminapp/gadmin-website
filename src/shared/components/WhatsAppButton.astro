@@ -13,20 +13,26 @@ const { top, right, bottom, left } = Astro.props
 ---
 
 <script>
-  const button = document.getElementById('whatsAppButton')
+  const whatsApp = document.getElementById('whatsApp')
   const buttonIconContainer = document.getElementById('iconContainer')
   const whatsAppIcon = document.getElementById('whatsAppIcon')
   const whatsAppXmark = document.getElementById('whatsAppXmark')
-  button?.addEventListener('click', () => {
-    buttonIconContainer?.classList.toggle('whatsApp__icon-container-activate')
-    whatsAppIcon?.classList.toggle('whatsApp__icon-close')
-    whatsAppXmark?.classList.toggle('whatsApp__icon-close')
+
+  buttonIconContainer?.addEventListener('click', () => {
+    whatsApp?.classList.toggle('whatsApp-open')
+    if (whatsApp?.classList.contains('whatsApp-open')) {
+      whatsAppIcon?.classList.add('whatsApp__icon-close')
+      whatsAppXmark?.classList.remove('whatsApp__icon-close')
+    } else {
+      whatsAppIcon?.classList.remove('whatsApp__icon-close')
+      whatsAppXmark?.classList.add('whatsApp__icon-close')
+    }
   })
 </script>
 
 <div
-  id='whatsAppButton'
-  class='whatsApp'
+  id='whatsApp'
+  class='whatsApp whatsApp-open'
   style={`
   ${top !== undefined ? `top: ${top}rem;` : ''}
   ${bottom !== undefined && top === undefined ? `bottom: ${bottom}rem;` : ''}
@@ -59,10 +65,13 @@ const { top, right, bottom, left } = Astro.props
   }
 
   .whatsApp__text-container {
-    transition: all 0.4s ease;
     opacity: 0;
     display: flex;
     flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.733);
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: all 0.4s ease;
   }
 
   .whatsApp:hover .whatsApp__text-container {
@@ -71,7 +80,6 @@ const { top, right, bottom, left } = Astro.props
 
   .whatsApp__text {
     font-size: 0.9rem;
-    color: white;
     font-weight: 300;
     text-align: center;
   }
@@ -87,13 +95,13 @@ const { top, right, bottom, left } = Astro.props
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 53px;
-    height: 53px;
+    width: 56px;
+    height: 56px;
     transform: rotate(0deg);
     transition: all 0.3s ease;
   }
 
-  .whatsApp__icon-container-activate {
+  .whatsApp-open .whatsApp__icon-container {
     transform: rotate(360deg);
   }
 
