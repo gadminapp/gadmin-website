@@ -1,0 +1,33 @@
+---
+import WhatsAppIcon from './icons/WhatsApp.astro'
+//import XMark from './icons/X-Mark.astro'
+
+interface Props {
+  message?: string
+  top?: number
+  right?: number
+  bottom?: number
+  left?: number
+}
+
+const { message, top, right, bottom, left } = Astro.props
+---
+
+<div
+  class='whatsApp'
+  style={`
+  ${top !== undefined ? `top: ${top}rem;` : ''}
+  ${bottom !== undefined && top === undefined ? `bottom: ${bottom}rem;` : ''}
+  ${right !== undefined ? `right: ${right}rem; left: inherit;` : ''}
+  ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
+`}
+>
+  <div class='whatsApp__text'>{message}</div>
+  <WhatsAppIcon size={32} color='#EBEBEB' />
+</div>
+
+<style>
+  .whatsApp {
+    position: fixed;
+  }
+</style>
