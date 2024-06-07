@@ -1,6 +1,6 @@
 ---
 import WhatsAppIcon from './icons/WhatsApp.astro'
-//import XMark from './icons/X-Mark.astro'
+import XMark from './icons/X-Mark.astro'
 
 interface Props {
   top?: number
@@ -12,7 +12,20 @@ interface Props {
 const { top, right, bottom, left } = Astro.props
 ---
 
+<script>
+  const button = document.getElementById('whatsAppButton')
+  const buttonIconContainer = document.getElementById('iconContainer')
+  const whatsAppIcon = document.getElementById('whatsAppIcon')
+  const whatsAppXmark = document.getElementById('whatsAppXmark')
+  button?.addEventListener('click', () => {
+    buttonIconContainer?.classList.toggle('whatsApp__icon-container-activate')
+    whatsAppIcon?.classList.toggle('whatsApp__icon-close')
+    whatsAppXmark?.classList.toggle('whatsApp__icon-close')
+  })
+</script>
+
 <div
+  id='whatsAppButton'
   class='whatsApp'
   style={`
   ${top !== undefined ? `top: ${top}rem;` : ''}
@@ -25,8 +38,13 @@ const { top, right, bottom, left } = Astro.props
     <span class='whatsApp__text whatsApp__text-question'>¿Necesitas ayuda?</span>
     <span class='whatsApp__text whatsApp__text-answer'>Habla con nosotros</span>
   </div>
-  <div class='whatsApp__icon-container'>
-    <WhatsAppIcon size={40} color='#FFFFFF' />
+  <div id='iconContainer' class='whatsApp__icon-container'>
+    <div id='whatsAppIcon' class='whatsApp__icon'>
+      <WhatsAppIcon size={40} color='#FFFFFF' />
+    </div>
+    <div id='whatsAppXmark' class='whatsApp__icon whatsApp__icon-close'>
+      <XMark size={40} color='#FFFFFF' />
+    </div>
   </div>
 </div>
 
@@ -38,6 +56,17 @@ const { top, right, bottom, left } = Astro.props
     justify-content: center;
     gap: 10px;
     cursor: pointer;
+  }
+
+  .whatsApp__text-container {
+    transition: all 0.4s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .whatsApp:hover .whatsApp__text-container {
+    opacity: 1;
   }
 
   .whatsApp__text {
@@ -52,21 +81,31 @@ const { top, right, bottom, left } = Astro.props
   }
 
   .whatsApp__icon-container {
-    padding: 0.5rem;
     background-color: #2db742;
     border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 53px;
+    height: 53px;
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+  }
+
+  .whatsApp__icon-container-activate {
+    transform: rotate(360deg);
+  }
+
+  .whatsApp__icon {
+    position: absolute;
     display: grid;
     align-content: center;
+    transform: scale(1);
+    transition: transform 0.3s ease;
   }
 
-  .whatsApp__text-container {
-    transition: all 0.4s ease;
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .whatsApp:hover .whatsApp__text-container {
-    opacity: 1;
+  .whatsApp__icon-close {
+    transform: scale(0);
   }
 </style>
