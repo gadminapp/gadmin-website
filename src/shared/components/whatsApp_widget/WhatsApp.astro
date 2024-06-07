@@ -1,0 +1,37 @@
+---
+import WhatsAppButton from './WhatsAppButton.astro'
+
+interface Props {
+  top?: number
+  right?: number
+  bottom?: number
+  left?: number
+}
+
+const { top, right, bottom, left } = Astro.props
+---
+
+<div
+  class='whatsApp'
+  style={`
+  ${top !== undefined ? `top: ${top}rem;` : ''}
+  ${bottom !== undefined && top === undefined ? `bottom: ${bottom}rem;` : ''}
+  ${right !== undefined ? `right: ${right}rem; left: inherit;` : ''}
+  ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
+`}
+>
+  <div class='whatsApp__button-container'>
+    <WhatsAppButton />
+  </div>
+</div>
+
+<style>
+  .whatsApp {
+    position: fixed;
+    background-color: aqua;
+  }
+  .whatsApp__button-container {
+    display: flex;
+    justify-content: center;
+  }
+</style>

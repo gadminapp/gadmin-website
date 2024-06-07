@@ -1,15 +1,6 @@
 ---
-import WhatsAppIcon from './icons/WhatsApp.astro'
-import XMark from './icons/X-Mark.astro'
-
-interface Props {
-  top?: number
-  right?: number
-  bottom?: number
-  left?: number
-}
-
-const { top, right, bottom, left } = Astro.props
+import WhatsAppIcon from '../icons/WhatsApp.astro'
+import XMark from '../icons/X-Mark.astro'
 ---
 
 <script>
@@ -20,6 +11,11 @@ const { top, right, bottom, left } = Astro.props
 
   buttonIconContainer?.addEventListener('click', () => {
     whatsApp?.classList.toggle('whatsApp-open')
+    updateState()
+  })
+
+  function updateState() {
+    console.log('aaa')
     if (whatsApp?.classList.contains('whatsApp-open')) {
       whatsAppIcon?.classList.add('whatsApp__icon-close')
       whatsAppXmark?.classList.remove('whatsApp__icon-close')
@@ -27,19 +23,10 @@ const { top, right, bottom, left } = Astro.props
       whatsAppIcon?.classList.remove('whatsApp__icon-close')
       whatsAppXmark?.classList.add('whatsApp__icon-close')
     }
-  })
+  }
 </script>
 
-<div
-  id='whatsApp'
-  class='whatsApp whatsApp-open'
-  style={`
-  ${top !== undefined ? `top: ${top}rem;` : ''}
-  ${bottom !== undefined && top === undefined ? `bottom: ${bottom}rem;` : ''}
-  ${right !== undefined ? `right: ${right}rem; left: inherit;` : ''}
-  ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
-`}
->
+<div id='whatsApp' class='whatsApp'>
   <div class='whatsApp__text-container'>
     <span class='whatsApp__text whatsApp__text-question'>¿Necesitas ayuda?</span>
     <span class='whatsApp__text whatsApp__text-answer'>Habla con nosotros</span>
