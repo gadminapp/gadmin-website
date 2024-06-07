@@ -3,14 +3,13 @@ import WhatsAppIcon from './icons/WhatsApp.astro'
 //import XMark from './icons/X-Mark.astro'
 
 interface Props {
-  message?: string
   top?: number
   right?: number
   bottom?: number
   left?: number
 }
 
-const { message, top, right, bottom, left } = Astro.props
+const { top, right, bottom, left } = Astro.props
 ---
 
 <div
@@ -22,12 +21,52 @@ const { message, top, right, bottom, left } = Astro.props
   ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
 `}
 >
-  <div class='whatsApp__text'>{message}</div>
-  <WhatsAppIcon size={32} color='#EBEBEB' />
+  <div class='whatsApp__text-container'>
+    <span class='whatsApp__text whatsApp__text-question'>¿Necesitas ayuda?</span>
+    <span class='whatsApp__text whatsApp__text-answer'>Habla con nosotros</span>
+  </div>
+  <div class='whatsApp__icon-container'>
+    <WhatsAppIcon size={40} color='#FFFFFF' />
+  </div>
 </div>
 
 <style>
   .whatsApp {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .whatsApp__text {
+    font-size: 0.9rem;
+    color: white;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .whatsApp__text-answer {
+    font-weight: bold;
+  }
+
+  .whatsApp__icon-container {
+    padding: 0.5rem;
+    background-color: #2db742;
+    border-radius: 100%;
+    display: grid;
+    align-content: center;
+  }
+
+  .whatsApp__text-container {
+    transition: all 0.4s ease;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .whatsApp:hover .whatsApp__text-container {
+    opacity: 1;
   }
 </style>
