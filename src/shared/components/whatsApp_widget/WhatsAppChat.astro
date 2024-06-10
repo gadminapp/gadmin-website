@@ -6,18 +6,21 @@ interface Props {
   description: string
   icon: string
   iconAlt: string
+  isActive: boolean
 }
 
-const { chatName, description, icon, iconAlt } = Astro.props
+const { chatName, description, icon, iconAlt, isActive } = Astro.props
+const chatActiveClass = isActive ? 'chat-active' : 'chat-inactive'
 ---
 
-<a class='chat'>
+<a class=`chat ${chatActiveClass}`>
   <div class='chat__content'>
     <img class='chat__icon' src={icon} width={45} height={45} alt={iconAlt} />
 
     <div class='chat__name-container'>
       <span class='chat__name'>{chatName}</span>
       <span class='chat__description'>{description}</span>
+      <span class='chat__comeback'>Volveré pronto</span>
     </div>
     <div class='chat__whatsAppIcon'>
       <WhatsAppIcon size={27} color='#2db742' />
@@ -30,15 +33,22 @@ const { chatName, description, icon, iconAlt } = Astro.props
     width: 100%;
     height: 70px;
     background-color: #989b9f23;
-    border-left: 2px solid #2db742;
     border-bottom-left-radius: 4px;
     transition: all 0.3s ease;
-    cursor: pointer;
   }
 
-  .chat:hover {
+  .chat-active {
+    border-left: 2px solid #2db742;
+  }
+
+  .chat-inactive {
+    border-left: 2px solid #c2c2c2;
+  }
+
+  .chat-active.chat:hover {
     background-color: white;
     box-shadow: 0 5px 10px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
   }
 
   .chat__content {
@@ -68,6 +78,17 @@ const { chatName, description, icon, iconAlt } = Astro.props
   .chat__description {
     font-size: 0.75rem;
     font-weight: 200;
+  }
+
+  .chat__comeback {
+    font-size: 0.65rem;
+    font-weight: 400;
+    color: #f5a623;
+    display: none;
+  }
+
+  .chat-inactive .chat__comeback {
+    display: block;
   }
 
   .chat__whatsAppIcon {
