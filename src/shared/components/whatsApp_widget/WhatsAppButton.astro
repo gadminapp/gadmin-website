@@ -17,13 +17,13 @@ const { top, right, bottom, left } = Astro.props
   const whatsAppIcon = document.getElementById('whatsAppIcon')
   const whatsAppXmark = document.getElementById('whatsAppXmark')
 
-  import { setCard, setState } from './state'
+  import { setState, updateCard } from './state'
 
   whatsApp?.addEventListener('click', () => {
     const state = setState()
     updateButtonClass(state)
     updateIcons(state)
-    setCard()
+    updateCard()
   })
 
   function updateButtonClass(state: boolean) {

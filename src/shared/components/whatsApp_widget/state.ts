@@ -15,7 +15,7 @@ export function setIcons(updateIcons: void) {
   updateIcons
 }
 
-export function setCard() {
+export function updateCard() {
   if (state) {
     card?.classList.remove('card-close')
   } else {
