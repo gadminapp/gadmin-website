@@ -3,33 +3,38 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
 import XMark from '../icons/X-Mark.astro'
 
 interface Props {
-  className?: string
   top?: number
   right?: number
   bottom?: number
   left?: number
 }
 
-const { className, top, right, bottom, left } = Astro.props
+const { top, right, bottom, left } = Astro.props
 ---
 
 <script>
-  const whatsApp = document.getElementById('whatsApp')
-  const buttonIconContainer = document.getElementById('iconContainer')
+  const whatsApp = document.getElementById('whatsApp-button')
   const whatsAppIcon = document.getElementById('whatsAppIcon')
   const whatsAppXmark = document.getElementById('whatsAppXmark')
 
-  import { myFunction } from './connection'
+  import { setState } from './state'
 
-  buttonIconContainer?.addEventListener('click', () => {
-    whatsApp?.classList.toggle('whatsApp-open')
-    updateState()
-    myFunction()
+  whatsApp?.addEventListener('click', () => {
+    const state = setState()
+    updateButtonClass(state)
+    updateIcons(state)
   })
 
-  function updateState() {
-    console.log('aaa')
-    if (whatsApp?.classList.contains('whatsApp-open')) {
+  function updateButtonClass(state: boolean) {
+    if (state) {
+      whatsApp?.classList.add('whatsApp-open')
+    } else {
+      whatsApp?.classList.remove('whatsApp-open')
+    }
+  }
+
+  function updateIcons(state: boolean) {
+    if (state) {
       whatsAppIcon?.classList.add('whatsApp__icon-close')
       whatsAppXmark?.classList.remove('whatsApp__icon-close')
     } else {
@@ -40,8 +45,8 @@ const { className, top, right, bottom, left } = Astro.props
 </script>
 
 <div
-  id='whatsApp'
-  class=`whatsApp ${className}`
+  id='whatsApp-button'
+  class=`whatsApp`
   style={`
   ${top !== undefined ? `top: ${top}rem;` : ''}
   ${bottom !== undefined && top === undefined ? `bottom: ${bottom}rem;` : ''}
@@ -53,7 +58,7 @@ const { className, top, right, bottom, left } = Astro.props
     <span class='whatsApp__text whatsApp__text-question'>¿Necesitas ayuda?</span>
     <span class='whatsApp__text whatsApp__text-answer'>Habla con nosotros</span>
   </div>
-  <div id='iconContainer' class='whatsApp__icon-container'>
+  <div class='whatsApp__icon-container'>
     <div id='whatsAppIcon' class='whatsApp__icon'>
       <WhatsAppIcon size={40} color='#FFFFFF' />
     </div>
