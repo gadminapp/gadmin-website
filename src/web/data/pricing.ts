@@ -7,7 +7,7 @@ export const pricingByBilling = {
       price: 20,
     },
     gold: {
-      price: 49,
+      price: 99,
     },
   },
   yearly: {
@@ -18,7 +18,7 @@ export const pricingByBilling = {
       price: 168,
     },
     gold: {
-      price: 410,
+      price: 832,
     },
   },
 }
