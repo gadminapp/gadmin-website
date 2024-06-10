@@ -1,5 +1,6 @@
 ---
 import WhatsAppButton from './WhatsAppButton.astro'
+import WhatsAppCard from './WhatsAppCard.astro'
 
 interface Props {
   top?: number
@@ -11,6 +12,14 @@ interface Props {
 const { top, right, bottom, left } = Astro.props
 ---
 
+<script>
+  const button = document.getElementById('button')
+  const whatsAppButton = document.querySelector('.whatsAppButton')
+  button?.addEventListener('click', () => {
+    whatsAppButton?.classList.toggle('whatsApp-open')
+  })
+</script>
+
 <div
   class='whatsApp'
   style={`
@@ -20,15 +29,18 @@ const { top, right, bottom, left } = Astro.props
   ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
 `}
 >
-  <div class='whatsApp__button-container'>
-    <WhatsAppButton />
+  <div class='whatsApp__button-container' id='button'>
+    <WhatsAppButton className='whatsAppButton' bottom={2} right={2} />
+  </div>
+  <div class='whatsApp__card-container'>
+    <WhatsAppCard />
   </div>
 </div>
 
 <style>
   .whatsApp {
     position: fixed;
-    background-color: aqua;
+    z-index: 100;
   }
   .whatsApp__button-container {
     display: flex;
