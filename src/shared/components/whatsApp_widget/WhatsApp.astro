@@ -1,6 +1,9 @@
 ---
+import ceo from '@/assets/img/ceo.webp'
+import logoBg from '@/assets/img/logo-bg.webp'
 import WhatsAppButton from './WhatsAppButton.astro'
 import WhatsAppCard from './WhatsAppCard.astro'
+import WhatsAppChat from './WhatsAppChat.astro'
 
 interface Props {
   top?: number
@@ -33,7 +36,20 @@ const { top, right, bottom, left } = Astro.props
     <WhatsAppButton bottom={2} right={2} />
   </div>
   <div class='whatsApp__card-container'>
-    <WhatsAppCard />
+    <WhatsAppCard>
+      <WhatsAppChat
+        chatName='Atención al cliente'
+        description='Siempre que nos necesites'
+        icon={logoBg.src}
+        iconAlt='Logo de Gadmin'
+      />
+      <WhatsAppChat
+        chatName='Orlando Briceño'
+        description='Director general'
+        icon={ceo.src}
+        iconAlt='Foto CEO'
+      />
+    </WhatsAppCard>
   </div>
 </div>
 

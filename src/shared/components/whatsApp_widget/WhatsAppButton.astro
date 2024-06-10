@@ -17,12 +17,13 @@ const { top, right, bottom, left } = Astro.props
   const whatsAppIcon = document.getElementById('whatsAppIcon')
   const whatsAppXmark = document.getElementById('whatsAppXmark')
 
-  import { setState } from './state'
+  import { setCard, setState } from './state'
 
   whatsApp?.addEventListener('click', () => {
     const state = setState()
     updateButtonClass(state)
     updateIcons(state)
+    setCard()
   })
 
   function updateButtonClass(state: boolean) {
@@ -91,6 +92,11 @@ const { top, right, bottom, left } = Astro.props
 
   .whatsApp:hover .whatsApp__text-container {
     opacity: 1;
+  }
+
+  .whatsApp-open .whatsApp__text-container {
+    transform: translateY(30px);
+    opacity: 0 !important;
   }
 
   .whatsApp__text {

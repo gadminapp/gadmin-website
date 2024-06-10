@@ -2,7 +2,7 @@
 import WhatsAppIcon from '../icons/WhatsApp.astro'
 ---
 
-<div class='card' id='whatsApp-card'>
+<div class='card card-close' id='whatsApp-card'>
   <header class='card__header'>
     <div class='card__header__icon'>
       <WhatsAppIcon size={50} color='#ffffff' />
@@ -14,20 +14,40 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
         ¡Hola! Haga clic en uno de nuestros miembros a continuación para chatear en <span
           class='card__header__text__strong'
         >
-          WhatsApp</span
-        >;)
+          WhatsApp ;)</span
+        >
       </p>
     </div>
   </header>
+  <section class='card__content'>
+    <span class='card__teamReplies'>El equipo suele responder en unos minutos.</span>
+    <div class='card__chats'>
+      <slot />
+    </div>
+  </section>
 </div>
 
 <style>
   .card {
     position: relative;
-    width: 400px;
-    height: 500px;
+    max-width: 350px;
+    min-height: 450px;
+    margin-left: 2rem;
     background-color: white;
     border-radius: 10px;
+    opacity: 1;
+    transform: translateY(-70px);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 10px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .card:hover {
+    box-shadow: 0 10px 10px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-close {
+    transform: translateY(130px);
+    opacity: 0;
   }
 
   .card__header {
@@ -68,5 +88,26 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
 
   .card__header__text__strong {
     font-weight: 500;
+  }
+
+  .card__content {
+    padding: 1rem 1.5rem;
+  }
+
+  .card__teamReplies {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgb(177, 177, 177);
+    font-weight: 300;
+  }
+
+  .card__chats {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
   }
 </style>

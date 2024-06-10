@@ -1,0 +1,76 @@
+---
+import WhatsAppIcon from '../icons/WhatsApp.astro'
+
+interface Props {
+  chatName: string
+  description: string
+  icon: string
+  iconAlt: string
+}
+
+const { chatName, description, icon, iconAlt } = Astro.props
+---
+
+<a class='chat'>
+  <div class='chat__content'>
+    <img class='chat__icon' src={icon} width={45} height={45} alt={iconAlt} />
+
+    <div class='chat__name-container'>
+      <span class='chat__name'>{chatName}</span>
+      <span class='chat__description'>{description}</span>
+    </div>
+    <div class='chat__whatsAppIcon'>
+      <WhatsAppIcon size={27} color='#2db742' />
+    </div>
+  </div>
+</a>
+
+<style>
+  .chat {
+    width: 100%;
+    height: 70px;
+    background-color: #989b9f23;
+    border-left: 2px solid #2db742;
+    border-bottom-left-radius: 4px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .chat:hover {
+    background-color: white;
+    box-shadow: 0 5px 10px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .chat__content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .chat__icon {
+    border-radius: 50%;
+  }
+
+  .chat__name-container {
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: column;
+  }
+
+  .chat__name {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .chat__description {
+    font-size: 0.75rem;
+    font-weight: 200;
+  }
+
+  .chat__whatsAppIcon {
+    margin-left: auto;
+  }
+</style>

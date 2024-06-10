@@ -1,5 +1,7 @@
 let state = false
 
+const card = document.getElementById('whatsApp-card')
+
 export function setState() {
   if (state) {
     state = false
@@ -11,4 +13,12 @@ export function setState() {
 
 export function setIcons(updateIcons: void) {
   updateIcons
+}
+
+export function setCard() {
+  if (state) {
+    card?.classList.remove('card-close')
+  } else {
+    card?.classList.add('card-close')
+  }
 }
