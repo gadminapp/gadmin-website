@@ -11,10 +11,13 @@ interface Props {
 }
 
 const { chatName, description, icon, iconAlt, isActive, chatLink } = Astro.props
-const chatActiveClass = isActive ? 'chat-active' : 'chat-inactive'
+const chatActiveClass = isActive ? 'chat--active' : 'chat--inactive'
+
+let link = isActive ? chatLink : '#!'
+let target = isActive ? '_blank' : '_self'
 ---
 
-<a class=`chat ${chatActiveClass}` href={chatLink}>
+<a class=`chat ${chatActiveClass}` target={target} href={link}>
   <div class='chat__content'>
     <img class='chat__icon' src={icon} width={45} height={45} alt={iconAlt} />
 
@@ -40,17 +43,17 @@ const chatActiveClass = isActive ? 'chat-active' : 'chat-inactive'
     color: black;
   }
 
-  .chat-active {
+  .chat--active {
     border-left: 2px solid #2db742;
     cursor: pointer;
   }
 
-  .chat-inactive {
+  .chat--inactive {
     border-left: 2px solid #c2c2c2;
     cursor: default;
   }
 
-  .chat-active.chat:hover {
+  .chat--active.chat:hover {
     background-color: white;
     box-shadow: 0 5px 10px 4px rgba(0, 0, 0, 0.05);
   }
@@ -92,7 +95,7 @@ const chatActiveClass = isActive ? 'chat-active' : 'chat-inactive'
     display: none;
   }
 
-  .chat-inactive .chat__comeback {
+  .chat--inactive .chat__comeback {
     display: block;
   }
 

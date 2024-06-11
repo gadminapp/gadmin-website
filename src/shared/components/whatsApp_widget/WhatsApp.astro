@@ -19,7 +19,7 @@ const { top, right, bottom, left } = Astro.props
   const button = document.getElementById('button')
   const whatsAppButton = document.querySelector('.whatsAppButton')
   button?.addEventListener('click', () => {
-    whatsAppButton?.classList.toggle('whatsApp-open')
+    whatsAppButton?.classList.toggle('whatsApp--open')
   })
 </script>
 
@@ -35,7 +35,7 @@ const { top, right, bottom, left } = Astro.props
   <div class='whatsApp__button--container' id='button'>
     <WhatsAppButton bottom={2} right={2} />
   </div>
-  <div class='whatsApp__card-container'>
+  <div class='whatsApp__card--container'>
     <WhatsAppCard>
       <WhatsAppChat
         chatName='Atención al cliente'
@@ -50,7 +50,7 @@ const { top, right, bottom, left } = Astro.props
         description='Director general'
         icon={ceo.src}
         iconAlt='Foto CEO'
-        isActive={true}
+        isActive={false}
         chatLink='https://api.whatsapp.com/send?phone=+584121689393&text=Hola,%20Orlando.%20Me%20gustaría%20hablar%20contigo%20acerca%20de%20TEMA.%0ASoy%20NOMBRE'
       />
     </WhatsAppCard>
