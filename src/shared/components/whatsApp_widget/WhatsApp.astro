@@ -32,7 +32,7 @@ const { top, right, bottom, left } = Astro.props
   ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
 `}
 >
-  <div class='whatsApp__button-container' id='button'>
+  <div class='whatsApp__button--container' id='button'>
     <WhatsAppButton bottom={2} right={2} />
   </div>
   <div class='whatsApp__card-container'>
@@ -50,7 +50,7 @@ const { top, right, bottom, left } = Astro.props
         description='Director general'
         icon={ceo.src}
         iconAlt='Foto CEO'
-        isActive={false}
+        isActive={true}
         chatLink='https://api.whatsapp.com/send?phone=+584121689393&text=Hola,%20Orlando.%20Me%20gustaría%20hablar%20contigo%20acerca%20de%20TEMA.%0ASoy%20NOMBRE'
       />
     </WhatsAppCard>
@@ -62,7 +62,7 @@ const { top, right, bottom, left } = Astro.props
     position: fixed;
     z-index: 100;
   }
-  .whatsApp__button-container {
+  .whatsApp__button--container {
     display: flex;
     justify-content: center;
   }

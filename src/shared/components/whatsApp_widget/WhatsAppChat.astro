@@ -18,7 +18,7 @@ const chatActiveClass = isActive ? 'chat-active' : 'chat-inactive'
   <div class='chat__content'>
     <img class='chat__icon' src={icon} width={45} height={45} alt={iconAlt} />
 
-    <div class='chat__name-container'>
+    <div class='chat__name--container'>
       <span class='chat__name'>{chatName}</span>
       <span class='chat__description'>{description}</span>
       <span class='chat__comeback'>Volveré pronto</span>
@@ -68,7 +68,7 @@ const chatActiveClass = isActive ? 'chat-active' : 'chat-inactive'
     border-radius: 50%;
   }
 
-  .chat__name-container {
+  .chat__name--container {
     display: flex;
     gap: 0.2rem;
     flex-direction: column;

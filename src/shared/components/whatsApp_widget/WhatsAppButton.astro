@@ -28,19 +28,19 @@ const { top, right, bottom, left } = Astro.props
 
   function updateButtonClass(state: boolean) {
     if (state) {
-      whatsApp?.classList.add('whatsApp-open')
+      whatsApp?.classList.add('whatsApp--open')
     } else {
-      whatsApp?.classList.remove('whatsApp-open')
+      whatsApp?.classList.remove('whatsApp--open')
     }
   }
 
   function updateIcons(state: boolean) {
     if (state) {
-      whatsAppIcon?.classList.add('whatsApp__icon-close')
-      whatsAppXmark?.classList.remove('whatsApp__icon-close')
+      whatsAppIcon?.classList.add('whatsApp__icon--close')
+      whatsAppXmark?.classList.remove('whatsApp__icon--close')
     } else {
-      whatsAppIcon?.classList.remove('whatsApp__icon-close')
-      whatsAppXmark?.classList.add('whatsApp__icon-close')
+      whatsAppIcon?.classList.remove('whatsApp__icon--close')
+      whatsAppXmark?.classList.add('whatsApp__icon--close')
     }
   }
 </script>
@@ -55,15 +55,15 @@ const { top, right, bottom, left } = Astro.props
   ${left !== undefined ? `left: ${left}rem; right: inherit;` : ''}
 `}
 >
-  <div class='whatsApp__text-container'>
-    <span class='whatsApp__text whatsApp__text-question'>¿Necesitas ayuda?</span>
-    <span class='whatsApp__text whatsApp__text-answer'>Habla con nosotros</span>
+  <div class='whatsApp__text--container'>
+    <span class='whatsApp__text whatsApp__text--question'>¿Necesitas ayuda?</span>
+    <span class='whatsApp__text whatsApp__text--answer'>Habla con nosotros</span>
   </div>
-  <div class='whatsApp__icon-container'>
+  <div class='whatsApp__icon--container'>
     <div id='whatsAppIcon' class='whatsApp__icon'>
       <WhatsAppIcon size={40} color='#FFFFFF' />
     </div>
-    <div id='whatsAppXmark' class='whatsApp__icon whatsApp__icon-close'>
+    <div id='whatsAppXmark' class='whatsApp__icon whatsApp__icon--close'>
       <XMark size={40} color='#FFFFFF' />
     </div>
   </div>
@@ -80,7 +80,7 @@ const { top, right, bottom, left } = Astro.props
     z-index: 110;
   }
 
-  .whatsApp__text-container {
+  .whatsApp__text--container {
     opacity: 0;
     display: flex;
     flex-direction: column;
@@ -90,11 +90,11 @@ const { top, right, bottom, left } = Astro.props
     transition: all 0.4s ease;
   }
 
-  .whatsApp:hover .whatsApp__text-container {
+  .whatsApp:hover .whatsApp__text--container {
     opacity: 1;
   }
 
-  .whatsApp-open .whatsApp__text-container {
+  .whatsApp--open .whatsApp__text--container {
     transform: translateY(30px);
     opacity: 0 !important;
   }
@@ -105,24 +105,24 @@ const { top, right, bottom, left } = Astro.props
     text-align: center;
   }
 
-  .whatsApp__text-answer {
+  .whatsApp__text--answer {
     font-weight: bold;
   }
 
-  .whatsApp__icon-container {
+  .whatsApp__icon--container {
     background-color: #2db742;
     border-radius: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    width: 56px;
-    height: 56px;
+    width: 3rem;
+    height: 3rem;
     transform: rotate(0deg);
     transition: all 0.3s ease;
   }
 
-  .whatsApp-open .whatsApp__icon-container {
+  .whatsApp--open .whatsApp__icon--container {
     transform: rotate(360deg);
   }
 
@@ -134,7 +134,7 @@ const { top, right, bottom, left } = Astro.props
     transition: transform 0.3s ease;
   }
 
-  .whatsApp__icon-close {
+  .whatsApp__icon--close {
     transform: scale(0);
   }
 </style>

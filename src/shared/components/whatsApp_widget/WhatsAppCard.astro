@@ -8,9 +8,9 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
       <WhatsAppIcon size={42} color='#ffffff' />
     </div>
 
-    <div class='card__header-texts'>
-      <h3 class='card__header-tittle'>Empieza una conversación</h3>
-      <p class='card__header-text'>
+    <div class='card__header--texts'>
+      <h3 class='card__header--tittle'>Empieza una conversación</h3>
+      <p class='card__header--text'>
         ¡Hola! Haga clic en uno de nuestros miembros a continuación para chatear en <span
           class='card__header__text__strong'
         >
@@ -31,12 +31,13 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
   .card {
     position: relative;
     max-width: 350px;
-    min-height: 450px;
+    height: 80vh;
+    max-height: 400px;
     margin-left: 2rem;
     background-color: white;
     border-radius: 10px;
     opacity: 1;
-    transform: translateY(-70px);
+    transform: translateY(-3.5rem);
     transition: all 0.3s ease;
     box-shadow: 0 10px 10px 4px rgba(0, 0, 0, 0.05);
   }
@@ -64,7 +65,7 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
     flex: 1;
   }
 
-  .card__header-texts {
+  .card__header--texts {
     flex: 5;
     display: flex;
     flex-direction: column;
@@ -72,13 +73,13 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
     gap: 8px;
   }
 
-  .card__header-tittle {
+  .card__header--tittle {
     margin: 0;
     color: white;
     font-weight: 300;
   }
 
-  .card__header-text {
+  .card__header--text {
     margin: 0;
     font-size: 0.75rem;
     color: white;
