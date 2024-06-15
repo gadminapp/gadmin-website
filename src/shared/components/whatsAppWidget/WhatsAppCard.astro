@@ -1,0 +1,98 @@
+---
+import WhatsAppIcon from '../icons/WhatsApp.astro'
+---
+
+<div class='whatsApp__card'>
+  <header class='whatsApp__card-header'>
+    <div class='whatsApp__card-header-icon'>
+      <WhatsAppIcon size={42} color='#ffffff' />
+    </div>
+
+    <div class='whatsApp__card-header-content'>
+      <h3 class='whatsApp__card-header-title'>Empieza una conversación</h3>
+      <p class='whatsApp__card-header-text'>
+        👋 Haz clic en uno de nuestros miembros a continuación para chatear en WhatsApp.
+      </p>
+    </div>
+  </header>
+  <section class='whatsApp__card-content'>
+    <span class='whatsApp__card-team-replies'>El equipo suele responder en unos minutos.</span>
+    <div class='whatsApp__card-chats'>
+      <slot />
+    </div>
+  </section>
+</div>
+
+<style is:global>
+  .whatsApp__card {
+    position: relative;
+    max-width: 350px;
+    height: 80vh;
+    max-height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0 10px 10px 4px rgba(0, 0, 0, 0.05);
+  }
+
+  .whatsApp__card:hover {
+    box-shadow: 0 10px 10px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .whatsApp__card-header {
+    padding: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2db742;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .whatsApp__card-header-icon {
+    flex: 1;
+  }
+
+  .whatsApp__card-header-content {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .whatsApp__card-header-title {
+    margin: 0;
+    color: white;
+    font-weight: 300;
+  }
+
+  .whatsApp__card-header-text {
+    margin: 0;
+    font-size: 0.75rem;
+    color: white;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .whatsApp__card-content {
+    padding: 1rem 1.5rem;
+  }
+
+  .whatsApp__card-team-replies {
+    margin: 0;
+    font-size: 0.75rem;
+    color: rgb(177, 177, 177);
+    font-weight: 300;
+  }
+
+  .whatsApp__card-chats {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+</style>

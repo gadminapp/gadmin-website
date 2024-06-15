@@ -1,0 +1,93 @@
+---
+import ceo from '@/assets/img/ceo.webp'
+import logoBg from '@/assets/img/logo-bg.webp'
+import WhatsAppButton from './WhatsAppButton.astro'
+import WhatsAppCard from './WhatsAppCard.astro'
+import WhatsAppChat from './WhatsAppChat.astro'
+---
+
+<script>
+  const whatsAppContainer = document.querySelector('.whatsApp')
+  const whatsAppToggle = document.getElementById('whatsAppToggle')
+
+  if (whatsAppContainer && whatsAppToggle) {
+    whatsAppToggle.addEventListener('click', () => {
+      whatsAppContainer.classList.toggle('whatsApp--open')
+    })
+  }
+</script>
+
+<div id='whatsApp' class='whatsApp'>
+  <div class='whatsApp__button-container' id='whatsAppToggle'>
+    <WhatsAppButton />
+  </div>
+  <div class='whatsApp__card-container' id='whatsApp-card'>
+    <WhatsAppCard>
+      <WhatsAppChat
+        chatName='Atención al cliente'
+        description='Siempre que nos necesites'
+        icon={logoBg.src}
+        iconAlt='Logo de Gadmin'
+        isActive={true}
+        chatLink='https://api.whatsapp.com/send?phone=+584121689393&text=Hola,%20tengo%20una%20duda%20sobre%20'
+      />
+      <WhatsAppChat
+        chatName='Orlando Briceño'
+        description='Director general'
+        icon={ceo.src}
+        iconAlt='Foto del CEO'
+        isActive={true}
+        chatLink='https://api.whatsapp.com/send?phone=+584121689393&text=Hola,%20Orlando.%20Me%20gustaría%20hablar%20contigo%20acerca%20de%20TEMA.%0ASoy%20NOMBRE'
+      />
+    </WhatsAppCard>
+  </div>
+</div>
+
+<style is:global>
+  .whatsApp {
+    position: fixed;
+    z-index: 100;
+  }
+
+  .whatsApp__button-container {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    cursor: pointer;
+  }
+
+  .whatsApp__card-container {
+    position: fixed;
+    bottom: 6rem;
+    right: 2rem;
+    transform: scale(1) translateX(0px);
+    opacity: 1;
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+    z-index: 100;
+  }
+
+  .whatsApp:not(.whatsApp--open) .whatsApp__card-container {
+    opacity: 0;
+    transform: scaleY(0) translateX(150vw);
+  }
+
+  @media screen and (max-width: 768px) {
+    .whatsApp__button-container {
+      bottom: 1rem;
+      right: 1rem;
+    }
+
+    .whatsApp__card-container {
+      bottom: 5rem;
+      right: 1rem;
+      max-width: 90vw;
+    }
+  }
+</style>
