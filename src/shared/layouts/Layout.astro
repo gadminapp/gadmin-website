@@ -2,7 +2,7 @@
 import SEO from '@/shared/components/SEO.astro'
 import type { Preload } from '@/shared/types/Preload'
 import 'aos/dist/aos.css'
-import WhatsApp from '../components/whatsApp_widget/WhatsApp.astro'
+import WhatsApp from '../components/whatsAppWidget/WhatsApp.astro'
 
 interface Props {
   title: string
@@ -36,7 +36,7 @@ const { title, description, preload, canonical, image } = Astro.props
   <body>
     <slot />
 
-    <WhatsApp bottom={2} right={2} />
+    <WhatsApp bottom={6} right={2} />
     <script>
       import { aosInit } from '@/js/aos'
 

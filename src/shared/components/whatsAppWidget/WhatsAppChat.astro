@@ -17,7 +17,7 @@ let link = isActive ? chatLink : '#!'
 let target = isActive ? '_blank' : '_self'
 ---
 
-<a class=`chat ${chatActiveClass}` target={target} href={link}>
+<a class:list=`chat ${chatActiveClass}` target={target} href={link}>
   <div class='chat__content'>
     <img class='chat__icon' src={icon} width={45} height={45} alt={iconAlt} />
 

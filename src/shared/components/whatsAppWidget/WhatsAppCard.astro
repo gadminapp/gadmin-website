@@ -2,56 +2,44 @@
 import WhatsAppIcon from '../icons/WhatsApp.astro'
 ---
 
-<div class='card card--close' id='whatsApp-card'>
-  <header class='card__header'>
-    <div class='card__header__icon'>
+<div class='whatsApp__card'>
+  <header class='whatsApp__card-header'>
+    <div class='whatsApp__card-header-icon'>
       <WhatsAppIcon size={42} color='#ffffff' />
     </div>
 
-    <div class='card__header--texts'>
-      <h3 class='card__header--tittle'>Empieza una conversación</h3>
-      <p class='card__header--text'>
-        ¡Hola! Haga clic en uno de nuestros miembros a continuación para chatear en <span
-          class='card__header__text__strong'
-        >
-          WhatsApp ;)</span
-        >
+    <div class='whatsApp__card-header-content'>
+      <h3 class='whatsApp__card-header-title'>Empieza una conversación</h3>
+      <p class='whatsApp__card-header-text'>
+        👋 Haz clic en uno de nuestros miembros a continuación para chatear en WhatsApp.
       </p>
     </div>
   </header>
-  <section class='card__content'>
-    <span class='card__teamReplies'>El equipo suele responder en unos minutos.</span>
-    <div class='card__chats'>
+  <section class='whatsApp__card-content'>
+    <span class='whatsApp__card-team-replies'>El equipo suele responder en unos minutos.</span>
+    <div class='whatsApp__card-chats'>
       <slot />
     </div>
   </section>
 </div>
 
-<style>
-  .card {
+<style is:global>
+  .whatsApp__card {
     position: relative;
     max-width: 350px;
     height: 80vh;
     max-height: 400px;
-    margin-left: 2rem;
     background-color: white;
     border-radius: 10px;
-    opacity: 1;
-    transform: translateY(-3.5rem);
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease;
     box-shadow: 0 10px 10px 4px rgba(0, 0, 0, 0.05);
   }
 
-  .card:hover {
+  .whatsApp__card:hover {
     box-shadow: 0 10px 10px 4px rgba(0, 0, 0, 0.2);
   }
 
-  .card--close {
-    transform: translateY(130px);
-    opacity: 0;
-  }
-
-  .card__header {
+  .whatsApp__card-header {
     padding: 1.1rem;
     display: flex;
     align-items: center;
@@ -61,11 +49,11 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
     border-top-right-radius: 10px;
   }
 
-  .card__header__icon {
+  .whatsApp__card-header-icon {
     flex: 1;
   }
 
-  .card__header--texts {
+  .whatsApp__card-header-content {
     flex: 5;
     display: flex;
     flex-direction: column;
@@ -73,13 +61,13 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
     gap: 8px;
   }
 
-  .card__header--tittle {
+  .whatsApp__card-header-title {
     margin: 0;
     color: white;
     font-weight: 300;
   }
 
-  .card__header--text {
+  .whatsApp__card-header-text {
     margin: 0;
     font-size: 0.75rem;
     color: white;
@@ -87,22 +75,18 @@ import WhatsAppIcon from '../icons/WhatsApp.astro'
     line-height: 1.5;
   }
 
-  .card__header__text__strong {
-    font-weight: 500;
-  }
-
-  .card__content {
+  .whatsApp__card-content {
     padding: 1rem 1.5rem;
   }
 
-  .card__teamReplies {
+  .whatsApp__card-team-replies {
     margin: 0;
     font-size: 0.75rem;
     color: rgb(177, 177, 177);
     font-weight: 300;
   }
 
-  .card__chats {
+  .whatsApp__card-chats {
     display: flex;
     width: 100%;
     flex-direction: column;

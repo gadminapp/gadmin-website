@@ -1,0 +1,105 @@
+---
+import WhatsAppIcon from '../icons/WhatsApp.astro'
+import XMark from '../icons/X-Mark.astro'
+---
+
+<script>
+  const whatsAppWidget = document.getElementById('.whatsAppWidget')
+  const whatsAppToggle = document.getElementById('whatsAppToggle')
+  const whatsAppXmark = document.getElementById('whatsAppXmark')
+
+  import { setState, updateCard } from './whatsAppState'
+
+  whatsAppToggle?.addEventListener('click', () => {
+    const state = setState()
+    toggleWidgetState(state)
+    updateCard()
+  })
+
+  function toggleWidgetState(state: boolean) {
+    if (state) {
+      whatsAppWidget?.classList.add('whatsApp--open')
+    } else {
+      whatsAppWidget?.classList.remove('whatsApp--open')
+    }
+  }
+</script>
+
+<div class='whatsApp__text-container'>
+  <span class='whatsApp__text whatsApp__text--question'>¿Necesitas ayuda?</span>
+  <span class='whatsApp__text whatsApp__text--answer'>Habla con nosotros</span>
+</div>
+<div class='whatsApp__icon--container'>
+  <div id='whatsAppIcon' class='whatsApp__icon'>
+    <WhatsAppIcon size={32} color='#FFFFFF' />
+  </div>
+  <div id='whatsAppXmark' class='whatsApp__icon'>
+    <XMark size={32} color='#FFFFFF' />
+  </div>
+</div>
+
+<style is:global>
+  .whatsApp__text-container {
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.733);
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition:
+      opacity 0.3s ease,
+      transform 0.2s ease;
+  }
+
+  .whatsApp__button-container:hover .whatsApp__text-container {
+    opacity: 1;
+  }
+
+  .whatsApp--open .whatsApp__text-container {
+    transform: translateY(30px);
+    opacity: 0 !important;
+  }
+
+  .whatsApp__text {
+    font-size: 0.9rem;
+    font-weight: 300;
+    text-align: center;
+  }
+
+  .whatsApp__text--answer {
+    font-weight: bold;
+  }
+
+  .whatsApp__icon--container {
+    background-color: #2db742;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    transform: rotate(0deg);
+    transition: all 0.3s ease;
+  }
+
+  .whatsApp--open .whatsApp__icon--container {
+    transform: rotate(360deg);
+  }
+
+  .whatsApp__icon {
+    position: absolute;
+    display: grid;
+    align-content: center;
+    transform: scale(0);
+    transition: transform 0.3s ease;
+  }
+
+  .whatsApp:not(.whatsApp--open) #whatsAppIcon {
+    transform: scale(1);
+  }
+
+  .whatsApp--open #whatsAppXmark {
+    transform: scale(1);
+  }
+</style>
