@@ -1,0 +1,50 @@
+---
+import Button from '@/shared/components/Button.astro'
+
+interface Props {
+  className: string
+  name: string
+  description: string
+}
+
+const { className, name, description }: Props = Astro.props
+
+const buttonType = className === 'silver' ? 'gradient' : 'gray'
+---
+
+<div class=`table__item table__item--${className}`>
+  <span class='item__name'>{name}</span>
+  <p class='item__description'>
+    {description}
+  </p>
+  <Button mode='default' type={buttonType} href='https://stores.gadmin.app/login' target='_blank'
+    >COMENZAR</Button
+  >
+</div>
+
+<style>
+  .table__item {
+    padding: 0.5rem;
+    background-color: white;
+    text-align: center;
+    border-radius: 1rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .item__name {
+    font-size: 1.4rem;
+    color: var(--shade-03);
+  }
+
+  .table__item--silver .item__name {
+    color: var(--primary);
+  }
+
+  .item__description {
+    font-size: 1.6rem;
+  }
+</style>
