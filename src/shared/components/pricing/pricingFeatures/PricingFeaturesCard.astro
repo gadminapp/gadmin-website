@@ -5,18 +5,20 @@ interface Props {
   className: string
   name: string
   description: string
+  card: 'bronze' | 'silver' | 'gold'
 }
 
-const { className, name, description }: Props = Astro.props
+const { className, name, description, card }: Props = Astro.props
 
 const buttonType = className === 'silver' ? 'gradient' : 'gray'
 ---
 
 <div class=`table__item table__item--${className}`>
   <span class='item__name'>{name}</span>
-  <p class='item__description'>
-    {description}
-  </p>
+  <div class='pricing__card-table-price'>
+    <div id=`price-table-${card}` class='pricing__card-table-price-value'>$84</div>
+    <div id=`price-table-${card}-billing` class='pricing__card-table-price-billing'>/mes</div>
+  </div>
   <Button mode='default' type={buttonType} href='https://stores.gadmin.app/login' target='_blank'
     >COMENZAR</Button
   >
@@ -44,7 +46,21 @@ const buttonType = className === 'silver' ? 'gradient' : 'gray'
     color: var(--primary);
   }
 
-  .item__description {
-    font-size: 1.6rem;
+  .pricing__card-table-price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    gap: 0.5rem;
+  }
+
+  .pricing__card-table-price-value {
+    font-size: var(--40-pt);
+    font-weight: bold;
+    color: var(--shade-03);
+  }
+
+  .pricing__card-table-price-billing {
+    color: var(--neutral-08);
   }
 </style>

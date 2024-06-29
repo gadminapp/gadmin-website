@@ -97,12 +97,24 @@
         const bronzeBilling = document.getElementById('price-bronze-billing')
         const bronzeBeforePrice = document.getElementById('price-bronze-before')
 
-        if (bronzePrice && bronzeBeforePrice && bronzeBilling) {
+        const bronzeTablePrice = document.getElementById('price-table-bronze')
+        const bronzeTableBilling = document.getElementById('price-table-bronze-billing')
+
+        if (
+          bronzePrice &&
+          bronzeBeforePrice &&
+          bronzeBilling &&
+          bronzeTablePrice &&
+          bronzeTableBilling
+        ) {
           const price = pricing.bronze.price
           bronzePrice.innerText = `$${parseFloat(price.toFixed(2))}`
           bronzeBeforePrice.innerText = `$${monthlyPricing.bronze.price * 12}/año`
 
           bronzeBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
+
+          bronzeTablePrice.innerText = `$${parseFloat(price.toFixed(2))}`
+          bronzeTableBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
         }
 
         // * Silver
@@ -110,12 +122,24 @@
         const silverBilling = document.getElementById('price-silver-billing')
         const silverBeforePrice = document.getElementById('price-silver-before')
 
-        if (silverPrice && silverBeforePrice && silverBilling) {
+        const silverTablePrice = document.getElementById('price-table-silver')
+        const silverTableBilling = document.getElementById('price-table-silver-billing')
+
+        if (
+          silverPrice &&
+          silverBeforePrice &&
+          silverBilling &&
+          silverTablePrice &&
+          silverTableBilling
+        ) {
           const price = pricing.silver.price
           silverPrice.innerText = `$${parseFloat(price.toFixed(2))}`
           silverBeforePrice.innerText = `$${monthlyPricing.silver.price * 12}/año`
 
           silverBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
+
+          silverTablePrice.innerText = `$${parseFloat(price.toFixed(2))}`
+          silverTableBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
         }
 
         // * Gold
@@ -123,12 +147,18 @@
         const goldBilling = document.getElementById('price-gold-billing')
         const goldBeforePrice = document.getElementById('price-gold-before')
 
-        if (goldPrice && goldBeforePrice && goldBilling) {
+        const goldTablePrice = document.getElementById('price-table-gold')
+        const goldTableBilling = document.getElementById('price-table-gold-billing')
+
+        if (goldPrice && goldBeforePrice && goldBilling && goldTablePrice && goldTableBilling) {
           const price = pricing.gold.price
           goldPrice.innerText = `$${parseFloat(price.toFixed(2))}`
           goldBeforePrice.innerText = `$${monthlyPricing.gold.price * 12}/año`
 
           goldBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
+
+          goldTablePrice.innerText = `$${parseFloat(price.toFixed(2))}`
+          goldTableBilling.innerText = billingType === 'yearly' ? '/año' : '/mes'
         }
       }
     }

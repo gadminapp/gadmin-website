@@ -1,5 +1,5 @@
 ---
-import PricingCard from '@/shared/components/pricing/pricingFeatures/PricingFeaturesCard.astro'
+import PricingFeaturesCard from '@/shared/components/pricing/pricingFeatures/PricingFeaturesCard.astro'
 ---
 
 <script></script>
@@ -10,9 +10,9 @@ import PricingCard from '@/shared/components/pricing/pricingFeatures/PricingFeat
     <span class='table__name'>Funcionalidades por plan</span>
     <span class='table__description'>Encuentra el plan que más le convenga a tu tienda.</span>
   </div>
-  <PricingCard className='bronze' name='Bronce' description='10$/mes' />
-  <PricingCard className='silver' name='Plata' description='20$/mes' />
-  <PricingCard className='gold' name='Oro' description='99$/mes' />
+  <PricingFeaturesCard card='bronze' className='bronze' name='Bronce' description='10$/mes' />
+  <PricingFeaturesCard card='silver' className='silver' name='Plata' description='20$/mes' />
+  <PricingFeaturesCard card='gold' className='gold' name='Oro' description='99$/mes' />
 </section>
 
 <style>
