@@ -82,11 +82,14 @@
         const pricing = pricingByBilling[billingType]
         const monthlyPricing = pricingByBilling['monthly']
 
-        const pricingCards = document.querySelector('.pricing__cards')
+        const pricingCards = document.querySelectorAll('.pricing__card')
+
         if (pricingCards) {
-          pricingCards.classList.remove('pricing__cards--monthly')
-          pricingCards.classList.remove('pricing__cards--yearly')
-          pricingCards.classList.add(`pricing__cards--${billingType}`)
+          pricingCards.forEach((card) => {
+            card.classList.remove('pricing__card--monthly')
+            card.classList.remove('pricing__card--yearly')
+            card.classList.add(`pricing__card--${billingType}`)
+          })
         }
 
         // * Bronze
