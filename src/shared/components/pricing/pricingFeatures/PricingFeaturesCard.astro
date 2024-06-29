@@ -2,18 +2,17 @@
 import Button from '@/shared/components/Button.astro'
 
 interface Props {
-  className: string
   name: string
   description: string
   card: 'bronze' | 'silver' | 'gold'
 }
 
-const { className, name, description, card }: Props = Astro.props
+const { name, description, card }: Props = Astro.props
 
-const buttonType = className === 'silver' ? 'gradient' : 'gray'
+const buttonType = card === 'silver' ? 'gradient' : 'gray'
 ---
 
-<div class=`table__item table__item--${className}`>
+<div class=`table__item table__item--${card}`>
   <span class='item__name'>{name}</span>
   <div class='pricing__card-table-price'>
     <div id=`price-table-${card}` class='pricing__card-table-price-value'>$84</div>
@@ -26,7 +25,7 @@ const buttonType = className === 'silver' ? 'gradient' : 'gray'
 
 <style>
   .table__item {
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: white;
     text-align: center;
     border-radius: 1rem;
@@ -52,6 +51,21 @@ const buttonType = className === 'silver' ? 'gradient' : 'gray'
     justify-content: center;
     margin: 0;
     gap: 0.5rem;
+  }
+
+  .table__item--silver {
+    position: relative;
+    top: -2rem;
+    background-color: var(--shade-03);
+    height: calc(100% + 0.5rem);
+  }
+
+  .table__item--silver .pricing__card-table-price-billing {
+    color: var(--neutral-03);
+  }
+
+  .table__item--silver .pricing__card-table-price-value {
+    color: var(--neutral-02);
   }
 
   .pricing__card-table-price-value {
