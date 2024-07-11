@@ -1,5 +1,5 @@
 ---
-import logoBg from '@/assets/img/logo-bg.webp'
+import feature01 from '@/assets/img/features/feature-01.png'
 import { Image } from 'astro:assets'
 ---
 
@@ -14,31 +14,35 @@ import { Image } from 'astro:assets'
         </p>
       </div>
       <div class='feature-image'>
-        <Image src={logoBg} width={250} height={250} alt='Logo de Gadmin' />
+        <Image src={feature01} width={350} height={350} alt='Logo de Gadmin' />
       </div>
     </div>
     <div class='feature feature--reverse' data-aos='fade-right'>
       <div class='feature-image'>
-        <Image src={logoBg} width={250} height={250} alt='Logo de Gadmin' />
+        <Image src={feature01} width={350} height={350} alt='Logo de Gadmin' />
       </div>
       <div class='feature-content'>
-        <h3 class='feature-title'>La creación es instantánea</h3>
+        <h3 class='feature-title'>Gestiona tu tienda desde donde quieras</h3>
         <p class='feature-description'>
-          Crea tu tienda online en segundos: fácil, rápido, sin necesidad de saber programar. Sube
-          tus productos, recibe pedidos, gestiona tus envíos y mucho más.
+          Te ponemos el control en la palma de tu mano. Gestiona tu tienda online desde cualquier
+          dispositivo, ya sea tu ordenador, tablet o smartphone. Recibe pedidos en el WhatsApp y
+          vende más.
         </p>
       </div>
     </div>
     <div class='feature' data-aos='fade-left'>
       <div class='feature-content'>
-        <h3 class='feature-title'>La creación es instantánea</h3>
+        <h3 class='feature-title'>Expande tu negocio sin límites</h3>
         <p class='feature-description'>
-          Crea tu tienda online en segundos: fácil, rápido, sin necesidad de saber programar. Sube
-          tus productos, recibe pedidos, gestiona tus envíos y mucho más.
+          ¿Tu ciudad, país o el mundo entero? Por supuesto.
+          <br />
+          Nuestro plan <a href='/pricing' target='_blank' style='text-decoration: none'>Plata🩶</a> te
+          regala un dominio .COM para que tu tienda tenga una presencia profesional y memorable. ¡Llega
+          a más clientes que nunca antes!
         </p>
       </div>
       <div class='feature-image'>
-        <Image src={logoBg} width={250} height={250} alt='Logo de Gadmin' />
+        <Image src={feature01} width={350} height={350} alt='Logo de Gadmin' />
       </div>
     </div>
   </div>
@@ -87,6 +91,7 @@ import { Image } from 'astro:assets'
 
   .feature-image {
     height: fit-content;
+    min-height: 250px;
     margin: auto;
   }
 

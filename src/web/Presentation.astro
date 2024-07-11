@@ -1,5 +1,7 @@
 ---
-import logoBg from '@/assets/img/logo-bg.webp'
+import leftPresentation from '@/assets/img/presentation/left-img.png'
+import centerPresentation from '@/assets/img/presentation/main.png'
+import rightPresentation from '@/assets/img/presentation/right-img.png'
 import { Image } from 'astro:assets'
 ---
 
@@ -9,33 +11,34 @@ import { Image } from 'astro:assets'
       Lleva tu <span>emprendimiento</span> más allá
     </h2>
     <p class='presentation-description' data-aos='fade-right'>
-      Gadmin integra métricas de ventas y gestión de inventario en tiempo real, ofreciéndote una
-      comprensión completa de tu negocio y dándote una orientación precisa para mejorar la
-      experiencia del cliente y aumentar las ventas.
+      Gadmin integra métricas de ventas y gestión de inventario, dándote una comprensión total de tu
+      negocio.
+      <br />
+      <b>Enfócate en tus clientes e incrementa tus ventas.</b>
     </p>
-    <div class='presentation-images' data-aos='zoom-in'>
-      <Image
-        class='presentation-image presentation-image-left'
-        src={logoBg}
-        width={250}
-        height={250}
-        alt='Logo de Gadmin'
-      />
-      <Image
-        class='presentation-image presentation-image-center'
-        src={logoBg}
-        width={350}
-        height={350}
-        alt='Logo de Gadmin'
-      />
-      <Image
-        class='presentation-image presentation-image-right'
-        src={logoBg}
-        width={250}
-        height={250}
-        alt='Logo de Gadmin'
-      />
-    </div>
+  </div>
+  <div class='presentation-images' data-aos='zoom-in'>
+    <Image
+      class='presentation-image presentation-image-left'
+      src={leftPresentation}
+      width={744}
+      height={368}
+      alt='Listado de productos en Gadmin'
+    />
+    <Image
+      class='presentation-image presentation-image-center'
+      src={centerPresentation}
+      width={994}
+      height={602}
+      alt='Tienda online creada con Gadmin'
+    />
+    <Image
+      class='presentation-image presentation-image-right'
+      src={rightPresentation}
+      width={644}
+      height={302}
+      alt='Resumen de rendimiento dentro de Gadmin'
+    />
   </div>
 </div>
 
@@ -78,6 +81,8 @@ import { Image } from 'astro:assets'
   .presentation-image {
     width: 100%;
     height: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
   }
 
   @media screen and (max-width: 768px) {
