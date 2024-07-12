@@ -1,0 +1,46 @@
+---
+import Check from '../../icons/Check.astro'
+
+interface Props {
+  feature: string
+  bronze: boolean | string
+  silver: boolean | string
+  gold: boolean | string
+  isBool: boolean
+}
+
+const { feature, bronze, silver, gold, isBool }: Props = Astro.props
+
+const showCheckBronze = isBool && bronze
+const showCheckSilver = isBool && silver
+const showCheckGold = isBool && gold
+---
+
+<div class='feature'>
+  <div class='feature__name'>{feature}</div>
+  <span class='feature__bronze'>
+    {showCheckBronze ? <Check size={24} /> : bronze}
+  </span>
+  <span class='feature__silver'>
+    {showCheckSilver ? <Check size={24} /> : silver}
+  </span>
+  <span class='feature__gold'>
+    {showCheckGold ? <Check size={24} /> : gold}
+  </span>
+</div>
+
+<style>
+  .feature {
+    display: grid;
+    grid-template-columns: 1.2fr repeat(3, 1fr);
+    gap: 0.5rem;
+    place-items: center;
+    border-radius: 1rem;
+    background-color: white;
+    padding: 1rem;
+  }
+
+  .feature__name {
+    place-self: start;
+  }
+</style>
