@@ -1,7 +1,15 @@
 ---
 import Check from '../../icons/Check.astro'
 
-const { feature, bronze, silver, gold, isBool } = Astro.props
+interface Props {
+  feature: string
+  bronze: boolean | string
+  silver: boolean | string
+  gold: boolean | string
+  isBool: boolean
+}
+
+const { feature, bronze, silver, gold, isBool }: Props = Astro.props
 
 const showCheckBronze = isBool && bronze
 const showCheckSilver = isBool && silver
