@@ -28,6 +28,8 @@ import PricingFeaturesCard from '@/shared/components/pricing/pricingFeatures/Pri
     position: sticky;
     position: -webkit-sticky;
     top: 5rem;
+    width: 100%;
+    overflow-x: auto; /* Agrega scroll horizontal si es necesario */
   }
 
   .table__item--features {
@@ -55,5 +57,29 @@ import PricingFeaturesCard from '@/shared/components/pricing/pricingFeatures/Pri
 
   .table__description {
     color: var(--neutral-08);
+  }
+
+  @media screen and (max-width: 768px) {
+    .table {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      padding: 0.5rem;
+    }
+    .table__item--features {
+      border-radius: 1rem;
+      border-bottom: 1px solid var(--shade-03);
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .table {
+      padding: 0.5rem 0.25rem;
+    }
+    .table__section-name {
+      font-size: 1rem;
+    }
+    .table__name {
+      font-size: 1.4rem;
+    }
   }
 </style>
