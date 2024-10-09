@@ -6,7 +6,6 @@ import XMark from '../icons/X-Mark.astro'
 <script>
   const whatsAppWidget = document.getElementById('.whatsAppWidget')
   const whatsAppToggle = document.getElementById('whatsAppToggle')
-  const whatsAppXmark = document.getElementById('whatsAppXmark')
 
   import { setState, updateCard } from './whatsAppState'
 
@@ -25,11 +24,7 @@ import XMark from '../icons/X-Mark.astro'
   }
 </script>
 
-<div class='whatsApp__text-container'>
-  <span class='whatsApp__text whatsApp__text--question'>¿Necesitas ayuda?</span>
-  <span class='whatsApp__text whatsApp__text--answer'>Habla con nosotros</span>
-</div>
-<div class='whatsApp__icon--container'>
+<div class='whatsApp__icon--container' id='whatsAppToggle'>
   <div id='whatsAppIcon' class='whatsApp__icon'>
     <WhatsAppIcon size={32} color='#FFFFFF' />
   </div>
@@ -37,26 +32,37 @@ import XMark from '../icons/X-Mark.astro'
     <XMark size={32} color='#FFFFFF' />
   </div>
 </div>
+<div class='whatsApp__text-container'>
+  <span class='whatsApp__text whatsApp__text--question'>¿Necesitas ayuda?</span>
+  <span class='whatsApp__text whatsApp__text--answer'>Habla con nosotros</span>
+</div>
 
 <style is:global>
   .whatsApp__text-container {
-    opacity: 0;
     display: flex;
     flex-direction: column;
+    padding: 5px 10px;
     background-color: rgba(255, 255, 255, 0.733);
     border-radius: 5px;
-    padding: 5px 10px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10rem);
     transition:
       opacity 0.3s ease,
       transform 0.2s ease;
   }
 
-  .whatsApp__button-container:hover .whatsApp__text-container {
+  .whatsApp__icon--container {
+    cursor: pointer;
+  }
+
+  .whatsApp__icon--container:hover + .whatsApp__text-container {
     opacity: 1;
+    transform: translateY(0px);
   }
 
   .whatsApp--open .whatsApp__text-container {
-    transform: translateY(30px);
+    transform: translateY(10rem);
     opacity: 0 !important;
   }
 
