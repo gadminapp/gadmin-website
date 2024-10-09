@@ -18,7 +18,7 @@ import WhatsAppChat from './WhatsAppChat.astro'
 </script>
 
 <div id='whatsApp' class='whatsApp'>
-  <div class='whatsApp__button-container' id='whatsAppToggle'>
+  <div class='whatsApp__button-container'>
     <WhatsAppButton />
   </div>
   <div class='whatsApp__card-container' id='whatsApp-card'>
@@ -54,11 +54,10 @@ import WhatsAppChat from './WhatsAppChat.astro'
     z-index: 100;
     display: flex;
     justify-content: flex-end;
+    flex-direction: row-reverse;
     gap: 0.5rem;
-    position: fixed;
     bottom: 2rem;
     right: 2rem;
-    cursor: pointer;
   }
 
   .whatsApp__card-container {

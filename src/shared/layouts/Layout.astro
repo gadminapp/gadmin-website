@@ -91,7 +91,6 @@ const { title, description, preload, canonical, image } = Astro.props
       body {
         padding: 0;
         margin: 0;
-        overflow-x: hidden;
       }
 
       h1,
@@ -112,6 +111,10 @@ const { title, description, preload, canonical, image } = Astro.props
 
       .text-primary {
         color: var(--primary);
+      }
+
+      .uppercase {
+        text-transform: uppercase;
       }
 
       @media screen and (max-width: 768px) {
