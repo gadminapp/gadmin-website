@@ -5,10 +5,10 @@ import PricingFeaturesTableFeature from './PricingFeaturesTableFeature.astro'
 <section class='table'>
   <PricingFeaturesTableFeature
     isBool={true}
-    feature='Ventas ilimitadas sin comisión'
+    feature='Recibir pedidos en WhatsApp'
     bronze={true}
-    silver={false}
-    gold={false}
+    silver={true}
+    gold={true}
   />
   <PricingFeaturesTableFeature
     isBool={false}
@@ -35,13 +35,6 @@ import PricingFeaturesTableFeature from './PricingFeaturesTableFeature.astro'
     isBool={true}
     feature='Configurar dominio propio'
     bronze={true}
-    silver={false}
-    gold={false}
-  />
-  <PricingFeaturesTableFeature
-    isBool={true}
-    feature='Tienda multimoneda'
-    bronze={false}
     silver={true}
     gold={true}
   />
@@ -52,12 +45,18 @@ import PricingFeaturesTableFeature from './PricingFeaturesTableFeature.astro'
     silver={true}
     gold={true}
   />
-
+  <PricingFeaturesTableFeature
+    isBool={true}
+    feature='Tienda multimoneda'
+    bronze={false}
+    silver={true}
+    gold={true}
+  />
   <PricingFeaturesTableFeature
     isBool={true}
     feature='Tienda con soporte en varios idiomas'
     bronze={false}
-    silver={false}
+    silver={true}
     gold={true}
   />
 </section>

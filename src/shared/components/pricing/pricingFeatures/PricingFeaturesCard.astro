@@ -12,14 +12,18 @@ const { name, description, card }: Props = Astro.props
 const buttonType = card === 'silver' ? 'gradient' : 'gray'
 ---
 
-<div class=`table__item table__item--${card}`>
+<div class:list=`table__item table__item--${card}`>
   <span class='item__name'>{name}</span>
   <div class='pricing__card-table-price'>
     <div id=`price-table-${card}` class='pricing__card-table-price-value'>$84</div>
     <div id=`price-table-${card}-billing` class='pricing__card-table-price-billing'>/mes</div>
   </div>
-  <Button mode='default' type={buttonType} href='https://stores.gadmin.app/login' target='_blank'
-    >COMENZAR</Button
+  <Button
+    classes='uppercase'
+    mode='default'
+    type={buttonType}
+    href='https://stores.gadmin.app/login'
+    target='_blank'>Comenzar</Button
   >
 </div>
 
