@@ -6,21 +6,22 @@ const { pathname } = Astro.url
   <ul class='list'>
     <li>
       <a
-        class:list={{ 'link': true, 'link--current': pathname === '/terms-and-conditions', }}
+        class:list={{ 'link': true, 'link--current': pathname === '/terms-and-conditions' }}
         href='/terms-and-conditions'>Términos y Condiciones</a
       >
     </li>
     <li>
-      <a class:list={{ 'link': true, 'link--current': pathname === '/privacy-policy' }} href='/privacy-policy'
-        >Política de privacidad</a
+      <a
+        class:list={{ 'link': true, 'link--current': pathname === '/privacy-policy' }}
+        href='/privacy-policy'>Política de privacidad</a
       >
     </li>
-    <li>
+    <!-- <li>
       <a
         class:list={{ 'link': true, 'link--current': pathname === '/exchanges-and-returns' }}
         href='/exchanges-and-returns'>Política de Cambios y Devoluciones</a
       >
-    </li>
+    </li> -->
   </ul>
 </aside>
 
