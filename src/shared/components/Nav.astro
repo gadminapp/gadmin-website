@@ -4,9 +4,15 @@ import Button from '@/shared/components/Button.astro'
 import { Image } from 'astro:assets'
 import Menu from './icons/Menu.astro'
 import XMark from './icons/X-Mark.astro'
+
+interface Props {
+  isFixed?: boolean
+}
+
+const { isFixed = true } = Astro.props
 ---
 
-<nav class='nav' transition:persist>
+<nav class:list=`nav ${isFixed ? 'nav--fixed' : ''}` transition:persist>
   <div class='wrapper nav-wrapper'>
     <div class='nav-mobile-toggle'>
       <Menu size={32} color='#EBEBEB' />
@@ -67,15 +73,19 @@ import XMark from './icons/X-Mark.astro'
 
 <style>
   .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     background-color: transparent;
     transition: 0.2s ease background-color;
     z-index: 100;
   }
 
+  .nav--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  .nav:not(.nav--fixed),
   body.scrolled .nav {
     background-color: var(--shade-03);
   }
