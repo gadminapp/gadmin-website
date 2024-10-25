@@ -15,7 +15,7 @@ const { card, name, description, features, recommended }: Props = Astro.props
 const recommendedClass = recommended ? 'pricing__card--recommended' : ''
 ---
 
-<div class=`pricing__card ${recommendedClass}` data-aos='flip-left'>
+<div class:list=`pricing__card ${recommendedClass}` data-aos='flip-left'>
   <div class='pricing__card-badge'>Recomendado</div>
   <h3 class='pricing__card-name'>{name}</h3>
   <p class='pricing__card-description'>
@@ -35,43 +35,43 @@ const recommendedClass = recommended ? 'pricing__card--recommended' : ''
     target='_blank'>Pruébalo gratis</Button
   >
   <div class='pricing__features'>
-    <div class=`pricing__feature ${features[0] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[0] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[0]}</p>
     </div>
-    <div class=`pricing__feature ${features[1] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[1] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[1]}</p>
     </div>
-    <div class=`pricing__feature ${features[2] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[2] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[2]}</p>
     </div>
-    <div class=`pricing__feature ${features[3] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[3] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[3]}</p>
     </div>
-    <div class=`pricing__feature ${features[4] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[4] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[4]}</p>
     </div>
-    <div class=`pricing__feature ${features[5] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[5] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[5]}</p>
     </div>
-    <div class=`pricing__feature ${features[6] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[6] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[6]}</p>
     </div>
-    <div class=`pricing__feature ${features[7] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[7] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[7]}</p>
     </div>
-    <div class=`pricing__feature ${features[8] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[8] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[8]}</p>
     </div>
-    <div class=`pricing__feature ${features[9] === undefined ? "pricing__feature--disabled" : ""}`>
+    <div class:list=`pricing__feature ${features[9] === undefined ? 'pricing__feature--disabled' : ''}`>
       <Check size={24} color={recommended ? '#ffffff' : '#000000'} />
       <p class='pricing__feature-text'>{features[9]}</p>
     </div>
