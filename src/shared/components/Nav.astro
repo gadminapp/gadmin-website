@@ -13,19 +13,19 @@ const { isFixed = true } = Astro.props
 ---
 
 <nav class:list=`nav ${isFixed ? 'nav--fixed' : ''}` transition:persist>
-  <div class='wrapper nav-wrapper'>
+  <div class='wrapper nav-wrapper' data-aos='zoom-in'>
     <div class='nav-mobile-toggle'>
       <Menu size={32} color='#EBEBEB' />
     </div>
-    <div class='nav-links' data-aos='fade-left'>
+    <div class='nav-links'>
       <a href='/learn' class='nav-link nav-link--tutorials'> Tutoriales </a>
       <a href='/pricing' class='nav-link'> Planes y precios </a>
     </div>
-    <a href='/' class='nav-logo' data-aos='zoom-in'>
+    <a href='/' class='nav-logo'>
       <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
       <p class='nav-logo-title'>Gadmin</p>
     </a>
-    <div class='nav-buttons' data-aos='fade-right'>
+    <div class='nav-buttons'>
       <Button
         classes='hide-on-mobile'
         href='https://stores.gadmin.app/login'
