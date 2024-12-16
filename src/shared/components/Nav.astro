@@ -1,5 +1,5 @@
 ---
-import logoBg from '@/assets/img/logo-bg.webp'
+import logoBg from '@/assets/img/logo-192.png'
 import Button from '@/shared/components/Button.astro'
 import { Image } from 'astro:assets'
 import Menu from './icons/Menu.astro'
@@ -22,7 +22,7 @@ const { isFixed = true } = Astro.props
       <a href='/pricing' class='nav-link'> Planes y precios </a>
     </div>
     <a href='/' class='nav-logo'>
-      <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
+      <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' />
       <p class='nav-logo-title'>Gadmin</p>
     </a>
     <div class='nav-buttons'>
