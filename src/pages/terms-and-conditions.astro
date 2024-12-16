@@ -751,14 +751,11 @@ import Layout from '@/shared/layouts/Layout.astro'
   .wrapper {
     width: 100%;
     max-width: 1080px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 7fr 3fr;
     color: var(--neutral-04);
-    gap: 20px;
-    padding: 0 20px;
-  }
-
-  .section--legal {
-    flex: 2;
+    gap: 1rem;
+    padding: 0 1rem;
   }
 
   .table-content {
@@ -786,8 +783,8 @@ import Layout from '@/shared/layouts/Layout.astro'
 
   @media screen and (max-width: 768px) {
     .wrapper {
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 1fr;
       gap: 0;
     }
   }
