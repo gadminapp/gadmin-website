@@ -1,108 +1,97 @@
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const revealElements = document.querySelectorAll('.benefit__amount')
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (entry.target.classList.contains('benefit__amount-ahorro')) {
-            animateCount(entry.target as HTMLElement, 0, 3500, 1500, '+$', ' USD')
-          } else if (entry.target.classList.contains('benefit__amount-incrementSales')) {
-            animateCount(entry.target as HTMLElement, 0, 90, 1500, '+', '%')
-          } else if (entry.target.classList.contains('benefit__amount-updates')) {
-            animateCount(entry.target as HTMLElement, 5000, 0, 1500, '$', '.00')
-          } else if (entry.target.classList.contains('benefit__amount-hoursSaved')) {
-            animateCount(entry.target as HTMLElement, 0, 300, 1500, '+')
-          }
-        }
-      })
-    })
-
-    revealElements.forEach((element) => {
-      observer.observe(element)
-    })
-  })
-
-  function animateCount(
-    element: HTMLElement,
-    start: number,
-    end: number,
-    duration: number,
-    prefix: string = '',
-    suffix: string = ''
-  ): void {
-    let startTime: number | null = null
-
-    function animation(currentTime: number): void {
-      if (startTime === null) startTime = currentTime
-      const timeElapsed = currentTime - startTime
-      const progress = Math.min(timeElapsed / duration, 1)
-      element.textContent = `${prefix}${Math.floor(progress * (end - start) + start).toString()}${suffix}`
-
-      if (timeElapsed < duration) {
-        requestAnimationFrame(animation)
-      }
-    }
-
-    requestAnimationFrame(animation)
-  }
-</script>
+---
+import ceo from '@/assets/img/ceo.webp'
+import { Image } from 'astro:assets'
+---
 
 <div class='benefits-container'>
-  <div class='benefits wrapper'>
-    <div class='benefit'>
-      <h2 class='benefit__amount benefit__amount-ahorro'>+$3500 USD</h2>
-      <p>En ahorros de desarrollo y mantenimiento</p>
+  <div class='benefits-content wrapper'>
+    <div class='main-message'>
+      <h2>
+        <span class='text-secondary'>&lt;Gadmin está en desarrollo/&gt;</span>
+        <br />
+        ¿Lo ayudarías?
+      </h2>
+      <p style={{ margin: '0', fontSize: '1.15rem' }}>
+        Quiere descubrir si los profesionales como tú lo necesitan.
+      </p>
     </div>
-    <div class='benefit'>
-      <h2 class='benefit__amount benefit__amount-incrementSales'>+90%</h2>
-      <p>Incremento de las ventas en el primer trimestre</p>
-    </div>
-    <div class='benefit'>
-      <h2 class='benefit__amount benefit__amount-updates'>$0.00</h2>
-      <p>En actualizaciones y mejoras para tu tienda</p>
-    </div>
-    <div class='benefit counter'>
-      <h2 class='benefit__amount benefit__amount-hoursSaved'>+300</h2>
-      <p>Horas ahorradas en la gestión de tu tienda</p>
+
+    <hr class='divider' />
+
+    <div class='ceo-message'>
+      <p class='highlight'>💙 El CEO es transparente, Gadmin también 💙</p>
+      <p style={{ margin: '0', fontWeight: 300 }}>
+        Gadmin es una startup abierta y <strong>transparente</strong>. Si no me crees, sígueme en
+        LinkedIn donde comparto en público cómo estoy creando la herramienta que te cambiará la
+        vida.
+      </p>
+      <div class='ceo-profile'>
+        <Image
+          class:list='ceo-image'
+          src={ceo}
+          width={48}
+          height={48}
+          alt='Foto de Orlando Briceño, CEO de Gadmin'
+        />
+        <p class='ceo-name'>Orlando Briceño</p>
+      </div>
     </div>
   </div>
-</div>
 
-<style>
-  h2,
-  p {
-    margin: 0;
-  }
-
-  .benefits-container {
-    padding: 3rem;
-    background-color: var(--shade-03);
-  }
-
-  .benefits {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
-    gap: 2rem;
-  }
-
-  .benefit h2 {
-    margin-bottom: 0.5rem;
-    font-size: 1.35rem;
-  }
-
-  .benefit h2,
-  .benefit p {
-    color: var(--white);
-  }
-
-  @media screen and (max-width: 768px) {
+  <style>
     .benefits-container {
-      padding: 2rem 1rem;
+      padding: 3rem;
+      background-color: var(--shade-03);
     }
 
-    .benefit {
+    .benefits-content {
+      max-width: 700px;
+      margin: 0 auto;
       text-align: center;
+      color: var(--white);
     }
-  }
-</style>
+
+    .main-message h2 {
+      margin-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+
+    .divider {
+      margin: 1rem auto;
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .ceo-message {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .ceo-profile {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .ceo-image {
+      border-radius: 100%;
+    }
+
+    .highlight {
+      margin: 0;
+      font-weight: 500;
+    }
+
+    @media screen and (max-width: 768px) {
+      .benefits-container {
+        padding: 2rem 1rem;
+      }
+
+      .main-message h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</div>
