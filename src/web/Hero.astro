@@ -49,6 +49,7 @@ import { Image } from 'astro:assets'
     background-image: linear-gradient(135deg, #01283c, #052112);
     position: relative;
     min-height: 100svh;
+    overflow: hidden;
   }
 
   .hero-grid {
@@ -162,8 +163,10 @@ import { Image } from 'astro:assets'
       padding: 2rem 1rem;
     }
     .floating-offer {
-      right: 0rem;
-      top: 125%;
+      position: relative;
+      right: -1rem;
+      transform: translateY(25%);
+      margin-bottom: 4rem;
     }
     .floating-gift {
       width: 20rem;
