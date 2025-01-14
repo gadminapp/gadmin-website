@@ -1,20 +1,54 @@
 ---
-import Button from '@/shared/components/Button.astro'
+import PricingCard from '@/shared/components/pricing/PricingCard.astro'
+import PricingCardsContainer from '@/shared/components/pricing/PricingCardsContainer.astro'
+import PricingHeader from '@/shared/components/pricing/PricingHeader.astro'
+import PricingTabs from '@/shared/components/pricing/PricingTabs.astro'
 ---
 
 <div class='cta'>
   <div class='wrapper cta-container' data-aos='flip-up'>
-    <div class='cta-content'>
-      <h2 class='cta-title'>
-        Aumenta <span>el alcance</span> de tu negocio.
-      </h2>
-      <h3 class='cta-subtitle'>
-        Empieza a usar <span style='text-transform: uppercase;'>Gadmin</span> hoy.
-      </h3>
-      <Button href='https://stores.gadmin.app/login' target='_blank' mode='default'
-        >¡Empieza ahora mismo!</Button
-      >
-    </div>
+    <PricingHeader />
+    <PricingTabs />
+    <PricingCardsContainer>
+      <PricingCard
+        card='bronze'
+        name='Bronce 🤎'
+        description='Perfecto para nuevos emprendimientos o tiendas de 1 solo producto estrella.'
+        features={[
+          'Ventas ilimitadas sin comisión',
+          'Hasta 50 productos',
+          '5 imágenes por producto',
+          '5 variantes por producto',
+          'Configurar dominio propio',
+        ]}
+      />
+
+      <PricingCard
+        card='silver'
+        name='Plata 🩶'
+        description='Ideal para tiendas de nicho y negocios que buscan escalar.'
+        features={[
+          'Hasta 100 productos',
+          '10 imágenes por producto',
+          '10 variantes por producto',
+          'Tienda multimoneda',
+          '🎁 Dominio .COM de regalo',
+        ]}
+        recommended={true}
+      />
+
+      <PricingCard
+        card='gold'
+        name='Oro 💛'
+        description='Para grandes tiendas con alta demanda y catálogos extensos.'
+        features={[
+          'Hasta 500 productos',
+          '20 imágenes por producto',
+          'Variantes ilimitadas',
+          'Tienda con soporte en varios idiomas',
+        ]}
+      />
+    </PricingCardsContainer>
   </div>
 </div>
 
@@ -27,8 +61,6 @@ import Button from '@/shared/components/Button.astro'
 
   .cta-container {
     padding: 0.25rem;
-    background-color: var(--primary);
-    background-image: linear-gradient(to right, var(--primary), var(--secondary));
     border-radius: 8px;
   }
 
