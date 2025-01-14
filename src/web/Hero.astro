@@ -166,13 +166,22 @@ import { Image } from 'astro:assets'
       position: relative;
       right: -1rem;
       transform: translateY(25%);
-      margin-bottom: 4rem;
+      margin-bottom: 4.5rem;
     }
     .floating-gift {
       width: 20rem;
       left: inherit;
       right: -5rem;
       bottom: 15rem;
+    }
+  }
+
+  @media screen and (max-height: 550px) {
+    .floating-offer {
+      position: relative;
+      right: -1rem;
+      transform: translateY(25%);
+      margin-bottom: 4.5rem;
     }
   }
 </style>
