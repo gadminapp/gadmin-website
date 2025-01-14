@@ -2,8 +2,6 @@
 import logoBg from '@/assets/img/logo-bg.webp'
 import Button from '@/shared/components/Button.astro'
 import { Image } from 'astro:assets'
-import Menu from './icons/Menu.astro'
-import XMark from './icons/X-Mark.astro'
 
 interface Props {
   isFixed?: boolean
@@ -14,59 +12,12 @@ const { isFixed = true } = Astro.props
 
 <nav class:list=`nav ${isFixed ? 'nav--fixed' : ''}` transition:persist>
   <div class='wrapper nav-wrapper' data-aos='zoom-in'>
-    <div class='nav-mobile-toggle'>
-      <Menu size={32} color='#EBEBEB' />
-    </div>
-    <div class='nav-links'>
-      <!-- <a href='/learn' class='nav-link nav-link--tutorials'> Tutoriales </a> -->
-      <a href='/pricing' class='nav-link'> Planes y precios </a>
-    </div>
     <a href='/' class='nav-logo'>
       <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
       <p class='nav-logo-title'>Gadmin</p>
     </a>
     <div class='nav-buttons'>
-      <Button
-        classes='hide-on-mobile'
-        href='https://stores.gadmin.app/login'
-        target='_blank'
-        mode='outlined'>Ingresar</Button
-      >
-      <Button href='https://stores.gadmin.app/login' target='_blank' mode='default'
-        >Crear Mi Tienda</Button
-      >
-    </div>
-  </div>
-  <div class='nav__menu nav__menu--hidden'>
-    <div class='nav__menu-top'>
-      <div class='nav-mobile-toggle'>
-        <XMark size={32} color='#EBEBEB' />
-      </div>
-      <a href='/' class='nav-logo nav-logo--mobile'>
-        <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
-        <p class='nav-logo-title'>Gadmin</p>
-      </a>
-    </div>
-    <div class='nav__menu-links'>
-      <a href='/learn' class='nav__menu-link'>
-        <span class='nav__menu-link-title'>💙 Tutoriales</span>
-        <span class='nav__menu-link-description'>
-          Aprende con nosotros cómo sacar el máximo provecho a tu tienda
-        </span>
-      </a>
-      <a href='/pricing' class='nav__menu-link'>
-        <span class='nav__menu-link-title'>💳 Planes y precios</span>
-        <span class='nav__menu-link-description'>
-          Échale un vistazo a nuestros planes para negocios de todos los tamaños.
-        </span>
-      </a>
-      <!-- <a href='/blog' class='nav__menu-link'>
-        <span class='nav__menu-link-title'>📰 Blog</span>
-        <span class='nav__menu-link-description'>
-          Énterate de noticias, estrategias y técnicas del emprendimiento de la mano de tu equipo
-          favorito.
-        </span>
-      </a> -->
+      <Button href='#pricing' mode='outlined'>Obtén acceso anticipado</Button>
     </div>
   </div>
 </nav>
@@ -92,133 +43,38 @@ const { isFixed = true } = Astro.props
 
   .nav-wrapper {
     display: grid;
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: 1fr 1fr;
     padding: 1rem;
   }
 
-  .nav-links,
   .nav-buttons {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
 
-  .nav-link {
-    color: #d1d1d1;
-    text-decoration: none;
-  }
-
-  .nav-link:hover {
-    color: var(--white);
-  }
-
   .nav-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: 0.5rem;
     text-decoration: none;
-  }
-
-  .nav-logo.nav-logo--mobile {
-    justify-content: flex-end;
   }
 
   .nav-logo-title {
     margin: 0;
     font-size: 1.35rem;
     font-weight: bold;
-    text-transform: uppercase;
     color: var(--white);
-  }
-
-  .nav-logo--mobile .nav-logo-title {
-    font-size: 1.25rem;
   }
 
   .nav-buttons {
     justify-content: flex-end;
   }
 
-  /* Menu Mobile */
-  .nav__menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: none;
-    min-height: 100vh;
-    background-color: var(--shade-03);
-    overflow: auto;
-    transform: translateX(0px);
-    transition: 0.3s ease transform;
-  }
-
-  .nav__menu--hidden {
-    transform: translateX(-150vw);
-  }
-
-  .nav__menu-top {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    padding: 1rem;
-  }
-
-  .nav-mobile-toggle {
-    display: none;
-  }
-
-  .nav-mobile-toggle > svg {
-    display: flex;
-  }
-
-  .nav__menu-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .nav__menu-link {
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    background-color: var(--shade-04);
-    color: var(--neutral-02);
-    gap: 0.5rem;
-    padding: 1rem;
-    border-radius: 1rem;
-    transition: 0.2s ease background-color;
-  }
-
-  .nav__menu-link:hover {
-    background-color: var(--shade-03);
-  }
-
-  .nav__menu-link-description {
-    font-size: 0.85rem;
-    color: var(--neutral-03);
-  }
-
   @media screen and (max-width: 768px) {
     .nav-wrapper {
       grid-template-columns: auto 1fr;
-    }
-
-    .nav-logo:not(.nav-logo--mobile),
-    .nav-links {
-      display: none;
-    }
-
-    .nav-mobile-toggle {
-      width: auto;
-      padding: 0 0.5rem;
-      display: flex;
-      align-items: center;
-    }
-
-    .nav__menu {
-      display: block;
     }
   }
 
@@ -228,24 +84,3 @@ const { isFixed = true } = Astro.props
     }
   }
 </style>
-
-<script>
-  const initToggles = () => {
-    const menuToggles = document.querySelectorAll('.nav-mobile-toggle')
-    const menuMobile = document.querySelector('.nav__menu')
-    if (menuToggles && menuMobile) {
-      menuToggles.forEach((toggle) => {
-        toggle.addEventListener('click', () => {
-          menuMobile.classList.toggle('nav__menu--hidden')
-        })
-      })
-    }
-  }
-
-  const menuMobile = document.querySelector('.nav__menu')
-  if (menuMobile) {
-    menuMobile.classList.add('nav__menu--hidden')
-  }
-
-  initToggles()
-</script>

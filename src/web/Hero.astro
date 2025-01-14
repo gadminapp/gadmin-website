@@ -1,47 +1,43 @@
 ---
-import min from '@/assets/img/min.webp'
+import gift3D from '@/assets/img/gift-3d.png'
+import offerLines from '@/assets/offer-lines.png'
 import Button from '@/shared/components/Button.astro'
-import FloatContainer from '@/shared/components/FloatContainer.astro'
-import KPI from '@/shared/components/KPI.astro'
-import PushNotification from '@/shared/components/PushNotification.astro'
 import { Image } from 'astro:assets'
 ---
 
 <div class='hero'>
+  <Image src={gift3D} alt='Gift 3D decoration' class='floating-gift' width={350} height={350} />
   <div class='wrapper hero-grid'>
-    <div class='hero-image' data-aos='zoom-in'>
-      <div class='hero-image-container'>
-        <FloatContainer className={'pushNotification'} top={-2.5} left={2.125}>
-          <PushNotification
-            appName={'Gadmin App'}
-            displayTime={'Hace 1 minuto'}
-            message={'¡Felicidades! Recibiste 1 nuevo pedido en Tu Tienda.'}
-          />
-        </FloatContainer>
-        <Image src={min} width={350} height={350} alt='Personaje de Gadmin' loading='eager' />
-        <FloatContainer className={'kpi'} top={8} right={-4}>
-          <KPI
-            message={'Ventas del mes'}
-            amount={1578}
-            increasePercentage={200}
-            increaseFrequency={'yearly'}
-          />
-        </FloatContainer>
-      </div>
-    </div>
     <div class='hero-content' data-aos='zoom-in'>
-      <h1 class='hero-big-title'>
-        Crea tu tienda online<br class='hero-big-title-br' /> en 5 minutos
-      </h1>
-      <h2 class='hero-title'>Sin conocimientos técnicos</h2>
-      <p class='hero-description'>
-        Aumenta las ventas de tu negocio hasta un <span class='text-primary'>90%</span> en el primer
-        trimestre.
+      <p class='hero-tagline'>
+        Sitios webs y tiendas online para emprendedores y pequeñas empresas.
       </p>
-      <div class='hero-cta' data-aos='zoom-in'>
-        <Button href='https://stores.gadmin.app/login' target='_blank' mode='default'
-          >¡Empieza ya!</Button
+
+      <h1 class='hero-big-title'>
+        El creador web para sitios <span class='text-secondary'>asombrosos</span>
+      </h1>
+
+      <div class='hero-features'>
+        <p>Crea sitios o tiendas de cualquier tamaño</p>
+        <p>Ahorra tiempo con IA integrada</p>
+        <p>Sin tocar nada técnico</p>
+      </div>
+
+      <div class='hero-cta'>
+        <Button
+          href='#pricing'
+          mode='gradient'
+          style={{
+            width: 'fit-content',
+            fontWeight: 'bold',
+          }}>¡Consíguelo ahora!</Button
         >
+        <div class='floating-offer'>
+          <Image src={offerLines} alt='' class='floating-lines' width={256} height={103} />
+          <div class='floating-offer-container'>
+            <div class='floating-offer-inner'>Pruébalo antes que nadie</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -55,21 +51,11 @@ import { Image } from 'astro:assets'
     min-height: 100svh;
   }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('../assets/img/circles.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
   .hero-grid {
     display: grid;
-    grid-template-columns: 4fr 6fr;
+    grid-template-columns: 1fr;
+    place-items: center;
+    text-align: center;
     gap: 1rem;
     min-height: calc(100svh - 7rem);
     padding: 6rem 1rem;
@@ -78,95 +64,112 @@ import { Image } from 'astro:assets'
     z-index: 2;
   }
 
-  .hero-image {
-    display: flex;
-    align-items: center;
-    height: auto;
-    min-height: 300px;
-    position: relative;
-  }
-
-  .hero-image-container {
-    width: 100%;
-    position: relative;
-  }
-
-  .hero-image img {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-  }
-
   .hero-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
+    max-width: 800px;
   }
 
-  .hero-big-title,
-  .hero-title,
-  .hero-description {
-    text-align: right;
-    margin: 0.25rem 0;
+  .hero-tagline {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    background-image: linear-gradient(
+      90deg,
+      rgba(184, 229, 255, 0.5) 0%,
+      rgba(184, 229, 255, 1) 25%,
+      rgba(184, 229, 255, 1) 75%,
+      rgba(184, 229, 255, 0.5) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   .hero-big-title {
-    color: var(--white);
-    font-size: var(--64-pt);
+    font-size: 3rem;
   }
 
-  .hero-title {
-    width: fit-content;
-    font-size: var(--40-pt);
-    background: linear-gradient(to right, var(--secondary), var(--primary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  .hero-big-title,
+  .hero-features p {
+    margin: 0;
+    text-align: center;
+    color: var(--white);
   }
 
-  .hero-description {
-    color: var(--white);
-    font-size: var(--32-pt);
+  .hero-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 1rem 0 2rem 0;
   }
 
   .hero-cta {
-    margin-top: 2rem;
+    position: relative;
   }
+
+  .floating-lines {
+    position: absolute;
+    left: 0;
+    top: 25%;
+    transform: translateY(-55%);
+    width: 7.5rem;
+    height: auto;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .floating-offer {
+    position: absolute;
+    right: -11.5rem;
+    top: 50%;
+    z-index: 2;
+  }
+
+  .floating-offer-container {
+    position: relative;
+    left: 5rem;
+    transform: translateY(100%) rotate(22deg);
+    background-color: #e53333;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    z-index: 2;
+  }
+
+  .floating-offer-inner {
+    padding: 0.5rem;
+    border: 1px dashed rgba(255, 255, 255, 0.75);
+    border-radius: 0.25rem;
+    color: white;
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .floating-gift {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    opacity: 0.07;
+    width: 25rem;
+    height: auto;
+    pointer-events: none;
+    z-index: 1;
+  }
+
   @media screen and (max-width: 768px) {
-    .hero {
-      min-height: auto;
-    }
-
-    .hero::before {
-      background-image: none;
-    }
-
-    .hero-grid {
-      min-height: 6rem;
-      grid-template-columns: 1fr;
-    }
-
-    .hero-image {
-      justify-content: center;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
     .hero-content {
-      align-items: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
     }
-
-    .hero-big-title,
-    .hero-title,
-    .hero-description {
-      text-align: center;
-      margin: 0.25rem 0;
+    .floating-offer {
+      right: 0rem;
+      top: 125%;
     }
-
-    .hero-big-title-br {
-      display: none;
+    .floating-gift {
+      width: 20rem;
+      left: inherit;
+      right: -5rem;
+      bottom: 15rem;
     }
   }
 </style>

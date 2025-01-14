@@ -1,19 +1,21 @@
 ---
 interface Props {
   classes?: string
-  mode: 'default' | 'outlined'
+  mode: 'default' | 'outlined' | 'gradient'
   type?: 'gradient' | 'gray'
   href: string
-  target: '_blank' | '_parent' | '_self' | '_top'
+  target?: '_blank' | '_parent' | '_self' | '_top'
+  style?: string | Record<string, string | number>
 }
 
-const { classes = '', type = 'gradient', mode, href, target } = Astro.props
+const { classes = '', type = 'gradient', mode, href, target = '_self', style } = Astro.props
 ---
 
 <a
   href={href}
   target={target}
   class:list=`button button--mode-${mode} button--type-${type} ${classes}`
+  style={style}
 >
   <slot />
 </a>
@@ -71,5 +73,19 @@ const { classes = '', type = 'gradient', mode, href, target } = Astro.props
 
   .button--type-gray.button--mode-outlined:hover {
     border-color: var(--shade-04);
+  }
+
+  .button--mode-gradient {
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    box-shadow:
+      0 0 24px var(--secondary),
+      0 4px 4px rgba(0, 0, 0, 0.25);
+    color: var(--shade-03);
+    border: none;
+  }
+
+  .button--mode-gradient:hover {
+    background-position: 100% 0%;
+    background-size: 150% 100%;
   }
 </style>
