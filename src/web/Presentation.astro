@@ -8,37 +8,43 @@ import { Image } from 'astro:assets'
 <div class='presentation'>
   <div class='wrapper'>
     <h2 class='presentation-title' data-aos='flip-down'>
-      Lleva tu <span>emprendimiento</span> más allá
+      ¿Qué dirías si te prometo olvidar los hostings y <span>complicaciones</span> técnicas?
     </h2>
-    <p class='presentation-description' data-aos='flip-right'>
-      Gadmin integra métricas de ventas y gestión de inventario, dándote una comprensión total de tu
-      negocio.
-      <br />
-      <b>Enfócate en tus clientes e incrementa tus ventas.</b>
-    </p>
-  </div>
-  <div class='presentation-images' data-aos='zoom-in'>
-    <Image
-      class='presentation-image presentation-image-left'
-      src={leftPresentation}
-      width={744}
-      height={368}
-      alt='Listado de productos en Gadmin'
-    />
-    <Image
-      class='presentation-image presentation-image-center'
-      src={centerPresentation}
-      width={994}
-      height={602}
-      alt='Tienda online creada con Gadmin'
-    />
-    <Image
-      class='presentation-image presentation-image-right'
-      src={rightPresentation}
-      width={644}
-      height={302}
-      alt='Resumen de rendimiento dentro de Gadmin'
-    />
+    <div class='presentation-images' data-aos='zoom-in'>
+      <Image
+        class='presentation-image presentation-image-left'
+        src={leftPresentation}
+        width={400}
+        height={846}
+        alt='Listado de productos en Gadmin'
+      />
+      <Image
+        class='presentation-image presentation-image-center'
+        src={centerPresentation}
+        width={1011}
+        height={782}
+        alt='Editor web de Gadmin'
+      />
+      <Image
+        class='presentation-image presentation-image-right'
+        src={rightPresentation}
+        width={400}
+        height={846}
+        alt='Resumen de rendimiento dentro de Gadmin'
+      />
+    </div>
+    <div class='presentation-features'>
+      <div class='presentation-feature'>
+        <strong>Tú diseñas.</strong> Gadmin lo hace un sitio web con hosting, código, almacenamiento
+        y todo el cuento.
+      </div>
+      <div class='presentation-feature'>
+        <strong>O usas plantillas.</strong> Gratis y de pago hechas por nuestra comunidad de diseñadores.
+      </div>
+      <div class='presentation-feature'>
+        <strong>UI como Figma</strong> Sigue diseñando como lo hacías antes, pero con superpoderes.
+      </div>
+    </div>
   </div>
 </div>
 
@@ -71,29 +77,83 @@ import { Image } from 'astro:assets'
 
   .presentation-images {
     display: grid;
-    grid-template-columns: 3fr 5fr 3fr;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
     place-items: center;
-    padding: 0 1rem;
+    padding: 5rem 1rem;
+    padding-bottom: 2rem;
     margin-top: 2rem;
   }
 
   .presentation-image {
-    width: 100%;
+    width: 80%;
     height: auto;
     border-radius: 0.5rem;
+    background-color: transparent;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  }
+
+  .presentation-image-left,
+  .presentation-image-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    box-shadow: 4px 8px 8px hsla(235, 72%, 10%, 0.35);
+  }
+
+  .presentation-image-right {
+    left: inherit;
+    right: 0;
+    box-shadow: -4px 8px 8px hsla(235, 72%, 10%, 0.35);
+  }
+
+  .presentation-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    font-size: 1.125rem;
   }
 
   @media screen and (max-width: 768px) {
     .presentation-images {
       grid-template-columns: 1fr;
+      padding: 0;
+    }
+
+    .presentation-image-center {
+      width: 100%;
     }
 
     .presentation-image-left,
     .presentation-image-right {
-      width: 75%;
-      height: auto;
+      display: none;
+    }
+
+    .presentation-features {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+  }
+
+  @media screen and (min-width: 768.1px) {
+    .presentation-image-left,
+    .presentation-image-right {
+      transform: translateY(0rem);
+      animation: move cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      animation-timeline: scroll(nearest block);
+      will-change: transform;
+      backface-visibility: hidden;
+    }
+
+    @keyframes move {
+      0% {
+        transform: translateY(0rem);
+      }
+      100% {
+        transform: translateY(5rem);
+      }
     }
   }
 </style>

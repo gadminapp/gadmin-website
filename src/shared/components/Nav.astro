@@ -13,11 +13,13 @@ const { isFixed = true } = Astro.props
 <nav class:list=`nav ${isFixed ? 'nav--fixed' : ''}` transition:persist>
   <div class='wrapper nav-wrapper' data-aos='zoom-in'>
     <a href='/' class='nav-logo'>
-      <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' loading='eager' />
+      <Image src={logoBg} width={32} height={32} alt='Logo de Gadmin' loading='eager' />
       <p class='nav-logo-title'>Gadmin</p>
     </a>
     <div class='nav-buttons'>
-      <Button href='#pricing' mode='outlined'>¡Consíguelo ahora!</Button>
+      <Button href='#pricing' mode='outlined' style={{ padding: '0.5rem 1rem' }}
+        >¡Consíguelo ahora!</Button
+      >
     </div>
   </div>
 </nav>
@@ -44,7 +46,7 @@ const { isFixed = true } = Astro.props
   .nav-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .nav-buttons {
@@ -63,7 +65,7 @@ const { isFixed = true } = Astro.props
 
   .nav-logo-title {
     margin: 0;
-    font-size: 1.35rem;
+    font-size: 1rem;
     font-weight: 500;
     color: var(--white);
   }
