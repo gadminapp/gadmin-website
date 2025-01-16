@@ -1,13 +1,13 @@
 ---
+import anny from '@/assets/img/anny.webp'
 import ceo from '@/assets/img/ceo.webp'
-import client from '@/assets/img/miladys.webp'
 import Image from 'astro/components/Image.astro'
 ---
 
 <div class='testimonials'>
   <div class='wrapper testimonials-container'>
     <h2 class='testimonials-title' data-aos='zoom-in-down'>
-      Llevamos <span>más lejos</span> a emprendedores y negocios.
+      Con un equipo <span>comprometido</span> a darte la mejor experiencia
     </h2>
     <div class='testimonials-list'>
       <div class='testimonial' data-aos='flip-left'>
@@ -16,34 +16,32 @@ import Image from 'astro/components/Image.astro'
           <div class='testimonial-author'>
             <div class='testimonial-author-information'>
               <p class='testimonial-author-name'>Orlando Briceño</p>
-              <p class='testimonial-author-role'>CEO de Gadmin</p>
+              <p class='testimonial-author-role'>Fundador</p>
             </div>
           </div>
         </div>
         <p class='testimonial-message'>
-          "Gadmin es esencial, mejora la velocidad y gestión desde el primer día. Su misión es
-          simplificar tu vida, ahorrarte tiempo y expandir tu alcance digital."
+          "<b>Honestidad</b> y <b>transparencia</b>. Construyo Gadmin sobre mis valores.
+          <br /><br />
+          Te prometo no darte (malas 😂) sorpresas.”
         </p>
       </div>
       <div class='testimonial' data-aos='flip-left'>
         <div class='testimonial-business-logo'>
           <Image
-            src={client}
+            src={anny}
             width={48}
             height={48}
-            alt='Foto de Miladys Guerra, cliente de Gadmin'
+            alt='Foto de Anny Rondón, constructora de Gadmin'
           />
           <div class='testimonial-author'>
             <div class='testimonial-author-information'>
-              <p class='testimonial-author-name'>Miladys Guerra</p>
-              <p class='testimonial-author-role'>Emprendedora autónoma</p>
+              <p class='testimonial-author-name'>Anny Rondón</p>
+              <p class='testimonial-author-role'>Diseñadora y Desarrolladora Frontend</p>
             </div>
           </div>
         </div>
-        <p class='testimonial-message'>
-          "Gadmin es una bendición para mi negocio. Siempre llevo mi inventario al día y solo me
-          encargo de atender clientes y cerrar ventas."
-        </p>
+        <p class='testimonial-message'>"Estoy escribiendo este mensaje... 😅"</p>
       </div>
     </div>
   </div>
