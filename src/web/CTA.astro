@@ -2,50 +2,49 @@
 import PricingCard from '@/shared/components/pricing/PricingCard.astro'
 import PricingCardsContainer from '@/shared/components/pricing/PricingCardsContainer.astro'
 import PricingHeader from '@/shared/components/pricing/PricingHeader.astro'
-import PricingTabs from '@/shared/components/pricing/PricingTabs.astro'
 ---
 
 <div class='cta'>
   <div class='wrapper cta-container'>
     <PricingHeader />
-    <PricingTabs />
     <PricingCardsContainer>
       <PricingCard
-        card='bronze'
-        name='Bronce 🤎'
-        description='Perfecto para nuevos emprendimientos o tiendas de 1 solo producto estrella.'
+        card='access-20'
+        name='Acceso 20'
+        description='Un premio de 20% off por tu confianza. 💙'
+        price={30}
         features={[
-          'Ventas ilimitadas sin comisión',
-          'Hasta 50 productos',
-          '5 imágenes por producto',
-          '5 variantes por producto',
-          'Configurar dominio propio',
+          '20% de descuento de por vida',
+          '15 miembros de equipo',
+          'Sitios y tiendas ilimitadas',
+          'Dominio personalizado',
         ]}
       />
 
       <PricingCard
-        card='silver'
-        name='Plata 🩶'
-        description='Ideal para tiendas de nicho y negocios que buscan escalar.'
+        card='access-50'
+        name='Acceso 50'
+        description='Ideal para agencias que quieran crecer con nosotros. 🚀'
+        price={100}
         features={[
-          'Hasta 100 productos',
-          '10 imágenes por producto',
-          '10 variantes por producto',
-          'Tienda multimoneda',
-          '🎁 Dominio .COM de regalo',
+          '50% de descuento de por vida',
+          '15 miembros de equipo',
+          'Sitios y tiendas ilimitadas',
+          'Dominio personalizado',
         ]}
         recommended={true}
       />
 
       <PricingCard
-        card='gold'
-        name='Oro 💛'
-        description='Para grandes tiendas con alta demanda y catálogos extensos.'
+        card='access-ltd'
+        name='Acceso LTD'
+        description='Recompensamos tu grandiosa confianza con creces. 💝'
+        price={720}
         features={[
-          'Hasta 500 productos',
-          '20 imágenes por producto',
-          'Variantes ilimitadas',
-          'Tienda con soporte en varios idiomas',
+          'Gadmin gratis de por vida',
+          '30 miembros de equipo',
+          'Sitios y tiendas ilimitadas',
+          'Altos recursos en sitios y tiendas',
         ]}
       />
     </PricingCardsContainer>
@@ -54,8 +53,8 @@ import PricingTabs from '@/shared/components/pricing/PricingTabs.astro'
 
 <style>
   .cta {
-    background-color: var(--shade-03);
-    color: var(--white);
+    background-color: var(--neutral-02);
+    color: var(--shade-03);
     padding: 4rem 1rem;
   }
 
@@ -78,7 +77,7 @@ import PricingTabs from '@/shared/components/pricing/PricingTabs.astro'
   .cta-subtitle {
     margin: 0;
     margin-bottom: 1rem;
-    color: var(--white);
+    color: var(--shade-03);
     text-align: center;
     font-size: var(--48-pt);
   }
