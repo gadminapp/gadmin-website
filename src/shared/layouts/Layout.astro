@@ -32,7 +32,8 @@ const { title, description, preload, canonical, image } = Astro.props
       rel='stylesheet preload prefetch'
       as='style'
     />
-    <script async src='https://cdn.seline.so/seline.js' data-token='141979288a35370'></script>
+    <script is:inline async src='https://cdn.seline.so/seline.js' data-token='141979288a35370'
+    ></script>
   </head>
   <body>
     <slot />
