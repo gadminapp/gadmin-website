@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /success
 
 # Host
 Host: https://gadmin.app

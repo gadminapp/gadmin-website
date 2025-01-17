@@ -17,7 +17,11 @@ export default defineConfig({
     imageService: 'passthrough',
   }),
   site: 'https://gadmin.app',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/success'),
+    }),
+  ],
   vite: {
     ssr: {
       noExternal: ['path-to-regexp'],
