@@ -6,9 +6,10 @@ interface Props {
   href: string
   target?: '_blank' | '_parent' | '_self' | '_top'
   style?: string | Record<string, string | number>
+  [key: string]: any
 }
 
-const { classes = '', type = 'gradient', mode, href, target = '_self', style } = Astro.props
+const { classes = '', type = 'gradient', mode, href, target = '_self', style, ...rest } = Astro.props
 ---
 
 <a
@@ -16,6 +17,7 @@ const { classes = '', type = 'gradient', mode, href, target = '_self', style } =
   target={target}
   class:list=`button button--mode-${mode} button--type-${type} ${classes}`
   style={style}
+  {...rest}
 >
   <slot />
 </a>

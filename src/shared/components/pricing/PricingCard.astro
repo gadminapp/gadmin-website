@@ -1,7 +1,6 @@
 ---
 import Button from '@/shared/components/Button.astro'
 import Check from '@/shared/components/icons/Check.astro'
-
 interface Props {
   name: string
   description: string
@@ -9,14 +8,15 @@ interface Props {
   card: 'access-20' | 'access-50' | 'access-ltd'
   price: number
   recommended?: boolean
+  [key: string]: any
 }
 
-const { card, name, description, features, price, recommended }: Props = Astro.props
+const { card, name, description, features, price, recommended, ...rest }: Props = Astro.props
 
 const recommendedClass = recommended ? 'pricing__card--recommended' : ''
 ---
 
-<div class:list=`pricing__card ${recommendedClass}` data-aos='flip-left'>
+<div class:list=`pricing__card ${recommendedClass}` data-aos='flip-left' {...rest}>
   <div class='pricing__card-badge'>Te lo recomiendo</div>
   <h3 class='pricing__card-name'>{name}</h3>
   <p class='pricing__card-description'>
@@ -91,7 +91,7 @@ const recommendedClass = recommended ? 'pricing__card--recommended' : ''
   <Button
     mode={recommended ? 'default' : 'outlined'}
     type={recommended ? 'gradient' : 'gray'}
-    href='#!BuyIt'>Comprar</Button
+    href={`#!buy-${card}`}>Comprar</Button
   >
 </div>
 

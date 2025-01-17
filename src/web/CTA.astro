@@ -1,4 +1,5 @@
 ---
+import Button from '@/shared/components/Button.astro'
 import PricingCard from '@/shared/components/pricing/PricingCard.astro'
 import PricingCardsContainer from '@/shared/components/pricing/PricingCardsContainer.astro'
 import PricingHeader from '@/shared/components/pricing/PricingHeader.astro'
@@ -9,6 +10,7 @@ import PricingHeader from '@/shared/components/pricing/PricingHeader.astro'
     <PricingHeader />
     <PricingCardsContainer>
       <PricingCard
+        data-plan='access-20'
         card='access-20'
         name='Acceso 20'
         description='Un premio de 20% off por tu confianza. 💙'
@@ -22,6 +24,7 @@ import PricingHeader from '@/shared/components/pricing/PricingHeader.astro'
       />
 
       <PricingCard
+        data-plan='access-50'
         card='access-50'
         name='Acceso 50'
         description='Ideal para agencias que quieran crecer con nosotros. 🚀'
@@ -36,6 +39,7 @@ import PricingHeader from '@/shared/components/pricing/PricingHeader.astro'
       />
 
       <PricingCard
+        data-plan='access-ltd'
         card='access-ltd'
         name='Acceso LTD'
         description='Recompensamos tu grandiosa confianza con creces. 💝'
@@ -51,51 +55,258 @@ import PricingHeader from '@/shared/components/pricing/PricingHeader.astro'
   </div>
 </div>
 
-<style>
-  .cta {
-    background-color: var(--neutral-02);
-    color: var(--shade-03);
-    padding: 4rem 1rem;
-  }
+<div class='modal' id='purchaseModal'>
+  <div class='modal-content'>
+    <h2>Escribe tu información</h2>
+    <div class='form-group'>
+      <input type='text' id='fullName' placeholder='Nombre completo' />
+      <span class='error-message' id='fullName-error'></span>
+    </div>
+    <div class='form-group'>
+      <input type='email' id='email' placeholder='Email' />
+      <span class='error-message' id='email-error'></span>
+    </div>
+    <p class='modal-terms'>
+      Si continúas, aceptas que almacenemos tu nombre y correo para enviarte información de Gadmin y
+      asegurar tu descuento de por vida.
+    </p>
+    <Button id='submit-modal' mode='gradient' href='#!Buy'>Comprar ahora</Button>
+  </div>
 
-  .cta-container {
-    padding: 0.25rem;
-    border-radius: 8px;
-  }
+  <script>
+    let selectedPlan = ''
 
-  .cta-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3rem 1rem;
-    background-color: var(--shade-03);
-    border-radius: 8px;
-  }
-
-  .cta-title,
-  .cta-subtitle {
-    margin: 0;
-    margin-bottom: 1rem;
-    color: var(--shade-03);
-    text-align: center;
-    font-size: var(--48-pt);
-  }
-
-  .cta-subtitle {
-    font-size: var(--40-pt);
-  }
-
-  .cta-title span,
-  .cta-subtitle span {
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  @media screen and (max-width: 768px) {
-    .cta-content {
-      padding: 3rem 0.5rem;
+    async function generateSession(plan: string, userData: { fullName: string; email: string }) {
+      return fetch('https://api.gadmin.app/api/v2/landing/generate-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          plan,
+          ...userData,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.url) {
+            window.location.href = data.url
+          } else {
+            throw new Error('Ocurrió un error, intenta de nuevo.')
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+          alert('Ocurrió un error, intenta de nuevo.')
+        })
     }
-  }
-</style>
+
+    // * Modal handle
+    const modal = document.getElementById('purchaseModal')
+    const submitButton = document.getElementById('submit-modal')
+
+    document.querySelectorAll('[data-plan] .button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const plan = button.closest('[data-plan]')?.getAttribute('data-plan')
+        if (plan) {
+          selectedPlan = plan
+          modal!.classList.add('modal--open')
+        }
+      })
+    })
+
+    // Cerrar modal si se hace click fuera
+    window.addEventListener('click', (event) => {
+      if (event.target === modal) {
+        modal!.classList.remove('modal--open')
+      }
+    })
+
+    if (submitButton) {
+      submitButton.addEventListener('click', async (e) => {
+        e.preventDefault()
+        const fullName = (document.getElementById('fullName') as HTMLInputElement).value
+        const email = (document.getElementById('email') as HTMLInputElement).value
+
+        // Reset error messages
+        document.querySelectorAll('.error-message').forEach((el) => (el.textContent = ''))
+
+        let hasErrors = false
+
+        // Validate fullName
+        if (!fullName.trim()) {
+          const fullNameError = document.getElementById('fullName-error')
+          if (fullNameError) {
+            fullNameError.textContent = 'Necesito tu nombre. 🥺'
+            hasErrors = true
+          }
+        }
+
+        // Validate email
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+        if (!email.trim() || !emailRegex.test(email)) {
+          const emailError = document.getElementById('email-error')
+          if (emailError) {
+            emailError.textContent = 'Escribe tu mejor email. 👀'
+            hasErrors = true
+          }
+        }
+
+        if (hasErrors) return
+
+        await generateSession(selectedPlan, { fullName, email })
+      })
+
+      // Add blur event listeners to hide error messages
+      const fullNameInput = document.getElementById('fullName')
+      const emailInput = document.getElementById('email')
+
+      fullNameInput?.addEventListener('blur', () => {
+        const fullNameError = document.getElementById('fullName-error')
+        if (fullNameError) {
+          fullNameError.textContent = ''
+        }
+      })
+
+      emailInput?.addEventListener('blur', () => {
+        const emailError = document.getElementById('email-error')
+        if (emailError) {
+          emailError.textContent = ''
+        }
+      })
+    }
+  </script>
+
+  <style>
+    .cta {
+      background-color: var(--neutral-02);
+      color: var(--shade-03);
+      padding: 4rem 1rem;
+    }
+
+    .cta-container {
+      padding: 0.25rem;
+      border-radius: 8px;
+    }
+
+    .cta-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem 1rem;
+      background-color: var(--shade-03);
+      border-radius: 8px;
+    }
+
+    .cta-title,
+    .cta-subtitle {
+      margin: 0;
+      margin-bottom: 1rem;
+      color: var(--shade-03);
+      text-align: center;
+      font-size: var(--48-pt);
+    }
+
+    .cta-subtitle {
+      font-size: var(--40-pt);
+    }
+
+    .cta-title span,
+    .cta-subtitle span {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    @media screen and (max-width: 768px) {
+      .cta-content {
+        padding: 3rem 0.5rem;
+      }
+    }
+
+    .modal {
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .modal--open {
+      opacity: 1;
+      pointer-events: all;
+      user-select: auto;
+    }
+
+    .modal-content {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 500px;
+      transition: transform 0.3s ease;
+      transform: scale(0);
+    }
+    .modal--open .modal-content {
+      transform: scale(1);
+    }
+
+    .modal h2 {
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--shade-03);
+    }
+
+    .modal .modal-terms {
+      font-size: var(--16-pt);
+      color: var(--shade-03);
+      opacity: 0.75;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--neutral-03);
+      border-radius: 4px;
+      font-size: 1rem;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.15s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .form-group input:-webkit-autofill {
+      background-color: var(--neutral-03) !important;
+      -webkit-box-shadow: 0 0 0 30px var(--neutral-03) inset !important;
+    }
+
+    .modal .button {
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .error-message {
+      color: #dc3545;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+      display: block;
+    }
+  </style>
+</div>
