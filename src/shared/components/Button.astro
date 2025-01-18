@@ -15,6 +15,7 @@ const { classes = '', type = 'gradient', mode, href, target = '_self', style, ..
 <a
   href={href}
   target={target}
+  rel={target === '_blank' ? 'noopener noreferrer' : undefined}
   class:list=`button button--mode-${mode} button--type-${type} ${classes}`
   style={style}
   {...rest}
