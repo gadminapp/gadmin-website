@@ -3,28 +3,32 @@ import SEO from '@/shared/components/SEO.astro'
 import type { Preload } from '@/shared/types/Preload'
 import 'aos/dist/aos.css'
 import WhatsApp from '../components/whatsAppWidget/WhatsApp.astro'
-
 interface Props {
   title: string
   description: string
   preload?: Array<Preload>
   canonical?: string
   image?: string
+  withSEO?: boolean
 }
 
-const { title, description, preload, canonical, image } = Astro.props
+const { title, description, preload, canonical, image, withSEO = false } = Astro.props
 ---
 
 <!doctype html>
 <html lang='es'>
   <head>
-    <SEO
-      title={title}
-      description={description}
-      preload={preload}
-      canonical={canonical}
-      image={image}
-    />
+    {
+      withSEO && (
+        <SEO
+          title={title}
+          description={description}
+          preload={preload}
+          canonical={canonical}
+          image={image}
+        />
+      )
+    }
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
     <link
