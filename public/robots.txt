@@ -1,9 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /success
+Disallow: /success, /cdn-cgi/l/email-protection
 
 # Host
 Host: https://gadmin.app
 
 # Sitemaps
 Sitemap: https://gadmin.app/sitemap-index.xml
+
