@@ -6,7 +6,7 @@ import { Image } from 'astro:assets'
 ---
 
 <div class='hero'>
-  <Image src={gift3D} alt='Gift 3D decoration' class='floating-gift' width={350} height={350} />
+  <Image src={gift3D} alt='Gift decoración 3D' class='floating-gift' width={350} height={350} />
   <div class='wrapper hero-grid'>
     <div class='hero-content' data-aos='zoom-in'>
       <p class='hero-tagline'>
@@ -33,7 +33,13 @@ import { Image } from 'astro:assets'
           }}>¡Consíguelo ahora!</Button
         >
         <div class='floating-offer'>
-          <Image src={offerLines} alt='' class='floating-lines' width={256} height={103} />
+          <Image
+            src={offerLines}
+            alt='Líneas apuntando a la oferta'
+            class='floating-lines'
+            width={256}
+            height={103}
+          />
           <div class='floating-offer-container'>
             <div class='floating-offer-inner'>Pruébalo antes que nadie</div>
           </div>
