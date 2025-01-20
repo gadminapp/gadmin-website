@@ -1,6 +1,5 @@
 /*
-  Content-Security-Policy: default-src 'self'; frame-ancestors 'self' http://localhost:3000;
-  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self' http://localhost:3000; frame-src 'self' http://localhost:3000;
   X-Content-Type-Options: nosniff
   Referrer-Policy: no-referrer
   Permissions-Policy: geolocation=(self)
