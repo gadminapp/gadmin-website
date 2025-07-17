@@ -58,18 +58,18 @@ const { title, description, preload, canonical, image, withSEO = false } = Astro
     <style is:global>
       :root {
         --white: #ffffff;
-        --primary: #0eaaf9;
-        --secondary: #27ae60;
-        --shade-02: #222222;
-        --shade-03: #070a2b;
-        --shade-04: #151b5b;
+        --primary: #515cec;
+        --secondary: #666fc2;
+        --accent: #14eef4;
+        --gray-gadmin: #8b99a8;
+        --shade-03: #1c1b30;
+        --shade-04: #383655;
         --neutral-02: #ebebeb;
         --neutral-03: #dddddd;
         --neutral-04: #d3d3d3;
         --neutral-06: #b0b0b0;
         --neutral-07: #717171;
         --neutral-08: #5e5e5e;
-        --primary-3: #b8e5ff;
 
         --64-pt: 3rem;
         --48-pt: 2.25rem;
@@ -91,7 +91,7 @@ const { title, description, preload, canonical, image, withSEO = false } = Astro
         font-optical-sizing: auto;
         font-weight: 500;
         font-style: normal;
-        background: #13151a;
+        background: var(--shade-03);
         background-size: 224px;
         scrollbar-gutter: stable;
         scroll-behavior: smooth;
@@ -129,6 +129,18 @@ const { title, description, preload, canonical, image, withSEO = false } = Astro
 
       .text-secondary {
         color: var(--secondary);
+      }
+
+      .text-accent {
+        color: var(--accent);
+      }
+
+      .text-gradient {
+        background: linear-gradient(150deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0px 8px 16px rgb(20 238 244 / 15%);
       }
 
       .text-neutral-08 {

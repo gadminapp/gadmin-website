@@ -1,26 +1,22 @@
 ---
-import gift3D from '@/assets/img/gift-3d.png'
 import offerLines from '@/assets/offer-lines.png'
 import Button from '@/shared/components/Button.astro'
 import { Image } from 'astro:assets'
 ---
 
 <div class='hero'>
-  <Image src={gift3D} alt='Gift decoración 3D' class='floating-gift' width={350} height={350} />
   <div class='wrapper hero-grid'>
     <div class='hero-content' data-aos='zoom-in'>
-      <p class='hero-tagline'>
-        Sitios webs y tiendas online para emprendedores y pequeñas empresas.
-      </p>
+      <p class='hero-tagline'>Tiendas online para emprendedores y pequeñas empresas</p>
 
       <h1 class='hero-big-title'>
-        El creador web para sitios <span class='text-secondary'>asombrosos</span>
+        El creador de tiendas <span class='text-gradient'>asombrosas</span>
       </h1>
 
       <div class='hero-features'>
-        <p>Crea sitios o tiendas de cualquier tamaño</p>
+        <p>Crea tu tienda online del tamaño que necesites</p>
         <p>Ahorra tiempo con IA integrada</p>
-        <p>Sin tocar nada técnico</p>
+        <p>Sin complicaciones técnicas</p>
       </div>
 
       <div class='hero-cta'>
@@ -52,7 +48,7 @@ import { Image } from 'astro:assets'
 <style>
   .hero {
     background-color: #0eaaf9;
-    background-image: linear-gradient(135deg, #01283c, #052112);
+    background-image: linear-gradient(150deg, #1c1b30, #515cec);
     position: relative;
     min-height: 100svh;
     overflow: hidden;
@@ -80,14 +76,14 @@ import { Image } from 'astro:assets'
   }
 
   .hero-tagline {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-bottom: 2rem;
     background-image: linear-gradient(
       90deg,
-      rgba(184, 229, 255, 0.5) 0%,
-      rgba(184, 229, 255, 1) 25%,
-      rgba(184, 229, 255, 1) 75%,
-      rgba(184, 229, 255, 0.5) 100%
+      #ffffff77 0%,
+      #dee7f1 20%,
+      #dee7f1 80%,
+      #ffffff77 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -95,7 +91,7 @@ import { Image } from 'astro:assets'
   }
 
   .hero-big-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
 
   .hero-big-title,
@@ -103,6 +99,10 @@ import { Image } from 'astro:assets'
     margin: 0;
     text-align: center;
     color: var(--white);
+  }
+
+  .hero-features p {
+    font-size: 1.1rem;
   }
 
   .hero-features {
@@ -129,7 +129,7 @@ import { Image } from 'astro:assets'
 
   .floating-offer {
     position: absolute;
-    right: -11.5rem;
+    right: -12.5rem;
     top: 50%;
     z-index: 2;
   }
@@ -138,7 +138,7 @@ import { Image } from 'astro:assets'
     position: relative;
     left: 5rem;
     transform: translateY(100%) rotate(22deg);
-    background-color: #e53333;
+    background-color: #cccccc;
     border-radius: 0.5rem;
     padding: 0.25rem;
     z-index: 2;
@@ -146,22 +146,11 @@ import { Image } from 'astro:assets'
 
   .floating-offer-inner {
     padding: 0.5rem;
-    border: 1px dashed rgba(255, 255, 255, 0.75);
+    border: 1px dashed var(--shade-03);
     border-radius: 0.25rem;
-    color: white;
-    font-size: 0.75rem;
+    color: var(--shade-03);
+    font-size: 0.85rem;
     white-space: nowrap;
-  }
-
-  .floating-gift {
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    opacity: 0.07;
-    width: 25rem;
-    height: auto;
-    pointer-events: none;
-    z-index: 1;
   }
 
   @media screen and (max-width: 768px) {
@@ -173,12 +162,6 @@ import { Image } from 'astro:assets'
       right: -1rem;
       transform: translateY(25%);
       margin-bottom: 4.5rem;
-    }
-    .floating-gift {
-      width: 20rem;
-      left: inherit;
-      right: -5rem;
-      bottom: 15rem;
     }
   }
 
