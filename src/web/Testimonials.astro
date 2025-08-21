@@ -1,6 +1,7 @@
 ---
-import anny from '@/assets/img/anny.webp'
-import ceo from '@/assets/img/ceo.webp'
+import anydayr from '@/assets/img/anydayr.webp'
+import manugonza from '@/assets/img/manugonza.webp'
+import orlandobricenob from '@/assets/img/orlandobricenob.webp'
 import Image from 'astro/components/Image.astro'
 ---
 
@@ -11,41 +12,82 @@ import Image from 'astro/components/Image.astro'
     </h2>
     <div class='testimonials-list'>
       <div class='testimonial' data-aos='flip-left'>
-        <div class='testimonial-business-logo'>
-          <Image src={ceo} width={48} height={48} alt='Foto de Orlando Briceño, CEO de Gadmin' />
-          <div class='testimonial-author'>
-            <div class='testimonial-author-information'>
-              <p class='testimonial-author-name'>Orlando Briceño</p>
-              <p class='testimonial-author-role'>Fundador</p>
+        <div class='testimonial-card'>
+          <div class='testimonial-business-logo'>
+            <Image
+              src={orlandobricenob}
+              width={64}
+              height={64}
+              alt='Foto de Orlando Briceño, CEO de Gadmin'
+              class='testimonial-avatar'
+            />
+            <div class='testimonial-author'>
+              <div class='testimonial-author-information'>
+                <p class='testimonial-author-name'>Orlando Briceño</p>
+                <p class='testimonial-author-role'>Fundador</p>
+              </div>
             </div>
           </div>
+          <p class='testimonial-message'>
+            <span class='testimonial-quote'>“</span>
+            <b>Honestidad</b> y <b>transparencia</b>. Construyo Gadmin sobre mis valores.<br /><br
+            />
+            Te prometo no darte (malas 😂) sorpresas.
+            <span class='testimonial-quote'>”</span>
+          </p>
         </div>
-        <p class='testimonial-message'>
-          "<b>Honestidad</b> y <b>transparencia</b>. Construyo Gadmin sobre mis valores.
-          <br /><br />
-          Te prometo no darte (malas 😂) sorpresas.”
-        </p>
       </div>
       <div class='testimonial' data-aos='flip-left'>
-        <div class='testimonial-business-logo'>
-          <Image
-            src={anny}
-            width={48}
-            height={48}
-            alt='Foto de Anny Rondón, diseñadora y frontend de Gadmin'
-          />
-          <div class='testimonial-author'>
-            <div class='testimonial-author-information'>
-              <p class='testimonial-author-name'>Anny Rondón</p>
-              <p class='testimonial-author-role'>Diseñadora y Desarrolladora</p>
+        <div class='testimonial-card'>
+          <div class='testimonial-business-logo'>
+            <Image
+              src={anydayr}
+              width={64}
+              height={64}
+              alt='Foto de Anny Rondón, diseñadora y frontend de Gadmin'
+              class='testimonial-avatar'
+            />
+            <div class='testimonial-author'>
+              <div class='testimonial-author-information'>
+                <p class='testimonial-author-name'>Anny Rondón</p>
+                <p class='testimonial-author-role'>Diseñadora y Desarrolladora</p>
+              </div>
             </div>
           </div>
+          <p class='testimonial-message'>
+            <span class='testimonial-quote'>“</span>
+            Ha sido una idea ambiciosa y alcanzable. Me siento contenta porque, poco a poco, hemos desarrollado
+            una herramienta enfocada en ayudar al usuario a mejorar su velocidad y gestión diaria.
+            <span class='testimonial-quote'>”</span>
+          </p>
         </div>
-        <p class='testimonial-message'>
-          “Ha sido una idea ambiciosa y alcanzable. Me siento contenta porque, poco a poco, hemos
-          desarrollado una herramienta enfocada en ayudar al usuario a mejorar su velocidad y
-          gestión diaria”
-        </p>
+      </div>
+      <div class='testimonial' data-aos='flip-left'>
+        <div class='testimonial-card'>
+          <div class='testimonial-business-logo'>
+            <Image
+              src={manugonza}
+              width={64}
+              height={64}
+              alt='Foto de Manuel González, desarrollador frontend de Gadmin'
+              class='testimonial-avatar'
+            />
+            <div class='testimonial-author'>
+              <div class='testimonial-author-information'>
+                <p class='testimonial-author-name'>Manuel González</p>
+                <p class='testimonial-author-role'>Desarrollador Frontend</p>
+              </div>
+            </div>
+          </div>
+          <p class='testimonial-message'>
+            <span class='testimonial-quote'>“</span>
+            Gadmin me ha permitido explotar mi creatividad y profesionalismo en cada detalle.
+            <br /><br />
+            Me motiva saber que estamos construyendo una plataforma que realmente facilita la vida de
+            los usuarios.
+            <span class='testimonial-quote'>”</span>
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -53,10 +95,9 @@ import Image from 'astro/components/Image.astro'
 
 <style>
   .testimonials {
-    background-color: var(--shade-03);
+    background: var(--shade-03);
     color: var(--white);
-    padding: 4rem 1rem;
-    padding-bottom: 1rem;
+    padding: 4rem 1rem 2rem 1rem;
   }
 
   .testimonials-container {
@@ -65,16 +106,18 @@ import Image from 'astro/components/Image.astro'
     align-items: center;
     justify-content: center;
     padding: 3rem 1rem;
-    background-color: var(--shade-03);
-    border-radius: 8px;
+    border-radius: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .testimonials-title {
-    margin: 0;
-    margin-bottom: 1rem;
+    margin: 0 0 2rem 0;
     color: var(--white);
     text-align: center;
     font-size: var(--48-pt);
+    letter-spacing: -1px;
+    font-weight: 800;
   }
 
   .testimonials-title span,
@@ -91,60 +134,131 @@ import Image from 'astro/components/Image.astro'
 
   .testimonials-list {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     padding: 2rem 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
   }
 
   .testimonial {
-    max-width: 400px;
+    flex: 1 1 320px;
+    max-width: 370px;
+    min-width: 260px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.1);
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition:
+      transform 0.18s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+  }
+  .testimonial-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+    border-color: var(--primary);
   }
 
   .testimonial-business-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    border-radius: 100%;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    width: 100%;
+    justify-content: center;
   }
 
-  .testimonial-business-logo img {
+  .testimonial-avatar {
     border-radius: 100%;
-  }
-
-  .testimonial-message {
-    color: var(--neutral-04);
-    font-size: 1.15rem;
-    font-weight: normal;
+    box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.1);
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    background: var(--white);
   }
 
   .testimonial-author {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
+    flex-direction: column;
   }
 
-  .testimonial-author-name,
-  .testimonial-author-role {
-    margin: 0.25rem 0;
+  .testimonial-author-name {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--white);
+    letter-spacing: 0.01em;
   }
 
   .testimonial-author-role {
-    color: var(--neutral-06);
+    margin: 0;
+    color: var(--secondary);
+    font-size: 0.98rem;
+    font-weight: 500;
+    opacity: 0.85;
+  }
+
+  .testimonial-message {
+    color: var(--neutral-04);
+    font-size: 1.18rem;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+    position: relative;
+    min-height: 120px;
+  }
+
+  .testimonial-quote {
+    color: var(--primary);
+    font-size: 2.2rem;
+    font-weight: 900;
+    vertical-align: middle;
+    line-height: 0.5;
+    margin: 0 0.1em;
+    opacity: 0.7;
+    font-family: serif;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .testimonials-list {
+      gap: 1.5rem;
+    }
+    .testimonial {
+      max-width: 100%;
+    }
   }
 
   @media screen and (max-width: 768px) {
     .testimonials-title {
       text-align: left;
+      font-size: 2rem;
     }
 
     .testimonials-list {
-      display: flex;
       flex-direction: column;
-      gap: 3rem;
-      padding: 2rem 0;
+      gap: 2rem;
+      padding: 1.5rem 0;
     }
 
     .testimonial {
       max-width: 100%;
+      min-width: 0;
+    }
+    .testimonial-card {
+      padding: 1.5rem 1rem 1rem 1rem;
     }
   }
 </style>
