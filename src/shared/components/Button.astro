@@ -1,7 +1,7 @@
 ---
 interface Props {
   classes?: string
-  mode: 'default' | 'outlined' | 'gradient'
+  mode: 'default' | 'outlined' | 'gradient' | 'ghost'
   type?: 'gradient' | 'gray'
   href: string
   target?: '_blank' | '_parent' | '_self' | '_top'
@@ -43,7 +43,8 @@ const {
     transition:
       0.3s ease-in-out box-shadow,
       0.2s ease background-color,
-      0.2s ease border;
+      0.2s ease border,
+      0.2s ease color;
   }
 
   .button--type-gradient.button--mode-default {
@@ -63,6 +64,20 @@ const {
     border-color: var(--neutral-06);
   }
 
+  .button--type-gradient.button--mode-ghost {
+    background: transparent;
+    border: none;
+    color: var(--primary);
+  }
+
+  .button--type-gradient.button--mode-ghost:hover {
+    color: var(--accent);
+  }
+
+  .button--type-gradient.button--mode-ghost:active {
+    color: var(--neutral-06);
+  }
+
   .button--type-gray.button--mode-default {
     color: var(--neutral-02);
     background-color: var(--shade-03);
@@ -79,6 +94,16 @@ const {
 
   .button--type-gray.button--mode-outlined:hover {
     border-color: var(--shade-04);
+    color: var(--shade-04);
+  }
+
+  .button--type-gray.button--mode-ghost {
+    background: transparent;
+    border: none;
+    color: var(--shade-03);
+  }
+
+  .button--type-gray.button--mode-ghost:hover {
     color: var(--shade-04);
   }
 

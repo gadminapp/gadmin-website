@@ -19,12 +19,22 @@ const { isFixed = true, isSuccess = false } = Astro.props
     </a>
     <div class='nav-buttons'>
       <Button
-        href={isSuccess ? '/' : '#pricing'}
+        href='https://accounts.gadmin.com/?from=signin'
+        target='_blank'
+        mode='ghost'
+        type='gray'
+        style={{ padding: '0.5rem 1rem' }}
+      >
+        Ingresar
+      </Button>
+      <Button
+        href='https://accounts.gadmin.com/?from=signup'
+        target='_blank'
         mode='outlined'
         type='gradient'
         style={{ padding: '0.5rem 1rem' }}
       >
-        {isSuccess ? 'Volver al sitio web' : '¡Consíguelo ahora!'}
+        Registrarme
       </Button>
     </div>
   </div>

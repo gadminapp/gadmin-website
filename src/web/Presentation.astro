@@ -8,41 +8,51 @@ import { Image } from 'astro:assets'
 <div class='presentation'>
   <div class='wrapper'>
     <h2 class='presentation-title' data-aos='flip-down'>
-      Te haré olvidar los hostings y <span>complicaciones</span> técnicas
+      Crea tu <span>tienda online</span> sin complicaciones técnicas
     </h2>
+    <p class='presentation-subtitle' data-aos='fade-up' data-aos-delay='200'>
+      Olvídate de hostings complicados y códigos imposibles.
+      <br />
+      Transforma tu negocio en una tienda digital que impresione a tus clientes.
+    </p>
     <div class='presentation-images' data-aos='zoom-in'>
       <Image
         class='presentation-image presentation-image-left'
         src={leftPresentation}
         width={400}
         height={846}
-        alt='Listado de capas del editor web de Gadmin'
+        alt='Panel de configuración fácil para tu tienda online'
       />
       <Image
         class='presentation-image presentation-image-center'
         src={centerPresentation}
         width={1011}
         height={782}
-        alt='Editor web de Gadmin'
+        alt='Editor visual para crear tu tienda online sin código'
       />
       <Image
         class='presentation-image presentation-image-right'
         src={rightPresentation}
         width={400}
         height={846}
-        alt='Panel inspector del editor web de Gadmin'
+        alt='Personalización avanzada de tu catálogo digital'
       />
     </div>
     <div class='presentation-features'>
-      <div class='presentation-feature'>
-        <strong>Tú diseñas.</strong> Gadmin lo hace un sitio web con hosting, código, almacenamiento
-        y todo el cuento.
+      <div class='presentation-feature' data-aos='fade-up' data-aos-delay='100'>
+        <div class='feature-icon'>🛍️</div>
+        <strong>Tu catálogo digital en minutos</strong> Sube tus productos, configura precios y listo. Todo visual, sin programar.
       </div>
-      <div class='presentation-feature'>
-        <strong>O usas plantillas.</strong> Gratis y de pago hechas por nuestra comunidad de diseñadores.
+      <div class='presentation-feature' data-aos='fade-up' data-aos-delay='200'>
+        <div class='feature-icon'>🎨</div>
+        <strong>Diseño que vende</strong> Plantillas optimizadas para conversión, diseñadas específicamente
+        para tiendas online exitosas.
       </div>
-      <div class='presentation-feature'>
-        <strong>UI como Figma</strong> Sigue diseñando como lo hacías antes, pero con superpoderes.
+      <div class='presentation-feature' data-aos='fade-up' data-aos-delay='300'>
+        <div class='feature-icon'>🚀</div>
+        <strong>Desde cero a vendiendo</strong> Tu tienda lista y funcionando en el mismo día.
+        <br />
+        Sin esperas ni complicaciones.
       </div>
     </div>
   </div>
@@ -60,17 +70,22 @@ import { Image } from 'astro:assets'
     color: var(--shade-03);
     text-align: center;
     font-size: var(--64-pt);
+    font-weight: 800;
+    line-height: 1.1;
   }
 
-  .presentation-description {
-    margin: 0;
-    color: var(--shade-03);
+  .presentation-subtitle {
+    margin: 0 auto 3rem auto;
+    color: var(--shade-04);
     text-align: center;
-    font-size: var(--32-pt);
+    font-size: 1.2rem;
+    max-width: 700px;
+    line-height: 1.4;
+    font-weight: 400;
   }
 
   .presentation-title span {
-    background: linear-gradient(to right, var(--secondary), var(--primary));
+    background: linear-gradient(to right, var(--primary), var(--shade-03));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -81,7 +96,7 @@ import { Image } from 'astro:assets'
     gap: 3rem;
     place-items: center;
     padding: 5rem 1rem;
-    padding-bottom: 2rem;
+    padding-bottom: 0rem;
     margin-top: 2rem;
   }
 
@@ -96,7 +111,7 @@ import { Image } from 'astro:assets'
   .presentation-image-left,
   .presentation-image-right {
     position: absolute;
-    top: 0;
+    top: -1rem;
     left: 0;
     width: 30%;
     box-shadow: 4px 8px 8px hsla(235, 72%, 10%, 0.35);
@@ -111,14 +126,53 @@ import { Image } from 'astro:assets'
   .presentation-features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 2rem;
     font-size: 1.125rem;
   }
 
+  .presentation-feature {
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    color: var(--shade-04);
+    line-height: 1.6;
+    transition: transform 0.3s linear;
+    transition-delay: 0s;
+  }
+
+  .presentation-feature:hover {
+    transform: translateY(-16px);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .presentation-feature strong {
+    color: var(--shade-03);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    background: linear-gradient(to right, var(--primary), var(--shade-03));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   @media screen and (max-width: 768px) {
+    .presentation-title {
+      font-size: var(--48-pt);
+    }
+
+    .presentation-subtitle {
+      font-size: var(--20-pt);
+      margin-bottom: 2rem;
+    }
+
     .presentation-images {
       grid-template-columns: 1fr;
-      padding: 0;
+      padding: 2rem 0;
     }
 
     .presentation-image-center {
@@ -132,8 +186,18 @@ import { Image } from 'astro:assets'
 
     .presentation-features {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 1.5rem;
       text-align: center;
+      margin-top: 1rem;
+    }
+
+    .presentation-feature {
+      padding: 1.5rem 1rem;
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
     }
   }
 

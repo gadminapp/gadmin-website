@@ -7,26 +7,25 @@ import { Image } from 'astro:assets'
 <div class='hero'>
   <div class='wrapper hero-grid'>
     <div class='hero-content' data-aos='zoom-in'>
-      <p class='hero-tagline'>Tiendas online para emprendedores y pequeñas empresas</p>
+      <p class='hero-tagline'>Tiendas para emprendedores quieren vender más y mejor</p>
 
       <h1 class='hero-big-title'>
-        El creador de tiendas <span class='text-gradient'>asombrosas</span>
+        Convierte tu negocio en una <span class='text-gradient'>tienda digital</span>
       </h1>
 
       <div class='hero-features'>
-        <p>Crea tu tienda online del tamaño que necesites</p>
-        <p>Ahorra tiempo con IA integrada</p>
-        <p>Sin complicaciones técnicas</p>
+        <p>✨ Catálogo organizado que impresiona a tus clientes</p>
+        <p>🚀 Tu tienda funcionando desde el primer día</p>
       </div>
 
       <div class='hero-cta'>
         <Button
-          href='#pricing'
+          href='https://accounts.gadmin.app/?from=hero'
           mode='gradient'
           style={{
             width: 'fit-content',
             fontWeight: 500,
-          }}>¡Consíguelo ahora!</Button
+          }}>Crear mi tienda gratis</Button
         >
         <div class='floating-offer'>
           <Image
@@ -37,7 +36,7 @@ import { Image } from 'astro:assets'
             height={103}
           />
           <div class='floating-offer-container'>
-            <div class='floating-offer-inner'>Pruébalo antes que nadie</div>
+            <div class='floating-offer-inner'>Diseña gratis, paga solo al publicar 💡</div>
           </div>
         </div>
       </div>
@@ -49,7 +48,7 @@ import { Image } from 'astro:assets'
   /* TODO: Cambiar el 1c1b30 por el nuevo color de fondo si aplica */
   .hero {
     background-color: #0eaaf9;
-    background-image: linear-gradient(150deg, #1c1b30, #4d5def);
+    background-image: linear-gradient(150deg, var(--shade-03), var(--primary));
     position: relative;
     min-height: 100svh;
     overflow: hidden;
@@ -73,18 +72,20 @@ import { Image } from 'astro:assets'
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 800px;
+    max-width: 850px;
   }
 
   .hero-tagline {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 2rem;
+    font-weight: 500;
+    line-height: 1.3;
     background-image: linear-gradient(
       90deg,
-      #ffffff77 0%,
-      #dee7f1 20%,
-      #dee7f1 80%,
-      #ffffff77 100%
+      #ffffff88 0%,
+      #e8f0f7 20%,
+      #e8f0f7 80%,
+      #ffffff88 100%
     );
     -webkit-background-clip: text;
     background-clip: text;
@@ -92,7 +93,10 @@ import { Image } from 'astro:assets'
   }
 
   .hero-big-title {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 1.5rem;
   }
 
   .hero-big-title,
@@ -103,14 +107,16 @@ import { Image } from 'astro:assets'
   }
 
   .hero-features p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.2;
   }
 
   .hero-features {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    margin: 1rem 0 2rem 0;
+    gap: 0.8rem;
+    margin: 1.5rem 0 2.5rem 0;
   }
 
   .hero-cta {
@@ -121,7 +127,7 @@ import { Image } from 'astro:assets'
     position: absolute;
     left: 0;
     top: 25%;
-    transform: translateY(-55%);
+    transform: translateY(-75%);
     width: 7.5rem;
     height: auto;
     pointer-events: none;
@@ -130,8 +136,8 @@ import { Image } from 'astro:assets'
 
   .floating-offer {
     position: absolute;
-    right: -12.5rem;
-    top: 50%;
+    right: -18.5rem;
+    top: 75%;
     z-index: 2;
   }
 
@@ -139,38 +145,52 @@ import { Image } from 'astro:assets'
     position: relative;
     left: 5rem;
     transform: translateY(100%) rotate(22deg);
-    background-color: #cccccc;
-    border-radius: 0.5rem;
+    background-color: #e8f4fd;
+    border-radius: 0.6rem;
     padding: 0.25rem;
     z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .floating-offer-inner {
     padding: 0.5rem;
-    border: 1px dashed var(--shade-03);
+    border: 1px dashed var(--shade-04);
     border-radius: 0.25rem;
     color: var(--shade-03);
     font-size: 0.85rem;
+    font-weight: 600;
     white-space: nowrap;
+  }
+
+  @media screen and (max-width: 980px) {
+    .floating-offer {
+      display: none;
+    }
   }
 
   @media screen and (max-width: 768px) {
     .hero-content {
       padding: 2rem 0;
-    }
-    .floating-offer {
-      display: none;
+      max-width: 100%;
     }
 
     .hero-big-title {
-      font-size: 2.75rem;
+      font-size: 2.8rem;
+      line-height: 1.1;
     }
 
     .hero-tagline {
-      font-size: 1rem;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
     }
+
     .hero-features p {
-      font-size: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .hero-features {
+      gap: 0.6rem;
+      margin: 1rem 0 2rem 0;
     }
   }
 </style>

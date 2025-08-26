@@ -1,14 +1,38 @@
-<h2 class='pricing__title' data-aos='zoom-in'>Próximamente Disponible</h2>
-<p class='pricing__subtitle' data-aos='zoom-in'>
-  Gadmin estará disponible pronto. ¡Mantente atento para más actualizaciones!
-</p>
+---
+import Button from '../Button.astro'
+---
+
+<div class='cta-header'>
+  <h2 class='pricing__title' data-aos='zoom-in'>Lleva tu negocio al mundo digital</h2>
+  <p class='pricing__subtitle' data-aos='zoom-in'>
+    Únete a miles de emprendedores que ya están alcanzando más clientes y aumentando sus ventas.
+  </p>
+  <Button
+    href='https://accounts.gadmin.app/?from=cta'
+    mode='gradient'
+    style={{
+      width: 'fit-content',
+      fontWeight: 500,
+    }}>Empezar gratis</Button
+  >
+</div>
 
 <style>
+  .cta-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
   .pricing__title {
     text-align: center;
-    color: var(--shade-03);
+    color: var(--white);
     font-size: var(--48-pt);
-    margin: 1rem 0;
+    margin: 0;
     padding: 0 1rem;
   }
 
@@ -16,8 +40,8 @@
     text-align: center;
     font-size: var(--32-pt);
     font-weight: 500;
-    margin: 2rem;
-    color: var(--shade-03);
+    margin: 1rem 0;
+    color: var(--neutral-06);
     line-height: 1.45;
   }
 </style>

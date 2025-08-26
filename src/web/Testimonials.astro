@@ -2,6 +2,7 @@
 import anydayr from '@/assets/img/anydayr.webp'
 import manugonza from '@/assets/img/manugonza.webp'
 import orlandobricenob from '@/assets/img/orlandobricenob.webp'
+import LinkedIn from '@/shared/components/icons/LinkedIn.astro'
 import Image from 'astro/components/Image.astro'
 ---
 
@@ -23,17 +24,30 @@ import Image from 'astro/components/Image.astro'
             />
             <div class='testimonial-author'>
               <div class='testimonial-author-information'>
-                <p class='testimonial-author-name'>Orlando Briceño</p>
-                <p class='testimonial-author-role'>Fundador</p>
+                <div class='testimonial-author-name-container'>
+                  <p class='testimonial-author-name'>Orlando Briceño</p>
+                  <a
+                    href='https://www.linkedin.com/in/orlandobricenob/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    class='linkedin-link'
+                    aria-label='Perfil de LinkedIn de Orlando Briceño'
+                  >
+                    <LinkedIn size={20} color='#4d5def' />
+                  </a>
+                </div>
+                <div class='testimonial-author-role-container'>
+                  <p class='testimonial-author-role'>Fundador</p>
+                </div>
               </div>
             </div>
           </div>
           <p class='testimonial-message'>
-            <span class='testimonial-quote'>“</span>
+            <span class='testimonial-quote'>❛❛</span>
             <b>Honestidad</b> y <b>transparencia</b>. Construyo Gadmin sobre mis valores.<br /><br
             />
             Te prometo no darte (malas 😂) sorpresas.
-            <span class='testimonial-quote'>”</span>
+            <span class='testimonial-quote'>❜❜</span>
           </p>
         </div>
       </div>
@@ -49,16 +63,29 @@ import Image from 'astro/components/Image.astro'
             />
             <div class='testimonial-author'>
               <div class='testimonial-author-information'>
-                <p class='testimonial-author-name'>Anny Rondón</p>
-                <p class='testimonial-author-role'>Diseñadora y Desarrolladora</p>
+                <div class='testimonial-author-name-container'>
+                  <p class='testimonial-author-name'>Anny Rondón</p>
+                  <a
+                    href='https://www.linkedin.com/in/anydayr/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    class='linkedin-link'
+                    aria-label='Perfil de LinkedIn de Anny Rondón'
+                  >
+                    <LinkedIn size={20} color='#4d5def' />
+                  </a>
+                </div>
+                <div class='testimonial-author-role-container'>
+                  <p class='testimonial-author-role'>Diseñadora y Desarrolladora</p>
+                </div>
               </div>
             </div>
           </div>
           <p class='testimonial-message'>
-            <span class='testimonial-quote'>“</span>
+            <span class='testimonial-quote'>❛❛</span>
             Ha sido una idea ambiciosa y alcanzable. Me siento contenta porque, poco a poco, hemos desarrollado
             una herramienta enfocada en ayudar al usuario a mejorar su velocidad y gestión diaria.
-            <span class='testimonial-quote'>”</span>
+            <span class='testimonial-quote'>❜❜</span>
           </p>
         </div>
       </div>
@@ -74,18 +101,31 @@ import Image from 'astro/components/Image.astro'
             />
             <div class='testimonial-author'>
               <div class='testimonial-author-information'>
-                <p class='testimonial-author-name'>Manuel González</p>
-                <p class='testimonial-author-role'>Desarrollador Frontend</p>
+                <div class='testimonial-author-name-container'>
+                  <p class='testimonial-author-name'>Manuel González</p>
+                  <a
+                    href='https://www.linkedin.com/in/manuel-gonzález-morales-206932bb/'
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    class='linkedin-link'
+                    aria-label='Perfil de LinkedIn de Manuel González'
+                  >
+                    <LinkedIn size={20} color='#4d5def' />
+                  </a>
+                </div>
+                <div class='testimonial-author-role-container'>
+                  <p class='testimonial-author-role'>Desarrollador Frontend</p>
+                </div>
               </div>
             </div>
           </div>
           <p class='testimonial-message'>
-            <span class='testimonial-quote'>“</span>
+            <span class='testimonial-quote'>❛❛</span>
             Gadmin me ha permitido explotar mi creatividad y profesionalismo en cada detalle.
             <br /><br />
             Me motiva saber que estamos construyendo una plataforma que realmente facilita la vida de
             los usuarios.
-            <span class='testimonial-quote'>”</span>
+            <span class='testimonial-quote'>❜❜</span>
           </p>
         </div>
       </div>
@@ -194,6 +234,12 @@ import Image from 'astro/components/Image.astro'
     flex-direction: column;
   }
 
+  .testimonial-author-name-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .testimonial-author-name {
     margin: 0;
     font-weight: 700;
@@ -208,6 +254,27 @@ import Image from 'astro/components/Image.astro'
     font-size: 0.98rem;
     font-weight: 500;
     opacity: 0.85;
+  }
+
+  .testimonial-author-role-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      opacity 0.2s ease;
+    opacity: 0.8;
+  }
+
+  .linkedin-link:hover {
+    transform: scale(1.1);
+    opacity: 1;
   }
 
   .testimonial-message {

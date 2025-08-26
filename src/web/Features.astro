@@ -7,39 +7,72 @@ import { Image } from 'astro:assets'
   <div class='wrapper features-list'>
     <div class='feature' data-aos='flip-left'>
       <div class='feature-content'>
-        <h3 class='feature-title'>¿Un sitio web con blog o una tienda online?</h3>
+        <h3 class='feature-title'>¿Vendiendo solo por WhatsApp o redes sociales?</h3>
         <p class='feature-description'>
-          Construye lo que quieras, Gadmin es una plataforma con diversas aplicaciones para
-          facilitarte la vida.
+          Dale profesionalidad a tu negocio con una tienda online que inspire confianza. Tus
+          clientes podrán navegar tu catálogo, comparar productos y comprar 24/7 sin que tengas que
+          estar contestando mensajes todo el día.
         </p>
+        <div class='feature-benefits'>
+          <div class='benefit'>✅ Catálogo organizado y profesional</div>
+          <div class='benefit'>✅ Vendes mientras duermes</div>
+          <div class='benefit'>✅ Más confianza = más ventas</div>
+        </div>
       </div>
       <div class='feature-image'>
-        <Image src={feature01} width={350} height={350} alt='Degradado de Gadmin' />
+        <Image
+          src={feature01}
+          width={350}
+          height={350}
+          alt='Tienda online profesional vs venta por WhatsApp'
+        />
       </div>
     </div>
     <div class='feature feature--reverse' data-aos='flip-right'>
       <div class='feature-image'>
-        <Image src={feature01} width={350} height={350} alt='Degradado de Gadmin' />
+        <Image
+          src={feature01}
+          width={350}
+          height={350}
+          alt='Modelo de pago justo para emprendedores'
+        />
       </div>
       <div class='feature-content'>
-        <h3 class='feature-title'>Paga cuando tu sitio sea publicado.</h3>
+        <h3 class='feature-title'>Invierte en tu tienda solo cuando empieces a vender.</h3>
         <p class='feature-description'>
-          Diseña y construye todo lo que quieras, pagarás por tu sitio cuando esté publicado.
+          Entendemos que como emprendedor cada centavo cuenta. Por eso puedes diseñar, configurar y
+          preparar toda tu tienda sin pagar nada. Solo pagas cuando decides publicarla y empezar a
+          vender.
         </p>
+        <div class='feature-benefits'>
+          <div class='benefit'>💡 Prueba sin riesgo</div>
+          <div class='benefit'>💰 Paga solo cuando vendas</div>
+          <div class='benefit'>🎯 Ideal para emprendedores</div>
+        </div>
       </div>
     </div>
     <div class='feature' data-aos='flip-left'>
       <div class='feature-content'>
-        <h3 class='feature-title'>Somos anti precio/miembro, invita a todo tu equipo.</h3>
+        <h3 class='feature-title'>Tu equipo completo puede ayudarte, sin costos extra.</h3>
         <p class='feature-description'>
-          Nuestro plan de espacio de trabajo es gratuito hasta 10 miembros de tu equipo.
+          Invita a tu diseñador, fotógrafo, asistente virtual o cualquier persona que te ayude con
+          tu negocio. Hasta 10 colaboradores gratis en tu tienda.
           <br /><br />
-          Además, no creemos en la mentira de cobrar por “miembros adicionales”, tenemos planes adaptados
-          al tamaño de tu equipo.
+          Nada de trucos ni costos ocultos. Creemos que el éxito se construye en equipo.
         </p>
+        <div class='feature-benefits'>
+          <div class='benefit'>👥 Hasta 10 colaboradores gratis</div>
+          <div class='benefit'>🤝 Colaboración en tiempo real</div>
+          <div class='benefit'>📊 Roles y permisos personalizados</div>
+        </div>
       </div>
       <div class='feature-image'>
-        <Image src={feature01} width={350} height={350} alt='Degradado de Gadmin' />
+        <Image
+          src={feature01}
+          width={350}
+          height={350}
+          alt='Colaboración en equipo para tu tienda online'
+        />
       </div>
     </div>
   </div>
@@ -54,13 +87,14 @@ import { Image } from 'astro:assets'
   .features-list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 4rem;
   }
 
   .feature {
     display: flex;
-    gap: 1.5rem;
+    gap: 3rem;
     min-height: 200px;
+    align-items: center;
   }
 
   .feature-content {
@@ -68,64 +102,132 @@ import { Image } from 'astro:assets'
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    flex: 1;
   }
 
   .feature-title {
     margin: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     color: var(--shade-03);
     font-size: var(--40-pt);
-    background: linear-gradient(to right, var(--secondary), var(--primary));
+    font-weight: 700;
+    line-height: 1.2;
+    background: linear-gradient(to right, var(--primary), var(--shade-03));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .feature-description {
     margin: 0;
-    color: var(--shade-03);
-    font-size: var(--32-pt);
+    margin-bottom: 1.5rem;
+    color: var(--shade-04);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .feature-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .benefit {
+    color: var(--shade-04);
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .feature-image {
     height: fit-content;
     min-height: 250px;
     margin: auto;
+    flex: 0 0 350px;
   }
 
   .feature-image img {
     height: 100%;
     width: auto;
     margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 1024px) {
+    .feature {
+      gap: 2rem;
+    }
+
+    .feature-image {
+      flex: 0 0 300px;
+      min-height: 200px;
+    }
+
+    .feature-title {
+      font-size: var(--32-pt);
+    }
+
+    .feature-description {
+      font-size: var(--18-pt);
+    }
   }
 
   @media screen and (max-width: 768px) {
     .features {
-      gap: 1rem;
+      padding: 3rem 1rem;
+    }
+
+    .features-list {
+      gap: 3rem;
     }
 
     .feature {
       flex-direction: column;
       flex-flow: column-reverse;
+      gap: 2rem;
+      text-align: center;
     }
 
     .feature--reverse {
       flex-flow: column;
     }
 
-    .feature-image {
-      width: 75%;
-      margin: 0 auto;
-      max-height: 50svh;
+    .feature-content {
+      align-items: center;
+    }
+
+    .feature-title {
+      font-size: var(--28-pt);
       text-align: center;
     }
 
+    .feature-description {
+      font-size: var(--16-pt);
+      text-align: center;
+    }
+
+    .feature-image {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 auto;
+      flex: none;
+    }
+
     .feature-image img {
-      width: 80%;
+      width: 100%;
       height: auto;
     }
 
-    .features-list {
-      gap: 3rem;
+    .feature-benefits {
+      align-items: center;
+      text-align: center;
+    }
+
+    .benefit {
+      justify-content: center;
     }
   }
 </style>
