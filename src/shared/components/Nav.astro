@@ -5,10 +5,9 @@ import { Image } from 'astro:assets'
 
 interface Props {
   isFixed?: boolean
-  isSuccess?: boolean
 }
 
-const { isFixed = true, isSuccess = false } = Astro.props
+const { isFixed = true } = Astro.props
 ---
 
 <nav class:list=`nav ${isFixed ? 'nav--fixed' : ''}` transition:persist>
@@ -19,7 +18,7 @@ const { isFixed = true, isSuccess = false } = Astro.props
     </a>
     <div class='nav-buttons'>
       <Button
-        href='https://accounts.gadmin.com/?from=signin'
+        href='https://accounts.gadmin.app/?from=signin'
         target='_blank'
         mode='ghost'
         type='gray'
@@ -28,7 +27,7 @@ const { isFixed = true, isSuccess = false } = Astro.props
         Ingresar
       </Button>
       <Button
-        href='https://accounts.gadmin.com/?from=signup'
+        href='https://accounts.gadmin.app/?from=signup'
         target='_blank'
         mode='outlined'
         type='gradient'
