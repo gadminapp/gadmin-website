@@ -20,28 +20,29 @@ import { Image } from 'astro:assets'
         class='presentation-image presentation-image-left'
         src={leftPresentation}
         width={400}
-        height={846}
+        height={780}
         alt='Panel de configuración fácil para tu tienda online'
       />
       <Image
         class='presentation-image presentation-image-center'
         src={centerPresentation}
-        width={1011}
-        height={782}
+        width={1362}
+        height={780}
         alt='Editor visual para crear tu tienda online sin código'
       />
       <Image
         class='presentation-image presentation-image-right'
         src={rightPresentation}
         width={400}
-        height={846}
+        height={780}
         alt='Personalización avanzada de tu catálogo digital'
       />
     </div>
     <div class='presentation-features'>
       <div class='presentation-feature' data-aos='fade-up' data-aos-delay='100'>
         <div class='feature-icon'>🛍️</div>
-        <strong>Tu catálogo digital en minutos</strong> Sube tus productos, configura precios y listo. Todo visual, sin programar.
+        <strong>Tu catálogo digital en minutos</strong> Sube tus productos, configura precios y listo.
+        Todo visual, sin programar.
       </div>
       <div class='presentation-feature' data-aos='fade-up' data-aos-delay='200'>
         <div class='feature-icon'>🎨</div>
@@ -101,7 +102,7 @@ import { Image } from 'astro:assets'
   }
 
   .presentation-image {
-    width: 80%;
+    width: 90%;
     height: auto;
     border-radius: 0.5rem;
     background-color: transparent;
@@ -111,15 +112,37 @@ import { Image } from 'astro:assets'
   .presentation-image-left,
   .presentation-image-right {
     position: absolute;
-    top: -1rem;
-    left: 0;
-    width: 30%;
+    top: -1.5rem;
+    left: 0rem;
+    width: 28%;
     box-shadow: 4px 8px 8px hsla(235, 72%, 10%, 0.35);
+    opacity: 0;
+    transition:
+      opacity 0.3s ease,
+      left 0.3s ease,
+      right 0.3s ease;
+  }
+
+  .presentation-images:has(.presentation-image-center:hover) .presentation-image-left,
+  .presentation-images:has(.presentation-image-center:hover) .presentation-image-right,
+  .presentation-image-left:hover,
+  .presentation-image-right:hover {
+    opacity: 1;
+  }
+
+  .presentation-images:has(.presentation-image-center:hover) .presentation-image-left,
+  .presentation-image-left:hover {
+    left: 1rem;
+  }
+
+  .presentation-images:has(.presentation-image-center:hover) .presentation-image-right,
+  .presentation-image-right:hover {
+    right: 1rem;
   }
 
   .presentation-image-right {
     left: inherit;
-    right: 0;
+    right: 0rem;
     box-shadow: -4px 8px 8px hsla(235, 72%, 10%, 0.35);
   }
 
