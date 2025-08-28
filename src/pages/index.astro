@@ -23,6 +23,61 @@ import Testimonials from '@/web/Testimonials.astro'
   <Footer />
 </Layout>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof seline !== 'undefined') {
+      seline.track('Landing: Page view')
+    }
+  })
+
+  // * Track scroll to middle of page
+  let hasTrackedMiddle = false
+  function trackScrollMiddle() {
+    if (hasTrackedMiddle) return
+
+    const scrollPosition = window.scrollY
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+    const scrollPercentage = (scrollPosition / documentHeight) * 100
+
+    if (scrollPercentage >= 50) {
+      hasTrackedMiddle = true
+      if (typeof seline !== 'undefined') {
+        seline.track('Landing: Read Page')
+      }
+    }
+  }
+
+  function trackCTAClick(ctaLocation) {
+    if (typeof seline !== 'undefined') {
+      seline.track('Landing: CTA Click', {
+        location: ctaLocation,
+      })
+    }
+  }
+  window.addEventListener('scroll', trackScrollMiddle)
+
+  const ctaLinks = document.querySelectorAll('a.cta--track')
+  ctaLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      const href = link.href
+      if (!href || !href.includes('accounts.gadmin.app')) return
+
+      let ctaLocation = 'unknown'
+      if (href.includes('from=hero')) {
+        ctaLocation = 'hero'
+      } else if (href.includes('from=signin')) {
+        ctaLocation = 'nav-signin'
+      } else if (href.includes('from=signup')) {
+        ctaLocation = 'nav-signup'
+      } else if (href.includes('from=cta')) {
+        ctaLocation = 'bottom-cta'
+      }
+
+      trackCTAClick(ctaLocation)
+    })
+  })
+</script>
+
 <style is:global>
   .hero-image-container > img {
     animation: levitate 6s ease-in-out infinite;
