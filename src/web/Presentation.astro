@@ -66,13 +66,19 @@ import { Image } from 'astro:assets'
     background-color: var(--neutral-02);
     padding: 4rem 1rem;
     margin-top: 0;
-    animation: slideUpCover linear both;
-    animation-timeline: scroll(root);
-    animation-range: entry 0% exit 35%;
-    will-change: margin-top;
     /* Bordes redondeados para efecto de elevación */
     border-radius: 2rem 2rem 0 0;
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Solo aplicar la animación si el navegador soporta animation-timeline */
+  @supports (animation-timeline: scroll()) {
+    .presentation {
+      animation: slideUpCover linear both;
+      animation-timeline: scroll(root);
+      animation-range: entry 0% exit 35%;
+      will-change: margin-top;
+    }
   }
 
   @keyframes slideUpCover {
@@ -207,17 +213,22 @@ import { Image } from 'astro:assets'
     .presentation {
       padding: 3rem 1rem;
       border-radius: 1rem 1rem 0 0;
-      /* Reducir el efecto en móviles */
-      animation-range: entry 0% exit 15%;
       margin-top: 0;
     }
 
-    @keyframes slideUpCover {
-      from {
-        margin-top: 0;
+    /* Solo aplicar la animación en móviles si el navegador lo soporta */
+    @supports (animation-timeline: scroll()) {
+      .presentation {
+        animation-range: entry 0% exit 15%;
       }
-      to {
-        margin-top: -40vh;
+
+      @keyframes slideUpCover {
+        from {
+          margin-top: 0;
+        }
+        to {
+          margin-top: -40vh;
+        }
       }
     }
 
@@ -262,21 +273,24 @@ import { Image } from 'astro:assets'
   }
 
   @media screen and (min-width: 768.1px) {
-    .presentation-image-left,
-    .presentation-image-right {
-      transform: translateY(0rem);
-      animation: move cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      animation-timeline: scroll(nearest block);
-      will-change: transform;
-      backface-visibility: hidden;
-    }
-
-    @keyframes move {
-      0% {
+    /* Solo aplicar el efecto parallax si el navegador soporta animation-timeline */
+    @supports (animation-timeline: scroll()) {
+      .presentation-image-left,
+      .presentation-image-right {
         transform: translateY(0rem);
+        animation: move cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation-timeline: scroll(nearest block);
+        will-change: transform;
+        backface-visibility: hidden;
       }
-      100% {
-        transform: translateY(5rem);
+
+      @keyframes move {
+        0% {
+          transform: translateY(0rem);
+        }
+        100% {
+          transform: translateY(5rem);
+        }
       }
     }
   }
