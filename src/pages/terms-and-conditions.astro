@@ -51,9 +51,8 @@ import Layout from '@/shared/layouts/Layout.astro'
           >
           <a class='table-content__button' href='#3-accounts'>3. Cuentas</a>
           <a class='table-content__button' href='#4-workspaces'>4. Espacios de trabajo</a>
-          <a
-            class='table-content__button'
-            href='#5-interacting-org-workspaces'>5. Interacción con espacios de trabajo organizacionales</a
+          <a class='table-content__button' href='#5-interacting-org-workspaces'
+            >5. Interacción con espacios de trabajo organizacionales</a
           >
           <a class='table-content__button' href='#6-subscriptions'>6. Suscripciones</a>
           <a class='table-content__button' href='#7-fees'>7. Tarifas y cambios de tarifas</a>
@@ -323,7 +322,9 @@ import Layout from '@/shared/layouts/Layout.astro'
           impedirle posteriormente desvincular el contenido de la tienda organizacional.
         </p>
         <!-- # 5. Interacting with Organizational Workspaces -->
-        <h2 id='5-interacting-org-workspaces'>5. Interacción con espacios de trabajo organizacionales</h2>
+        <h2 id='5-interacting-org-workspaces'>
+          5. Interacción con espacios de trabajo organizacionales
+        </h2>
         <p>
           Una Organización puede (i) invitarlo a usar o permitirle usar su Tienda Organizacional;
           y/o (ii) invitarlo a unirse al Servicio como su Usuario Organizacional.
@@ -747,9 +748,14 @@ import Layout from '@/shared/layouts/Layout.astro'
 <style>
   .full-page {
     background-color: var(--shade-03);
-    min-height: calc(100svh - 6rem);
+    min-height: calc(100vh - 6rem);
     padding-top: 6rem;
     margin-bottom: 4rem;
+  }
+  @supports (height: 100svh) {
+    .full-page {
+      min-height: calc(100svh - 6rem);
+    }
   }
 
   /* TODO: Esta clase debe ser global. */

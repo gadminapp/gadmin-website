@@ -10,7 +10,6 @@ import { Image } from 'astro:assets'
 <div class='hero'>
   <!-- Background Video (now on all devices) -->
   <div class='hero-bg'>
-    <!-- Thank you for video to Kindel Media: https://www.pexels.com/video/family-browsing-the-internet-6994619/ -->
     <video
       class='hero-bg-video'
       poster={heroVideoPoster.src}
@@ -78,8 +77,13 @@ import { Image } from 'astro:assets'
 <style>
   .hero {
     position: relative;
-    min-height: 100svh;
+    min-height: 100vh;
     overflow: hidden;
+  }
+  @supports (height: 100svh) {
+    .hero {
+      min-height: 100svh;
+    }
   }
 
   .hero-bg {

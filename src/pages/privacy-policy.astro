@@ -604,9 +604,14 @@ import Layout from '@/shared/layouts/Layout.astro'
 <style>
   .full-page {
     background-color: var(--shade-03);
-    min-height: calc(100svh - 6rem);
+    min-height: calc(100vh - 6rem);
     padding-top: 6rem;
     margin-bottom: 4rem;
+  }
+  @supports (height: 100svh) {
+    .full-page {
+      min-height: calc(100svh - 6rem);
+    }
   }
 
   /* TODO: Esta clase debe ser global. */
