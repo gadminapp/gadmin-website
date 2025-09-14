@@ -1,21 +1,51 @@
 ---
+import heroVideoPoster from '@/assets/img/first-frame-hero-video.webp'
 import offerLines from '@/assets/offer-lines.png'
+import heroVideoMp4 from '@/assets/video/hero-video.mp4'
+import heroVideoWebm from '@/assets/video/hero-video.webm'
 import Button from '@/shared/components/Button.astro'
 import { Image } from 'astro:assets'
 ---
 
 <div class='hero'>
-  <div class='wrapper hero-grid'>
-    <div class='hero-content' data-aos='zoom-in'>
-      <p class='hero-tagline'>Tiendas para emprendedores quieren vender más y mejor</p>
+  <!-- Background Video (now on all devices) -->
+  <div class='hero-bg'>
+    <!-- Thank you for video to Kindel Media: https://www.pexels.com/video/family-browsing-the-internet-6994619/ -->
+    <video
+      class='hero-bg-video'
+      poster={heroVideoPoster.src}
+      autoplay
+      loop
+      muted
+      playsinline
+      preload='auto'
+      aria-hidden='true'
+      tabindex='-1'
+    >
+      <source src={heroVideoWebm} type='video/webm' />
+      <source src={heroVideoMp4} type='video/mp4' />
+      <!-- Fallback image for browsers with no video support -->
+      <img src={heroVideoPoster.src} alt='Fondo' />
+    </video>
+    <!-- Overlay layer for better readability -->
+    <div class='hero-bg-overlay'></div>
+  </div>
+
+  <div class='hero-grid'>
+    <div class='hero-content wrapper' data-aos='zoom-in'>
+      <p class='hero-tagline'>
+        Crea tu propio universo, una tienda en línea donde la magia de tus sueños cobra vida
+      </p>
 
       <h1 class='hero-big-title'>
-        Convierte tu negocio en una <span class='text-gradient'>tienda digital</span>
+        ¿Qué pasaría si el mundo conociera lo que solo tú <span class='text-gradient'
+          >puedes crear</span
+        >?
       </h1>
 
       <div class='hero-features'>
-        <p>✨ Catálogo organizado que impresiona a tus clientes</p>
-        <p>🚀 Tu tienda funcionando desde el primer día</p>
+        <p>✨ Tu pasión no puede esperar. Hazla realidad hoy mismo y que empiece la magia.</p>
+        <p>😮 Haz que la belleza de tus creaciones hable por sí misma.</p>
       </div>
 
       <div class='hero-cta'>
@@ -37,7 +67,7 @@ import { Image } from 'astro:assets'
             height={103}
           />
           <div class='floating-offer-container'>
-            <div class='floating-offer-inner'>Diseña gratis, paga solo al publicar 💡</div>
+            <div class='floating-offer-inner'>🌱 Te preguntarás por qué tardaste tanto</div>
           </div>
         </div>
       </div>
@@ -46,13 +76,48 @@ import { Image } from 'astro:assets'
 </div>
 
 <style>
-  /* TODO: Cambiar el 1c1b30 por el nuevo color de fondo si aplica */
   .hero {
-    background-color: #0eaaf9;
-    background-image: linear-gradient(150deg, var(--shade-03), var(--primary));
     position: relative;
     min-height: 100svh;
     overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    transition: opacity 0.4s;
+    background: #1c1b30;
+    display: block;
+  }
+
+  /* Overlay for video and fallback image */
+  .hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: #1c1b30;
+    opacity: 0.65;
+    z-index: 1;
+    pointer-events: none;
   }
 
   .hero-grid {
@@ -62,7 +127,7 @@ import { Image } from 'astro:assets'
     text-align: center;
     gap: 1rem;
     min-height: calc(100svh - 7rem);
-    padding: 6rem 1rem;
+    padding: 6rem 0;
     padding-bottom: 1rem;
     position: relative;
     z-index: 2;
@@ -73,7 +138,7 @@ import { Image } from 'astro:assets'
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-width: 850px;
+    padding: 0 1rem;
   }
 
   .hero-tagline {
@@ -137,15 +202,15 @@ import { Image } from 'astro:assets'
 
   .floating-offer {
     position: absolute;
-    right: -18.5rem;
-    top: 75%;
+    right: -19.5rem;
+    top: 85%;
     z-index: 2;
   }
 
   .floating-offer-container {
     position: relative;
-    left: 5rem;
-    transform: translateY(100%) rotate(22deg);
+    left: 4.5rem;
+    transform: translateY(100%) rotate(18deg);
     background-color: #e8f4fd;
     border-radius: 0.6rem;
     padding: 0.25rem;
@@ -171,7 +236,7 @@ import { Image } from 'astro:assets'
 
   @media screen and (max-width: 768px) {
     .hero-content {
-      padding: 2rem 0;
+      padding: 2rem 1rem;
       max-width: 100%;
     }
 

@@ -61,8 +61,27 @@ import { Image } from 'astro:assets'
 
 <style>
   .presentation {
+    position: relative;
+    z-index: 2;
     background-color: var(--neutral-02);
     padding: 4rem 1rem;
+    margin-top: 0;
+    animation: slideUpCover linear both;
+    animation-timeline: scroll(root);
+    animation-range: entry 0% exit 35%;
+    will-change: margin-top;
+    /* Bordes redondeados para efecto de elevación */
+    border-radius: 2rem 2rem 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes slideUpCover {
+    from {
+      margin-top: 0;
+    }
+    to {
+      margin-top: -50vh;
+    }
   }
 
   .presentation-title {
@@ -99,6 +118,7 @@ import { Image } from 'astro:assets'
     padding: 5rem 1rem;
     padding-bottom: 0rem;
     margin-top: 2rem;
+    position: relative;
   }
 
   .presentation-image {
@@ -184,6 +204,23 @@ import { Image } from 'astro:assets'
   }
 
   @media screen and (max-width: 768px) {
+    .presentation {
+      padding: 3rem 1rem;
+      border-radius: 1rem 1rem 0 0;
+      /* Reducir el efecto en móviles */
+      animation-range: entry 0% exit 15%;
+      margin-top: 0;
+    }
+
+    @keyframes slideUpCover {
+      from {
+        margin-top: 0;
+      }
+      to {
+        margin-top: -40vh;
+      }
+    }
+
     .presentation-title {
       font-size: var(--48-pt);
     }
