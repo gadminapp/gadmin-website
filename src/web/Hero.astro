@@ -1,5 +1,6 @@
 ---
-import heroVideoPoster from '@/assets/img/first-frame-hero-video.webp'
+import heroVideoPosterPng from '@/assets/img/first-frame-hero-video.png'
+import heroVideoPosterWebp from '@/assets/img/first-frame-hero-video.webp'
 import offerLines from '@/assets/offer-lines.png'
 import heroVideoMp4 from '@/assets/video/hero-video.mp4'
 import heroVideoWebm from '@/assets/video/hero-video.webm'
@@ -12,7 +13,7 @@ import { Image } from 'astro:assets'
   <div class='hero-bg'>
     <video
       class='hero-bg-video'
-      poster={heroVideoPoster.src}
+      poster={heroVideoPosterWebp.src}
       autoplay
       loop
       muted
@@ -23,8 +24,12 @@ import { Image } from 'astro:assets'
     >
       <source src={heroVideoWebm} type='video/webm' />
       <source src={heroVideoMp4} type='video/mp4' />
-      <!-- Fallback image for browsers with no video support -->
-      <img src={heroVideoPoster.src} alt='Fondo' />
+      <!-- Fallback image for browsers with no video support and for poster compatibility -->
+      <picture>
+        <source srcset={heroVideoPosterWebp.src} type='image/webp' />
+        <source srcset={heroVideoPosterPng.src} type='image/png' />
+        <img src={heroVideoPosterPng.src} alt='Fondo' />
+      </picture>
     </video>
     <!-- Overlay layer for better readability -->
     <div class='hero-bg-overlay'></div>
