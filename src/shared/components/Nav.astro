@@ -57,7 +57,11 @@ const { isFixed = true } = Astro.props
 
   .nav:not(.nav--fixed),
   body.scrolled .nav {
-    background-color: var(--shade-03);
+    background-color: rgba(34, 40, 49, 0.55); /* var(--shade-03) with opacity */
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .nav-wrapper {
