@@ -1,7 +1,7 @@
 ---
-import feature01 from '@/assets/img/features/feature-01.png'
-import feature02 from '@/assets/img/features/feature-02.png'
-import feature03 from '@/assets/img/features/feature-03.png'
+import feature01 from '@/assets/img/features/feature-1.png'
+import feature02 from '@/assets/img/features/feature-2.png'
+import feature03 from '@/assets/img/features/feature-3.png'
 import { Image } from 'astro:assets'
 ---
 
@@ -9,11 +9,16 @@ import { Image } from 'astro:assets'
   <div class='wrapper features-list'>
     <div class='feature' data-aos='flip-left'>
       <div class='feature-content'>
-        <h3 class='feature-title'>¿Vendiendo solo por WhatsApp o redes sociales?</h3>
+        <h3 class='feature-title'>
+          ¡Libérate del teléfono! Transforma tu negocio y recupera tu vida
+        </h3>
         <p class='feature-description'>
-          Dale profesionalidad a tu negocio con una tienda online que inspire confianza. Tus
-          clientes podrán navegar tu catálogo, comparar productos y comprar 24/7 sin que tengas que
-          estar contestando mensajes todo el día.
+          Visualiza esto: Un espacio profesional solo tuyo, donde tus clientes pueden entrar cuando
+          quieran, a cualquier hora, para comprar sin interrumpir tu vida.
+          <br />
+          <strong>Ya no más ventas perdidas</strong>
+          por un mensaje que no viste a tiempo. Tu tienda en línea no solo inspira confianza, sino que
+          te da la libertad de vivir tu vida mientras tu negocio trabaja para ti.
         </p>
         <div class='feature-benefits'>
           <div class='benefit'>✅ Catálogo organizado y profesional</div>
@@ -40,32 +45,32 @@ import { Image } from 'astro:assets'
         />
       </div>
       <div class='feature-content'>
-        <h3 class='feature-title'>Invierte en tu tienda solo cuando empieces a vender.</h3>
+        <h3 class='feature-title'>Tu negocio te obedece. Recupera tu tiempo.</h3>
         <p class='feature-description'>
-          Entendemos que como emprendedor cada centavo cuenta. Por eso puedes diseñar, configurar y
-          preparar toda tu tienda sin pagar nada. Solo pagas cuando decides publicarla y empezar a
-          vender.
+          Imagina poder decirle a tu tienda: <strong
+            >“Aumenta el precio de los productos deportivos un 10%”</strong
+          > y que la inteligencia artificial lo haga por ti, en un instante.
+          <br />
+          Así de fácil es gestionar tu sitio: solo escribe lo que necesitas y la IA lo entiende y lo
+          ejecuta.
         </p>
         <div class='feature-benefits'>
-          <div class='benefit'>💡 Prueba sin riesgo</div>
-          <div class='benefit'>💰 Paga solo cuando vendas</div>
-          <div class='benefit'>🎯 Ideal para emprendedores</div>
+          <div class='benefit'>⌛ Mínimo ahorras 4 horas al día</div>
+          <div class='benefit'>🤖 Pagas por el uso de la IA, sin mensualidades</div>
         </div>
       </div>
     </div>
     <div class='feature' data-aos='flip-left'>
       <div class='feature-content'>
-        <h3 class='feature-title'>Tu equipo completo puede ayudarte, sin costos extra.</h3>
+        <h3 class='feature-title'>Crea sin límites. ¡Tu visión, tu tienda, tu obra maestra!</h3>
         <p class='feature-description'>
-          Invita a tu diseñador, fotógrafo, asistente virtual o cualquier persona que te ayude con
-          tu negocio. Hasta 10 colaboradores gratis en tu tienda.
-          <br /><br />
-          Nada de trucos ni costos ocultos. Creemos que el éxito se construye en equipo.
+          Siente la emoción de ver tu idea cobrar vida, sin códigos, sin complicaciones, solo tú y
+          tu creatividad. Con cada clic, cada elemento que arrastras y sueltas, estás dando forma a
+          tu sueño.
         </p>
         <div class='feature-benefits'>
-          <div class='benefit'>👥 Hasta 10 colaboradores gratis</div>
-          <div class='benefit'>🤝 Colaboración en tiempo real</div>
-          <div class='benefit'>📊 Roles y permisos personalizados</div>
+          <div class='benefit'>🎨 Empieza con una plantilla y hazla más tuya</div>
+          <div class='benefit'>👥 Trabajar con tu equipo y colaboren al mismo tiempo</div>
         </div>
       </div>
       <div class='feature-image'>
@@ -167,14 +172,6 @@ import { Image } from 'astro:assets'
       flex: 0 0 300px;
       min-height: 200px;
     }
-
-    .feature-title {
-      font-size: var(--32-pt);
-    }
-
-    .feature-description {
-      font-size: var(--18-pt);
-    }
   }
 
   @media screen and (max-width: 768px) {
@@ -202,12 +199,11 @@ import { Image } from 'astro:assets'
     }
 
     .feature-title {
-      font-size: var(--28-pt);
       text-align: center;
     }
 
     .feature-description {
-      font-size: var(--16-pt);
+      font-size: var(--18-pt);
       text-align: center;
     }
 
@@ -229,6 +225,7 @@ import { Image } from 'astro:assets'
     }
 
     .benefit {
+      font-size: var(--18-pt);
       justify-content: center;
     }
   }

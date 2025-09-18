@@ -7,13 +7,15 @@ import { Image } from 'astro:assets'
 
 <div class='presentation'>
   <div class='wrapper'>
-    <h2 class='presentation-title' data-aos='flip-down'>
-      Crea tu <span>tienda online</span> sin complicaciones técnicas
+    <h2 class='presentation-title'>
+      Libera tu <span>creatividad</span> y convierte tus sueños en <span>realidad</span>
     </h2>
-    <p class='presentation-subtitle' data-aos='fade-up' data-aos-delay='200'>
-      Olvídate de hostings complicados y códigos imposibles.
+    <p class='presentation-subtitle'>
+      <strong>Tu tienda online</strong> no es solo un sitio web, es el hogar de tu pasión donde cada
+      <strong>venta</strong> es una celebración de tu esfuerzo y cada <strong>cliente</strong>, un
+      nuevo amigo en tu camino.
       <br />
-      Transforma tu negocio en una tienda digital que impresione a tus clientes.
+      <span>No dejes que el miedo a lo técnico te detenga.</span>
     </p>
     <div class='presentation-images' data-aos='zoom-in'>
       <Image
@@ -46,14 +48,13 @@ import { Image } from 'astro:assets'
       </div>
       <div class='presentation-feature' data-aos='fade-up' data-aos-delay='200'>
         <div class='feature-icon'>🎨</div>
-        <strong>Diseño que vende</strong> Plantillas optimizadas para conversión, diseñadas específicamente
+        <strong>Variedad de plantillas</strong> Tienes muchas plantillas para elegir, todas diseñadas
         para tiendas online exitosas.
       </div>
       <div class='presentation-feature' data-aos='fade-up' data-aos-delay='300'>
         <div class='feature-icon'>🚀</div>
-        <strong>Desde cero a vendiendo</strong> Tu tienda lista y funcionando en el mismo día.
+        <strong>En solo minutos</strong> Esperas tus primeros clientes y tu pasión se convierte en ventas.
         <br />
-        Sin esperas ni complicaciones.
       </div>
     </div>
   </div>
@@ -105,9 +106,16 @@ import { Image } from 'astro:assets'
     color: var(--shade-04);
     text-align: center;
     font-size: 1.2rem;
-    max-width: 700px;
+    max-width: 800px;
     line-height: 1.4;
     font-weight: 400;
+  }
+
+  .presentation-subtitle span {
+    display: block;
+    padding-top: 0.5rem;
+    color: var(--primary);
+    font-weight: 600;
   }
 
   .presentation-title span {
