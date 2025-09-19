@@ -2,20 +2,42 @@
 import logoBg from '@/assets/img/logo-dark.webp'
 import LinkedIn from '@/shared/components/icons/LinkedIn.astro'
 import { Image } from 'astro:assets'
+import Facebook from './icons/Facebook.astro'
+import Instagram from './icons/Instagram.astro'
+import TikTok from './icons/TikTok.astro'
+import Youtube from './icons/Youtube.astro'
 ---
 
 <footer>
   <div class='wrapper'>
     <div class='footer-content'>
       <div class='footer-cta'>
-        <h3 class='footer-cta-alt'>¡No te pierdas el lanzamiento!</h3>
+        <h3 class='footer-cta-alt'>¿Aún no te has registrado?</h3>
         <a
           class='footer-cta-link'
-          href='https://www.linkedin.com/company/gadmin-app/'
+          href='https://accounts.gadmin.app/?from=footer'
           rel='noopener noreferrer'
-          target='_blank'>Síguenos en LinkedIn</a
+          target='_blank'>¡Haz tu sueño realidad hoy!</a
         >
         <div class='footer-socials'>
+          <a
+            title='TikTok de Gadmin'
+            href='https://www.tiktok.com/@gadmin.app'
+            rel='noopener noreferrer'
+            target='_blank'
+            aria-label='TikTok'
+          >
+            <TikTok size={24} color='#FFFFFF' />
+          </a>
+          <a
+            title='Youtube de Gadmin'
+            href='https://www.youtube.com/@gadminapp'
+            rel='noopener noreferrer'
+            target='_blank'
+            aria-label='Youtube'
+          >
+            <Youtube size={24} color='#FFFFFF' />
+          </a>
           <a
             title='LinkedIn de Gadmin'
             href='https://www.linkedin.com/company/gadmin-app/'
@@ -24,6 +46,24 @@ import { Image } from 'astro:assets'
             aria-label='LinkedIn'
           >
             <LinkedIn size={24} color='#FFFFFF' />
+          </a>
+          <a
+            title='Instagram de Gadmin'
+            href='https://www.instagram.com/gadmin.app/'
+            rel='noopener noreferrer'
+            target='_blank'
+            aria-label='Instagram'
+          >
+            <Instagram size={24} color='#FFFFFF' />
+          </a>
+          <a
+            title='Facebook de Gadmin'
+            href='https://www.facebook.com/gadminapp/'
+            rel='noopener noreferrer'
+            target='_blank'
+            aria-label='Facebook'
+          >
+            <Facebook size={24} color='#FFFFFF' />
           </a>
         </div>
       </div>
