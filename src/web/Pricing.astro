@@ -348,6 +348,13 @@ const { data } = Astro.props
     return /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/.test(email)
   }
 
+  const getCookie = (name: string) => {
+    const value = `; ${document.cookie}`
+    const parts = value.split(`; ${name}=`)
+    if (parts.length === 2) return parts.pop()?.split(';').shift() || ''
+    return ''
+  }
+
   const checkFormValidity = () => {
     const name = nameInput?.value.trim()
     const email = emailInput?.value.trim()
@@ -474,6 +481,8 @@ const { data } = Astro.props
           name,
           phone,
           phoneCode,
+          fbp: getCookie('_fbp'),
+          fbc: getCookie('_fbc'),
         }),
       })
 
