@@ -1,6 +1,9 @@
 ---
 import Icon from '@/shared/components/Icon.astro'
 import Modal from '@/shared/components/Modal.astro'
+
+const { data } = Astro.props
+// ? define:vars={{ data }} puedes hacer esto abajo si se necesita
 ---
 
 <section class='pricing' id='pricing'>
@@ -285,30 +288,30 @@ import Modal from '@/shared/components/Modal.astro'
         <div class='phone-row'>
           <div class='code-wrapper'>
             <select id='checkout-phone-code'>
-              <option value='+1'>🇺🇸 +1</option>
-              <option value='+34'>🇪🇸 +34</option>
-              <option value='+51'>🇵🇪 +51</option>
-              <option value='+52'>🇲🇽 +52</option>
-              <option value='+53'>🇨🇺 +53</option>
-              <option value='+54'>🇦🇷 +54</option>
-              <option value='+55'>🇧🇷 +55</option>
-              <option value='+56'>🇨🇱 +56</option>
-              <option value='+57'>🇨🇴 +57</option>
-              <option value='+58' selected>🇻🇪 +58</option>
-              <option value='+501'>🇧🇿 +501</option>
-              <option value='+502'>🇬🇹 +502</option>
-              <option value='+503'>🇸🇻 +503</option>
-              <option value='+504'>🇭🇳 +504</option>
-              <option value='+505'>🇳🇮 +505</option>
-              <option value='+506'>🇨🇷 +506</option>
-              <option value='+507'>🇵🇦 +507</option>
-              <option value='+509'>🇭🇹 +509</option>
-              <option value='+591'>🇧🇴 +591</option>
-              <option value='+592'>🇬🇾 +592</option>
-              <option value='+593'>🇪🇨 +593</option>
-              <option value='+595'>🇵🇾 +595</option>
-              <option value='+597'>🇸🇷 +597</option>
-              <option value='+598'>🇺🇾 +598</option>
+              <option value='+1' selected={data.country === 'US'}>🇺🇸 +1</option>
+              <option value='+34' selected={data.country === 'ES'}>🇪🇸 +34</option>
+              <option value='+51' selected={data.country === 'PE'}>🇵🇪 +51</option>
+              <option value='+52' selected={data.country === 'MX'}>🇲🇽 +52</option>
+              <option value='+53' selected={data.country === 'CU'}>🇨🇺 +53</option>
+              <option value='+54' selected={data.country === 'AR'}>🇦🇷 +54</option>
+              <option value='+55' selected={data.country === 'BR'}>🇧🇷 +55</option>
+              <option value='+56' selected={data.country === 'CL'}>🇨🇱 +56</option>
+              <option value='+57' selected={data.country === 'CO'}>🇨🇴 +57</option>
+              <option value='+58' selected={data.country === 'VE'}>🇻🇪 +58</option>
+              <option value='+501' selected={data.country === 'BZ'}>🇧🇿 +501</option>
+              <option value='+502' selected={data.country === 'GT'}>🇬🇹 +502</option>
+              <option value='+503' selected={data.country === 'SV'}>🇸🇻 +503</option>
+              <option value='+504' selected={data.country === 'HN'}>🇭🇳 +504</option>
+              <option value='+505' selected={data.country === 'NI'}>🇳🇮 +505</option>
+              <option value='+506' selected={data.country === 'CR'}>🇨🇷 +506</option>
+              <option value='+507' selected={data.country === 'PA'}>🇵🇦 +507</option>
+              <option value='+509' selected={data.country === 'HT'}>🇭🇹 +509</option>
+              <option value='+591' selected={data.country === 'BO'}>🇧🇴 +591</option>
+              <option value='+592' selected={data.country === 'GY'}>🇬🇾 +592</option>
+              <option value='+593' selected={data.country === 'EC'}>🇪🇨 +593</option>
+              <option value='+595' selected={data.country === 'PY'}>🇵🇾 +595</option>
+              <option value='+597' selected={data.country === 'SR'}>🇸🇷 +597</option>
+              <option value='+598' selected={data.country === 'UY'}>🇺🇾 +598</option>
             </select>
           </div>
           <div class='input-wrapper' style='flex: 1;'>

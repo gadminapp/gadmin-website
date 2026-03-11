@@ -11,6 +11,21 @@ import Steps from '@/web/Steps.astro'
 import Trust from '@/web/Trust.astro'
 
 // TODO: HTTP Request to GET /api/v2/landing-page/data
+const hostname = Astro.url.hostname
+const isProd = hostname === 'gadmin.app' || hostname === 'www.gadmin.app'
+const baseUrl = isProd
+  ? 'https://api.gadmin.app/api/v2/landing-page'
+  : 'https://apidev.gadmin.app/api/v2/landing-page'
+
+const response = await fetch(`${baseUrl}/data`, {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+
+const data = await response.json()
+const parsedData = JSON.parse(atob(data.data))
 ---
 
 <Layout
@@ -22,7 +37,7 @@ import Trust from '@/web/Trust.astro'
   <Hero />
   <Problem />
   <Solution />
-  <Pricing />
+  <Pricing data={parsedData} />
   <Steps />
   <Trust />
   <FAQ />
