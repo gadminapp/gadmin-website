@@ -1,42 +1,62 @@
 ---
 import logoBg from '@/assets/img/logo-dark.webp'
-import Button from '@/shared/components/Button.astro'
+import Icon from '@/shared/components/Icon.astro'
 import { Image } from 'astro:assets'
 
 interface Props {
   isFixed?: boolean
+  variant?: 'agency' | 'webs'
 }
 
-const { isFixed = true } = Astro.props
+const { isFixed = true, variant = 'agency' } = Astro.props
 ---
 
 <nav class:list=`nav ${isFixed ? 'nav--fixed' : ''}` transition:persist>
   <div class='wrapper nav-wrapper' data-aos='zoom-in'>
     <a href='/' class='nav-logo'>
       <Image src={logoBg} width={32} height={32} alt='Logo de Gadmin' loading='eager' />
-      <p class='nav-logo-title'>Gadmin</p>
+      <p class='nav-logo-title'>
+        Gadmin
+        {variant === 'webs' && <span class='nav-logo-sub'>Webs</span>}
+      </p>
     </a>
     <div class='nav-buttons'>
-      <Button
-        classes='cta--track'
-        href='https://accounts.gadmin.app/?from=signin'
-        target='_blank'
-        mode='ghost'
-        type='gray'
-        style={{ padding: '0.5rem 1rem' }}
-      >
-        Ingresar
-      </Button>
-      <Button
-        classes='cta--track'
-        href='https://accounts.gadmin.app/signup?from=signup'
-        target='_blank'
-        mode='default'
-        type='gradient'
-        style={{ padding: '0.5rem 1rem' }}
-      >
-        Registrarme
-      </Button>
+      {
+        variant === 'agency' && (
+          <>
+            <a href='#services' class='nav-link hide-on-mobile'>
+              Servicios
+            </a>
+            <a href='#products' class='nav-link hide-on-mobile'>
+              Productos
+            </a>
+            <a href='#process' class='nav-link hide-on-mobile'>
+              Proceso
+            </a>
+            <a href='#contact' class='nav-cta-btn' id='nav-contact-btn'>
+              Contáctanos
+            </a>
+          </>
+        )
+      }
+      {
+        variant === 'webs' && (
+          <>
+            <a href='/webs#how-it-works' class='nav-link hide-on-mobile'>
+              Cómo funciona
+            </a>
+            <a href='/webs#faq' class='nav-link hide-on-mobile'>
+              Preguntas
+            </a>
+            <a href='/webs#pricing' class='nav-cta-btn cta--track' id='nav-cta-btn'>
+              <span class='nav-cta-lock'>
+                <Icon name='lock-closed' size={14} />
+              </span>{' '}
+              Preventa
+            </a>
+          </>
+        )
+      }
     </div>
   </div>
 </nav>
@@ -57,23 +77,24 @@ const { isFixed = true } = Astro.props
 
   .nav:not(.nav--fixed),
   body.scrolled .nav {
-    background-color: rgba(34, 40, 49, 0.55); /* var(--shade-03) with opacity */
-    backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
-    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background-color: rgba(22, 20, 45, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .nav-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
   }
 
   .nav-buttons {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .nav-logo {
@@ -86,24 +107,74 @@ const { isFixed = true } = Astro.props
 
   .nav-logo-title {
     margin: 0;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.05rem;
+    font-weight: 600;
     color: var(--white);
   }
 
-  .nav-buttons {
-    justify-content: flex-end;
+  .nav-logo-sub {
+    font-weight: 400;
+    color: var(--accent);
+    font-size: 0.9rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.65);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--white);
+  }
+
+  .nav-link:visited {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  .nav-link:visited:hover {
+    color: var(--white);
+  }
+
+  .nav-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: 0.5rem;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .nav-cta-btn:hover {
+    background: var(--primary-lighter);
+    box-shadow: 0 4px 12px rgba(77, 93, 239, 0.3);
+  }
+
+  .nav-cta-btn:visited {
+    color: var(--white);
+  }
+
+  .nav-cta-lock {
+    display: flex;
   }
 
   @media screen and (max-width: 768px) {
     .nav-wrapper {
-      grid-template-columns: auto 1fr;
+      padding: 0.6rem 0.75rem;
     }
-  }
 
-  @media screen and (max-width: 1024px) {
-    .nav-logo:not(.nav-logo--mobile) .nav-logo-title {
-      display: none;
+    .nav-cta-btn {
+      font-size: 0.8rem;
+      padding: 0.45rem 0.85rem;
     }
   }
 </style>

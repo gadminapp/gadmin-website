@@ -1,32 +1,34 @@
 ---
+import AgencyHero from '@/agency/AgencyHero.astro'
+import Contact from '@/agency/Contact.astro'
+import Process from '@/agency/Process.astro'
+import Products from '@/agency/Products.astro'
+import Services from '@/agency/Services.astro'
+import WhyUs from '@/agency/WhyUs.astro'
 import Footer from '@/shared/components/Footer.astro'
 import Nav from '@/shared/components/Nav.astro'
 import Layout from '@/shared/layouts/Layout.astro'
-import CTA from '@/web/CTA.astro'
-import Features from '@/web/Features.astro'
-import Hero from '@/web/Hero.astro'
-import Presentation from '@/web/Presentation.astro'
-import Testimonials from '@/web/Testimonials.astro'
 ---
 
 <Layout
-  title='Gadmin - Tu sueño, tu tienda'
-  description='¿Qué pasaría si el mundo conociera lo que solo tú puedes crear? Tu pasión, tu historia, tu tienda. Con nuestra herramienta, es más fácil que nunca.'
+  title='Gadmin - Agencia de Software a Medida | Apps, Webs y Automatización'
+  description='Diseñamos, desarrollamos y lanzamos software a medida que transforma tu negocio. Aplicaciones web, móviles, automatización e inteligencia artificial. Tu equipo de tecnología.'
   withSEO={true}
 >
-  <Nav />
-  <Hero />
-  <Presentation />
-  <Features />
-  <Testimonials />
-  <CTA />
-  <Footer />
+  <Nav variant='agency' />
+  <AgencyHero />
+  <Services />
+  <Products />
+  <WhyUs />
+  <Process />
+  <Contact />
+  <Footer variant='agency' />
 </Layout>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function () {
     if (typeof seline !== 'undefined') {
-      seline.track('Landing: Page view')
+      seline.track('Agency: Page view')
     }
   })
 
@@ -42,67 +44,15 @@ import Testimonials from '@/web/Testimonials.astro'
     if (scrollPercentage >= 50) {
       hasTrackedMiddle = true
       if (typeof seline !== 'undefined') {
-        seline.track('Landing: Read Page')
+        seline.track('Agency: Read Page')
       }
-    }
-  }
-
-  function trackCTAClick(ctaLocation) {
-    if (typeof seline !== 'undefined') {
-      seline.track('Landing: CTA Click', {
-        location: ctaLocation,
-      })
     }
   }
   window.addEventListener('scroll', trackScrollMiddle)
-
-  const ctaLinks = document.querySelectorAll('a.cta--track')
-  ctaLinks.forEach(function (link) {
-    link.addEventListener('click', function (event) {
-      const href = link.href
-      if (!href || !href.includes('accounts.gadmin.app')) return
-
-      let ctaLocation = 'unknown'
-      if (href.includes('from=hero')) {
-        ctaLocation = 'hero'
-      } else if (href.includes('from=signin')) {
-        ctaLocation = 'nav-signin'
-      } else if (href.includes('from=signup')) {
-        ctaLocation = 'nav-signup'
-      } else if (href.includes('from=cta')) {
-        ctaLocation = 'bottom-cta'
-      }
-
-      trackCTAClick(ctaLocation)
-    })
-  })
 </script>
 
 <style is:global>
-  .hero-image-container > img {
-    animation: levitate 6s ease-in-out infinite;
-  }
-  .float-container--pushNotification {
-    animation: levitate 12s ease-in-out infinite;
-  }
-  .float-container--kpi {
-    animation: levitate 12s ease-in-out infinite reverse;
-  }
-  @keyframes levitate {
-    0% {
-      transform: translateY(0);
-    }
-    25% {
-      transform: translateY(-1.25rem);
-    }
-    50% {
-      transform: translateY(0);
-    }
-    75% {
-      transform: translateY(-0.75rem);
-    }
-    100% {
-      transform: translateY(0);
-    }
+  html {
+    scroll-behavior: smooth;
   }
 </style>

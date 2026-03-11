@@ -1,0 +1,350 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+---
+
+<div class='hero' id='hero'>
+  <div class='hero-bg'>
+    <div class='hero-bg-gradient'></div>
+    <div class='hero-bg-grid'></div>
+    <div class='hero-bg-glow hero-bg-glow--1'></div>
+    <div class='hero-bg-glow hero-bg-glow--2'></div>
+    <div class='hero-bg-glow hero-bg-glow--3'></div>
+  </div>
+
+  <div class='hero-grid'>
+    <div class='hero-content wrapper' data-aos='fade-up'>
+      <div class='hero-badge' data-aos='fade-down' data-aos-delay='200'>
+        <span class='hero-badge-dot'></span>
+        Agencia de Software a Medida
+      </div>
+
+      <h1 class='hero-title'>
+        Creamos el <span class='text-gradient'>software</span> que tu negocio necesita para
+        <span class='text-gradient'>escalar.</span>
+      </h1>
+
+      <p class='hero-subtitle'>
+        Somos Gadmin. Diseñamos, desarrollamos y lanzamos aplicaciones web, móviles y herramientas
+        digitales a medida que transforman la manera en que operas y vendes.
+      </p>
+
+      <div class='hero-cta-group'>
+        <a href='#contact' class='hero-cta-btn' id='hero-contact-btn'>
+          Agenda una consulta gratuita
+          <span class='hero-cta-arrow'><Icon name='arrow-right' size={20} /></span>
+        </a>
+        <a href='#products' class='hero-cta-secondary'> Ver nuestros productos </a>
+      </div>
+
+      <!-- TODO: Importante -->
+      <!-- <div class='hero-clients-row' data-aos='fade-up' data-aos-delay='400'>
+        <div class='hero-clients-avatars'>
+          <div class='hero-avatar' style='background: #4d5def;'>G</div>
+          <div class='hero-avatar' style='background: #14eef4; color: #16142d;'>W</div>
+          <div class='hero-avatar' style='background: #6366f1;'>S</div>
+        </div>
+        <p class='hero-clients-text'>Empresas ya confían en nuestro software</p>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+  }
+  @supports (height: 100svh) {
+    .hero {
+      min-height: 100svh;
+    }
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(160deg, #0d0b1a 0%, #16142d 40%, #1a1745 70%, #16142d 100%);
+  }
+
+  .hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(77, 93, 239, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(77, 93, 239, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+    pointer-events: none;
+  }
+
+  .hero-bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+  }
+
+  .hero-bg-glow--1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -150px;
+    background: rgba(77, 93, 239, 0.12);
+    animation: pulse-glow 8s ease-in-out infinite;
+  }
+
+  .hero-bg-glow--2 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: -100px;
+    background: rgba(20, 238, 244, 0.06);
+    animation: pulse-glow 10s ease-in-out infinite reverse;
+  }
+
+  .hero-bg-glow--3 {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    left: 50%;
+    background: rgba(99, 102, 241, 0.08);
+    animation: pulse-glow 12s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+  }
+
+  .hero-grid {
+    position: relative;
+    z-index: 2;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 10rem 2rem 6rem;
+    width: 100%;
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background: rgba(77, 93, 239, 0.1);
+    border: 1px solid rgba(77, 93, 239, 0.2);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    animation: blink 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    max-width: 640px;
+    font-weight: 400;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.3s ease;
+    box-shadow: 0 4px 24px rgba(77, 93, 239, 0.35);
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .hero-cta-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(77, 93, 239, 0.45);
+  }
+
+  .hero-cta-btn:visited {
+    color: var(--white);
+  }
+
+  .hero-cta-arrow {
+    transition: transform 0.2s ease;
+    display: flex;
+  }
+
+  .hero-cta-btn:hover .hero-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  .hero-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      border-color 0.2s ease,
+      color 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .hero-cta-secondary:hover {
+    border-color: var(--primary);
+    color: var(--white);
+    background: rgba(77, 93, 239, 0.06);
+  }
+
+  .hero-cta-secondary:visited {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .hero-clients-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .hero-clients-avatars {
+    display: flex;
+  }
+
+  .hero-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--white);
+    border: 2px solid var(--shade-03);
+    margin-left: -8px;
+  }
+
+  .hero-avatar:first-child {
+    margin-left: 0;
+  }
+
+  .hero-clients-text {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 768px) {
+    .hero-grid {
+      padding: 7rem 1rem 4rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      line-height: 1.15;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .hero-cta-group {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-cta-btn,
+    .hero-cta-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hero-cta-btn {
+      padding: 0.85rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .hero-clients-row {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+</style>

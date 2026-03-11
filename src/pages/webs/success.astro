@@ -1,0 +1,260 @@
+---
+import Footer from '@/shared/components/Footer.astro'
+import Icon from '@/shared/components/Icon.astro'
+import Nav from '@/shared/components/Nav.astro'
+import Layout from '@/shared/layouts/Layout.astro'
+---
+
+<Layout
+  title='¡Pago Exitoso! - Gadmin Webs'
+  description='Tu pago ha sido procesado exitosamente. ¡Bienvenido a Gadmin Webs!'
+  withSEO={false}
+>
+  <Nav variant='webs' />
+
+  <main class='success-page'>
+    <div class='success-bg'>
+      <div class='success-glow'></div>
+    </div>
+
+    <div class='wrapper success-content' data-aos='zoom-in'>
+      <div class='success-card'>
+        <div class='success-icon-container'>
+          <div class='success-icon-bg'></div>
+          <Icon name='check-circle' size={64} color='#4ade80' />
+        </div>
+
+        <h1 class='success-title'>¡Gracias por tu confianza!</h1>
+        <p class='success-message'>
+          Tu pago ha sido procesado exitosamente y ahora eres un <strong
+            >Fundador oficial de Gadmin Webs</strong
+          >.
+        </p>
+
+        <div class='success-info-box'>
+          <Icon name='sparkles' size={24} color='#fbbf24' />
+          <p>
+            Hemos enviado un mensaje de confirmación a tu <strong>correo electrónico</strong>. Por
+            favor, revisa tu buzón (y la carpeta de spam por si acaso).
+          </p>
+        </div>
+
+        <div class='success-next-steps'>
+          <h3>¿Qué sigue ahora?</h3>
+          <ul class='steps-list'>
+            <li>
+              <span class='step-num'>1</span>
+              <p>
+                Te notificaremos por email en cuanto la plataforma esté lista para tu acceso
+                prioritario.
+              </p>
+            </li>
+            <li>
+              <span class='step-num'>2</span>
+              <p>Recibirás noticias exclusivas sobre el progreso del desarrollo.</p>
+            </li>
+            <li>
+              <span class='step-num'>3</span>
+              <p>
+                Nuestro equipo se pondrá en contacto contigo para la configuración "Llave en mano"
+                si adquiriste el Plan VIP.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <a href='/webs' class='success-btn'> Volver al inicio </a>
+      </div>
+    </div>
+  </main>
+
+  <Footer variant='webs' />
+</Layout>
+
+<style>
+  .success-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 8rem 1rem 4rem;
+    overflow: hidden;
+    background: #0d0b1a;
+  }
+
+  .success-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .success-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(77, 93, 239, 0.1) 0%, transparent 70%);
+    filter: blur(80px);
+  }
+
+  .success-content {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    width: 100%;
+  }
+
+  .success-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  }
+
+  .success-icon-container {
+    position: relative;
+    display: inline-flex;
+    margin-bottom: 2rem;
+  }
+
+  .success-icon-bg {
+    position: absolute;
+    inset: -15px;
+    background: rgba(74, 222, 128, 0.15);
+    border-radius: 50%;
+    filter: blur(10px);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.8;
+    }
+  }
+
+  .success-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .success-message {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .success-message strong {
+    color: var(--accent);
+  }
+
+  .success-info-box {
+    background: rgba(251, 191, 36, 0.05);
+    border: 1px solid rgba(251, 191, 36, 0.1);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-align: left;
+    margin-bottom: 2.5rem;
+  }
+
+  .success-info-box p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .success-next-steps {
+    text-align: left;
+    margin-bottom: 3rem;
+  }
+
+  .success-next-steps h3 {
+    font-size: 1.25rem;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+  }
+
+  .steps-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .steps-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+
+  .steps-list p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .success-btn {
+    display: inline-flex;
+    padding: 1rem 2.5rem;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(77, 93, 239, 0.3);
+  }
+
+  .success-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(77, 93, 239, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .success-card {
+      padding: 2.5rem 1.5rem;
+    }
+    .success-title {
+      font-size: 1.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,267 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+import WhatsAppIcon from '@/shared/components/icons/WhatsApp.astro'
+---
+
+<section class='contact' id='contact'>
+  <div class='wrapper'>
+    <div class='contact-inner' data-aos='fade-up'>
+      <div class='contact-glow'></div>
+      <div class='contact-content'>
+        <span class='contact-label'>Hablemos</span>
+        <h2 class='contact-title'>¿Tienes un proyecto en mente?</h2>
+        <p class='contact-subtitle'>
+          Cuéntanos tu idea y te decimos cómo podemos ayudarte. La primera consulta es
+          <strong>100% gratuita</strong> y sin compromiso.
+        </p>
+
+        <div class='contact-methods'>
+          <a
+            href='https://wa.me/584246498456?text=Hola%20Gadmin%2C%20me%20interesa%20saber%20más%20sobre%20sus%20servicios%20de%20desarrollo%20de%20software.'
+            target='_blank'
+            rel='noopener noreferrer'
+            class='contact-method contact-method--wa'
+            id='contact-whatsapp-btn'
+          >
+            <WhatsAppIcon size={24} color='#FFFFFF' />
+            <div class='contact-method-info'>
+              <span class='contact-method-name'>WhatsApp</span>
+              <span class='contact-method-detail'>Respuesta en menos de 2 horas</span>
+            </div>
+            <span class='contact-method-arrow'><Icon name='arrow-right' size={20} /></span>
+          </a>
+
+          <a
+            href='mailto:contacto@gadmin.app'
+            class='contact-method contact-method--email'
+            id='contact-email-btn'
+          >
+            <span class='contact-method-icon'><Icon name='envelope' size={24} /></span>
+            <div class='contact-method-info'>
+              <span class='contact-method-name'>Email</span>
+              <span class='contact-method-detail'>contacto@gadmin.app</span>
+            </div>
+            <span class='contact-method-arrow'><Icon name='arrow-right' size={20} /></span>
+          </a>
+        </div>
+
+        <div class='contact-promise'>
+          <span class='contact-promise-icon'><Icon name='light-bulb' size={20} /></span>
+          <p class='contact-promise-text'>
+            Sin presión, sin ventas agresivas. Solo una conversación honesta sobre cómo podemos
+            ayudarte a crecer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, #f5f0f0 0%, var(--neutral-02) 100%);
+    position: relative;
+  }
+
+  .contact-inner {
+    position: relative;
+    max-width: 650px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 1.5rem;
+    padding: 3.5rem 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+
+  .contact-glow {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: rgba(77, 93, 239, 0.06);
+    filter: blur(60px);
+    pointer-events: none;
+  }
+
+  .contact-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .contact-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: rgba(77, 93, 239, 0.06);
+    border: 1px solid rgba(77, 93, 239, 0.12);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .contact-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--shade-03);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .contact-subtitle {
+    font-size: 1.1rem;
+    color: var(--shade-04);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+    max-width: 500px;
+  }
+
+  .contact-subtitle strong {
+    color: var(--shade-03);
+  }
+
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 420px;
+    margin-top: 0.5rem;
+  }
+
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.85rem;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+    border: 1px solid transparent;
+  }
+
+  .contact-method:hover {
+    transform: translateY(-2px);
+  }
+
+  .contact-method--wa {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.2);
+  }
+
+  .contact-method--wa:hover {
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.3);
+  }
+
+  .contact-method--wa:visited {
+    color: white;
+  }
+
+  .contact-method--email {
+    background: white;
+    border-color: rgba(0, 0, 0, 0.08);
+    color: var(--shade-03);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+
+  .contact-method--email:hover {
+    border-color: var(--primary);
+    box-shadow: 0 4px 16px rgba(77, 93, 239, 0.08);
+  }
+
+  .contact-method--email:visited {
+    color: var(--shade-03);
+  }
+
+  .contact-method-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    display: flex;
+  }
+
+  .contact-method-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    flex: 1;
+    text-align: left;
+  }
+
+  .contact-method-name {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .contact-method-detail {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    font-weight: 400;
+  }
+
+  .contact-method-arrow {
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+    display: flex;
+  }
+
+  .contact-method:hover .contact-method-arrow {
+    transform: translateX(4px);
+  }
+
+  .contact-promise {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    background: rgba(77, 93, 239, 0.03);
+    border: 1px solid rgba(77, 93, 239, 0.06);
+    max-width: 420px;
+  }
+
+  .contact-promise-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    display: flex;
+  }
+
+  .contact-promise-text {
+    font-size: 0.85rem;
+    color: var(--shade-04);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 768px) {
+    .contact {
+      padding: 4rem 1rem;
+    }
+
+    .contact-inner {
+      padding: 2.5rem 1.5rem;
+    }
+
+    .contact-title {
+      font-size: var(--40-pt);
+    }
+  }
+</style>

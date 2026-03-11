@@ -1,0 +1,192 @@
+---
+import Footer from '@/shared/components/Footer.astro'
+import Icon from '@/shared/components/Icon.astro'
+import Nav from '@/shared/components/Nav.astro'
+import Layout from '@/shared/layouts/Layout.astro'
+---
+
+<Layout
+  title='Proceso Cancelado - Gadmin Webs'
+  description='El proceso de pago ha sido cancelado. Puedes intentarlo de nuevo cuando gustes.'
+  withSEO={false}
+>
+  <Nav variant='webs' />
+
+  <main class='cancel-page'>
+    <div class='cancel-bg'>
+      <div class='cancel-glow'></div>
+    </div>
+
+    <div class='wrapper cancel-content' data-aos='zoom-in'>
+      <div class='cancel-card'>
+        <div class='cancel-icon-container'>
+          <div class='cancel-icon-bg'></div>
+          <Icon name='x-circle' size={64} color='#f87171' />
+        </div>
+
+        <h1 class='cancel-title'>Proceso cancelado</h1>
+        <p class='cancel-message'>
+          No te preocupes, el proceso de pago no se completó y no se ha realizado ningún cargo a tu
+          tarjeta.
+        </p>
+
+        <div class='cancel-info-box'>
+          <p>
+            Si tuviste problemas técnicos con Stripe o prefieres elegir otro plan, puedes volver a
+            la sección de precios e intentarlo de nuevo.
+          </p>
+        </div>
+
+        <div class='cancel-actions'>
+          <a href='/webs#pricing' class='cancel-btn-primary'> Ver planes de nuevo </a>
+          <a href='/webs' class='cancel-btn-secondary'> Volver al inicio </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer variant='webs' />
+</Layout>
+
+<style>
+  .cancel-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 8rem 1rem 4rem;
+    overflow: hidden;
+    background: #0d0b1a;
+  }
+
+  .cancel-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .cancel-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(248, 113, 113, 0.05) 0%, transparent 70%);
+    filter: blur(80px);
+  }
+
+  .cancel-content {
+    position: relative;
+    z-index: 1;
+    max-width: 550px;
+    width: 100%;
+  }
+
+  .cancel-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  }
+
+  .cancel-icon-container {
+    position: relative;
+    display: inline-flex;
+    margin-bottom: 2rem;
+  }
+
+  .cancel-icon-bg {
+    position: absolute;
+    inset: -15px;
+    background: rgba(248, 113, 113, 0.1);
+    border-radius: 50%;
+    filter: blur(10px);
+  }
+
+  .cancel-title {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    margin-bottom: 1rem;
+  }
+
+  .cancel-message {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  .cancel-info-box {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 1rem;
+    padding: 1.25rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cancel-info-box p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  .cancel-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .cancel-btn-primary {
+    display: inline-flex;
+    padding: 1rem 2.5rem;
+    background: var(--white);
+    color: #0d0b1a;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cancel-btn-primary:hover {
+    transform: translateY(-2px);
+    background: #f3f4f6;
+  }
+
+  .cancel-btn-secondary {
+    display: inline-flex;
+    padding: 1rem 2.5rem;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .cancel-btn-secondary:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  @media (max-width: 768px) {
+    .cancel-card {
+      padding: 2.5rem 1.5rem;
+    }
+    .cancel-title {
+      font-size: 1.75rem;
+    }
+  }
+</style>

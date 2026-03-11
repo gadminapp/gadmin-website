@@ -1,0 +1,210 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+---
+
+<section class='problem' id='problem'>
+  <div class='wrapper'>
+    <div class='problem-header' data-aos='fade-up'>
+      <span class='problem-label'>El problema</span>
+      <h2 class='problem-title'>
+        ¿Tu WhatsApp es un <span>caos</span> de preguntas y PDFs?
+      </h2>
+      <p class='problem-subtitle'>
+        Si te identificas con alguno de estos problemas, no estás solo. Le pasa al 90% de los
+        negocios que venden por WhatsApp.
+      </p>
+    </div>
+
+    <div class='problem-cards'>
+      <div class='problem-card' data-aos='fade-up' data-aos-delay='100'>
+        <div class='problem-card-icon'><Icon name='document-text' size={40} /></div>
+        <div class='problem-card-content'>
+          <h3 class='problem-card-title'>PDFs que nadie abre</h3>
+          <p class='problem-card-text'>
+            Clientes que abandonan porque el PDF no carga, es muy pesado o simplemente no lo quieren
+            descargar. <strong>Perdiste la venta.</strong>
+          </p>
+        </div>
+        <div class='problem-card-indicator'></div>
+      </div>
+
+      <div class='problem-card' data-aos='fade-up' data-aos-delay='200'>
+        <div class='problem-card-icon'><Icon name='arrow-path' size={40} /></div>
+        <div class='problem-card-content'>
+          <h3 class='problem-card-title'>Preguntas repetitivas</h3>
+          <p class='problem-card-text'>
+            Pierdes horas respondiendo <strong>"¿Qué precio tiene?"</strong> una y otra vez. Tiempo que
+            podrías dedicarle a hacer crecer tu negocio.
+          </p>
+        </div>
+        <div class='problem-card-indicator'></div>
+      </div>
+
+      <div class='problem-card' data-aos='fade-up' data-aos-delay='300'>
+        <div class='problem-card-icon'><Icon name='x-circle' size={40} /></div>
+        <div class='problem-card-content'>
+          <h3 class='problem-card-title'>Pedidos con errores</h3>
+          <p class='problem-card-text'>
+            Pedidos que llegan incompletos, con errores o confusos. Tú tienes que adivinar qué
+            quería el cliente. <strong>Eso te cuesta dinero.</strong>
+          </p>
+        </div>
+        <div class='problem-card-indicator'></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problem {
+    position: relative;
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, var(--neutral-02) 0%, #f5f0f0 100%);
+    overflow: hidden;
+  }
+
+  .problem-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .problem-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: #ef4444;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+  }
+
+  .problem-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--shade-03);
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+
+  .problem-title span {
+    color: #ef4444;
+    position: relative;
+  }
+
+  .problem-title span::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 6px;
+    background: rgba(239, 68, 68, 0.2);
+    border-radius: 4px;
+  }
+
+  .problem-subtitle {
+    font-size: 1.1rem;
+    color: var(--shade-04);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .problem-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .problem-card {
+    position: relative;
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem 1.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    overflow: hidden;
+  }
+
+  .problem-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .problem-card-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #ef4444, #f97316);
+    border-radius: 4px 4px 0 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .problem-card:hover .problem-card-indicator {
+    opacity: 1;
+  }
+
+  .problem-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 1rem;
+    background: rgba(239, 68, 68, 0.06);
+  }
+
+  .problem-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--shade-03);
+    margin: 0 0 0.75rem;
+  }
+
+  .problem-card-text {
+    font-size: 1rem;
+    color: var(--shade-04);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .problem-cards {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .problem {
+      padding: 4rem 1rem;
+    }
+
+    .problem-title {
+      font-size: var(--40-pt);
+    }
+
+    .problem-subtitle {
+      font-size: 1rem;
+    }
+
+    .problem-card {
+      padding: 1.5rem 1.25rem;
+    }
+  }
+</style>

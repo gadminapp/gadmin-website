@@ -2,208 +2,432 @@
 import logoBg from '@/assets/img/logo-dark.webp'
 import LinkedIn from '@/shared/components/icons/LinkedIn.astro'
 import { Image } from 'astro:assets'
-import Facebook from './icons/Facebook.astro'
 import Instagram from './icons/Instagram.astro'
-import TikTok from './icons/TikTok.astro'
-import Youtube from './icons/Youtube.astro'
+
+interface Props {
+  variant?: 'agency' | 'webs'
+}
+
+const { variant = 'agency' } = Astro.props
 ---
 
 <footer>
   <div class='wrapper'>
-    <div class='footer-content'>
-      <div class='footer-cta'>
-        <h3 class='footer-cta-alt'>¿Aún no te has registrado?</h3>
-        <a
-          class='footer-cta-link'
-          href='https://accounts.gadmin.app/signup?from=footer'
-          rel='noopener noreferrer'
-          target='_blank'>¡Haz tu sueño realidad hoy!</a
-        >
-        <div class='footer-socials'>
-          <a
-            title='TikTok de Gadmin'
-            href='https://www.tiktok.com/@gadmin.app'
-            rel='noopener noreferrer'
-            target='_blank'
-            aria-label='TikTok'
-          >
-            <TikTok size={24} color='#FFFFFF' />
-          </a>
-          <a
-            title='Youtube de Gadmin'
-            href='https://www.youtube.com/@gadminapp'
-            rel='noopener noreferrer'
-            target='_blank'
-            aria-label='Youtube'
-          >
-            <Youtube size={24} color='#FFFFFF' />
-          </a>
-          <a
-            title='LinkedIn de Gadmin'
-            href='https://www.linkedin.com/company/gadmin-app/'
-            rel='noopener noreferrer'
-            target='_blank'
-            aria-label='LinkedIn'
-          >
-            <LinkedIn size={24} color='#FFFFFF' />
-          </a>
-          <a
-            title='Instagram de Gadmin'
-            href='https://www.instagram.com/gadmin.app/'
-            rel='noopener noreferrer'
-            target='_blank'
-            aria-label='Instagram'
-          >
-            <Instagram size={24} color='#FFFFFF' />
-          </a>
-          <a
-            title='Facebook de Gadmin'
-            href='https://www.facebook.com/gadminapp/'
-            rel='noopener noreferrer'
-            target='_blank'
-            aria-label='Facebook'
-          >
-            <Facebook size={24} color='#FFFFFF' />
-          </a>
-        </div>
-      </div>
-      <div class='footer-links'>
-        <div class='footer-link-section'>
-          <p class='footer-link-section-title'>Legal</p>
-          <div class='footer-link-section-links'>
-            <a
-              class='footer-link-section-link'
-              href='https://gadmin.app/terms-and-conditions'
-              rel='noopener noreferrer'
-              target='_blank'>Términos y Condiciones</a
-            >
-            <a
-              class='footer-link-section-link'
-              href='https://gadmin.app/privacy-policy'
-              rel='noopener noreferrer'
-              target='_blank'>Política de Privacidad</a
-            >
+    {
+      variant === 'webs' && (
+        <>
+          <div class='footer-cta-section' data-aos='fade-up'>
+            <h3 class='footer-cta-title'>
+              ¿Listo para dejar atrás los PDFs y el caos en WhatsApp?
+            </h3>
+            <a href='/webs#pricing' class='footer-cta-btn cta--track' id='footer-cta-btn'>
+              ¡Quiero ser Fundador de Gadmin Webs! 🚀
+            </a>
+          </div>
+
+          <div class='footer-payment' data-aos='fade-up' data-aos-delay='100'>
+            <span class='footer-payment-label'>Métodos de pago aceptados:</span>
+            <div class='footer-payment-logos'>
+              <div class='footer-payment-logo'>
+                <svg viewBox='0 0 60 20' width='50' height='17'>
+                  <text
+                    x='0'
+                    y='15'
+                    fill='#635bff'
+                    font-weight='700'
+                    font-size='16'
+                    font-family='Lexend, sans-serif'
+                  >
+                    stripe
+                  </text>
+                </svg>
+              </div>
+              <div class='footer-payment-logo'>
+                <svg viewBox='0 0 48 16' width='40' height='14'>
+                  <rect width='48' height='16' rx='3' fill='#1a1f71' />
+                  <text
+                    x='5'
+                    y='12'
+                    fill='#fff'
+                    font-weight='700'
+                    font-size='10'
+                    font-family='Lexend, sans-serif'
+                  >
+                    VISA
+                  </text>
+                </svg>
+              </div>
+              <div class='footer-payment-logo'>
+                <svg viewBox='0 0 48 16' width='40' height='14'>
+                  <rect width='48' height='16' rx='3' fill='#252525' />
+                  <circle cx='18' cy='8' r='6' fill='#eb001b' opacity='0.9' />
+                  <circle cx='30' cy='8' r='6' fill='#f79e1b' opacity='0.9' />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </>
+      )
+    }
+
+    {
+      variant === 'agency' && (
+        <div class='footer-agency-top' data-aos='fade-up'>
+          <div class='footer-agency-brand'>
+            <Image src={logoBg} width={48} height={48} alt='Logo de Gadmin' />
+            <div>
+              <p class='footer-agency-name'>Gadmin</p>
+              <p class='footer-agency-tagline'>Software a medida que impulsa tu negocio</p>
+            </div>
+          </div>
+          <div class='footer-agency-links'>
+            <div class='footer-link-group'>
+              <p class='footer-link-group-title'>Navegación</p>
+              <a href='#services'>Servicios</a>
+              <a href='#products'>Productos</a>
+              <a href='#process'>Proceso</a>
+              <a href='#contact'>Contacto</a>
+            </div>
+            <div class='footer-link-group'>
+              <p class='footer-link-group-title'>Productos</p>
+              <a href='/webs'>Gadmin Webs</a>
+            </div>
+            <div class='footer-link-group'>
+              <p class='footer-link-group-title'>Síguenos</p>
+              <div class='footer-socials'>
+                <a
+                  href='https://www.linkedin.com/company/gadmin-app/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='LinkedIn'
+                >
+                  <LinkedIn size={20} color='#FFFFFF' />
+                </a>
+                <a
+                  href='https://www.instagram.com/gadmin.app/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Instagram'
+                >
+                  <Instagram size={20} color='#FFFFFF' />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
+      )
+    }
+
+    <div class='footer-divider'></div>
+
+    <div class='footer-bottom'>
+      <div class='footer-brand'>
+        {variant !== 'agency' && <Image src={logoBg} width={32} height={32} alt='Logo de Gadmin' />}
+        <div class='footer-brand-text'>
+          <strong>{variant === 'webs' ? 'Gadmin Webs' : 'Gadmin'}</strong>
+          <span>© 2026 · Todos los derechos reservados</span>
+        </div>
       </div>
-    </div>
-    <div class='footer-copy'>
-      <Image src={logoBg} width={40} height={40} alt='Logo de Gadmin' />
-      <div class='footer-copy-text'><strong>Gadmin</strong> © 2025</div>
+      <div class='footer-legal-links'>
+        <a href='/terms-and-conditions'>Términos y Condiciones</a>
+        <a href='/privacy-policy'>Política de Privacidad</a>
+      </div>
     </div>
   </div>
 </footer>
 
 <style>
   footer {
-    padding: 2rem 1rem;
-    background-color: var(--shade-03);
+    padding: 3rem 1rem 2rem;
+    background: linear-gradient(180deg, var(--shade-03) 0%, #0d0b1a 100%);
   }
 
-  .footer-content {
+  /* === Agency Footer === */
+  .footer-agency-top {
     display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    margin-bottom: 2.5rem;
+    align-items: start;
   }
 
-  .footer-cta-alt {
-    margin: 0;
-    font-size: 1.35rem;
-    color: var(--white);
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-cta-link {
-    display: block;
-    width: fit-content;
-    font-size: 1.5rem;
-    font-weight: 700;
-    background: linear-gradient(to right, var(--primary), var(--accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
-    margin-bottom: 0.75rem;
-  }
-
-  .footer-socials {
+  .footer-agency-brand {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
   }
 
-  .footer-links {
+  .footer-agency-name {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .footer-agency-tagline {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+  .footer-agency-links {
     display: flex;
     gap: 3rem;
+    justify-content: flex-end;
   }
 
-  .footer-link-section-title {
-    margin: 0;
-    margin-bottom: 0.75rem;
-    color: var(--white);
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-
-  .footer-link-section-links {
+  .footer-link-group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
   }
 
-  .footer-link-section-link {
-    color: #d1d1d1;
+  .footer-link-group-title {
+    margin: 0 0 0.25rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 600;
+  }
+
+  .footer-link-group a {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
+    transition: color 0.2s ease;
   }
 
-  .footer-link-section-link:hover {
+  .footer-link-group a:hover {
     color: var(--white);
-    text-decoration: underline;
   }
 
-  .footer-copy {
+  .footer-link-group a:visited {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer-socials {
     display: flex;
-    justify-content: center;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .footer-socials a {
+    display: inline-flex;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-socials a:hover {
+    opacity: 1;
+  }
+
+  /* === Webs Footer === */
+  .footer-cta-section {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .footer-cta-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  .footer-cta-btn {
+    display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    margin-top: 1rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.3s ease;
+    box-shadow: 0 4px 24px rgba(77, 93, 239, 0.3);
   }
 
-  .footer-copy-text {
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .footer-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(77, 93, 239, 0.4);
+  }
+
+  .footer-cta-btn:visited {
     color: var(--white);
-    font-size: 1.15rem;
+  }
+
+  .footer-payment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-payment-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 500;
+  }
+
+  .footer-payment-logos {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-payment-logo {
+    display: flex;
+    align-items: center;
+    opacity: 0.5;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-payment-logo:hover {
+    opacity: 0.8;
+  }
+
+  /* === Shared === */
+  .footer-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .footer-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .footer-brand-text strong {
+    font-size: 0.95rem;
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .footer-brand-text span {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 400;
+  }
+
+  .footer-legal-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-legal-links a {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-legal-links a:hover {
+    color: var(--white);
+  }
+
+  .footer-legal-links a:visited {
+    color: rgba(255, 255, 255, 0.4);
   }
 
   @media screen and (max-width: 768px) {
-    .footer {
-      padding: 1rem;
-    }
-
-    .footer-content {
+    .footer-agency-top {
       grid-template-columns: 1fr;
-      align-items: center;
-      gap: 1.5rem;
+      gap: 2rem;
     }
 
-    .footer-cta {
-      display: flex;
-      flex-direction: column;
+    .footer-agency-brand {
       justify-content: center;
-      align-items: center;
-    }
-
-    .footer-socials {
-      margin-top: 0.5rem;
-    }
-
-    .footer-links {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
       text-align: center;
-      margin-bottom: 1rem;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-agency-links {
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-link-group {
+      align-items: center;
+      text-align: center;
+    }
+
+    .footer-cta-title {
+      font-size: 1.25rem;
+    }
+
+    .footer-cta-btn {
+      font-size: 0.95rem;
+      padding: 0.85rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-payment {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+
+    .footer-brand {
+      flex-direction: column;
+    }
+
+    .footer-brand-text {
+      align-items: center;
+    }
+
+    .footer-legal-links {
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
     }
   }
 </style>

@@ -1,0 +1,551 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+---
+
+<section class='products' id='products'>
+  <div class='wrapper'>
+    <div class='products-header' data-aos='fade-up'>
+      <span class='products-label'>Nuestros productos</span>
+      <h2 class='products-title'>
+        Software que ya está <span>transformando negocios</span>
+      </h2>
+      <p class='products-subtitle'>
+        Además de crear software a medida, desarrollamos nuestros propios productos digitales para
+        resolver problemas reales de negocios.
+      </p>
+    </div>
+
+    <div class='product-showcase' data-aos='fade-up' data-aos-delay='200'>
+      <div class='product-card product-card--featured'>
+        <div class='product-card-badge' style='display:inline-flex;align-items:center;gap:4px;'>
+          <Icon name='rocket-launch' size={14} /> Producto Propio
+        </div>
+        <div class='product-card-content'>
+          <div class='product-card-header'>
+            <div class='product-icon-wrap'>
+              <span class='product-icon'><Icon name='shopping-cart' size={28} /></span>
+            </div>
+            <div>
+              <h3 class='product-name'>Gadmin Webs</h3>
+              <p class='product-tagline'>Catálogos Digitales para WhatsApp</p>
+            </div>
+          </div>
+          <p class='product-description'>
+            Transforma los chats de WhatsApp en ventas reales. Un catálogo digital profesional de
+            carga instantánea que permite a tus clientes armar pedidos completos y enviarlos
+            organizados directo a tu WhatsApp.
+          </p>
+          <ul class='product-features'>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Catálogo con carga instantánea
+            </li>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Carrito de compras <Icon
+                name='arrow-right'
+                size={14}
+                style='display:inline-block;vertical-align:middle;margin:0 4px;'
+              /> WhatsApp
+            </li>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Cero conocimientos técnicos
+            </li>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Listo en menos de 24 horas
+            </li>
+          </ul>
+          <div class='product-cta-row'>
+            <a href='/webs' class='product-cta-btn'>
+              Conocer Gadmin Webs
+              <span class='product-cta-arrow'><Icon name='arrow-right' size={16} /></span>
+            </a>
+            <div class='product-status'>
+              <span class='product-status-dot'></span>
+              Early Access · Preventa activa
+            </div>
+          </div>
+        </div>
+        <div class='product-card-visual'>
+          <div class='product-visual-mockup'>
+            <div class='product-mockup-browser'>
+              <div class='product-browser-dots'>
+                <span></span><span></span><span></span>
+              </div>
+              <div class='product-browser-content'>
+                <div class='product-mock-item'>
+                  <div class='product-mock-img'></div>
+                  <div class='product-mock-lines'>
+                    <div class='product-mock-line product-mock-line--title'></div>
+                    <div class='product-mock-line product-mock-line--price'></div>
+                    <div class='product-mock-btn'>Agregar</div>
+                  </div>
+                </div>
+                <div class='product-mock-item'>
+                  <div class='product-mock-img' style='background: rgba(20, 238, 244, 0.15);'></div>
+                  <div class='product-mock-lines'>
+                    <div class='product-mock-line product-mock-line--title'></div>
+                    <div class='product-mock-line product-mock-line--price'></div>
+                    <div class='product-mock-btn'>Agregar</div>
+                  </div>
+                </div>
+                <div class='product-mock-item'>
+                  <div class='product-mock-img' style='background: rgba(99, 102, 241, 0.12);'></div>
+                  <div class='product-mock-lines'>
+                    <div class='product-mock-line product-mock-line--title'></div>
+                    <div class='product-mock-line product-mock-line--price'></div>
+                    <div class='product-mock-btn'>Agregar</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class='products-coming-soon' data-aos='fade-up' data-aos-delay='300'>
+        <div class='coming-soon-card'>
+          <span class='coming-soon-icon'><Icon name='light-bulb' size={32} /></span>
+          <div>
+            <p class='coming-soon-title'>Más productos en camino</p>
+            <p class='coming-soon-text'>
+              Estamos construyendo más herramientas para que tu negocio venda más y trabaje menos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .products {
+    padding: 6rem 1rem;
+    background: var(--shade-03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .products::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(77, 93, 239, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(20, 238, 244, 0.04) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .products-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .products-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: rgba(20, 238, 244, 0.08);
+    border: 1px solid rgba(20, 238, 244, 0.2);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+  }
+
+  .products-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+
+  .products-title span {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .products-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .product-showcase {
+    position: relative;
+    z-index: 1;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .product-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.5rem;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+
+  .product-card--featured {
+    border-color: rgba(77, 93, 239, 0.2);
+  }
+
+  .product-card--featured:hover {
+    border-color: rgba(77, 93, 239, 0.35);
+  }
+
+  .product-card-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+
+  .product-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .product-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .product-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 1rem;
+    background: rgba(77, 93, 239, 0.1);
+    border: 1px solid rgba(77, 93, 239, 0.15);
+    flex-shrink: 0;
+  }
+
+  .product-icon {
+    font-size: 1.75rem;
+    color: var(--primary);
+  }
+
+  .product-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+  }
+
+  .product-tagline {
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin: 0.15rem 0 0;
+    font-weight: 500;
+  }
+
+  .product-description {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .product-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    font-weight: 400;
+  }
+
+  .product-feature-check {
+    color: #4ade80;
+    font-weight: 700;
+    flex-shrink: 0;
+    display: flex;
+  }
+
+  .product-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .product-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.65rem;
+    background: var(--primary);
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      background 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .product-cta-btn:hover {
+    background: var(--primary-lighter);
+    box-shadow: 0 4px 16px rgba(77, 93, 239, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .product-cta-btn:visited {
+    color: var(--white);
+  }
+
+  .product-cta-arrow {
+    transition: transform 0.2s ease;
+    display: flex;
+  }
+
+  .product-cta-btn:hover .product-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  .product-status {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+    font-weight: 500;
+  }
+
+  .product-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4ade80;
+    animation: blink 2s ease-in-out infinite;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  /* Visual Mockup */
+  .product-card-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .product-visual-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .product-mockup-browser {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    overflow: hidden;
+  }
+
+  .product-browser-dots {
+    display: flex;
+    gap: 6px;
+    padding: 10px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .product-browser-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .product-browser-content {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .product-mock-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .product-mock-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    background: rgba(77, 93, 239, 0.12);
+    flex-shrink: 0;
+  }
+
+  .product-mock-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .product-mock-line {
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .product-mock-line--title {
+    width: 70%;
+  }
+  .product-mock-line--price {
+    width: 40%;
+    background: rgba(77, 93, 239, 0.15);
+  }
+
+  .product-mock-btn {
+    padding: 3px 10px;
+    border-radius: 4px;
+    background: var(--primary);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: 600;
+    width: fit-content;
+  }
+
+  /* Coming Soon */
+  .products-coming-soon {
+    margin-top: 1.5rem;
+  }
+
+  .coming-soon-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+  }
+
+  .coming-soon-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    display: flex;
+    color: var(--primary);
+  }
+
+  .coming-soon-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 0.25rem;
+  }
+
+  .coming-soon-text {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin: 0;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .product-card {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .product-card-visual {
+      order: -1;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .products {
+      padding: 4rem 1rem;
+    }
+
+    .products-title {
+      font-size: var(--40-pt);
+    }
+
+    .product-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .product-visual-mockup {
+      max-width: 300px;
+    }
+
+    .product-mockup-wa {
+      bottom: -10px;
+      right: -10px;
+    }
+
+    .product-cta-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .coming-soon-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,208 @@
+---
+
+---
+
+<section class='steps' id='how-it-works'>
+  <div class='wrapper'>
+    <div class='steps-header' data-aos='fade-up'>
+      <span class='steps-label'>Cómo funciona</span>
+      <h2 class='steps-title'>
+        3 pasos simples para tener tu <span>catálogo activo</span>
+      </h2>
+    </div>
+
+    <div class='steps-timeline'>
+      <div class='steps-line'></div>
+
+      <div class='step' data-aos='fade-up' data-aos-delay='100'>
+        <div class='step-number-wrap'>
+          <div class='step-number'>1</div>
+        </div>
+        <div class='step-content'>
+          <h3 class='step-title'>Asegura tu lugar</h3>
+          <p class='step-text'>
+            Realiza el pago de preventa vía Stripe. Tu lugar quedará reservado y serás parte del
+            grupo exclusivo de fundadores.
+          </p>
+        </div>
+      </div>
+
+      <div class='step' data-aos='fade-up' data-aos-delay='200'>
+        <div class='step-number-wrap'>
+          <div class='step-number'>2</div>
+        </div>
+        <div class='step-content'>
+          <h3 class='step-title'>Nos das tu info</h3>
+          <p class='step-text'>
+            Te contactaremos por WhatsApp para recibir tus fotos, productos y precios. Nosotros nos
+            encargamos de todo lo técnico.
+          </p>
+        </div>
+      </div>
+
+      <div class='step' data-aos='fade-up' data-aos-delay='300'>
+        <div class='step-number-wrap'>
+          <div class='step-number'>3</div>
+        </div>
+        <div class='step-content'>
+          <h3 class='step-title'>¡Lanzamiento!</h3>
+          <p class='step-text'>
+            Tu catálogo estará activo antes que el de tu competencia. Comparte el link con tus
+            clientes y empieza a recibir pedidos organizados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .steps {
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, #f5f0f0 0%, var(--neutral-02) 50%, #f5f0f0 100%);
+    position: relative;
+  }
+
+  .steps-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 4rem;
+  }
+
+  .steps-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: rgba(77, 93, 239, 0.06);
+    border: 1px solid rgba(77, 93, 239, 0.15);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+  }
+
+  .steps-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--shade-03);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .steps-title span {
+    background: linear-gradient(135deg, var(--primary), var(--shade-03));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .steps-timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .steps-line {
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--primary), var(--shade-03));
+    opacity: 0.25;
+    border-radius: 2px;
+  }
+
+  .step {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .step-number-wrap {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--shade-03));
+    box-shadow: 0 4px 20px rgba(77, 93, 239, 0.25);
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-number {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--white);
+  }
+
+  .step-content {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.75rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    flex: 1;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .step-content:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  }
+
+  .step-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--shade-03);
+    margin: 0 0 0.5rem;
+  }
+
+  .step-text {
+    font-size: 1rem;
+    color: var(--shade-04);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 768px) {
+    .steps {
+      padding: 4rem 1rem;
+    }
+
+    .steps-title {
+      font-size: var(--40-pt);
+    }
+
+    .steps-line {
+      left: 24px;
+    }
+
+    .step-number-wrap {
+      width: 48px;
+      height: 48px;
+    }
+
+    .step-number {
+      font-size: 1.2rem;
+    }
+
+    .step-content {
+      padding: 1.25rem 1.5rem;
+    }
+
+    .step {
+      gap: 1rem;
+    }
+  }
+</style>

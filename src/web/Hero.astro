@@ -1,78 +1,66 @@
 ---
-import heroVideoPosterPng from '@/assets/img/first-frame-hero-video.png'
-import heroVideoPosterWebp from '@/assets/img/first-frame-hero-video.webp'
-import offerLines from '@/assets/offer-lines.png'
-import heroVideoMp4 from '@/assets/video/hero-video.mp4'
-import heroVideoWebm from '@/assets/video/hero-video.webm'
-import Button from '@/shared/components/Button.astro'
+import heroMockup from '@/assets/img/hero-mockup.png'
+import Icon from '@/shared/components/Icon.astro'
 import { Image } from 'astro:assets'
 ---
 
-<div class='hero'>
-  <!-- Background Video (now on all devices) -->
+<div class='hero' id='hero'>
   <div class='hero-bg'>
-    <video
-      class='hero-bg-video'
-      poster={heroVideoPosterWebp.src}
-      autoplay
-      loop
-      muted
-      playsinline
-      preload='auto'
-      aria-hidden='true'
-      tabindex='-1'
-    >
-      <source src={heroVideoWebm} type='video/webm' />
-      <source src={heroVideoMp4} type='video/mp4' />
-      <!-- Fallback image for browsers with no video support and for poster compatibility -->
-      <picture>
-        <source srcset={heroVideoPosterWebp.src} type='image/webp' />
-        <source srcset={heroVideoPosterPng.src} type='image/png' />
-        <img src={heroVideoPosterPng.src} alt='Fondo' />
-      </picture>
-    </video>
-    <!-- Overlay layer for better readability -->
-    <div class='hero-bg-overlay'></div>
+    <div class='hero-bg-gradient'></div>
+    <div class='hero-bg-glow hero-bg-glow--1'></div>
+    <div class='hero-bg-glow hero-bg-glow--2'></div>
   </div>
 
   <div class='hero-grid'>
-    <div class='hero-content wrapper' data-aos='zoom-in'>
-      <p class='hero-tagline'>
-        Crea tu propio universo, una tienda en línea donde la magia de tus sueños cobra vida
-      </p>
-
-      <h1 class='hero-big-title'>
-        ¿Qué pasaría si el mundo conociera lo que solo tú <span class='text-gradient'
-          >puedes crear</span
-        >?
-      </h1>
-
-      <div class='hero-features'>
-        <p>✨ Tu pasión no puede esperar, hoy mismo empieza la magia.</p>
+    <div class='hero-content wrapper' data-aos='fade-up'>
+      <div class='hero-badge' data-aos='fade-down' data-aos-delay='200'>
+        <span class='hero-badge-dot'></span>
+        Oferta exclusiva para los primeros negocios
       </div>
 
-      <div class='hero-cta'>
-        <Button
-          classes='cta--track'
-          href='https://accounts.gadmin.app/signup?from=hero'
-          mode='gradient'
-          style={{
-            width: 'fit-content',
-            fontWeight: 500,
-          }}>Quiero probar</Button
-        >
-        <div class='floating-offer'>
-          <Image
-            src={offerLines}
-            alt='Líneas apuntando a la oferta'
-            class='floating-lines'
-            width={256}
-            height={103}
-          />
-          <div class='floating-offer-container'>
-            <div class='floating-offer-inner'>🌱 Te preguntarás por qué tardaste tanto</div>
-          </div>
+      <h1 class='hero-title'>
+        Convierte tus chats de WhatsApp en <span class='text-gradient'>ventas reales</span> con un Catálogo
+        Digital Profesional.
+      </h1>
+
+      <p class='hero-subtitle'>
+        Olvida los PDFs lentos. Crea tu catálogo en menos de 24 horas y recibe pedidos organizados
+        directamente en tu WhatsApp.
+      </p>
+
+      <div class='hero-cta-group'>
+        <a href='#pricing' class='hero-cta-btn cta--track' id='hero-cta-btn'>
+          Asegurar mi Precio de Preventa
+          <span class='hero-cta-arrow'><Icon name='arrow-right' size={18} /></span>
+        </a>
+        <div class='hero-secure-badge'>
+          <svg
+            width='14'
+            height='14'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <rect x='3' y='11' width='18' height='11' rx='2' ry='2'></rect>
+            <path d='M7 11V7a5 5 0 0 1 10 0v4'></path>
+          </svg>
+          Pago seguro con Stripe
         </div>
+      </div>
+    </div>
+
+    <div class='hero-visual' data-aos='zoom-in' data-aos-delay='400'>
+      <div class='hero-mockup-container'>
+        <Image
+          src={heroMockup}
+          width={600}
+          height={400}
+          alt='Catálogo digital profesional en celular con pedido organizado en WhatsApp'
+          class='hero-mockup-img'
+          loading='eager'
+        />
+        <div class='hero-mockup-glow'></div>
       </div>
     </div>
   </div>
@@ -83,6 +71,8 @@ import { Image } from 'astro:assets'
     position: relative;
     min-height: 100vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
   }
   @supports (height: 100svh) {
     .hero {
@@ -93,180 +83,296 @@ import { Image } from 'astro:assets'
   .hero-bg {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
     z-index: 0;
-    overflow: hidden;
+    background: linear-gradient(160deg, #0d0b1a 0%, #16142d 40%, #1a1745 70%, #16142d 100%);
+  }
+
+  .hero-bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
     pointer-events: none;
   }
 
-  .hero-bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-    transition: opacity 0.4s;
-    background: #1c1b30;
-    display: block;
+  .hero-bg-glow--1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -150px;
+    background: rgba(77, 93, 239, 0.15);
+    animation: pulse-glow 8s ease-in-out infinite;
   }
 
-  /* Overlay for video and fallback image */
-  .hero-bg-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: #1c1b30;
-    opacity: 0.65;
-    z-index: 1;
-    pointer-events: none;
+  .hero-bg-glow--2 {
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    left: -100px;
+    background: rgba(20, 238, 244, 0.08);
+    animation: pulse-glow 10s ease-in-out infinite reverse;
+  }
+
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      opacity: 0.5;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
   }
 
   .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
-    text-align: center;
-    gap: 1rem;
-    min-height: calc(100svh - 7rem);
-    padding: 6rem 0;
-    padding-bottom: 1rem;
     position: relative;
     z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 8rem 2rem 4rem;
+    width: 100%;
   }
 
   .hero-content {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 0;
+  }
+
+  .hero-badge {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
-  }
-
-  .hero-tagline {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    font-weight: 500;
-    line-height: 1.3;
-    background-image: linear-gradient(
-      90deg,
-      #ffffff88 0%,
-      #e8f0f7 20%,
-      #e8f0f7 80%,
-      #ffffff88 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-
-  .hero-big-title {
-    font-size: 3.8rem;
-    font-weight: 700;
-    line-height: 1.25;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-big-title,
-  .hero-features p {
-    margin: 0;
-    text-align: center;
-    color: var(--white);
-  }
-
-  .hero-features p {
-    font-size: 1.15rem;
-    font-weight: 500;
-    line-height: 1.2;
-  }
-
-  .hero-features {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin: 1.5rem 0 2.5rem 0;
-  }
-
-  .hero-cta {
-    position: relative;
-  }
-
-  .floating-lines {
-    position: absolute;
-    left: 0;
-    top: 25%;
-    transform: translateY(-75%);
-    width: 7.5rem;
-    height: auto;
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .floating-offer {
-    position: absolute;
-    right: -19.5rem;
-    top: 85%;
-    z-index: 2;
-  }
-
-  .floating-offer-container {
-    position: relative;
-    left: 4.5rem;
-    transform: translateY(100%) rotate(18deg);
-    background-color: #e8f4fd;
-    border-radius: 0.6rem;
-    padding: 0.25rem;
-    z-index: 2;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-
-  .floating-offer-inner {
-    padding: 0.5rem;
-    border: 1px dashed var(--shade-04);
-    border-radius: 0.25rem;
-    color: var(--shade-03);
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    background: rgba(77, 93, 239, 0.12);
+    border: 1px solid rgba(77, 93, 239, 0.25);
+    color: var(--accent);
     font-size: 0.85rem;
     font-weight: 600;
-    white-space: nowrap;
+    letter-spacing: 0.02em;
   }
 
-  @media screen and (max-width: 980px) {
-    .floating-offer {
-      display: none;
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #25d366;
+    animation: blink 2s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.3;
+    }
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.12;
+    color: var(--white);
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    max-width: 520px;
+    font-weight: 400;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+    color: var(--white);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.3s ease;
+    box-shadow:
+      0 4px 24px rgba(77, 93, 239, 0.35),
+      0 0 60px rgba(20, 238, 244, 0.1);
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .hero-cta-btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+      0 8px 32px rgba(77, 93, 239, 0.45),
+      0 0 80px rgba(20, 238, 244, 0.15);
+  }
+
+  .hero-cta-btn:active {
+    transform: translateY(0) scale(0.99);
+  }
+
+  .hero-cta-icon {
+    font-size: 1.2rem;
+    display: flex;
+  }
+
+  .hero-cta-arrow {
+    display: flex;
+    transition: transform 0.2s ease;
+  }
+
+  .hero-cta-btn:hover .hero-cta-arrow {
+    transform: translateX(4px);
+  }
+
+  .hero-secure-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding-left: 0.25rem;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-mockup-container {
+    position: relative;
+  }
+
+  .hero-mockup-img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    border-radius: 1rem;
+    position: relative;
+    z-index: 1;
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .hero-mockup-glow {
+    position: absolute;
+    inset: -20px;
+    background: radial-gradient(ellipse at center, rgba(77, 93, 239, 0.2) 0%, transparent 70%);
+    border-radius: 1rem;
+    z-index: 0;
+    filter: blur(40px);
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding-top: 7rem;
+      gap: 2.5rem;
+    }
+
+    .hero-content {
+      align-items: center;
+    }
+
+    .hero-subtitle {
+      max-width: 100%;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-mockup-img {
+      max-width: 420px;
     }
   }
 
   @media screen and (max-width: 768px) {
-    .hero-content {
-      gap: 0.5rem;
-      padding: 0 1rem;
-      padding-bottom: 3rem;
-      max-width: 100%;
+    .hero-grid {
+      padding: 6.5rem 1rem 3rem;
+      gap: 2rem;
     }
 
-    .hero-big-title {
-      font-size: 2rem;
-      line-height: 1.05;
+    .hero-title {
+      font-size: 1.85rem;
+      line-height: 1.15;
     }
 
-    .hero-tagline {
+    .hero-subtitle {
+      font-size: 1rem;
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+    }
+
+    .hero-cta-btn {
+      padding: 0.85rem 1.5rem;
       font-size: 0.95rem;
-      margin-bottom: 1.2rem;
+      width: 100%;
+      justify-content: center;
     }
 
-    .hero-features p {
-      font-size: 0.95rem;
+    .hero-mockup-img {
+      max-width: 320px;
     }
 
-    .hero-features {
-      gap: 0.5rem;
-      margin: 1rem 0 2rem 0;
+    .hero-cta-group {
+      width: 100%;
+      align-items: center;
+    }
+
+    .hero-secure-badge {
+      justify-content: center;
     }
   }
 </style>

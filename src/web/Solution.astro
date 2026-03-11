@@ -1,0 +1,250 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+---
+
+<section class='solution' id='solution'>
+  <div class='wrapper'>
+    <div class='solution-header' data-aos='fade-up'>
+      <span class='solution-label'>La solución</span>
+      <h2 class='solution-title'>
+        Vende más rápido, <span>trabaja menos.</span>
+      </h2>
+      <p class='solution-subtitle'>
+        Gadmin Webs convierte tu catálogo en una experiencia de compra rápida, profesional y
+        directamente conectada a tu WhatsApp.
+      </p>
+    </div>
+
+    <div class='solution-cards'>
+      <div class='solution-card' data-aos='fade-up' data-aos-delay='100'>
+        <div class='solution-card-icon-wrap'>
+          <div class='solution-card-icon'><Icon name='bolt' size={32} /></div>
+        </div>
+        <h3 class='solution-card-title'>Carga Instantánea</h3>
+        <p class='solution-card-text'>
+          Tu catálogo vuela, tus clientes no esperan. Cero PDFs pesados, cero esperas. Una
+          experiencia rápida que <strong>convierte visitantes en compradores.</strong>
+        </p>
+        <div class='solution-card-tag'>+300% más rápido que un PDF</div>
+      </div>
+
+      <div class='solution-card solution-card--featured' data-aos='fade-up' data-aos-delay='200'>
+        <div class='solution-card-badge' style='display:flex;align-items:center;gap:4px;'>
+          <Icon name='star' solid size={14} /> Estrella
+        </div>
+        <div class='solution-card-icon-wrap'>
+          <div class='solution-card-icon'><Icon name='shopping-cart' size={32} /></div>
+        </div>
+        <h3 class='solution-card-title'>Carrito Directo a WhatsApp</h3>
+        <p class='solution-card-text'>
+          El cliente elige productos, arma su pedido y te lo envía <strong
+            >organizado y completo</strong
+          >
+          por WhatsApp. Tú solo despachas.
+        </p>
+        <div class='solution-card-tag'>Pedidos sin errores</div>
+      </div>
+
+      <div class='solution-card' data-aos='fade-up' data-aos-delay='300'>
+        <div class='solution-card-icon-wrap'>
+          <div class='solution-card-icon'><Icon name='code-bracket' size={32} /></div>
+        </div>
+        <h3 class='solution-card-title'>Sin Conocimientos Técnicos</h3>
+        <p class='solution-card-text'>
+          Nosotros nos encargamos de que todo funcione. Tú solo vendes.
+          <strong>Cero código, cero complicaciones.</strong>
+        </p>
+        <div class='solution-card-tag'>100% gestionado por Gadmin</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .solution {
+    padding: 6rem 1rem;
+    background: var(--shade-03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .solution::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(77, 93, 239, 0.08) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .solution-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .solution-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.25);
+    color: #22c55e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+  }
+
+  .solution-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+
+  .solution-title span {
+    background: linear-gradient(135deg, var(--accent), #22c55e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .solution-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .solution-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 72rem;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .solution-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem 2rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .solution-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(77, 93, 239, 0.3);
+    box-shadow: 0 16px 48px rgba(77, 93, 239, 0.12);
+  }
+
+  .solution-card--featured {
+    background: linear-gradient(160deg, rgba(77, 93, 239, 0.1) 0%, rgba(20, 238, 244, 0.05) 100%);
+    border-color: rgba(77, 93, 239, 0.2);
+  }
+
+  .solution-card-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+  }
+
+  .solution-card-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 1rem;
+    background: rgba(77, 93, 239, 0.1);
+    border: 1px solid rgba(77, 93, 239, 0.15);
+  }
+
+  .solution-card-icon {
+    font-size: 2rem;
+    color: var(--accent);
+    display: flex;
+  }
+
+  .solution-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0;
+  }
+
+  .solution-card-text {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.65;
+    margin: 0;
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .solution-card-text strong {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .solution-card-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+    color: #4ade80;
+    font-size: 0.8rem;
+    font-weight: 600;
+    width: fit-content;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .solution-cards {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+    }
+
+    .solution-card--featured {
+      order: -1;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .solution {
+      padding: 4rem 1rem;
+    }
+
+    .solution-title {
+      font-size: var(--40-pt);
+    }
+
+    .solution-card {
+      padding: 2rem 1.5rem 1.5rem;
+    }
+  }
+</style>

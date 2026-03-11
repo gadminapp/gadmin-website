@@ -1,0 +1,92 @@
+---
+import Footer from '@/shared/components/Footer.astro'
+import Nav from '@/shared/components/Nav.astro'
+import Layout from '@/shared/layouts/Layout.astro'
+import FAQ from '@/web/FAQ.astro'
+import Hero from '@/web/Hero.astro'
+import Pricing from '@/web/Pricing.astro'
+import Problem from '@/web/Problem.astro'
+import Solution from '@/web/Solution.astro'
+import Steps from '@/web/Steps.astro'
+import Trust from '@/web/Trust.astro'
+
+// TODO: HTTP Request to GET /api/v2/landing-page/data
+---
+
+<Layout
+  title='Gadmin Webs - Catálogo Digital Profesional para WhatsApp | Early Access'
+  description='Convierte tus chats de WhatsApp en ventas reales. Crea tu catálogo digital en menos de 24 horas y recibe pedidos organizados. Oferta de Preventa exclusiva para los primeros negocios.'
+  withSEO={true}
+>
+  <Nav variant='webs' />
+  <Hero />
+  <Problem />
+  <Solution />
+  <Pricing />
+  <Steps />
+  <Trust />
+  <FAQ />
+  <Footer variant='webs' />
+</Layout>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (typeof seline !== 'undefined') {
+      seline.track('Webs Landing: Page view')
+    }
+  })
+
+  // * Track scroll to middle of page
+  let hasTrackedMiddle = false
+  function trackScrollMiddle() {
+    if (hasTrackedMiddle) return
+
+    const scrollPosition = window.scrollY
+    const documentHeight = document.documentElement.scrollHeight - window.innerHeight
+    const scrollPercentage = (scrollPosition / documentHeight) * 100
+
+    if (scrollPercentage >= 50) {
+      hasTrackedMiddle = true
+      if (typeof seline !== 'undefined') {
+        seline.track('Webs Landing: Read Page')
+      }
+    }
+  }
+
+  function trackCTAClick(ctaLocation) {
+    if (typeof seline !== 'undefined') {
+      seline.track('Webs Landing: CTA Click', {
+        location: ctaLocation,
+      })
+    }
+  }
+  window.addEventListener('scroll', trackScrollMiddle)
+
+  const ctaLinks = document.querySelectorAll('a.cta--track')
+  ctaLinks.forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      let ctaLocation = 'unknown'
+      const id = link.id || ''
+
+      if (id.includes('hero')) {
+        ctaLocation = 'hero'
+      } else if (id.includes('nav')) {
+        ctaLocation = 'nav'
+      } else if (id.includes('pricing-annual')) {
+        ctaLocation = 'pricing-annual'
+      } else if (id.includes('pricing-monthly')) {
+        ctaLocation = 'pricing-monthly'
+      } else if (id.includes('footer')) {
+        ctaLocation = 'footer'
+      }
+
+      trackCTAClick(ctaLocation)
+    })
+  })
+</script>
+
+<style is:global>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>

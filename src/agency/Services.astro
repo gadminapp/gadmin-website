@@ -1,0 +1,272 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+---
+
+<section class='services' id='services'>
+  <div class='wrapper'>
+    <div class='services-header' data-aos='fade-up'>
+      <span class='services-label'>Nuestros servicios</span>
+      <h2 class='services-title'>
+        Soluciones digitales <span>a tu medida</span>
+      </h2>
+      <p class='services-subtitle'>
+        Desde la idea hasta el lanzamiento. Diseñamos y desarrollamos software que resuelve
+        problemas reales de tu negocio.
+      </p>
+    </div>
+
+    <div class='services-grid'>
+      <div class='service-card' data-aos='fade-up' data-aos-delay='100'>
+        <div class='service-icon-wrap'>
+          <span class='service-icon'><Icon name='globe-alt' size={28} /></span>
+        </div>
+        <h3 class='service-title'>Aplicaciones Web</h3>
+        <p class='service-text'>
+          Plataformas web robustas, rápidas y escalables. Desde dashboards internos hasta SaaS
+          completos para tus clientes.
+        </p>
+        <ul class='service-tags'>
+          <li>React</li>
+          <li>Next.js</li>
+          <li>Node.js</li>
+          <li>AWS</li>
+        </ul>
+      </div>
+
+      <div class='service-card' data-aos='fade-up' data-aos-delay='200'>
+        <div class='service-icon-wrap'>
+          <span class='service-icon'><Icon name='device-phone-mobile' size={28} /></span>
+        </div>
+        <h3 class='service-title'>Apps Móviles</h3>
+        <p class='service-text'>
+          Aplicaciones nativas y multiplataforma para iOS y Android que tus usuarios amarán usar
+          todos los días.
+        </p>
+        <ul class='service-tags'>
+          <li>React Native</li>
+          <li>Flutter</li>
+          <li>iOS</li>
+          <li>Android</li>
+        </ul>
+      </div>
+
+      <div class='service-card' data-aos='fade-up' data-aos-delay='300'>
+        <div class='service-icon-wrap'>
+          <span class='service-icon'><Icon name='cog-6-tooth' size={28} /></span>
+        </div>
+        <h3 class='service-title'>Software a Medida</h3>
+        <p class='service-text'>
+          Herramientas internas, automatizaciones y sistemas que se adaptan exactamente a tu flujo
+          de trabajo y necesidades.
+        </p>
+        <ul class='service-tags'>
+          <li>APIs</li>
+          <li>Integraciones</li>
+          <li>Automatización</li>
+        </ul>
+      </div>
+
+      <div class='service-card' data-aos='fade-up' data-aos-delay='400'>
+        <div class='service-icon-wrap'>
+          <span class='service-icon'><Icon name='paint-brush' size={28} /></span>
+        </div>
+        <h3 class='service-title'>Diseño UX/UI</h3>
+        <p class='service-text'>
+          Interfaces intuitivas y atractivas que convierten usuarios en clientes. Cada decisión de
+          diseño tiene un propósito.
+        </p>
+        <ul class='service-tags'>
+          <li>Figma</li>
+          <li>Prototipos</li>
+          <li>Design Systems</li>
+        </ul>
+      </div>
+
+      <div class='service-card' data-aos='fade-up' data-aos-delay='500'>
+        <div class='service-icon-wrap'>
+          <span class='service-icon'><Icon name='cloud' size={28} /></span>
+        </div>
+        <h3 class='service-title'>Cloud & DevOps</h3>
+        <p class='service-text'>
+          Infraestructura que escala contigo. Despliegues automáticos, monitoreo y arquitectura
+          serverless para que duermas tranquilo.
+        </p>
+        <ul class='service-tags'>
+          <li>AWS</li>
+          <li>CI/CD</li>
+          <li>Serverless</li>
+        </ul>
+      </div>
+
+      <div class='service-card' data-aos='fade-up' data-aos-delay='600'>
+        <div class='service-icon-wrap'>
+          <span class='service-icon'><Icon name='cpu-chip' size={28} /></span>
+        </div>
+        <h3 class='service-title'>IA & Automatización</h3>
+        <p class='service-text'>
+          Integramos inteligencia artificial en tus procesos. Chatbots, análisis predictivo y
+          herramientas que trabajan por ti.
+        </p>
+        <ul class='service-tags'>
+          <li>OpenAI</li>
+          <li>ML</li>
+          <li>NLP</li>
+          <li>Chatbots</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, var(--neutral-02) 0%, #f5f0f0 100%);
+    position: relative;
+  }
+
+  .services-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3.5rem;
+  }
+
+  .services-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: rgba(77, 93, 239, 0.06);
+    border: 1px solid rgba(77, 93, 239, 0.15);
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+  }
+
+  .services-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--shade-03);
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+
+  .services-title span {
+    background: linear-gradient(135deg, var(--primary), var(--shade-03));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .services-subtitle {
+    font-size: 1.1rem;
+    color: var(--shade-04);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 72rem;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    background: white;
+    border-radius: 1.25rem;
+    padding: 2rem 1.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(77, 93, 239, 0.08);
+  }
+
+  .service-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 1rem;
+    background: rgba(77, 93, 239, 0.06);
+    border: 1px solid rgba(77, 93, 239, 0.1);
+  }
+
+  .service-icon {
+    font-size: 1.75rem;
+    color: var(--primary);
+    display: flex;
+  }
+
+  .service-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--shade-03);
+    margin: 0;
+  }
+
+  .service-text {
+    font-size: 0.95rem;
+    color: var(--shade-04);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+    flex: 1;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    padding: 0;
+    margin: 0.25rem 0 0;
+  }
+
+  .service-tags li {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(77, 93, 239, 0.06);
+    color: var(--primary);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .services {
+      padding: 4rem 1rem;
+    }
+
+    .services-title {
+      font-size: var(--40-pt);
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+    }
+
+    .service-card {
+      padding: 1.5rem;
+    }
+  }
+</style>

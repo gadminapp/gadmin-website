@@ -1,0 +1,1058 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+import Modal from '@/shared/components/Modal.astro'
+---
+
+<section class='pricing' id='pricing'>
+  <div class='wrapper'>
+    <div class='pricing-header' data-aos='fade-up'>
+      <span class='pricing-label'>Oferta Founder Edition</span>
+      <h2 class='pricing-title'>
+        Únete como Miembro Fundador y ahorra un
+        <span>50% de por vida.</span>
+      </h2>
+      <p class='pricing-subtitle'>
+        Paga hoy y asegura un precio que <strong>nunca subirá</strong>. Sé parte de los primeros y
+        obtén beneficios exclusivos.
+      </p>
+    </div>
+
+    <div class='pricing-cards'>
+      <!-- Anual Plan -->
+      <div class='pricing-card pricing-card--annual' data-aos='fade-up' data-aos-delay='100'>
+        <div class='pricing-card-popular' style='display:flex;align-items:center;gap:4px;'>
+          <Icon name='fire' size={14} /> Plan Fundador VIP
+        </div>
+        <div class='pricing-card-header'>
+          <div class='pricing-card-badge-spots'>¡Solo 20 cupos disponibles!</div>
+          <h3 class='pricing-card-plan'>Fundador VIP</h3>
+          <div class='pricing-card-price-row'>
+            <span class='pricing-card-price-old'>$240</span>
+            <div class='pricing-card-price'>
+              <span class='pricing-card-currency'>$</span>
+              <span class='pricing-card-amount'>99</span>
+              <span class='pricing-card-period'>USD / pago único</span>
+            </div>
+          </div>
+          <p
+            class='pricing-card-savings'
+            style='display:flex;justify-content:center;align-items:center;gap:4px;'
+          >
+            Ahorras $141 USD + 50% de por vida <Icon name='sparkles' size={16} />
+          </p>
+        </div>
+
+        <ul class='pricing-card-features'>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            <strong>Todo el Año 1 incluido</strong> ($240 USD de valor)
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            <strong title='Montamos tu primer catálogo por ti'>Pase VIP de Implementación</strong>
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            <strong>Insignia "Negocio Fundador"</strong>
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            <strong>Precio congelado</strong> al precio de lanzamiento
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            Asesoría personalizada y prioritaria
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            Acceso Inmediato (Día 1 de lanzamiento)
+          </li>
+        </ul>
+
+        <a href='#' class='pricing-card-btn cta--track' id='pricing-annual-btn'>
+          <span class='pricing-card-btn-lock'><Icon name='lock-closed' size={18} /></span>
+          Asegurar Plan VIP - $99 USD
+        </a>
+        <div class='pricing-card-secure'>
+          <svg
+            width='12'
+            height='12'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <rect x='3' y='11' width='18' height='11' rx='2' ry='2'></rect>
+            <path d='M7 11V7a5 5 0 0 1 10 0v4'></path>
+          </svg>
+          Garantía: Lanzamiento o devolución total
+        </div>
+      </div>
+
+      <!-- Semilla Plan -->
+      <div class='pricing-card pricing-card--monthly' data-aos='fade-up' data-aos-delay='200'>
+        <div class='pricing-card-header'>
+          <h3 class='pricing-card-plan'>Fundador Semilla</h3>
+          <div class='pricing-card-price-row'>
+            <div class='pricing-card-price'>
+              <span class='pricing-card-currency'>$</span>
+              <span class='pricing-card-amount'>10</span>
+              <span class='pricing-card-period'>USD / pago único</span>
+            </div>
+          </div>
+          <p
+            class='pricing-card-savings'
+            style='display:flex;justify-content:center;align-items:center;gap:4px;'
+          >
+            Reserva tu cupo de preventa <Icon name='lock-closed' size={16} />
+          </p>
+        </div>
+
+        <ul class='pricing-card-features'>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            <strong>Reserva de Cupo</strong> para el lanzamiento
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            <strong>Aseguras 50% OFF de por vida</strong>
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            <strong>1er Mes de lanzamiento GRATUITO</strong>
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            Herramientas de auto-configuración guiada
+          </li>
+          <li class='pricing-card-feature'>
+            <span class='pricing-card-feature-icon'
+              ><Icon name='check-circle' size={18} color='#4ade80' /></span
+            >
+            Acceso Prioritario (Día 3 de lanzamiento)
+          </li>
+        </ul>
+
+        <a
+          href='#'
+          class='pricing-card-btn pricing-card-btn--secondary cta--track'
+          id='pricing-monthly-btn'
+        >
+          Reservar mi lugar - $10 USD
+        </a>
+        <div class='pricing-card-secure'>
+          <svg
+            width='12'
+            height='12'
+            viewBox='0 0 24 24'
+            fill='none'
+            stroke='currentColor'
+            stroke-width='2'
+          >
+            <rect x='3' y='11' width='18' height='11' rx='2' ry='2'></rect>
+            <path d='M7 11V7a5 5 0 0 1 10 0v4'></path>
+          </svg>
+          Pago seguro con Stripe
+        </div>
+      </div>
+    </div>
+
+    <!-- TODO: Revisar luego -->
+    <!-- Comparison Table -->
+    <!-- <div class='comparison-container' data-aos='fade-up' data-aos-delay='300'>
+      <h3 class='comparison-title'>Compara ambas oportunidades</h3>
+      <div class='table-responsive'>
+        <table class='comparison-table'>
+          <thead>
+            <tr>
+              <th>Beneficio</th>
+              <th>Plan Fundador VIP</th>
+              <th>Plan Semilla (Reserva)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class='td-label'>Precio Preventa</td>
+              <td class='td-vip'>$99 USD (Pago único)</td>
+              <td class='td-seed'>$10 USD (Pago único)</td>
+            </tr>
+            <tr>
+              <td class='td-label'>Incluye</td>
+              <td class='td-vip'>12 Meses de servicio</td>
+              <td class='td-seed'>Reserva de cupo</td>
+            </tr>
+            <tr>
+              <td class='td-label'>Precio Post-Lanzamiento</td>
+              <td class='td-vip'>$10/mes (50% OFF de por vida)</td>
+              <td class='td-seed'>$10/mes (50% OFF de por vida)</td>
+            </tr>
+            <tr>
+              <td class='td-label'>Meses Gratis</td>
+              <td class='td-vip'>1er Mes de lanzamiento</td>
+              <td class='td-seed'>1er Mes de lanzamiento</td>
+            </tr>
+            <tr>
+              <td class='td-label'>Configuración</td>
+              <td class='td-vip'>Hecha por Gadmin (Llave en mano)</td>
+              <td class='td-seed'>Auto-configurable</td>
+            </tr>
+            <tr>
+              <td class='td-label'>Prioridad</td>
+              <td class='td-vip'>Acceso Inmediato (Día 1)</td>
+              <td class='td-seed'>Acceso Día 3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+
+    <!-- Guarantee Box -->
+    <div class='guarantee-box' data-aos='fade-up'>
+      <div class='guarantee-icon'>
+        <Icon name='check-circle' size={32} color='#4ade80' />
+      </div>
+      <div class='guarantee-content'>
+        <h4>Nuestra Garantía de Confianza</h4>
+        <p>
+          Estamos tan seguros de nuestro progreso que si por alguna razón no lanzamos en la fecha
+          prometida, <strong>te devolvemos el 100% de tu dinero</strong> vía Stripe de inmediato. Tu
+          inversión está protegida.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <Modal
+    id='checkout-modal'
+    title='Asegura tu preventa'
+    description='Danos tu información para asegurar tus beneficios exclusivos.'
+  >
+    <form id='checkout-form' class='modal-form' novalidate>
+      <div class='input-group'>
+        <label for='checkout-name'>Nombre completo</label>
+        <div class='input-wrapper'>
+          <span class='input-icon'><Icon name='user' size={18} /></span>
+          <input
+            type='text'
+            id='checkout-name'
+            placeholder='Tu nombre'
+            required
+            autocomplete='name'
+          />
+        </div>
+        <span class='error-message' id='name-error'>Por favor, introduce tu nombre.</span>
+      </div>
+
+      <div class='input-group'>
+        <label for='checkout-email'>Correo Electrónico</label>
+        <div class='input-wrapper'>
+          <span class='input-icon'><Icon name='envelope' size={18} /></span>
+          <input
+            type='email'
+            id='checkout-email'
+            placeholder='ejemplo@correo.com'
+            required
+            autocomplete='email'
+          />
+        </div>
+        <span class='error-message' id='email-error'
+          >Por favor, introduce un correo electrónico válido.</span
+        >
+      </div>
+
+      <div class='input-group'>
+        <label for='checkout-phone'>Teléfono (Opcional)</label>
+        <div class='phone-row'>
+          <div class='code-wrapper'>
+            <select id='checkout-phone-code'>
+              <option value='+1'>🇺🇸 +1</option>
+              <option value='+34'>🇪🇸 +34</option>
+              <option value='+51'>🇵🇪 +51</option>
+              <option value='+52'>🇲🇽 +52</option>
+              <option value='+53'>🇨🇺 +53</option>
+              <option value='+54'>🇦🇷 +54</option>
+              <option value='+55'>🇧🇷 +55</option>
+              <option value='+56'>🇨🇱 +56</option>
+              <option value='+57'>🇨🇴 +57</option>
+              <option value='+58' selected>🇻🇪 +58</option>
+              <option value='+501'>🇧🇿 +501</option>
+              <option value='+502'>🇬🇹 +502</option>
+              <option value='+503'>🇸🇻 +503</option>
+              <option value='+504'>🇭🇳 +504</option>
+              <option value='+505'>🇳🇮 +505</option>
+              <option value='+506'>🇨🇷 +506</option>
+              <option value='+507'>🇵🇦 +507</option>
+              <option value='+509'>🇭🇹 +509</option>
+              <option value='+591'>🇧🇴 +591</option>
+              <option value='+592'>🇬🇾 +592</option>
+              <option value='+593'>🇪🇨 +593</option>
+              <option value='+595'>🇵🇾 +595</option>
+              <option value='+597'>🇸🇷 +597</option>
+              <option value='+598'>🇺🇾 +598</option>
+            </select>
+          </div>
+          <div class='input-wrapper' style='flex: 1;'>
+            <span class='input-icon'><Icon name='device-phone-mobile' size={18} /></span>
+            <input type='tel' id='checkout-phone' placeholder='55 000 000' autocomplete='tel' />
+          </div>
+        </div>
+      </div>
+
+      <button type='submit' class='pricing-card-btn' id='modal-submit-btn'>
+        Confirmar y continuar
+        <Icon name='arrow-right' size={18} />
+      </button>
+    </form>
+  </Modal>
+</section>
+
+<script>
+  const checkoutButtons = document.querySelectorAll('.pricing-card-btn:not(#modal-submit-btn)')
+  const modal = document.getElementById('checkout-modal')
+  const checkoutForm = document.getElementById('checkout-form') as HTMLFormElement
+  const nameInput = document.getElementById('checkout-name') as HTMLInputElement
+  const emailInput = document.getElementById('checkout-email') as HTMLInputElement
+  const phoneInput = document.getElementById('checkout-phone') as HTMLInputElement
+  const phoneCodeSelect = document.getElementById('checkout-phone-code') as HTMLSelectElement
+  const nameError = document.getElementById('name-error')
+  const emailError = document.getElementById('email-error')
+  const modalSubmitBtn = document.getElementById('modal-submit-btn')
+
+  let currentPlan = ''
+  let currentBtn: HTMLAnchorElement | null = null
+
+  const validateEmail = (email: string) => {
+    return /^[a-zA-Z0-9._%+-]+@(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/.test(email)
+  }
+
+  const checkFormValidity = () => {
+    const name = nameInput?.value.trim()
+    const email = emailInput?.value.trim()
+    const isValidEmail = validateEmail(email)
+    const isNameValid = name !== ''
+    if (modalSubmitBtn) {
+      ;(modalSubmitBtn as HTMLButtonElement).disabled = !(isNameValid && isValidEmail)
+    }
+  }
+
+  checkoutButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault()
+      currentBtn = e.currentTarget as HTMLAnchorElement
+      const isAnnual = currentBtn.id === 'pricing-annual-btn'
+      currentPlan = isAnnual ? 'plan-99' : 'plan-10'
+
+      if (modal) {
+        modal.classList.remove('hidden')
+        document.body.style.overflow = 'hidden'
+        setTimeout(() => nameInput?.focus(), 100)
+        // Reset form state on modal open
+        nameInput.value = ''
+        emailInput.value = ''
+        phoneInput.value = ''
+        nameInput.classList.remove('invalid')
+        emailInput.classList.remove('invalid')
+        nameError?.classList.remove('show')
+        emailError?.classList.remove('show')
+        checkFormValidity() // Set initial button state
+      }
+    })
+  })
+
+  // Real-time validation
+  nameInput?.addEventListener('input', () => {
+    const name = nameInput.value.trim()
+    if (name === '') {
+      nameError?.classList.remove('show')
+      nameInput.classList.remove('invalid')
+    } else {
+      nameError?.classList.remove('show')
+      nameInput.classList.remove('invalid')
+    }
+    checkFormValidity()
+  })
+
+  emailInput?.addEventListener('input', () => {
+    const email = emailInput.value.trim()
+    const isValid = validateEmail(email)
+
+    if (email === '') {
+      emailError?.classList.remove('show')
+      emailInput.classList.remove('invalid')
+    } else if (isValid) {
+      emailError?.classList.remove('show')
+      emailInput.classList.remove('invalid')
+    } else {
+      // Don't show error while typing unless it was already invalid
+      if (emailInput.classList.contains('invalid')) {
+        emailError?.classList.add('show')
+      }
+    }
+    checkFormValidity()
+  })
+
+  // Initial state
+  if (modalSubmitBtn) (modalSubmitBtn as HTMLButtonElement).disabled = true
+
+  checkoutForm?.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    const name = nameInput?.value.trim()
+    const email = emailInput?.value.trim()
+    const phone = phoneInput?.value.trim()
+    const phoneCode = phoneCodeSelect?.value
+
+    if (!name) {
+      nameError?.classList.add('show')
+      nameInput?.classList.add('invalid')
+      nameInput?.focus()
+      return
+    }
+    nameError?.classList.remove('show')
+    nameInput?.classList.remove('invalid')
+
+    if (!email || !validateEmail(email)) {
+      emailError?.classList.add('show')
+      emailInput?.classList.add('invalid')
+      emailInput?.focus()
+      return
+    }
+
+    emailError?.classList.remove('show')
+    emailInput?.classList.remove('invalid')
+
+    if (!modalSubmitBtn) return
+
+    // Deshabilitar botón y mostrar estado de carga
+    const originalText = modalSubmitBtn.innerHTML
+    modalSubmitBtn.style.opacity = '0.7'
+    modalSubmitBtn.style.pointerEvents = 'none'
+    modalSubmitBtn.innerHTML = `
+      <span class="pricing-card-btn-loading"></span>
+      Procesando...
+    `
+
+    // Determinar API URL según el entorno
+    const hostname = window.location.hostname
+    const isProd = hostname === 'gadmin.app' || hostname === 'www.gadmin.app'
+    const baseUrl = isProd
+      ? 'https://api.gadmin.app/api/v2/landing-page'
+      : 'https://apidev.gadmin.app/api/v2/landing-page'
+
+    try {
+      const response = await fetch(`${baseUrl}/checkout`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          plan: currentPlan,
+          email,
+          name,
+          phone,
+          phoneCode,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (data.ok && data.url) {
+        window.location.href = data.url
+      } else {
+        throw new Error(data.message || 'Error al crear la sesión de checkout')
+      }
+    } catch (error) {
+      console.error('Checkout error:', error)
+      alert('Hubo un error al procesar tu solicitud. Por favor, inténtalo de nuevo más tarde.')
+
+      // Restaurar botón
+      modalSubmitBtn.style.opacity = '1'
+      modalSubmitBtn.style.pointerEvents = 'auto'
+      modalSubmitBtn.innerHTML = originalText
+    }
+  })
+</script>
+
+<style>
+  /* Carga del botón */
+  .pricing-card-btn-loading {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: btn-spin 0.6s linear infinite;
+  }
+
+  @keyframes btn-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* Modal Form Styles */
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    margin-left: 0.25rem;
+  }
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 1.25rem;
+    color: rgba(255, 255, 255, 0.3);
+    display: flex;
+    pointer-events: none;
+    transition: color 0.3s ease;
+  }
+
+  .input-wrapper input {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem 1.25rem 1rem 3.25rem;
+    color: var(--white);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .input-wrapper input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.06);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(77, 93, 239, 0.1);
+  }
+
+  .input-wrapper input:focus + .input-icon {
+    color: var(--primary);
+  }
+
+  .input-wrapper input.invalid {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.03);
+  }
+
+  .error-message {
+    font-size: 0.8rem;
+    color: #ef4444;
+    margin-left: 0.25rem;
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .error-message.show {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .phone-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .code-wrapper {
+    position: relative;
+    width: 110px;
+    flex-shrink: 0;
+  }
+
+  .code-wrapper select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+    padding: 1rem 1.75rem 1rem 0.75rem;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    appearance: none;
+    color-scheme: dark;
+  }
+
+  .code-wrapper select option {
+    background-color: #1a1745;
+    color: var(--white);
+    padding: 10px;
+  }
+
+  .code-wrapper::after {
+    content: '▼';
+    font-size: 0.5rem;
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    transition: color 0.3s ease;
+  }
+
+  .code-wrapper:hover::after {
+    color: var(--primary);
+  }
+
+  .code-wrapper select:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(77, 93, 239, 0.15);
+  }
+
+  .pricing {
+    padding: 6rem 1rem;
+    background: linear-gradient(180deg, var(--shade-03) 0%, #1a1745 50%, var(--shade-03) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(77, 93, 239, 0.06) 0%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+  }
+
+  .pricing-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .pricing-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg, rgba(77, 93, 239, 0.15), rgba(20, 238, 244, 0.1));
+    border: 1px solid rgba(77, 93, 239, 0.3);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+  }
+
+  .pricing-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--white);
+    margin: 0 0 1rem;
+    line-height: 1.15;
+  }
+
+  .pricing-title span {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .pricing-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    align-items: start;
+  }
+
+  .pricing-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.5rem;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .pricing-card--annual {
+    background: linear-gradient(160deg, rgba(77, 93, 239, 0.12) 0%, rgba(20, 238, 244, 0.04) 100%);
+    border-color: rgba(77, 93, 239, 0.3);
+    box-shadow: 0 0 60px rgba(77, 93, 239, 0.08);
+  }
+
+  .pricing-card--annual:hover {
+    box-shadow: 0 20px 60px rgba(77, 93, 239, 0.15);
+  }
+
+  .pricing-card-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.4rem 1.2rem;
+    border-radius: 999px;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(77, 93, 239, 0.3);
+  }
+
+  .pricing-card-header {
+    text-align: center;
+  }
+
+  .pricing-card-plan {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 1rem;
+    letter-spacing: 0.02em;
+  }
+
+  .pricing-card-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .pricing-card-price-old {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.35);
+    text-decoration: line-through;
+    font-weight: 500;
+  }
+
+  .pricing-card-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+  }
+
+  .pricing-card-currency {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .pricing-card-amount {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  .pricing-card-badge-spots {
+    display: inline-block;
+    background: rgba(244, 63, 94, 0.1);
+    color: #fb7185;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    border: 1px solid rgba(244, 63, 94, 0.2);
+  }
+
+  .comparison-container {
+    margin-top: 5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .comparison-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--white);
+    margin-bottom: 2.5rem;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 600px;
+  }
+
+  .comparison-table th {
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .comparison-table td {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+  }
+
+  .td-label {
+    font-weight: 600;
+    color: var(--white) !important;
+  }
+
+  .td-vip {
+    color: var(--accent) !important;
+    font-weight: 600;
+  }
+
+  .td-seed {
+    color: var(--primary) !important;
+    font-weight: 600;
+  }
+
+  .guarantee-box {
+    margin: 4rem auto 0;
+    max-width: 800px;
+    background: rgba(74, 222, 128, 0.05);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .guarantee-icon {
+    flex-shrink: 0;
+  }
+
+  .guarantee-content h4 {
+    color: #4ade80;
+    margin: 0 0 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .guarantee-content p {
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  .pricing-card-period {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-weight: 500;
+    margin-left: 0.25rem;
+    align-self: flex-end;
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-card-savings {
+    font-size: 0.9rem;
+    color: #4ade80;
+    font-weight: 600;
+    margin: 0.5rem 0 0;
+  }
+
+  .pricing-card-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .pricing-card-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.45;
+    font-weight: 400;
+  }
+
+  .pricing-card-feature strong {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .pricing-card-feature-icon {
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+    display: flex;
+  }
+
+  .pricing-card-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.3s ease;
+    box-shadow: 0 4px 24px rgba(77, 93, 239, 0.3);
+  }
+
+  @keyframes gradient-shift {
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .pricing-card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(77, 93, 239, 0.4);
+  }
+
+  .pricing-card-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    filter: grayscale(1);
+  }
+
+  .pricing-card-btn--secondary {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: none;
+    animation: none;
+  }
+
+  .pricing-card-btn--secondary:hover {
+    border-color: var(--primary);
+    background: rgba(77, 93, 239, 0.08);
+    box-shadow: 0 4px 16px rgba(77, 93, 239, 0.15);
+  }
+
+  .pricing-card-btn-lock {
+    font-size: 1rem;
+    display: flex;
+  }
+
+  .pricing-card-secure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 768px) {
+    .pricing {
+      padding: 4rem 1rem;
+    }
+
+    .pricing-title {
+      font-size: var(--40-pt);
+    }
+
+    .pricing-cards {
+      grid-template-columns: 1fr;
+      max-width: 440px;
+    }
+
+    .pricing-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .pricing-card-amount {
+      font-size: 3rem;
+    }
+  }
+</style>

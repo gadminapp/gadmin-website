@@ -1,0 +1,219 @@
+---
+import Icon from '@/shared/components/Icon.astro'
+---
+
+<section class='trust' id='trust'>
+  <div class='wrapper'>
+    <div class='trust-content' data-aos='fade-up'>
+      <div class='trust-authority'>
+        <div class='trust-logo-section'>
+          <span class='trust-developed'>Desarrollado por</span>
+          <div class='trust-logo-row'>
+            <span class='trust-gadmin-name'>Gadmin</span>
+            <span class='trust-tagline'>Expertos en Software a medida</span>
+          </div>
+        </div>
+      </div>
+
+      <div class='trust-divider'></div>
+
+      <div class='trust-guarantee'>
+        <div class='trust-guarantee-icon'><Icon name='shield-check' size={40} /></div>
+        <h3 class='trust-guarantee-title'>Garantía de Satisfacción</h3>
+        <p class='trust-guarantee-text'>
+          Si en <strong>7 días</strong> no estás convencido, te devolvemos tu inversión de preventa.
+          <strong>Sin preguntas, sin complicaciones.</strong>
+        </p>
+      </div>
+    </div>
+
+    <div class='trust-badges' data-aos='fade-up' data-aos-delay='200'>
+      <div class='trust-badge-item'>
+        <div class='trust-badge-num'>24h</div>
+        <div class='trust-badge-label'>Tu catálogo listo</div>
+      </div>
+      <div class='trust-badge-separator'></div>
+      <div class='trust-badge-item'>
+        <div class='trust-badge-num'>50</div>
+        <div class='trust-badge-label'>Cupos de fundador</div>
+      </div>
+      <div class='trust-badge-separator'></div>
+      <div class='trust-badge-item'>
+        <div class='trust-badge-num'>0</div>
+        <div class='trust-badge-label'>Conocimientos técnicos necesarios</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust {
+    padding: 6rem 1rem;
+    background: var(--neutral-02);
+    position: relative;
+  }
+
+  .trust-content {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 3rem;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    background: white;
+    border-radius: 1.5rem;
+    padding: 3rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  }
+
+  .trust-divider {
+    width: 1px;
+    height: 100%;
+    min-height: 120px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+  }
+
+  .trust-authority {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .trust-developed {
+    font-size: 0.85rem;
+    color: var(--shade-04);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .trust-logo-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .trust-gadmin-name {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--shade-03));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.02em;
+  }
+
+  .trust-tagline {
+    font-size: 0.95rem;
+    color: var(--shade-04);
+    font-weight: 500;
+  }
+
+  .trust-guarantee {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .trust-guarantee-icon {
+    font-size: 2.5rem;
+    display: flex;
+  }
+
+  .trust-guarantee-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--shade-03);
+    margin: 0;
+  }
+
+  .trust-guarantee-text {
+    font-size: 1rem;
+    color: var(--shade-04);
+    line-height: 1.6;
+    margin: 0;
+    font-weight: 400;
+    max-width: 340px;
+  }
+
+  .trust-guarantee-text strong {
+    color: var(--shade-03);
+  }
+
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .trust-badge-separator {
+    width: 1px;
+    height: 48px;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  .trust-badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.25rem;
+    flex: 1;
+  }
+
+  .trust-badge-num {
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--shade-03));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .trust-badge-label {
+    font-size: 0.85rem;
+    color: var(--shade-04);
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 768px) {
+    .trust {
+      padding: 4rem 1rem;
+    }
+
+    .trust-content {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem 1.5rem;
+    }
+
+    .trust-divider {
+      width: 100%;
+      height: 1px;
+      min-height: unset;
+      background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.1), transparent);
+    }
+
+    .trust-badges {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+
+    .trust-badge-separator {
+      width: 80%;
+      height: 1px;
+    }
+  }
+</style>

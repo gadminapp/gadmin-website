@@ -1,0 +1,180 @@
+---
+
+---
+
+<section class='why-us' id='why-us'>
+  <div class='wrapper'>
+    <div class='why-header' data-aos='fade-up'>
+      <span class='why-label'>¿Por qué Gadmin?</span>
+      <h2 class='why-title'>
+        No somos una fábrica de software. Somos <span>tu equipo.</span>
+      </h2>
+    </div>
+
+    <div class='why-grid'>
+      <div class='why-card' data-aos='fade-up' data-aos-delay='100'>
+        <div class='why-card-number'>01</div>
+        <h3 class='why-card-title'>Obsesionados con la calidad</h3>
+        <p class='why-card-text'>
+          Cada línea de código está pensada para durar. No hacemos atajos. Construimos software
+          robusto, escalable y mantenible a largo plazo.
+        </p>
+      </div>
+
+      <div class='why-card' data-aos='fade-up' data-aos-delay='200'>
+        <div class='why-card-number'>02</div>
+        <h3 class='why-card-title'>Transparencia total</h3>
+        <p class='why-card-text'>
+          Sabrás exactamente en qué estamos trabajando, cuánto falta y cuánto cuesta. Sin sorpresas,
+          sin costos ocultos, sin jerga técnica innecesaria.
+        </p>
+      </div>
+
+      <div class='why-card' data-aos='fade-up' data-aos-delay='300'>
+        <div class='why-card-number'>03</div>
+        <h3 class='why-card-title'>Velocidad sin sacrificar</h3>
+        <p class='why-card-text'>
+          Sprints ágiles con entregas cada semana. Ves progreso real desde el día uno. Tu feedback
+          se implementa al siguiente sprint.
+        </p>
+      </div>
+
+      <div class='why-card' data-aos='fade-up' data-aos-delay='400'>
+        <div class='why-card-number'>04</div>
+        <h3 class='why-card-title'>Somos tus socios</h3>
+        <p class='why-card-text'>
+          No desaparecemos después del lanzamiento. Ofrecemos soporte continuo, mantenimiento y
+          evolución de tu software a medida que creces.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-us {
+    padding: 6rem 1rem;
+    background: var(--shade-03);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .why-us::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 400px;
+    background: radial-gradient(ellipse at center, rgba(77, 93, 239, 0.06) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  .why-header {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 3.5rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-label {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 999px;
+    background: rgba(77, 93, 239, 0.1);
+    border: 1px solid rgba(77, 93, 239, 0.2);
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.25rem;
+  }
+
+  .why-title {
+    font-size: var(--48-pt);
+    font-weight: 800;
+    color: var(--white);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .why-title span {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .why-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1.25rem;
+    padding: 2.5rem 2rem;
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .why-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(77, 93, 239, 0.25);
+  }
+
+  .why-card-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+    line-height: 1;
+    opacity: 0.5;
+  }
+
+  .why-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin: 0 0 0.75rem;
+  }
+
+  .why-card-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.65;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  @media screen and (max-width: 768px) {
+    .why-us {
+      padding: 4rem 1rem;
+    }
+
+    .why-title {
+      font-size: var(--40-pt);
+    }
+
+    .why-grid {
+      grid-template-columns: 1fr;
+      max-width: 480px;
+    }
+
+    .why-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
