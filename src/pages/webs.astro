@@ -10,6 +10,9 @@ import Solution from '@/web/Solution.astro'
 import Steps from '@/web/Steps.astro'
 import Trust from '@/web/Trust.astro'
 
+const fbp = Astro.cookies.get('_fbp')?.value || ''
+const fbc = Astro.cookies.get('_fbc')?.value || ''
+
 // TODO: HTTP Request to GET /api/v2/landing-page/data
 const hostname = Astro.url.hostname
 const isProd = hostname === 'gadmin.app' || hostname === 'www.gadmin.app'
@@ -17,7 +20,7 @@ const baseUrl = isProd
   ? 'https://api.gadmin.app/api/v2/landing-page'
   : 'https://apidev.gadmin.app/api/v2/landing-page'
 
-const response = await fetch(`${baseUrl}/data`, {
+const response = await fetch(`${baseUrl}/data?fbp=${fbp}&fbc=${fbc}`, {
   method: 'GET',
   headers: {
     'Content-Type': 'application/json',
