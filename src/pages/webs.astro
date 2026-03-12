@@ -81,7 +81,7 @@ const parsedData = JSON.parse(atob(data.data))
   }
   window.addEventListener('scroll', trackScrollMiddle)
 
-  const ctaLinks = document.querySelectorAll('a.cta--track')
+  const ctaLinks = document.querySelectorAll('a.cta--track:not([id*="nav"])')
   ctaLinks.forEach(function (link) {
     link.addEventListener('click', function () {
       let ctaLocation = 'unknown'
@@ -89,8 +89,6 @@ const parsedData = JSON.parse(atob(data.data))
 
       if (id.includes('hero')) {
         ctaLocation = 'hero'
-      } else if (id.includes('nav')) {
-        ctaLocation = 'nav'
       } else if (id.includes('pricing-annual')) {
         ctaLocation = 'pricing-annual'
       } else if (id.includes('pricing-monthly')) {

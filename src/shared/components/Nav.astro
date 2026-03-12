@@ -33,7 +33,7 @@ const { isFixed = true, variant = 'agency' } = Astro.props
             <a href='#process' class='nav-link hide-on-mobile'>
               Proceso
             </a>
-            <a href='#contact' class='nav-cta-btn' id='nav-contact-btn'>
+            <a href='#contact' class='nav-cta-btn cta--track' id='nav-contact-btn'>
               Contáctanos
             </a>
           </>
@@ -60,6 +60,31 @@ const { isFixed = true, variant = 'agency' } = Astro.props
     </div>
   </div>
 </nav>
+
+<script>
+  const contactBtn = document.getElementById('nav-contact-btn')
+  const preventaBtn = document.getElementById('nav-cta-btn')
+
+  if (contactBtn) {
+    contactBtn.addEventListener('click', () => {
+      // @ts-ignore
+      if (typeof seline !== 'undefined') {
+        // @ts-ignore
+        seline.track('Agency: Contact Click')
+      }
+    })
+  }
+
+  if (preventaBtn) {
+    preventaBtn.addEventListener('click', () => {
+      // @ts-ignore
+      if (typeof seline !== 'undefined') {
+        // @ts-ignore
+        seline.track('Webs Landing: Preventa Click')
+      }
+    })
+  }
+</script>
 
 <style>
   .nav {

@@ -372,6 +372,14 @@ const { data } = Astro.props
       const isAnnual = currentBtn.id === 'pricing-annual-btn'
       currentPlan = isAnnual ? 'plan-99' : 'plan-10'
 
+      // @ts-ignore
+      if (typeof seline !== 'undefined') {
+        // @ts-ignore
+        seline.track('Webs Landing: Open Plan Modal', {
+          plan: currentPlan,
+        })
+      }
+
       if (modal) {
         modal.classList.remove('hidden')
         document.body.style.overflow = 'hidden'
