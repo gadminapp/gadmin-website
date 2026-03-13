@@ -1,0 +1,117 @@
+---
+/**
+ * Rich Structured Data schemas for Gadmin Agency (index page)
+ * - Organization: identity, social profiles & logo
+ * - ProfessionalService: Gadmin as a software development agency
+ * - WebPage: main landing page markup
+ *
+ * Docs: https://developers.google.com/search/docs/appearance/structured-data
+ */
+
+/** Organization — brand identity */
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  '@id': 'https://gadmin.app/#organization',
+  'url': 'https://gadmin.app',
+  'name': 'Gadmin',
+  'alternateName': 'Gadmin App',
+  'description':
+    'Agencia de desarrollo de software a medida. Diseñamos, desarrollamos y lanzamos aplicaciones web, móviles, automatización e inteligencia artificial para empresas.',
+  'logo': {
+    '@type': 'ImageObject',
+    'url': 'https://gadmin.app/logo-bg-squared-dark.png',
+    'width': 512,
+    'height': 512,
+  },
+  'image': 'https://gadmin.app/meta-og.webp',
+  'sameAs': [
+    'https://www.instagram.com/gadmin.app/',
+    'https://www.linkedin.com/company/gadmin-app/',
+    'https://github.com/gadminapp/gadmin-website',
+  ],
+  'contactPoint': {
+    '@type': 'ContactPoint',
+    'contactType': 'sales',
+    'availableLanguage': ['Spanish', 'English'],
+  },
+}
+
+/** ProfessionalService — agency service offering */
+const professionalServiceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': 'https://gadmin.app/#service',
+  'name': 'Gadmin — Agencia de Software a Medida',
+  'url': 'https://gadmin.app',
+  'description':
+    'Diseñamos, desarrollamos y lanzamos software a medida que transforma tu negocio. Aplicaciones web, móviles, automatización e inteligencia artificial.',
+  'provider': { '@id': 'https://gadmin.app/#organization' },
+  'areaServed': {
+    '@type': 'Place',
+    'name': 'Latinoamérica y España',
+  },
+  'serviceType': [
+    'Desarrollo de Software a Medida',
+    'Aplicaciones Web',
+    'Aplicaciones Móviles',
+    'Automatización de Procesos',
+    'Inteligencia Artificial',
+    'Consultoría Tecnológica',
+  ],
+  'hasOfferCatalog': {
+    '@type': 'OfferCatalog',
+    'name': 'Servicios de Desarrollo de Software',
+    'itemListElement': [
+      {
+        '@type': 'Offer',
+        'itemOffered': {
+          '@type': 'Service',
+          'name': 'Desarrollo Web a Medida',
+          'description': 'Aplicaciones web escalables con las últimas tecnologías.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        'itemOffered': {
+          '@type': 'Service',
+          'name': 'Desarrollo Móvil',
+          'description': 'Apps móviles nativas y multiplataforma para iOS y Android.',
+        },
+      },
+      {
+        '@type': 'Offer',
+        'itemOffered': {
+          '@type': 'Service',
+          'name': 'Automatización e IA',
+          'description': 'Automatización de procesos empresariales con inteligencia artificial.',
+        },
+      },
+    ],
+  },
+}
+
+/** WebPage — main landing page */
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://gadmin.app/#webpage',
+  'url': 'https://gadmin.app',
+  'name': 'Gadmin - Agencia de Software a Medida | Apps, Webs y Automatización',
+  'description':
+    'Diseñamos, desarrollamos y lanzamos software a medida que transforma tu negocio. Aplicaciones web, móviles, automatización e inteligencia artificial. Tu equipo de tecnología.',
+  'isPartOf': {
+    '@type': 'WebSite',
+    '@id': 'https://gadmin.app/#website',
+    'url': 'https://gadmin.app',
+    'name': 'Gadmin',
+    'publisher': { '@id': 'https://gadmin.app/#organization' },
+  },
+  'about': { '@id': 'https://gadmin.app/#service' },
+  'inLanguage': 'es',
+}
+---
+
+<script is:inline type='application/ld+json' set:html={JSON.stringify(organizationSchema)} />
+<script is:inline type='application/ld+json' set:html={JSON.stringify(professionalServiceSchema)} />
+<script is:inline type='application/ld+json' set:html={JSON.stringify(webPageSchema)} />

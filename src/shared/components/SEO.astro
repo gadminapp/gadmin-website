@@ -1,5 +1,4 @@
 ---
-import RichResults from '@/shared/components/RichSchema.astro'
 import type { Preload } from '@/shared/types/Preload'
 
 interface Props {
@@ -8,9 +7,10 @@ interface Props {
   preload?: Array<Preload>
   canonical?: string
   image?: string
+  variant?: 'agency' | 'webs'
 }
 
-const { title, description, preload, canonical, image = '/meta-og.webp' } = Astro.props
+const { title, description, preload, canonical, image = '/meta-og.webp', variant = 'agency' } = Astro.props
 
 const determineCanonicalURL = () => {
   if (Astro.url.host.includes('localhost')) return 'http://localhost:4321'
@@ -19,6 +19,21 @@ const determineCanonicalURL = () => {
 
 const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
 const absoluteImage = new URL(image, Astro.site)
+
+const seoConfig = {
+  agency: {
+    siteName: 'Gadmin',
+    ogType: 'website',
+    keywords: 'agencia de software, desarrollo a medida, aplicaciones web, apps móviles, automatización, inteligencia artificial, software empresarial, desarrollo de software, Gadmin, transformación digital, consultoría tecnológica',
+  },
+  webs: {
+    siteName: 'Gadmin Webs',
+    ogType: 'website',
+    keywords: 'catálogo digital, menú digital, catálogo WhatsApp, tienda online, catálogo online, pedidos WhatsApp, catálogo para negocios, menú para restaurantes, Gadmin Webs, SaaS, crear catálogo sin programar',
+  },
+}
+
+const config = seoConfig[variant]
 ---
 
 <title>{title}</title>
@@ -37,10 +52,7 @@ const absoluteImage = new URL(image, Astro.site)
 <link rel='canonical' href={canonicalURL} />
 <meta name='theme-color' content='#0EAAF9' />
 
-<meta
-  name='keywords'
-  content='creador web, web builder, tienda online, ecommerce, gadmin, ventas, inventario, clientes, aplicación, sueños, metas, sueños cumplidos, historia, pasion'
-/>
+<meta name='keywords' content={config.keywords} />
 
 <!-- Twitter meta tags -->
 <meta name='twitter:card' content='summary_large_image' />
@@ -49,13 +61,13 @@ const absoluteImage = new URL(image, Astro.site)
 <meta name='twitter:image' content={absoluteImage} />
 
 <!-- Open Graph meta tags -->
-<meta name='og:title' content={title} />
-<meta name='og:description' content={description} />
-<meta name='og:image' content={absoluteImage} />
-<meta name='og:url' content={Astro.url} />
-<meta name='og:site_name' content='Gadmin' />
-<meta name='og:type' content='website' />
-<meta name='og:locale' content='es_ES' />
+<meta property='og:title' content={title} />
+<meta property='og:description' content={description} />
+<meta property='og:image' content={absoluteImage} />
+<meta property='og:url' content={Astro.url.href} />
+<meta property='og:site_name' content={config.siteName} />
+<meta property='og:type' content={config.ogType} />
+<meta property='og:locale' content='es_ES' />
 
 <meta name='robots' content='index, follow' />
 <meta name='googlebot' content='index, follow' />
@@ -63,4 +75,4 @@ const absoluteImage = new URL(image, Astro.site)
 <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
 <meta name='msapplication-config' content='/browserconfig.xml' />
 
-<RichResults />
+<slot />

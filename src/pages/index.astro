@@ -5,6 +5,7 @@ import Process from '@/agency/Process.astro'
 import Products from '@/agency/Products.astro'
 import Services from '@/agency/Services.astro'
 import WhyUs from '@/agency/WhyUs.astro'
+import AgencySchema from '@/shared/components/AgencySchema.astro'
 import Footer from '@/shared/components/Footer.astro'
 import Nav from '@/shared/components/Nav.astro'
 import Layout from '@/shared/layouts/Layout.astro'
@@ -14,7 +15,9 @@ import Layout from '@/shared/layouts/Layout.astro'
   title='Gadmin - Agencia de Software a Medida | Apps, Webs y Automatización'
   description='Diseñamos, desarrollamos y lanzamos software a medida que transforma tu negocio. Aplicaciones web, móviles, automatización e inteligencia artificial. Tu equipo de tecnología.'
   withSEO={true}
+  variant='agency'
 >
+  <AgencySchema slot='schema' />
   <Nav variant='agency' />
   <AgencyHero />
   <Services />

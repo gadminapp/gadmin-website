@@ -11,9 +11,10 @@ interface Props {
   image?: string
   withSEO?: boolean
   withMetaPixel?: boolean
+  variant?: 'agency' | 'webs'
 }
 
-const { title, description, preload, canonical, image, withSEO = false, withMetaPixel = false } = Astro.props
+const { title, description, preload, canonical, image, withSEO = false, withMetaPixel = false, variant = 'agency' } = Astro.props
 ---
 
 <!doctype html>
@@ -27,7 +28,10 @@ const { title, description, preload, canonical, image, withSEO = false, withMeta
           preload={preload}
           canonical={canonical}
           image={image}
-        />
+          variant={variant}
+        >
+          <slot name='schema' />
+        </SEO>
       )
     }
     <!-- Meta Pixel Code -->

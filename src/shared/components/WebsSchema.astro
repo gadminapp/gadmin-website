@@ -1,0 +1,147 @@
+---
+/**
+ * Rich Structured Data schemas for Gadmin Webs (/webs page)
+ * - SoftwareApplication: Gadmin Webs as a SaaS product
+ * - FAQPage: frequently asked questions from the landing
+ * - WebPage: /webs landing page markup
+ * - BreadcrumbList: navigation trail
+ *
+ * Docs: https://developers.google.com/search/docs/appearance/structured-data
+ */
+
+/** SoftwareApplication — Gadmin Webs as a SaaS product */
+const softwareApplicationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': 'https://gadmin.app/webs#software',
+  'name': 'Gadmin Webs',
+  'url': 'https://gadmin.app/webs',
+  'description':
+    'Crea tu catálogo digital profesional para WhatsApp en menos de 24 horas. Recibe pedidos organizados sin conocimiento técnico. Ideal para negocios, restaurantes y emprendedores.',
+  'applicationCategory': 'BusinessApplication',
+  'operatingSystem': 'Web',
+  'offers': [
+    {
+      '@type': 'Offer',
+      'name': 'Fundador VIP',
+      'description': 'Plan anual completo con implementación VIP, insignia de fundador y precio congelado de por vida.',
+      'price': '99.00',
+      'priceCurrency': 'USD',
+      'priceValidUntil': '2026-12-31',
+      'availability': 'https://schema.org/LimitedAvailability',
+      'url': 'https://gadmin.app/webs#pricing',
+    },
+    {
+      '@type': 'Offer',
+      'name': 'Fundador Semilla',
+      'description': 'Reserva de cupo de preventa con 50% de descuento de por vida y primer mes gratuito.',
+      'price': '10.00',
+      'priceCurrency': 'USD',
+      'priceValidUntil': '2026-12-31',
+      'availability': 'https://schema.org/PreOrder',
+      'url': 'https://gadmin.app/webs#pricing',
+    },
+  ],
+  'creator': {
+    '@type': 'Organization',
+    '@id': 'https://gadmin.app/#organization',
+  },
+  'aggregateRating': undefined, // Add when reviews are available
+}
+
+// Remove undefined keys
+delete softwareApplicationSchema.aggregateRating
+
+/** FAQPage — real FAQs from the webs landing page */
+const FAQs = [
+  {
+    question: '¿Necesito saber programar?',
+    answer:
+      'No, para nada. Gadmin lo hace todo por ti. Nosotros nos encargamos de crear, configurar y poner en marcha tu catálogo digital. Tú solo nos mandas tus productos, fotos y precios y nosotros hacemos el resto.',
+  },
+  {
+    question: '¿Cómo recibo el dinero de mis ventas?',
+    answer:
+      'Los pedidos llegan organizados a tu WhatsApp y tú coordinas el pago con el cliente como siempre lo has hecho: transferencia, efectivo, Zelle, o el método que prefieras. No nos metemos con tu dinero.',
+  },
+  {
+    question: '¿Cuándo tendré mi catálogo listo?',
+    answer:
+      'Los fundadores tendrán acceso prioritario. Tu catálogo estará activo en menos de 24 horas después de que nos envíes tus productos y precios. Serás de los primeros en tener presencia digital profesional.',
+  },
+  {
+    question: '¿Qué pasa si no me gusta?',
+    answer:
+      'Tienes una garantía de satisfacción de 7 días. Si no estás convencido, te devolvemos tu inversión de preventa sin preguntas ni complicaciones. Tu riesgo es cero.',
+  },
+  {
+    question: '¿El precio de fundador subirá después?',
+    answer:
+      'Tu descuento de 50% permanece para siempre. Si te registras como fundador, siempre tendrás 50% de descuento en todos los planes con los precios de lanzamiento, sin importar que el precio regular suba en el futuro.',
+  },
+  {
+    question: '¿Cómo es el pago?',
+    answer:
+      'El pago se realiza de forma 100% segura a través de Stripe, la plataforma de pagos que usan empresas como Google, Amazon y Shopify. Aceptamos Visa, Mastercard y todas las tarjetas principales.',
+  },
+]
+
+const FAQSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': 'https://gadmin.app/webs#faqpage',
+  'mainEntity': FAQs.map(({ answer, question }) => ({
+    '@type': 'Question',
+    'name': question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': answer,
+    },
+  })),
+}
+
+/** WebPage — /webs landing page */
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://gadmin.app/webs#webpage',
+  'url': 'https://gadmin.app/webs',
+  'name': 'Gadmin Webs - Catálogo Digital Profesional para WhatsApp | Early Access',
+  'description':
+    'Convierte tus chats de WhatsApp en ventas reales. Crea tu catálogo digital en menos de 24 horas y recibe pedidos organizados. Oferta de Preventa exclusiva para los primeros negocios.',
+  'isPartOf': {
+    '@type': 'WebSite',
+    '@id': 'https://gadmin.app/webs#website',
+    'url': 'https://gadmin.app/webs',
+    'name': 'Gadmin Webs',
+    'publisher': { '@id': 'https://gadmin.app/#organization' },
+  },
+  'about': { '@id': 'https://gadmin.app/webs#software' },
+  'inLanguage': 'es',
+}
+
+/** BreadcrumbList — navigation trail */
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  'itemListElement': [
+    {
+      '@type': 'ListItem',
+      'position': 1,
+      'name': 'Gadmin',
+      'item': 'https://gadmin.app',
+    },
+    {
+      '@type': 'ListItem',
+      'position': 2,
+      'name': 'Gadmin Webs',
+      'item': 'https://gadmin.app/webs',
+    },
+  ],
+}
+---
+
+<script is:inline type='application/ld+json' set:html={JSON.stringify(softwareApplicationSchema)} />
+<script is:inline type='application/ld+json' set:html={JSON.stringify(FAQSchema)} />
+<script is:inline type='application/ld+json' set:html={JSON.stringify(webPageSchema)} />
+<script is:inline type='application/ld+json' set:html={JSON.stringify(breadcrumbSchema)} />
