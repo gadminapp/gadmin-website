@@ -15,36 +15,42 @@ import Icon from '@/shared/components/Icon.astro'
     <div class='hero-content wrapper' data-aos='fade-up'>
       <div class='hero-badge' data-aos='fade-down' data-aos-delay='200'>
         <span class='hero-badge-dot'></span>
-        Agencia de Software a Medida
+        Creamos apps que transforman de verdad
       </div>
 
       <h1 class='hero-title'>
-        Creamos el <span class='text-gradient'>software</span> que tu negocio necesita para
-        <span class='text-gradient'>escalar.</span>
+        Construimos el <span class='text-gradient'>ecosistema digital</span> que tu negocio necesita
+        para <span class='text-gradient'>crecer.</span>
       </h1>
 
       <p class='hero-subtitle'>
-        Somos Gadmin. Diseñamos, desarrollamos y lanzamos aplicaciones web, móviles y herramientas
-        digitales a medida que transforman la manera en que operas y vendes.
+        Somos Gadmin. Desarrollamos software a medida y creamos nuestros propios productos Conty,
+        Shop y más para que las PyMEs controlen sus finanzas, vendan más y dejen de perder tiempo y
+        dinero.
       </p>
 
       <div class='hero-cta-group'>
         <a href='#contact' class='hero-cta-btn' id='hero-contact-btn'>
-          Agenda una consulta gratuita
+          Agendar consulta gratuita
           <span class='hero-cta-arrow'><Icon name='arrow-right' size={20} /></span>
         </a>
-        <a href='#products' class='hero-cta-secondary'> Ver nuestros productos </a>
+        <a href='#products' class='hero-cta-secondary'> Conocer el ecosistema </a>
       </div>
 
-      <!-- TODO: Importante -->
-      <!-- <div class='hero-clients-row' data-aos='fade-up' data-aos-delay='400'>
-        <div class='hero-clients-avatars'>
-          <div class='hero-avatar' style='background: #4d5def;'>G</div>
-          <div class='hero-avatar' style='background: #14eef4; color: #16142d;'>W</div>
-          <div class='hero-avatar' style='background: #6366f1;'>S</div>
-        </div>
-        <p class='hero-clients-text'>Empresas ya confían en nuestro software</p>
-      </div> -->
+      <div class='hero-ecosystem-pills' data-aos='fade-up' data-aos-delay='400'>
+        <span class='ecosystem-pill'>
+          <span class='ecosystem-pill-dot' style='background:#00CC07'></span>
+          Conty · Control Financiero
+        </span>
+        <span class='ecosystem-pill'>
+          <span class='ecosystem-pill-dot' style='background:#FFB200'></span>
+          Shop · Vende Online
+        </span>
+        <span class='ecosystem-pill ecosystem-pill--faded'>
+          <span class='ecosystem-pill-dot' style='background:#9AAEBA'></span>
+          Más productos próximamente
+        </span>
+      </div>
     </div>
   </div>
 </div>
@@ -140,7 +146,7 @@ import Icon from '@/shared/components/Icon.astro'
     align-items: center;
     text-align: center;
     gap: 1.5rem;
-    max-width: 800px;
+    max-width: 820px;
     margin: 0 auto;
     padding: 0;
   }
@@ -192,7 +198,7 @@ import Icon from '@/shared/components/Icon.astro'
     line-height: 1.65;
     color: rgba(255, 255, 255, 0.6);
     margin: 0;
-    max-width: 640px;
+    max-width: 660px;
     font-weight: 400;
   }
 
@@ -209,7 +215,12 @@ import Icon from '@/shared/components/Icon.astro'
     gap: 0.5rem;
     padding: 1rem 2rem;
     border-radius: 0.75rem;
-    background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--primary) 0%,
+      var(--primary-lighter) 50%,
+      var(--accent) 100%
+    );
     background-size: 200% 200%;
     animation: gradient-shift 4s ease infinite;
     color: var(--white);
@@ -276,40 +287,39 @@ import Icon from '@/shared/components/Icon.astro'
     color: rgba(255, 255, 255, 0.75);
   }
 
-  .hero-clients-row {
+  /* Ecosystem pills */
+  .hero-ecosystem-pills {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    margin-top: 1rem;
-  }
-
-  .hero-clients-avatars {
-    display: flex;
-  }
-
-  .hero-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  .ecosystem-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--white);
-    border: 2px solid var(--shade-03);
-    margin-left: -8px;
-  }
-
-  .hero-avatar:first-child {
-    margin-left: 0;
-  }
-
-  .hero-clients-text {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.45);
-    margin: 0;
     font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .ecosystem-pill--faded {
+    opacity: 0.55;
+  }
+
+  .ecosystem-pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
   }
 
   @media screen and (max-width: 768px) {
@@ -342,8 +352,7 @@ import Icon from '@/shared/components/Icon.astro'
       font-size: 0.95rem;
     }
 
-    .hero-clients-row {
-      flex-direction: column;
+    .hero-ecosystem-pills {
       gap: 0.5rem;
     }
   }

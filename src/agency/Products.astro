@@ -1,125 +1,299 @@
 ---
+import contyLogoBg from '@/assets/img/conty-logo.webp'
+import shopLogoBg from '@/assets/img/shop-logo.webp'
 import Icon from '@/shared/components/Icon.astro'
 ---
 
 <section class='products' id='products'>
   <div class='wrapper'>
     <div class='products-header' data-aos='fade-up'>
-      <span class='products-label'>Nuestros productos</span>
+      <span class='products-label'>El Ecosistema Gadmin</span>
       <h2 class='products-title'>
-        Software que ya está <span>transformando negocios</span>
+        Nuestros productos <span>para que tu negocio gane</span>
       </h2>
       <p class='products-subtitle'>
-        Además de crear software a medida, desarrollamos nuestros propios productos digitales para
-        resolver problemas reales de negocios.
+        No solo construimos software para terceros — creamos nuestros propios productos pensados
+        para emprendedores y PyMEs. Un ecosistema conectado para que vendas más, gastes menos y
+        tomes el control total de tu negocio.
       </p>
     </div>
 
-    <div class='product-showcase' data-aos='fade-up' data-aos-delay='200'>
-      <div class='product-card product-card--featured'>
+    <div class='product-showcase'>
+      <!-- Conty: Featured product -->
+      <div class='product-card product-card--featured' data-aos='fade-up' data-aos-delay='100'>
         <div class='product-card-badge' style='display:inline-flex;align-items:center;gap:4px;'>
           <Icon name='rocket-launch' size={14} /> Producto Propio
         </div>
         <div class='product-card-content'>
           <div class='product-card-header'>
-            <div class='product-icon-wrap'>
-              <span class='product-icon'><Icon name='shopping-cart' size={28} /></span>
+            <div class='product-icon-wrap product-icon-wrap--conty'>
+              <img src={contyLogoBg.src} alt='Conty logo' class='product-icon-img' />
             </div>
             <div>
-              <h3 class='product-name'>Gadmin Webs</h3>
-              <p class='product-tagline'>Catálogos Digitales para WhatsApp</p>
+              <h3 class='product-name'>Conty</h3>
+              <p class='product-tagline'>Control inteligente de tu flujo de caja</p>
             </div>
           </div>
           <p class='product-description'>
-            Transforma los chats de WhatsApp en ventas reales. Un catálogo digital profesional de
-            carga instantánea que permite a tus clientes armar pedidos completos y enviarlos
-            organizados directo a tu WhatsApp.
+            Olvídate de las hojas de cálculo. Conty centraliza todos tus ingresos y egresos, detecta
+            gastos ocultos, proyecta tu flujo de caja y te da la claridad financiera que necesitas
+            para tomar decisiones con confianza — en tiempo real.
           </p>
           <ul class='product-features'>
             <li>
               <span class='product-feature-check'
                 ><Icon name='check' size={16} strokeWidth={3} /></span
               >
-              Catálogo con carga instantánea
+              Registro de ingresos y egresos en segundos
             </li>
             <li>
               <span class='product-feature-check'
                 ><Icon name='check' size={16} strokeWidth={3} /></span
               >
-              Carrito de compras <Icon
-                name='arrow-right'
-                size={14}
-                style='display:inline-block;vertical-align:middle;margin:0 4px;'
-              /> WhatsApp
+              Categorías y métodos de pago personalizados
             </li>
             <li>
               <span class='product-feature-check'
                 ><Icon name='check' size={16} strokeWidth={3} /></span
               >
-              Cero conocimientos técnicos
+              Detección de gastos ocultos y pérdidas silenciosas
             </li>
             <li>
               <span class='product-feature-check'
                 ><Icon name='check' size={16} strokeWidth={3} /></span
               >
-              Listo en menos de 24 horas
+              Dashboard financiero con métricas en tiempo real
             </li>
           </ul>
           <div class='product-cta-row'>
-            <a href='/webs' class='product-cta-btn'>
-              Conocer Gadmin Webs
+            <a
+              href='https://conty.gadmin.app'
+              target='_blank'
+              rel='noopener noreferrer'
+              class='product-cta-btn'
+              id='product-conty-btn'
+            >
+              Conocer Conty
               <span class='product-cta-arrow'><Icon name='arrow-right' size={16} /></span>
             </a>
             <div class='product-status'>
               <span class='product-status-dot'></span>
+              Disponible · Acceso gratuito
+            </div>
+          </div>
+        </div>
+        <div class='product-card-visual'>
+          <div class='conty-phone-wrap'>
+            <div class='conty-phone-glow'></div>
+            <div class='conty-phone-outer'>
+              <div class='conty-phone-screen'>
+                <!-- Green header -->
+                <div class='conty-screen-header'>
+                  <div class='conty-screen-header-top'>
+                    <div>
+                      <p class='conty-screen-hi'>Hola, Carlos</p>
+                      <p class='conty-screen-panel'>Panel Semanal</p>
+                    </div>
+                    <div class='conty-screen-icon-box'>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='16'
+                        height='16'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        stroke='white'
+                        stroke-width='2'
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        ><path d='M16 7h6v6'></path><path d='m22 7-8.5 8.5-5-5L2 17'></path></svg
+                      >
+                    </div>
+                  </div>
+                </div>
+                <!-- White body -->
+                <div class='conty-screen-body'>
+                  <!-- Goal card -->
+                  <div class='conty-goal-card'>
+                    <div class='conty-goal-top'>
+                      <span class='conty-goal-label'>Meta semanal</span>
+                      <span class='conty-goal-pct'>72%</span>
+                    </div>
+                    <div class='conty-goal-track'>
+                      <div class='conty-goal-fill'></div>
+                    </div>
+                    <div class='conty-goal-amount'>$5,040 / $7,000</div>
+                  </div>
+                  <!-- Transactions -->
+                  <div class='conty-tx-list'>
+                    <div class='conty-tx-row'>
+                      <span class='conty-tx-concept'>Venta ropa</span>
+                      <span class='conty-tx-val conty-tx-val--in'>+$350</span>
+                    </div>
+                    <div class='conty-tx-row'>
+                      <span class='conty-tx-concept'>Proveedor tela</span>
+                      <span class='conty-tx-val conty-tx-val--out'>-$120</span>
+                    </div>
+                    <div class='conty-tx-row'>
+                      <span class='conty-tx-concept'>Venta accesorios</span>
+                      <span class='conty-tx-val conty-tx-val--in'>+$180</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class='conty-phone-shadow'></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shop: Secondary product -->
+      <div class='product-card product-card--shop' data-aos='fade-up' data-aos-delay='200'>
+        <div
+          class='product-card-badge product-card-badge--shop'
+          style='display:inline-flex;align-items:center;gap:4px;'
+        >
+          <Icon name='shopping-cart' size={14} /> Producto Propio
+        </div>
+        <div class='product-card-content'>
+          <div class='product-card-header'>
+            <div class='product-icon-wrap product-icon-wrap--shop'>
+              <img src={shopLogoBg.src} alt='Shop logo' class='product-icon-img' />
+            </div>
+            <div>
+              <h3 class='product-name'>Shop</h3>
+              <p class='product-tagline product-tagline--shop'>
+                Tu tienda online lista para vender
+              </p>
+            </div>
+          </div>
+          <p class='product-description'>
+            Vende online sin complicaciones. Crea tu catálogo, acepta pagos y gestiona pedidos desde
+            un solo lugar. Ideal para PyMEs que quieren vender por WhatsApp, redes y web sin
+            depender de marketplaces con altas comisiones.
+          </p>
+          <ul class='product-features'>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Catálogo digital de carga instantánea
+            </li>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Carrito de compras directo a WhatsApp
+            </li>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Sin knowledge técnico, listo en 24 horas
+            </li>
+            <li>
+              <span class='product-feature-check'
+                ><Icon name='check' size={16} strokeWidth={3} /></span
+              >
+              Integrado con Conty para ver tus ventas al instante
+            </li>
+          </ul>
+          <div class='product-cta-row'>
+            <a href='/webs' class='product-cta-btn product-cta-btn--shop' id='product-shop-btn'>
+              Conocer Shop
+              <span class='product-cta-arrow'><Icon name='arrow-right' size={16} /></span>
+            </a>
+            <div class='product-status'>
+              <span class='product-status-dot product-status-dot--yellow'></span>
               Early Access · Preventa activa
             </div>
           </div>
         </div>
         <div class='product-card-visual'>
-          <div class='product-visual-mockup'>
-            <div class='product-mockup-browser'>
-              <div class='product-browser-dots'>
-                <span></span><span></span><span></span>
-              </div>
-              <div class='product-browser-content'>
-                <div class='product-mock-item'>
-                  <div class='product-mock-img'></div>
-                  <div class='product-mock-lines'>
-                    <div class='product-mock-line product-mock-line--title'></div>
-                    <div class='product-mock-line product-mock-line--price'></div>
-                    <div class='product-mock-btn'>Agregar</div>
+          <div class='shop-phone-wrap'>
+            <div class='shop-phone-glow'></div>
+            <div class='shop-phone-outer'>
+              <div class='shop-phone-screen'>
+                <!-- Amber header -->
+                <div class='shop-screen-header'>
+                  <div class='shop-screen-header-top'>
+                    <div>
+                      <p class='shop-screen-hi'>Mi Tienda</p>
+                      <p class='shop-screen-panel'>Catálogo Online</p>
+                    </div>
+                    <div class='shop-screen-icon-box'>
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        width='16'
+                        height='16'
+                        viewBox='0 0 24 24'
+                        fill='none'
+                        stroke='#2D3339'
+                        stroke-width='2'
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        ><path d='M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'></path><line
+                          x1='3'
+                          x2='21'
+                          y1='6'
+                          y2='6'></line><path d='M16 10a4 4 0 0 1-8 0'></path></svg
+                      >
+                    </div>
                   </div>
                 </div>
-                <div class='product-mock-item'>
-                  <div class='product-mock-img' style='background: rgba(20, 238, 244, 0.15);'></div>
-                  <div class='product-mock-lines'>
-                    <div class='product-mock-line product-mock-line--title'></div>
-                    <div class='product-mock-line product-mock-line--price'></div>
-                    <div class='product-mock-btn'>Agregar</div>
+                <!-- White body -->
+                <div class='shop-screen-body'>
+                  <div class='shop-product-card'>
+                    <div class='shop-product-img shop-product-img--1'></div>
+                    <div class='shop-product-info'>
+                      <div class='shop-product-name-line'></div>
+                      <div class='shop-product-price'>$35.00</div>
+                      <div class='shop-product-btn'>Agregar al carrito</div>
+                    </div>
                   </div>
-                </div>
-                <div class='product-mock-item'>
-                  <div class='product-mock-img' style='background: rgba(99, 102, 241, 0.12);'></div>
-                  <div class='product-mock-lines'>
-                    <div class='product-mock-line product-mock-line--title'></div>
-                    <div class='product-mock-line product-mock-line--price'></div>
-                    <div class='product-mock-btn'>Agregar</div>
+                  <div class='shop-product-card'>
+                    <div class='shop-product-img shop-product-img--2'></div>
+                    <div class='shop-product-info'>
+                      <div class='shop-product-name-line'></div>
+                      <div class='shop-product-price'>$22.50</div>
+                      <div class='shop-product-btn'>Agregar al carrito</div>
+                    </div>
+                  </div>
+                  <div class='shop-cart-badge'>
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      width='12'
+                      height='12'
+                      viewBox='0 0 24 24'
+                      fill='none'
+                      stroke='#2D3339'
+                      stroke-width='2.5'
+                      stroke-linecap='round'
+                      stroke-linejoin='round'
+                      ><path d='M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z'></path><line
+                        x1='3'
+                        x2='21'
+                        y1='6'
+                        y2='6'></line><path d='M16 10a4 4 0 0 1-8 0'></path></svg
+                    >
+                    2 productos · $57.50
                   </div>
                 </div>
               </div>
             </div>
+            <div class='shop-phone-shadow'></div>
           </div>
         </div>
       </div>
 
+      <!-- Coming soon teaser -->
       <div class='products-coming-soon' data-aos='fade-up' data-aos-delay='300'>
         <div class='coming-soon-card'>
           <span class='coming-soon-icon'><Icon name='light-bulb' size={32} /></span>
           <div>
-            <p class='coming-soon-title'>Más productos en camino</p>
+            <p class='coming-soon-title'>El ecosistema sigue creciendo</p>
             <p class='coming-soon-text'>
-              Estamos construyendo más herramientas para que tu negocio venda más y trabaje menos.
+              Conty y Shop son solo el comienzo. Estamos construyendo más herramientas conectadas
+              entre sí para que cada parte de tu negocio funcione mejor, junta.
             </p>
           </div>
         </div>
@@ -150,7 +324,7 @@ import Icon from '@/shared/components/Icon.astro'
 
   .products-header {
     text-align: center;
-    max-width: 650px;
+    max-width: 700px;
     margin: 0 auto 3.5rem;
     position: relative;
     z-index: 1;
@@ -160,9 +334,9 @@ import Icon from '@/shared/components/Icon.astro'
     display: inline-block;
     padding: 0.3rem 1rem;
     border-radius: 999px;
-    background: rgba(20, 238, 244, 0.08);
-    border: 1px solid rgba(20, 238, 244, 0.2);
-    color: var(--accent);
+    background: rgba(0, 204, 7, 0.08);
+    border: 1px solid rgba(0, 204, 7, 0.2);
+    color: #00cc07;
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -197,6 +371,9 @@ import Icon from '@/shared/components/Icon.astro'
     z-index: 1;
     max-width: 72rem;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
   .product-card {
@@ -213,24 +390,37 @@ import Icon from '@/shared/components/Icon.astro'
   }
 
   .product-card--featured {
-    border-color: rgba(77, 93, 239, 0.2);
+    border-color: rgba(0, 204, 7, 0.2);
   }
 
   .product-card--featured:hover {
-    border-color: rgba(77, 93, 239, 0.35);
+    border-color: rgba(0, 204, 7, 0.38);
+  }
+
+  .product-card--shop {
+    border-color: rgba(255, 178, 0, 0.18);
+  }
+
+  .product-card--shop:hover {
+    border-color: rgba(255, 178, 0, 0.35);
   }
 
   .product-card-badge {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(to right, var(--primary), var(--secondary));
-    color: var(--white);
+    background: #00cc07;
+    color: #082109;
     font-size: 0.75rem;
     font-weight: 700;
     padding: 0.3rem 0.8rem;
     border-radius: 999px;
     letter-spacing: 0.04em;
+  }
+
+  .product-card-badge--shop {
+    background: #ffb200;
+    color: #2d3339;
   }
 
   .product-card-content {
@@ -252,14 +442,29 @@ import Icon from '@/shared/components/Icon.astro'
     width: 56px;
     height: 56px;
     border-radius: 1rem;
-    background: rgba(77, 93, 239, 0.1);
-    border: 1px solid rgba(77, 93, 239, 0.15);
+    background: #ffffff;
+    border: 4px solid rgba(0, 204, 7, 0.22);
     flex-shrink: 0;
+  }
+
+  .product-icon-wrap--shop {
+    border-color: rgba(255, 178, 0, 0.22);
   }
 
   .product-icon {
     font-size: 1.75rem;
-    color: var(--primary);
+    color: #00cc07;
+  }
+
+  .product-icon-wrap--shop .product-icon {
+    color: #ffb200;
+  }
+
+  .product-icon-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
   .product-name {
@@ -271,9 +476,13 @@ import Icon from '@/shared/components/Icon.astro'
 
   .product-tagline {
     font-size: 0.9rem;
-    color: var(--accent);
+    color: #00cc07;
     margin: 0.15rem 0 0;
     font-weight: 500;
+  }
+
+  .product-tagline--shop {
+    color: #ffb200;
   }
 
   .product-description {
@@ -323,10 +532,10 @@ import Icon from '@/shared/components/Icon.astro'
     gap: 0.5rem;
     padding: 0.75rem 1.5rem;
     border-radius: 0.65rem;
-    background: var(--primary);
-    color: var(--white);
+    background: #00cc07;
+    color: #082109;
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: none;
     transition:
       background 0.2s ease,
@@ -335,13 +544,27 @@ import Icon from '@/shared/components/Icon.astro'
   }
 
   .product-cta-btn:hover {
-    background: var(--primary-lighter);
-    box-shadow: 0 4px 16px rgba(77, 93, 239, 0.3);
+    background: #00e608;
+    box-shadow: 0 4px 20px rgba(0, 204, 7, 0.4);
     transform: translateY(-2px);
   }
 
   .product-cta-btn:visited {
-    color: var(--white);
+    color: #082109;
+  }
+
+  .product-cta-btn--shop {
+    background: #ffb200;
+    color: #2d3339;
+  }
+
+  .product-cta-btn--shop:hover {
+    background: #ffc233;
+    box-shadow: 0 4px 20px rgba(255, 178, 0, 0.4);
+  }
+
+  .product-cta-btn--shop:visited {
+    color: #2d3339;
   }
 
   .product-cta-arrow {
@@ -370,6 +593,10 @@ import Icon from '@/shared/components/Icon.astro'
     animation: blink 2s ease-in-out infinite;
   }
 
+  .product-status-dot--yellow {
+    background: #facc15;
+  }
+
   @keyframes blink {
     0%,
     100% {
@@ -380,95 +607,338 @@ import Icon from '@/shared/components/Icon.astro'
     }
   }
 
-  /* Visual Mockup */
+  /* ===== SHARED PHONE MOCKUP BASE ===== */
   .product-card-visual {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .product-visual-mockup {
+  /* ===== CONTY PHONE MOCKUP ===== */
+  .conty-phone-wrap {
     position: relative;
-    width: 100%;
-    max-width: 380px;
+    display: flex;
+    justify-content: center;
   }
 
-  .product-mockup-browser {
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 0.75rem;
+  .conty-phone-glow {
+    position: absolute;
+    inset: -24px;
+    background: rgba(0, 204, 7, 0.1);
+    border-radius: 3rem;
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  .conty-phone-outer {
+    position: relative;
+    background: #082109;
+    border-radius: 2.5rem;
+    padding: 14px;
+    border: 4px solid #082109;
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(0, 204, 7, 0.15);
+    width: 200px;
+  }
+
+  .conty-phone-screen {
+    background: white;
+    border-radius: 2rem;
     overflow: hidden;
+    font-family: system-ui, sans-serif;
   }
 
-  .product-browser-dots {
+  .conty-screen-header {
+    background: #00cc07;
+    padding: 16px 16px 28px;
+  }
+
+  .conty-screen-header-top {
     display: flex;
-    gap: 6px;
-    padding: 10px 14px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  }
-
-  .product-browser-dots span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  .product-browser-content {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .product-mock-item {
-    display: flex;
-    gap: 0.75rem;
     align-items: center;
+    justify-content: space-between;
   }
 
-  .product-mock-img {
-    width: 48px;
-    height: 48px;
-    border-radius: 0.5rem;
-    background: rgba(77, 93, 239, 0.12);
-    flex-shrink: 0;
+  .conty-screen-hi {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.6rem;
+    font-weight: 500;
+    margin: 0 0 1px;
   }
 
-  .product-mock-lines {
-    flex: 1;
+  .conty-screen-panel {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .conty-screen-icon-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0.6rem;
+    padding: 6px;
+    display: flex;
+  }
+
+  .conty-screen-body {
+    padding: 0 12px;
+    margin-top: -16px;
+  }
+
+  .conty-goal-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 10px 12px;
+    margin-bottom: 10px;
+  }
+
+  .conty-goal-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+
+  .conty-goal-label {
+    font-size: 0.55rem;
+    color: #6b7280;
+    font-weight: 500;
+  }
+
+  .conty-goal-pct {
+    font-size: 0.55rem;
+    font-weight: 700;
+    color: #00cc07;
+  }
+
+  .conty-goal-track {
+    height: 8px;
+    background: #f3f4f6;
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+
+  .conty-goal-fill {
+    height: 100%;
+    width: 72%;
+    background: #00cc07;
+    border-radius: 999px;
+  }
+
+  .conty-goal-amount {
+    font-size: 0.5rem;
+    color: #9ca3af;
+  }
+
+  .conty-tx-list {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding-bottom: 16px;
   }
 
-  .product-mock-line {
-    height: 8px;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.08);
+  .conty-tx-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9fafb;
+    border-radius: 0.6rem;
+    padding: 7px 10px;
   }
 
-  .product-mock-line--title {
-    width: 70%;
-  }
-  .product-mock-line--price {
-    width: 40%;
-    background: rgba(77, 93, 239, 0.15);
+  .conty-tx-concept {
+    font-size: 0.55rem;
+    color: #374151;
+    font-weight: 500;
   }
 
-  .product-mock-btn {
-    padding: 3px 10px;
-    border-radius: 4px;
-    background: var(--primary);
-    color: white;
+  .conty-tx-val {
+    font-size: 0.55rem;
+    font-weight: 700;
+  }
+
+  .conty-tx-val--in {
+    color: #00cc07;
+  }
+
+  .conty-tx-val--out {
+    color: #d41500;
+  }
+
+  .conty-phone-shadow {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #082109;
+    border-radius: 999px;
+    opacity: 0.2;
+    filter: blur(3px);
+  }
+
+  /* ===== SHOP PHONE MOCKUP ===== */
+  .shop-phone-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .shop-phone-glow {
+    position: absolute;
+    inset: -24px;
+    background: rgba(255, 178, 0, 0.1);
+    border-radius: 3rem;
+    filter: blur(20px);
+    pointer-events: none;
+  }
+
+  .shop-phone-outer {
+    position: relative;
+    background: #2d3339;
+    border-radius: 2.5rem;
+    padding: 14px;
+    border: 4px solid #2d3339;
+    box-shadow:
+      0 24px 60px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(255, 178, 0, 0.15);
+    width: 200px;
+  }
+
+  .shop-phone-screen {
+    background: white;
+    border-radius: 2rem;
+    overflow: hidden;
+    font-family: system-ui, sans-serif;
+  }
+
+  .shop-screen-header {
+    background: #ffb200;
+    padding: 16px 16px 28px;
+  }
+
+  .shop-screen-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .shop-screen-hi {
+    color: #2d333940;
     font-size: 0.6rem;
+    font-weight: 500;
+    margin: 0 0 1px;
+  }
+
+  .shop-screen-panel {
+    color: #2d3339;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .shop-screen-icon-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0.6rem;
+    padding: 6px;
+    display: flex;
+  }
+
+  .shop-screen-body {
+    padding: 0 12px;
+    margin-top: -16px;
+    padding-bottom: 16px;
+  }
+
+  .shop-product-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    margin-bottom: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .shop-product-img {
+    width: 44px;
+    height: 44px;
+    border-radius: 0.6rem;
+    flex-shrink: 0;
+  }
+
+  .shop-product-img--1 {
+    background: linear-gradient(135deg, rgba(255, 178, 0, 0.25), rgba(255, 178, 0, 0.08));
+  }
+
+  .shop-product-img--2 {
+    background: linear-gradient(135deg, rgba(255, 178, 0, 0.15), rgba(45, 51, 57, 0.08));
+  }
+
+  .shop-product-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .shop-product-name-line {
+    height: 7px;
+    background: #f3f4f6;
+    border-radius: 999px;
+    width: 75%;
+  }
+
+  .shop-product-price {
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: #ffb200;
+  }
+
+  .shop-product-btn {
+    font-size: 0.5rem;
     font-weight: 600;
+    background: #ffb200;
+    color: #2d3339;
+    border-radius: 4px;
+    padding: 3px 8px;
     width: fit-content;
+  }
+
+  .shop-cart-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #ffb200;
+    color: #2d3339;
+    font-size: 0.55rem;
+    font-weight: 700;
+    border-radius: 0.7rem;
+    padding: 8px 12px;
+    margin-top: 2px;
+  }
+
+  .shop-phone-shadow {
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #2d3339;
+    border-radius: 999px;
+    opacity: 0.2;
+    filter: blur(3px);
   }
 
   /* Coming Soon */
   .products-coming-soon {
-    margin-top: 1.5rem;
+    margin-top: 0;
   }
 
   .coming-soon-card {
@@ -485,7 +955,7 @@ import Icon from '@/shared/components/Icon.astro'
     font-size: 2rem;
     flex-shrink: 0;
     display: flex;
-    color: var(--primary);
+    color: #00cc07;
   }
 
   .coming-soon-title {
@@ -529,11 +999,6 @@ import Icon from '@/shared/components/Icon.astro'
 
     .product-visual-mockup {
       max-width: 300px;
-    }
-
-    .product-mockup-wa {
-      bottom: -10px;
-      right: -10px;
     }
 
     .product-cta-row {

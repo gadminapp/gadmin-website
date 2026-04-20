@@ -989,7 +989,12 @@ const { data } = Astro.props
     gap: 0.5rem;
     padding: 1rem 1.5rem;
     border-radius: 0.75rem;
-    background: linear-gradient(135deg, var(--primary) 0%, #6366f1 50%, var(--accent) 100%);
+    background: linear-gradient(
+      135deg,
+      var(--primary) 0%,
+      var(--primary-lighter) 50%,
+      var(--accent) 100%
+    );
     background-size: 200% 200%;
     animation: gradient-shift 4s ease infinite;
     color: var(--white);
