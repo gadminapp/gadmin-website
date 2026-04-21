@@ -1,273 +1,429 @@
 ---
 import Icon from '@/shared/components/Icon.astro'
+import contyLogoBg from '@/assets/img/conty-logo.webp'
+import shopLogoBg from '@/assets/img/shop-logo.webp'
 ---
 
-<section class='services' id='services'>
+<section class='ecosystem-services' id='ecosystem'>
   <div class='wrapper'>
     <div class='services-header' data-aos='fade-up'>
-      <span class='services-label'>Lo que hacemos</span>
       <h2 class='services-title'>
-        Software a medida para <span>negocios que crecen</span>
+        No son dos aplicaciones, es un <span>organismo vivo</span>
       </h2>
       <p class='services-subtitle'>
-        Además de construir nuestro propio ecosistema de productos, desarrollamos software
-        personalizado para empresas que necesitan una solución específica a su problema específico.
+        Conty y Shop fueron creados para funcionar en perfecta sincronía. Lo que sucede en uno, se
+        refleja instantáneamente en el otro. Esto es verdadera automatización.
       </p>
     </div>
 
-    <div class='services-grid'>
-      <div class='service-card' data-aos='fade-up' data-aos-delay='100'>
-        <div class='service-icon-wrap'>
-          <span class='service-icon'><Icon name='globe-alt' size={28} /></span>
+    <div class='integration-showcase'>
+      <!-- App 1: Shop -->
+      <div class='app-card shop-card' data-aos='fade-right'>
+        <div class='app-icon' style='background: #ffffff; border: 3px solid rgba(255, 178, 0, 0.25);'>
+          <img src={shopLogoBg.src} alt='Shop logo' class='app-icon-img' />
         </div>
-        <h3 class='service-title'>Aplicaciones Web</h3>
-        <p class='service-text'>
-          Plataformas web robustas, rápidas y escalables. Desde dashboards internos hasta productos
-          SaaS que tus clientes usan todos los días.
+        <h3 class='app-title'>Shop</h3>
+        <p class='app-text'>
+          Tu tienda online, siempre abierta. Vende a todo el mundo sin límites y recibe pagos 24/7.
         </p>
-        <ul class='service-tags'>
-          <li>React</li>
-          <li>Next.js</li>
-          <li>Node.js</li>
-          <li>AWS</li>
-        </ul>
+        <div class='glow-bg shop-glow'></div>
       </div>
 
-      <div class='service-card' data-aos='fade-up' data-aos-delay='200'>
-        <div class='service-icon-wrap'>
-          <span class='service-icon'><Icon name='device-phone-mobile' size={28} /></span>
+      <!-- The Magic Bridge -->
+      <div class='bridge' data-aos='fade-up'>
+        <div class='sync-line'></div>
+        <div class='sync-actions'>
+          <div class='sync-feature'>
+            <div class='sync-feature-icon'>
+              <svg
+                width='20'
+                height='20'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                ><path d='M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6'></path></svg
+              >
+            </div>
+            <div class='sync-feature-text'>
+              <h4>Ventas Automáticas</h4>
+              <p>
+                Cada compra pagada en Shop se registra automáticamente como una venta en Conty.
+                Flujo de caja real, sin capturar datos dos veces.
+              </p>
+            </div>
+          </div>
+
+          <div class='sync-feature'>
+            <div class='sync-feature-icon'>
+              <svg
+                width='20'
+                height='20'
+                viewBox='0 0 24 24'
+                fill='none'
+                stroke='currentColor'
+                stroke-width='2'
+                stroke-linecap='round'
+                stroke-linejoin='round'
+                ><path
+                  d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'
+                ></path><polyline points='3.27 6.96 12 12.01 20.73 6.96'></polyline><line
+                  x1='12'
+                  y1='22.08'
+                  x2='12'
+                  y2='12'></line></svg
+              >
+            </div>
+            <div class='sync-feature-text'>
+              <h4>Inventario Único</h4>
+              <p>
+                Productos y stock compartidos. Si vendes 5 camisetas en tu punto de venta con Conty,
+                tu tienda online o Shop descuenta esas 5 camisetas al instante.
+              </p>
+            </div>
+          </div>
         </div>
-        <h3 class='service-title'>Apps Móviles</h3>
-        <p class='service-text'>
-          Aplicaciones nativas y multiplataforma para iOS y Android. La experiencia que tus usuarios
-          merecen, en sus bolsillos.
-        </p>
-        <ul class='service-tags'>
-          <li>React Native</li>
-          <li>Flutter</li>
-          <li>iOS</li>
-          <li>Android</li>
-        </ul>
       </div>
 
-      <div class='service-card' data-aos='fade-up' data-aos-delay='300'>
-        <div class='service-icon-wrap'>
-          <span class='service-icon'><Icon name='chart-bar' size={28} /></span>
+      <!-- App 2: Conty -->
+      <div class='app-card conty-card' data-aos='fade-left'>
+        <div class='app-icon' style='background: #ffffff; border: 3px solid rgba(0, 204, 7, 0.25);'>
+          <img src={contyLogoBg.src} alt='Conty logo' class='app-icon-img' />
         </div>
-        <h3 class='service-title'>Sistemas de Gestión</h3>
-        <p class='service-text'>
-          Control de inventario, facturación, flujo de caja, CRM y más. Herramientas que eliminan el
-          caos operativo y dan visibilidad total de tu negocio.
+        <h3 class='app-title'>Conty</h3>
+        <p class='app-text'>
+          Tu control financiero. Gastos, ingresos, reportes en tiempo real e inventario para tu
+          negocio físico.
         </p>
-        <ul class='service-tags'>
-          <li>ERP</li>
-          <li>CRM</li>
-          <li>Finanzas</li>
-          <li>Reportes</li>
-        </ul>
-      </div>
-
-      <div class='service-card' data-aos='fade-up' data-aos-delay='400'>
-        <div class='service-icon-wrap'>
-          <span class='service-icon'><Icon name='chat-bubble-oval-left' size={28} /></span>
-        </div>
-        <h3 class='service-title'>Chatbots de AI</h3>
-        <p class='service-text'>
-          Automatiza tu atención al cliente y ventas por WhatsApp y Telegram. Respuestas
-          instantáneas, calificación de leads y cierre de ventas 24/7 con integración directa.
-        </p>
-        <ul class='service-tags'>
-          <li>WhatsApp</li>
-          <li>Telegram</li>
-          <li>Ventas</li>
-          <li>Inteligencia artificial</li>
-        </ul>
-      </div>
-
-      <div class='service-card' data-aos='fade-up' data-aos-delay='500'>
-        <div class='service-icon-wrap'>
-          <span class='service-icon'><Icon name='cpu-chip' size={28} /></span>
-        </div>
-        <h3 class='service-title'>IA & Automatización</h3>
-        <p class='service-text'>
-          Integramos inteligencia artificial donde realmente agrega valor: análisis predictivo,
-          automatización de procesos, chatbots y asistentes inteligentes.
-        </p>
-        <ul class='service-tags'>
-          <li>Automatización</li>
-          <li>Integración en software existente</li>
-        </ul>
-      </div>
-
-      <div class='service-card' data-aos='fade-up' data-aos-delay='600'>
-        <div class='service-icon-wrap'>
-          <span class='service-icon'><Icon name='cloud' size={28} /></span>
-        </div>
-        <h3 class='service-title'>Cloud & Infraestructura</h3>
-        <p class='service-text'>
-          Arquitectura cloud que escala con tu negocio. Despliegues automatizados, alta
-          disponibilidad y costos optimizados para que nunca pierdas una venta.
-        </p>
-        <ul class='service-tags'>
-          <li>AWS</li>
-          <li>CI/CD</li>
-          <li>Serverless</li>
-          <li>DevOps</li>
-        </ul>
+        <div class='glow-bg conty-glow'></div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .services {
-    padding: 6rem 1rem;
-    background: linear-gradient(180deg, var(--neutral-02) 0%, #f5f0f0 100%);
+  .ecosystem-services {
+    padding: 8rem 1rem;
+    background: #ffffff;
     position: relative;
+    overflow: hidden;
+  }
+
+  .ecosystem-services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(0, 204, 7, 0.03) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .services-header {
     text-align: center;
-    max-width: 650px;
-    margin: 0 auto 3.5rem;
+    max-width: 700px;
+    margin: 0 auto 5rem;
+    position: relative;
+    z-index: 2;
   }
 
   .services-label {
     display: inline-block;
-    padding: 0.3rem 1rem;
+    padding: 0.4rem 1.2rem;
     border-radius: 999px;
-    background: rgba(77, 93, 239, 0.06);
-    border: 1px solid rgba(77, 93, 239, 0.15);
-    color: var(--primary);
+    background: rgba(0, 204, 7, 0.06);
+    border: 1px solid rgba(0, 204, 7, 0.15);
+    color: #00cc07;
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 1.25rem;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.5rem;
   }
 
   .services-title {
     font-size: var(--48-pt);
     font-weight: 800;
     color: var(--shade-03);
-    margin: 0 0 1rem;
+    margin: 0 0 1.25rem;
     line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   .services-title span {
-    background: linear-gradient(135deg, var(--primary), var(--shade-03));
+    background: linear-gradient(135deg, var(--primary), var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .services-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--shade-04);
-    line-height: 1.6;
+    line-height: 1.7;
     margin: 0;
     font-weight: 400;
   }
 
-  .services-grid {
+  /* Layout */
+  .integration-showcase {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    max-width: 72rem;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    gap: 2rem;
+    max-width: 1100px;
     margin: 0 auto;
+    align-items: center;
+    position: relative;
+    z-index: 2;
   }
 
-  .service-card {
-    background: white;
-    border-radius: 1.25rem;
-    padding: 2rem 1.75rem;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
+  .app-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
   }
 
-  .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(77, 93, 239, 0.08);
+  .app-card:hover {
+    transform: translateY(-5px);
   }
 
-  .service-icon-wrap {
+  .glow-bg {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(60px);
+    z-index: 0;
+    opacity: 0.4;
+    top: -50px;
+    right: -50px;
+    pointer-events: none;
+  }
+
+  .shop-glow {
+    background: #ffb200;
+  }
+
+  .conty-glow {
+    background: #00cc07;
+    left: -50px;
+    right: auto;
+  }
+
+  .app-icon {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
-    border-radius: 1rem;
-    background: rgba(77, 93, 239, 0.06);
-    border: 1px solid rgba(77, 93, 239, 0.1);
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    padding: 0.5rem;
   }
 
-  .service-icon {
-    font-size: 1.75rem;
-    color: var(--primary);
-    display: flex;
+  .app-icon-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
   }
 
-  .service-title {
-    font-size: 1.2rem;
-    font-weight: 700;
+  .app-title {
+    font-size: 1.8rem;
+    font-weight: 800;
     color: var(--shade-03);
-    margin: 0;
+    margin: 0 0 1rem;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.03em;
   }
 
-  .service-text {
-    font-size: 0.95rem;
+  .app-text {
+    font-size: 1rem;
     color: var(--shade-04);
     line-height: 1.6;
     margin: 0;
-    font-weight: 400;
-    flex: 1;
+    position: relative;
+    z-index: 1;
   }
 
-  .service-tags {
+  .bridge {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .sync-line {
+    position: absolute;
+    top: 50%;
+    left: -2rem;
+    right: -2rem;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 178, 0, 0.2) 0%,
+      rgba(0, 204, 7, 0.5) 50%,
+      rgba(0, 204, 7, 0.2) 100%
+    );
+    z-index: 0;
+    border-radius: 2px;
+    transform: translateY(-50%);
+  }
+
+  .sync-line::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 30%;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    border-radius: 4px;
+    animation: flow 3s infinite linear, colorFlow 3s infinite linear;
+  }
+
+  @keyframes flow {
+    0% {
+      left: -30%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes colorFlow {
+    0% {
+      color: #ffb200;
+    }
+    100% {
+      color: #00cc07;
+    }
+  }
+
+  .sync-actions {
+    position: relative;
+    z-index: 1;
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    list-style: none;
-    padding: 0;
-    margin: 0.25rem 0 0;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 
-  .service-tags li {
-    padding: 0.2rem 0.6rem;
-    border-radius: 999px;
-    background: rgba(77, 93, 239, 0.06);
-    color: var(--primary);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
+  .sync-feature {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    box-shadow: 0 10px 30px rgba(0, 204, 7, 0.05);
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
   }
 
-  @media screen and (max-width: 1024px) {
-    .services-grid {
-      grid-template-columns: repeat(2, 1fr);
+  .sync-feature:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 204, 7, 0.1);
+  }
+
+  .sync-feature-icon {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(0, 204, 7, 0.1), rgba(255, 178, 0, 0.1));
+    color: var(--shade-03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sync-feature-text h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--shade-03);
+    margin: 0 0 0.5rem;
+  }
+
+  .sync-feature-text p {
+    font-size: 0.95rem;
+    color: var(--shade-04);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 900px) {
+    .integration-showcase {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      gap: 3rem;
+    }
+
+    .sync-line {
+      top: -1.5rem;
+      bottom: -1.5rem;
+      left: 50%;
+      right: auto;
+      width: 2px;
+      height: auto;
+      transform: translateX(-50%);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 178, 0, 0.2) 0%,
+        rgba(0, 204, 7, 0.5) 50%,
+        rgba(0, 204, 7, 0.2) 100%
+      );
+    }
+
+    .sync-line::after {
+      top: 0;
+      left: -1px;
+      width: 4px;
+      height: 30%;
+      background: linear-gradient(180deg, transparent, currentColor, transparent);
+      animation: flow-vertical 3s infinite linear, colorFlow 3s infinite linear;
+    }
+
+    @keyframes flow-vertical {
+      0% {
+        top: -30%;
+      }
+      100% {
+        top: 100%;
+      }
     }
   }
 
   @media screen and (max-width: 768px) {
-    .services {
-      padding: 4rem 1rem;
+    .ecosystem-services {
+      padding: 5rem 1rem;
     }
 
     .services-title {
       font-size: var(--40-pt);
     }
 
-    .services-grid {
-      grid-template-columns: 1fr;
-      max-width: 480px;
-    }
-
-    .service-card {
-      padding: 1.5rem;
+    .sync-feature {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+      align-items: center;
     }
   }
 </style>

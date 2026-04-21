@@ -1,7 +1,7 @@
 ---
 import AgencyHero from '@/agency/AgencyHero.astro'
 import Contact from '@/agency/Contact.astro'
-import Process from '@/agency/Process.astro'
+// import Process from '@/agency/Process.astro'
 import Products from '@/agency/Products.astro'
 import Services from '@/agency/Services.astro'
 import WhyUs from '@/agency/WhyUs.astro'
@@ -13,16 +13,16 @@ import Layout from '@/shared/layouts/Layout.astro'
 
 <Layout
   title='Gadmin - Ecosistema Digital para Emprendedores y PyMEs | Conty, Shop y más'
-  description='Gadmin es la agencia de software que construye su propio ecosistema para emprendedores y PyMEs: Conty para controlar tu flujo de caja, Shop para vender online, y más productos que están llegando.'
+  description='Gadmin construye el mejor ecosistema digital para emprendedores y PyMEs. Conty para administrar tus ventas, Shop para tu tienda online, y aplicaciones conectadas diseñadas escuchando a nuestros clientes.'
   withSEO={true}
 >
   <AgencySchema slot='schema' />
   <Nav />
   <AgencyHero />
-  <Services />
   <Products />
+  <Services />
   <WhyUs />
-  <Process />
+  <!-- <Process /> -->
   <Contact />
   <Footer />
 </Layout>
@@ -30,7 +30,7 @@ import Layout from '@/shared/layouts/Layout.astro'
 <script is:inline>
   document.addEventListener('DOMContentLoaded', function () {
     if (typeof seline !== 'undefined') {
-      seline.track('Agency: Page view')
+      seline.track('Page view')
     }
   })
 
@@ -46,7 +46,7 @@ import Layout from '@/shared/layouts/Layout.astro'
     if (scrollPercentage >= 50) {
       hasTrackedMiddle = true
       if (typeof seline !== 'undefined') {
-        seline.track('Agency: Read Page')
+        seline.track('Read Page')
       }
     }
   }

@@ -1,6 +1,5 @@
 ---
 import logoBg from '@/assets/img/logo-dark.webp'
-import Icon from '@/shared/components/Icon.astro'
 import { Image } from 'astro:assets'
 
 interface Props {
@@ -14,23 +13,13 @@ const { isFixed = true } = Astro.props
   <div class='wrapper nav-wrapper' data-aos='zoom-in'>
     <a href='/' class='nav-logo'>
       <Image src={logoBg} width={32} height={32} alt='Logo de Gadmin' loading='eager' />
-      <p class='nav-logo-title'>
-        Gadmin
-      </p>
+      <p class='nav-logo-title'>Gadmin</p>
     </a>
     <div class='nav-buttons'>
-            <a href='#services' class='nav-link hide-on-mobile'>
-              Servicios
-            </a>
-            <a href='#products' class='nav-link hide-on-mobile'>
-              Productos
-            </a>
-            <a href='#process' class='nav-link hide-on-mobile'>
-              Proceso
-            </a>
-            <a href='#contact' class='nav-cta-btn cta--track' id='nav-contact-btn'>
-              Contáctanos
-            </a>
+      <a href='#services' class='nav-link hide-on-mobile'> Servicios </a>
+      <a href='#products' class='nav-link hide-on-mobile'> Productos </a>
+      <a href='#process' class='nav-link hide-on-mobile'> Proceso </a>
+      <a href='#contact' class='nav-cta-btn cta--track' id='nav-contact-btn'> Contáctanos </a>
     </div>
   </div>
 </nav>
