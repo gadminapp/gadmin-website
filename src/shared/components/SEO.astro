@@ -7,10 +7,9 @@ interface Props {
   preload?: Array<Preload>
   canonical?: string
   image?: string
-  variant?: 'agency' | 'webs'
 }
 
-const { title, description, preload, canonical, image = '/meta-og.webp', variant = 'agency' } = Astro.props
+const { title, description, preload, canonical, image = '/meta-og.webp' } = Astro.props
 
 const determineCanonicalURL = () => {
   if (Astro.url.host.includes('localhost')) return 'http://localhost:4321'
@@ -20,20 +19,12 @@ const determineCanonicalURL = () => {
 const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
 const absoluteImage = new URL(image, Astro.site)
 
-const seoConfig = {
-  agency: {
-    siteName: 'Gadmin',
-    ogType: 'website',
-    keywords: 'agencia de software, desarrollo a medida, aplicaciones web, apps móviles, automatización, inteligencia artificial, software empresarial, desarrollo de software, Gadmin, transformación digital, consultoría tecnológica',
-  },
-  webs: {
-    siteName: 'Gadmin Webs',
-    ogType: 'website',
-    keywords: 'catálogo digital, menú digital, catálogo WhatsApp, tienda online, catálogo online, pedidos WhatsApp, catálogo para negocios, menú para restaurantes, Gadmin Webs, SaaS, crear catálogo sin programar',
-  },
+const config = {
+  siteName: 'Gadmin',
+  ogType: 'website',
+  keywords:
+    'agencia de software, desarrollo a medida, aplicaciones web, apps móviles, automatización, inteligencia artificial, software empresarial, desarrollo de software, Gadmin, transformación digital, consultoría tecnológica',
 }
-
-const config = seoConfig[variant]
 ---
 
 <title>{title}</title>

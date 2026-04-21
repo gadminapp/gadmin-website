@@ -5,10 +5,9 @@ import { Image } from 'astro:assets'
 
 interface Props {
   isFixed?: boolean
-  variant?: 'agency' | 'webs'
 }
 
-const { isFixed = true, variant = 'agency' } = Astro.props
+const { isFixed = true } = Astro.props
 ---
 
 <nav class:list=`nav ${isFixed ? 'nav--fixed' : ''}` transition:persist>
@@ -17,13 +16,9 @@ const { isFixed = true, variant = 'agency' } = Astro.props
       <Image src={logoBg} width={32} height={32} alt='Logo de Gadmin' loading='eager' />
       <p class='nav-logo-title'>
         Gadmin
-        {variant === 'webs' && <span class='nav-logo-sub'>Webs</span>}
       </p>
     </a>
     <div class='nav-buttons'>
-      {
-        variant === 'agency' && (
-          <>
             <a href='#services' class='nav-link hide-on-mobile'>
               Servicios
             </a>
@@ -36,34 +31,12 @@ const { isFixed = true, variant = 'agency' } = Astro.props
             <a href='#contact' class='nav-cta-btn cta--track' id='nav-contact-btn'>
               Contáctanos
             </a>
-          </>
-        )
-      }
-      {
-        variant === 'webs' && (
-          <>
-            <a href='/webs#how-it-works' class='nav-link hide-on-mobile'>
-              Cómo funciona
-            </a>
-            <a href='/webs#faq' class='nav-link hide-on-mobile'>
-              Preguntas
-            </a>
-            <a href='/webs#pricing' class='nav-cta-btn cta--track' id='nav-cta-btn'>
-              <span class='nav-cta-lock'>
-                <Icon name='lock-closed' size={14} />
-              </span>{' '}
-              Preventa
-            </a>
-          </>
-        )
-      }
     </div>
   </div>
 </nav>
 
 <script>
   const contactBtn = document.getElementById('nav-contact-btn')
-  const preventaBtn = document.getElementById('nav-cta-btn')
 
   if (contactBtn) {
     contactBtn.addEventListener('click', () => {
@@ -71,16 +44,6 @@ const { isFixed = true, variant = 'agency' } = Astro.props
       if (typeof seline !== 'undefined') {
         // @ts-ignore
         seline.track('Agency: Contact Click')
-      }
-    })
-  }
-
-  if (preventaBtn) {
-    preventaBtn.addEventListener('click', () => {
-      // @ts-ignore
-      if (typeof seline !== 'undefined') {
-        // @ts-ignore
-        seline.track('Webs Landing: Preventa Click')
       }
     })
   }

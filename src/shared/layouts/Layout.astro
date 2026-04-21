@@ -2,7 +2,7 @@
 import SEO from '@/shared/components/SEO.astro'
 import type { Preload } from '@/shared/types/Preload'
 import 'aos/dist/aos.css'
-import WhatsApp from '../components/whatsAppWidget/WhatsApp.astro'
+// import WhatsApp from '../components/whatsAppWidget/WhatsApp.astro'
 interface Props {
   title: string
   description: string
@@ -11,10 +11,9 @@ interface Props {
   image?: string
   withSEO?: boolean
   withMetaPixel?: boolean
-  variant?: 'agency' | 'webs'
 }
 
-const { title, description, preload, canonical, image, withSEO = false, withMetaPixel = false, variant = 'agency' } = Astro.props
+const { title, description, preload, canonical, image, withSEO = false, withMetaPixel = false } = Astro.props
 ---
 
 <!doctype html>
@@ -28,7 +27,6 @@ const { title, description, preload, canonical, image, withSEO = false, withMeta
           preload={preload}
           canonical={canonical}
           image={image}
-          variant={variant}
         >
           <slot name='schema' />
         </SEO>
