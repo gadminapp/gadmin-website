@@ -3,128 +3,62 @@ import logoBg from '@/assets/img/logo-dark.webp'
 import LinkedIn from '@/shared/components/icons/LinkedIn.astro'
 import { Image } from 'astro:assets'
 import Instagram from './icons/Instagram.astro'
-
-interface Props {
-  variant?: 'agency' | 'webs'
-}
-
-const { variant = 'agency' } = Astro.props
 ---
 
 <footer>
   <div class='wrapper'>
-    {
-      variant === 'webs' && (
-        <>
-          <div class='footer-cta-section' data-aos='fade-up'>
-            <h3 class='footer-cta-title'>
-              ¿Listo para dejar atrás los PDFs y el caos en WhatsApp?
-            </h3>
-            <a href='/webs#pricing' class='footer-cta-btn cta--track' id='footer-cta-btn'>
-              ¡Quiero ser Fundador de Gadmin Webs! 🚀
+    <div class='footer-agency-top' data-aos='fade-up'>
+      <div class='footer-agency-brand'>
+        <Image src={logoBg} width={48} height={48} alt='Logo de Gadmin' />
+        <div>
+          <p class='footer-agency-name'>Gadmin</p>
+          <p class='footer-agency-tagline'>Software a medida que impulsa tu negocio</p>
+        </div>
+      </div>
+      <div class='footer-agency-links'>
+        <div class='footer-link-group'>
+          <p class='footer-link-group-title'>Navegación</p>
+          <a href='#services'>Servicios</a>
+          <a href='#products'>Productos</a>
+          <a href='#process'>Proceso</a>
+          <a href='#contact'>Contacto</a>
+        </div>
+        <div class='footer-link-group'>
+          <p class='footer-link-group-title'>Productos</p>
+          <a href='https://gadminconty.com'>Gadmin Conty</a>
+          <a href='https://gadmin.shop'>Gadmin Shop</a>
+        </div>
+        <div class='footer-link-group'>
+          <p class='footer-link-group-title'>Síguenos</p>
+          <div class='footer-socials'>
+            <a
+              href='https://www.linkedin.com/company/gadmin-app/'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='LinkedIn'
+            >
+              <LinkedIn size={20} color='#FFFFFF' />
+            </a>
+            <a
+              href='https://www.instagram.com/gadmin.app/'
+              target='_blank'
+              rel='noopener noreferrer'
+              aria-label='Instagram'
+            >
+              <Instagram size={20} color='#FFFFFF' />
             </a>
           </div>
-
-          <div class='footer-payment' data-aos='fade-up' data-aos-delay='100'>
-            <span class='footer-payment-label'>Métodos de pago aceptados:</span>
-            <div class='footer-payment-logos'>
-              <div class='footer-payment-logo'>
-                <svg viewBox='0 0 60 20' width='50' height='17'>
-                  <text
-                    x='0'
-                    y='15'
-                    fill='#635bff'
-                    font-weight='700'
-                    font-size='16'
-                    font-family='Lexend, sans-serif'
-                  >
-                    stripe
-                  </text>
-                </svg>
-              </div>
-              <div class='footer-payment-logo'>
-                <svg viewBox='0 0 48 16' width='40' height='14'>
-                  <rect width='48' height='16' rx='3' fill='#1a1f71' />
-                  <text
-                    x='5'
-                    y='12'
-                    fill='#fff'
-                    font-weight='700'
-                    font-size='10'
-                    font-family='Lexend, sans-serif'
-                  >
-                    VISA
-                  </text>
-                </svg>
-              </div>
-              <div class='footer-payment-logo'>
-                <svg viewBox='0 0 48 16' width='40' height='14'>
-                  <rect width='48' height='16' rx='3' fill='#252525' />
-                  <circle cx='18' cy='8' r='6' fill='#eb001b' opacity='0.9' />
-                  <circle cx='30' cy='8' r='6' fill='#f79e1b' opacity='0.9' />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </>
-      )
-    }
-
-    {
-      variant === 'agency' && (
-        <div class='footer-agency-top' data-aos='fade-up'>
-          <div class='footer-agency-brand'>
-            <Image src={logoBg} width={48} height={48} alt='Logo de Gadmin' />
-            <div>
-              <p class='footer-agency-name'>Gadmin</p>
-              <p class='footer-agency-tagline'>Software a medida que impulsa tu negocio</p>
-            </div>
-          </div>
-          <div class='footer-agency-links'>
-            <div class='footer-link-group'>
-              <p class='footer-link-group-title'>Navegación</p>
-              <a href='#services'>Servicios</a>
-              <a href='#products'>Productos</a>
-              <a href='#process'>Proceso</a>
-              <a href='#contact'>Contacto</a>
-            </div>
-            <div class='footer-link-group'>
-              <p class='footer-link-group-title'>Productos</p>
-              <a href='/webs'>Gadmin Webs</a>
-            </div>
-            <div class='footer-link-group'>
-              <p class='footer-link-group-title'>Síguenos</p>
-              <div class='footer-socials'>
-                <a
-                  href='https://www.linkedin.com/company/gadmin-app/'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  aria-label='LinkedIn'
-                >
-                  <LinkedIn size={20} color='#FFFFFF' />
-                </a>
-                <a
-                  href='https://www.instagram.com/gadmin.app/'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                  aria-label='Instagram'
-                >
-                  <Instagram size={20} color='#FFFFFF' />
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
-      )
-    }
+      </div>
+    </div>
 
     <div class='footer-divider'></div>
 
     <div class='footer-bottom'>
       <div class='footer-brand'>
-        {variant !== 'agency' && <Image src={logoBg} width={32} height={32} alt='Logo de Gadmin' />}
+        <Image src={logoBg} width={32} height={32} alt='Logo de Gadmin' />
         <div class='footer-brand-text'>
-          <strong>{variant === 'webs' ? 'Gadmin Webs' : 'Gadmin'}</strong>
+          <strong>Gadmin</strong>
           <span>© 2026 · Todos los derechos reservados</span>
         </div>
       </div>
@@ -224,99 +158,6 @@ const { variant = 'agency' } = Astro.props
     opacity: 1;
   }
 
-  /* === Webs Footer === */
-  .footer-cta-section {
-    text-align: center;
-    max-width: 650px;
-    margin: 0 auto 2.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-
-  .footer-cta-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--white);
-    margin: 0;
-    line-height: 1.3;
-  }
-
-  .footer-cta-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 1rem 2rem;
-    border-radius: 0.75rem;
-    background: linear-gradient(
-      135deg,
-      var(--primary) 0%,
-      var(--primary-lighter) 50%,
-      var(--accent) 100%
-    );
-    background-size: 200% 200%;
-    animation: gradient-shift 4s ease infinite;
-    color: var(--white);
-    font-size: 1.05rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition:
-      transform 0.2s ease,
-      box-shadow 0.3s ease;
-    box-shadow: 0 4px 24px rgba(77, 93, 239, 0.3);
-  }
-
-  @keyframes gradient-shift {
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .footer-cta-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(77, 93, 239, 0.4);
-  }
-
-  .footer-cta-btn:visited {
-    color: var(--white);
-  }
-
-  .footer-payment {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-
-  .footer-payment-label {
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.35);
-    font-weight: 500;
-  }
-
-  .footer-payment-logos {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .footer-payment-logo {
-    display: flex;
-    align-items: center;
-    opacity: 0.5;
-    transition: opacity 0.2s ease;
-  }
-
-  .footer-payment-logo:hover {
-    opacity: 0.8;
-  }
-
   /* === Shared === */
   .footer-divider {
     width: 100%;
@@ -398,21 +239,6 @@ const { variant = 'agency' } = Astro.props
     .footer-link-group {
       align-items: center;
       text-align: center;
-    }
-
-    .footer-cta-title {
-      font-size: 1.25rem;
-    }
-
-    .footer-cta-btn {
-      font-size: 0.95rem;
-      padding: 0.85rem 1.5rem;
-      text-align: center;
-    }
-
-    .footer-payment {
-      flex-direction: column;
-      gap: 0.5rem;
     }
 
     .footer-bottom {
