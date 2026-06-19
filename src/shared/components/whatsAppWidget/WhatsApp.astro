@@ -1,6 +1,5 @@
 ---
 import logoBg from '@/assets/img/logo-light.webp'
-import orlandobricenob from '@/assets/img/orlandobricenob.webp'
 import WhatsAppButton from './WhatsAppButton.astro'
 import WhatsAppCard from './WhatsAppCard.astro'
 import WhatsAppChat from './WhatsAppChat.astro'
@@ -24,20 +23,12 @@ import WhatsAppChat from './WhatsAppChat.astro'
   <div class='whatsApp__card-container' id='whatsApp-card'>
     <WhatsAppCard>
       <WhatsAppChat
-        chatName='Atención al cliente'
+        chatName='Equipo de Gadmin'
         description='Siempre que nos necesites'
         icon={logoBg.src}
-        iconAlt='Hablar con atención al cliente'
+        iconAlt='Hablar con el equipo de Gadmin'
         isActive={true}
-        chatLink='https://api.whatsapp.com/send?phone=+584121689393&text=Hola,%20tengo%20una%20duda%20sobre%20'
-      />
-      <WhatsAppChat
-        chatName='Orlando Briceño'
-        description='Fundador de Gadmin'
-        icon={orlandobricenob.src}
-        iconAlt='Hablar con el CEO'
-        isActive={true}
-        chatLink='https://api.whatsapp.com/send?phone=+584121689393&text=Hola,%20Orlando.%20Me%20gustaría%20hablar%20contigo%20acerca%20de%20TEMA.%0ASoy%20NOMBRE'
+        chatLink='https://api.whatsapp.com/send?phone=+18578229279&text=Hola,%20tengo%20una%20duda%20sobre%20'
       />
     </WhatsAppCard>
   </div>
